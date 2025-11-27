@@ -159,3 +159,14 @@
   - [x] Verify fix on detail page
   - [x] Check other prompts for similar issues (50/50 OK)
   - [x] Save checkpoint
+
+## 🔍 Audit Sectors & Visual Styles
+
+- [x] Audit database values vs Excel file "Video_Marketing_Prompts_English (2)"
+  - [x] Locate and read Excel file
+  - [x] Extract database values (industrySector, visualStyle)
+  - [x] Compare Excel vs Database line by line
+  - [x] Generate audit report (38/50 prompts need sector updates)
+  - [x] Merge Automotive sectors into single "Automotive" sector
+  - [x] Update database with corrected sectors (38/38 success - 100%)
+  - [ ] Verify and save checkpoint
