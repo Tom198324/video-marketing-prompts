@@ -90,3 +90,8 @@
 - [ ] Key generation and validation
 - [ ] Quota system
 - [ ] Key management page
+
+
+## 🐛 Bug Fixes
+
+- [x] Fix broken links to example prompts on homepage (404 errors)

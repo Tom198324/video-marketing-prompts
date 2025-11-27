@@ -160,7 +160,7 @@ export default function Home() {
                     <span className="font-semibold text-slate-900">Resolution:</span> 4K (3840x2160) at 24fps
                   </div>
                 </div>
-                <Link href="/prompts/1">
+                <Link href="/prompt/1">
                   <Button variant="outline" className="w-full mt-4">
                     View Full Prompt
                     <ArrowRight className="ml-2 h-4 w-4" />
@@ -195,7 +195,7 @@ export default function Home() {
                     <span className="font-semibold text-slate-900">Resolution:</span> 6K (6144x3240) at 24fps
                   </div>
                 </div>
-                <Link href="/prompts/2">
+                <Link href="/prompt/2">
                   <Button variant="outline" className="w-full mt-4">
                     View Full Prompt
                     <ArrowRight className="ml-2 h-4 w-4" />
@@ -230,7 +230,7 @@ export default function Home() {
                     <span className="font-semibold text-slate-900">Resolution:</span> 6K (6048x4032) at 24fps
                   </div>
                 </div>
-                <Link href="/prompts/7">
+                <Link href="/prompt/3">
                   <Button variant="outline" className="w-full mt-4">
                     View Full Prompt
                     <ArrowRight className="ml-2 h-4 w-4" />
