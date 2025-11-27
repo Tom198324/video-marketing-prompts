@@ -120,3 +120,13 @@
   - [x] Phase 3: LLM evaluation of sequence coherence
   - [x] Phase 4: Identify issues and generate improvement proposals
   - [x] Phase 5: Implement validated improvements
+
+
+## 🆕 New Features
+
+- [x] Implement prompt comparison feature
+  - [x] Add comparison selection UI on prompts page
+  - [x] Create comparison page with side-by-side view
+  - [x] Add tRPC procedure to fetch multiple prompts
+  - [x] Display all key specifications and sequences
+  - [ ] Add ability to export comparison as PDF/image

@@ -1,4 +1,4 @@
-import { eq, and } from "drizzle-orm";
+import { eq, sql, and } from "drizzle-orm";
 import { drizzle } from "drizzle-orm/mysql2";
 import { InsertUser, users, prompts, InsertPrompt, favorites } from "../drizzle/schema";
 import { ENV } from './_core/env';
@@ -108,6 +108,14 @@ export async function getPromptByNumber(promptNumber: number) {
   if (!db) return undefined;
   const result = await db.select().from(prompts).where(eq(prompts.promptNumber, promptNumber)).limit(1);
   return result.length > 0 ? result[0] : undefined;
+}
+
+export async function getPromptsByNumbers(promptNumbers: number[]) {
+  const db = await getDb();
+  if (!db || promptNumbers.length === 0) return [];
+  return db.select().from(prompts).where(
+    sql`${prompts.promptNumber} IN (${sql.join(promptNumbers.map(n => sql`${n}`), sql`, `)})`
+  );
 }
 
 export async function searchPrompts(filters: {

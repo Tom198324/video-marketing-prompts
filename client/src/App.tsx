@@ -1,22 +1,24 @@
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import NotFound from "@/pages/NotFound";
 import { Route, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
-import Prompts from "./pages/Prompts";
+import NotFound from "./pages/NotFound";
+import Compare from "./pages/Compare";
 import PromptDetail from "./pages/PromptDetail";
 import Documentation from "./pages/Documentation";
 import Gallery from "./pages/Gallery";
 import Generator from "./pages/Generator";
+import Prompts from "./pages/Prompts";
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
   return (
     <Switch>
       <Route path={"/"} component={Home} />
-      <Route path="/prompts" component={Prompts} />
+      <Route path={"/prompts"} component={Prompts} />
+      <Route path={"/compare"} component={Compare} />
       <Route path="/prompt/:promptNumber" component={PromptDetail} />
       <Route path="/documentation" component={Documentation} />
       <Route path="/gallery" component={Gallery} />

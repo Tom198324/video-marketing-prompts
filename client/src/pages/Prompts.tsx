@@ -3,14 +3,40 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { trpc } from "@/lib/trpc";
-import { Download, Film, Search } from "lucide-react";
+import { Download, Film, Search, GitCompare } from "lucide-react";
 import { useState } from "react";
-import { Link } from "wouter";
+import { Link, useLocation } from "wouter";
+import { Checkbox } from "@/components/ui/checkbox";
+import { toast } from "sonner";
 
 export default function Prompts() {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedSector, setSelectedSector] = useState<string>("all");
   const [selectedStyle, setSelectedStyle] = useState<string>("all");
+  const [selectedForComparison, setSelectedForComparison] = useState<number[]>([]);
+  const [, setLocation] = useLocation();
+
+  const toggleComparison = (promptNumber: number) => {
+    setSelectedForComparison(prev => {
+      if (prev.includes(promptNumber)) {
+        return prev.filter(id => id !== promptNumber);
+      } else {
+        if (prev.length >= 3) {
+          toast.error("You can only compare up to 3 prompts at a time");
+          return prev;
+        }
+        return [...prev, promptNumber];
+      }
+    });
+  };
+
+  const handleCompare = () => {
+    if (selectedForComparison.length < 2) {
+      toast.error("Please select at least 2 prompts to compare");
+      return;
+    }
+    setLocation(`/compare?ids=${selectedForComparison.join(",")}`);
+  };
 
   const { data: prompts, isLoading } = trpc.prompts.list.useQuery();
   const { data: stats } = trpc.prompts.getStats.useQuery();
@@ -104,15 +130,27 @@ export default function Prompts() {
               </Select>
             </div>
 
-            {/* Results Count */}
-            <div className="mt-4 text-sm text-slate-600">
-              {filteredPrompts && (
-                <p>
-                  Showing <span className="font-semibold">{filteredPrompts.length}</span> prompt{filteredPrompts.length > 1 ? 's' : ''}
-                  {(searchTerm || selectedSector !== "all" || selectedStyle !== "all") && 
-                    ` out of ${prompts?.length || 0} total`
-                  }
-                </p>
+            {/* Results Count & Compare Button */}
+            <div className="mt-4 flex items-center justify-between">
+              <div className="text-sm text-slate-600">
+                {filteredPrompts && (
+                  <p>
+                    Showing <span className="font-semibold">{filteredPrompts.length}</span> prompt{filteredPrompts.length > 1 ? 's' : ''}
+                    {(searchTerm || selectedSector !== "all" || selectedStyle !== "all") && 
+                      ` out of ${prompts?.length || 0} total`
+                    }
+                  </p>
+                )}
+              </div>
+              {selectedForComparison.length > 0 && (
+                <Button
+                  onClick={handleCompare}
+                  className="gap-2"
+                  variant={selectedForComparison.length >= 2 ? "default" : "secondary"}
+                >
+                  <GitCompare className="h-4 w-4" />
+                  Compare Selected ({selectedForComparison.length})
+                </Button>
               )}
             </div>
           </CardContent>
@@ -126,12 +164,19 @@ export default function Prompts() {
         ) : filteredPrompts && filteredPrompts.length > 0 ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {filteredPrompts.map(prompt => (
-              <Card key={prompt.id} className="hover:shadow-lg transition-shadow">
+              <Card key={prompt.id} className="hover:shadow-lg transition-shadow relative">
                 <CardHeader>
                   <div className="flex items-start justify-between mb-2">
-                    <span className="text-sm font-semibold text-indigo-600 bg-indigo-50 px-2 py-1 rounded">
-                      Prompt #{prompt.promptNumber}
-                    </span>
+                    <div className="flex items-center gap-2">
+                      <Checkbox
+                        checked={selectedForComparison.includes(prompt.promptNumber)}
+                        onCheckedChange={() => toggleComparison(prompt.promptNumber)}
+                        className="mt-0.5"
+                      />
+                      <span className="text-sm font-semibold text-indigo-600 bg-indigo-50 px-2 py-1 rounded">
+                        Prompt #{prompt.promptNumber}
+                      </span>
+                    </div>
                     <span className="text-xs text-slate-500">
                       {prompt.durationSeconds}s
                     </span>

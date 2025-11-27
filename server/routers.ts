@@ -20,6 +20,12 @@ export const appRouter = router({
   }),
 
   prompts: router({
+    getByIds: publicProcedure
+      .input(z.object({ ids: z.array(z.number()) }))
+      .query(async ({ input }) => {
+        const { getPromptsByNumbers } = await import("./db");
+        return getPromptsByNumbers(input.ids);
+      }),
     list: publicProcedure.query(async () => {
       const { getAllPrompts } = await import("./db");
       return getAllPrompts();
