@@ -1,0 +1,1 @@
+ALTER TABLE `prompts` ADD `qualityScore` int;

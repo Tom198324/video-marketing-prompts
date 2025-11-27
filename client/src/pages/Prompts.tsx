@@ -8,11 +8,14 @@ import { useState } from "react";
 import { Link, useLocation } from "wouter";
 import { Checkbox } from "@/components/ui/checkbox";
 import { toast } from "sonner";
+import { QualityBadge } from "@/components/QualityBadge";
 
 export default function Prompts() {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedSector, setSelectedSector] = useState<string>("all");
   const [selectedStyle, setSelectedStyle] = useState<string>("all");
+  const [minQualityScore, setMinQualityScore] = useState<string>("all");
+  const [maxDuration, setMaxDuration] = useState<string>("all");
   const [selectedForComparison, setSelectedForComparison] = useState<number[]>([]);
   const [, setLocation] = useLocation();
 
@@ -50,7 +53,13 @@ export default function Prompts() {
     const matchesSector = selectedSector === "all" || prompt.industrySector === selectedSector;
     const matchesStyle = selectedStyle === "all" || prompt.visualStyle === selectedStyle;
     
-    return matchesSearch && matchesSector && matchesStyle;
+    const matchesQuality = minQualityScore === "all" || 
+      (prompt.qualityScore !== null && prompt.qualityScore >= parseInt(minQualityScore));
+    
+    const matchesDuration = maxDuration === "all" || 
+      prompt.durationSeconds <= parseInt(maxDuration);
+    
+    return matchesSearch && matchesSector && matchesStyle && matchesQuality && matchesDuration;
   });
 
   return (
@@ -88,10 +97,10 @@ export default function Prompts() {
         <Card className="mb-8">
           <CardHeader>
             <CardTitle>Search Filters</CardTitle>
-            <CardDescription>Refine your search by keywords, sector, or style</CardDescription>
+            <CardDescription>Refine your search by keywords, sector, style, quality score, and duration</CardDescription>
           </CardHeader>
           <CardContent>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
               {/* Search */}
               <div className="relative">
                 <Search className="absolute left-3 top-3 h-4 w-4 text-slate-400" />
@@ -128,6 +137,33 @@ export default function Prompts() {
                   ))}
                 </SelectContent>
               </Select>
+
+              {/* Quality Score Filter */}
+              <Select value={minQualityScore} onValueChange={setMinQualityScore}>
+                <SelectTrigger>
+                  <SelectValue placeholder="All quality levels" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="all">All quality levels</SelectItem>
+                  <SelectItem value="9">Gold (9-10/10)</SelectItem>
+                  <SelectItem value="7">Silver+ (7-10/10)</SelectItem>
+                  <SelectItem value="5">Bronze+ (5-10/10)</SelectItem>
+                </SelectContent>
+              </Select>
+
+              {/* Duration Filter */}
+              <Select value={maxDuration} onValueChange={setMaxDuration}>
+                <SelectTrigger>
+                  <SelectValue placeholder="All durations" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="all">All durations</SelectItem>
+                  <SelectItem value="10">≤ 10 seconds</SelectItem>
+                  <SelectItem value="15">≤ 15 seconds</SelectItem>
+                  <SelectItem value="20">≤ 20 seconds</SelectItem>
+                  <SelectItem value="30">≤ 30 seconds</SelectItem>
+                </SelectContent>
+              </Select>
             </div>
 
             {/* Results Count & Compare Button */}
@@ -136,7 +172,7 @@ export default function Prompts() {
                 {filteredPrompts && (
                   <p>
                     Showing <span className="font-semibold">{filteredPrompts.length}</span> prompt{filteredPrompts.length > 1 ? 's' : ''}
-                    {(searchTerm || selectedSector !== "all" || selectedStyle !== "all") && 
+                    {(searchTerm || selectedSector !== "all" || selectedStyle !== "all" || minQualityScore !== "all" || maxDuration !== "all") && 
                       ` out of ${prompts?.length || 0} total`
                     }
                   </p>
@@ -177,9 +213,12 @@ export default function Prompts() {
                         Prompt #{prompt.promptNumber}
                       </span>
                     </div>
-                    <span className="text-xs text-slate-500">
-                      {prompt.durationSeconds}s
-                    </span>
+                    <div className="flex items-center gap-2">
+                      <QualityBadge score={prompt.qualityScore} size="sm" showLabel={false} />
+                      <span className="text-xs text-slate-500">
+                        {prompt.durationSeconds}s
+                      </span>
+                    </div>
                   </div>
                   <CardTitle className="text-lg">{prompt.title}</CardTitle>
                   <CardDescription className="line-clamp-2">
@@ -239,6 +278,8 @@ export default function Prompts() {
                   setSearchTerm("");
                   setSelectedSector("all");
                   setSelectedStyle("all");
+                  setMinQualityScore("all");
+                  setMaxDuration("all");
                 }}
               >
                 Reset Filters

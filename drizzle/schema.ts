@@ -39,6 +39,7 @@ export const prompts = mysqlTable("prompts", {
   durationSeconds: int("durationSeconds").notNull(),
   originalDuration: int("originalDuration").notNull(),
   promptJson: text("promptJson").notNull(), // Stores the full JSON prompt (MEDIUMTEXT)
+  qualityScore: int("qualityScore"), // Coherence score from 0-10 (null if not yet evaluated)
   createdAt: timestamp("createdAt").defaultNow().notNull(),
   updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
 });
