@@ -1,0 +1,8 @@
+{
+  "query": "SELECT COUNT(DISTINCT industrySector) as sector_count FROM prompts;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user uYS7rC7vkkKSmhV.root --database QhQQuteNTppyHQ7Wxnyber --execute SELECT COUNT(DISTINCT industrySector) as sector_count FROM prompts;",
+  "returncode": 1,
+  "logs": [
+    "ERROR 1105 (HY000): Connections using insecure transport are prohibited. See https://docs.pingcap.com/tidbcloud/secure-connections-to-serverless-tier-clusters"
+  ]
+}

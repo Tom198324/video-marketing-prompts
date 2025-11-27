@@ -95,3 +95,21 @@
 ## 🐛 Bug Fixes
 
 - [x] Fix broken links to example prompts on homepage (404 errors)
+
+- [ ] Update homepage statistics with accurate data from database (sectors count and visual styles count)
+
+- [x] Perform comparative analysis between French and English prompts to verify translation accuracy
+
+- [x] Generate Excel file with all 50 English prompts from the website
+
+- [x] Add "Sector" and "Style" columns to Excel file
+
+- [x] Add "Scenario Type" column to Excel file (Product Launch / Product Demo)
+
+- [ ] Extract Sector and Style information from JSON content and add as "Sector 2" and "Style 2" columns in Excel
+
+- [x] **CRITICAL**: Update database Sector and Visual Style values from corrected Excel file
+  - [x] Backup current database values
+  - [x] Extract and translate Excel data
+  - [x] Update all 50 prompts in database
+  - [x] Verify changes and restart server
