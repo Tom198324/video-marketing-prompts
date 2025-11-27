@@ -1,0 +1,102 @@
+{
+  "shot": {
+    "camera_system": "ARRI Alexa Mini LF",
+    "primary_lens": "Zeiss Supreme Prime 50mm, T2.1",
+    "composition": "Medium Close-Up (MCU) of the advisor, centered, shallow depth of field (bokeh) in the background.",
+    "camera_motion": "Sequence 1 (0-8s): Very slow and subtle dolly in (push-in) to emphasize intimacy and trust.. Sequence 2 (8-12s): Smooth transition to wider establishing shot, then slow push-in to capture detail and emotion. Sequence 3 (12-20s): Final close-up with subtle dolly movement, ending on a confident, impactful frame.",
+    "frame_rate": "24 fps",
+    "aspect_ratio": "16:9"
+  },
+  "subject": {
+    "identity": {
+      "age": "44 years old",
+      "gender": "Male",
+      "ethnicity": "Caucasian"
+    },
+    "physical": {
+      "height": "180 cm",
+      "posture": "Seated, slightly leaning forward, open and engaging posture."
+    },
+    "facial_features": {
+      "face_shape": "Oval",
+      "eyes": "Blue eyes, direct and benevolent gaze.",
+      "hair": "Short, salt-and-pepper hair, well-groomed.",
+      "expression": "Slight smile, expression of calm and reassuring professionalism."
+    },
+    "wardrobe": {
+      "jacket": "Navy blue suit jacket, modern cut.",
+      "shirt": "White or light blue shirt, open collar.",
+      "accessory": "Classic leather watch."
+    }
+  },
+  "action": {
+    "sequences": [
+      {
+        "timing": "0-8 seconds",
+        "primary_motion": "The advisor speaks directly to the camera (direct gaze), making a slow and measured hand gesture to emphasize a point.",
+        "camera_follows": "Initial action with detailed tracking"
+      },
+      {
+        "timing": "8-14 seconds",
+        "primary_motion": "Building on the initial action, the subject demonstrates additional aspects and benefits. The movement becomes more fluid and confident, showcasing expertise and comfort.",
+        "camera_follows": "Wider shot revealing more context, then pushing in for detail"
+      },
+      {
+        "timing": "14-20 seconds",
+        "primary_motion": "The subject concludes with a moment of satisfaction - a knowing smile, a final appreciative glance, or a confident gesture that conveys success and approval of the result.",
+        "camera_follows": "Close-up on emotional response and final impactful moment"
+      }
+    ],
+    "total_duration": "20 seconds"
+  },
+  "scene": {
+    "location": "High-end financial advisor's office.",
+    "layout": {
+      "width": "Spacious, well-organized office.",
+      "flooring": "Dark wood parquet floor.",
+      "walls": "Accent wall in light wood or taupe color, with a shelf containing a few books and a discreet art object."
+    },
+    "time_of_day": "Late afternoon (Indoor Golden Hour).",
+    "environment": {
+      "background": "Soft light coming from a large window in the background (blurred by bokeh).",
+      "props": "Two coffee mugs on the desk, neatly stacked documents.",
+      "temporal_progression": "Environment remains consistent throughout the 20-second narrative. Background elements may subtly shift focus as camera moves, but spatial continuity is maintained for coherent storytelling."
+    }
+  },
+  "cinematography": {
+    "lighting": {
+      "primary_source": "Soft, warm light (soft diffused light) coming from the right (key light).",
+      "quality": "Soft and enveloping (soft, flattering).",
+      "color_temperature": "3200K (Warm Tungsten) for a cozy atmosphere.",
+      "key_to_fill_ratio": "Low (2:1) to minimize shadows and create a sense of security.",
+      "lighting_style": "Insurance trustworthy",
+      "evolution": "Lighting remains consistent throughout the 20-second sequence, maintaining the established mood. Subtle adjustments in intensity during the final 6 seconds to emphasize the emotional climax and create visual impact."
+    },
+    "color_grading": {
+      "palette": "Warm colors (oranges, browns, beiges) and natural skin tones.",
+      "tone": "Trust, warmth, professionalism."
+    }
+  },
+  "audio": {
+    "ambient": "Very low and discreet background noise of a quiet office (pen click, breathing).",
+    "foley": "Sequence 1 (0-8s): Slight paper rustle when the advisor makes his gesture.. Sequence 2: Additional environmental sounds, subtle interactions with objects, breathing, fabric movement. Sequence 3: Final satisfying sound (smile, exhale, object placement), ambient fade.",
+    "music": "Very soft and melodic instrumental background music (piano and strings), inspiring and reassuring tone. The score builds progressively over 20 seconds, starting subtly and crescendoing toward the final moment. Emotional peak at 14-18s, then resolving with a confident, memorable final chord at 20s."
+  },
+  "visual_rules": {
+    "frame_purity": "without text overlays, logos unless branded, no subtitles, no visible brand names on props",
+    "quality_requirements": {
+      "no_artifacts": true,
+      "no_morphing": true,
+      "no_unnatural_motion": true
+    },
+    "realism": "Hyper-realistic rendering of products with visible premium finishes. Commercial lighting highlighting key features. Precise material textures (wood, metal, glass, plastic). Selective depth of field directing attention.",
+    "continuity": "Consistency in product presentation and staging. Maintenance of retail ambiance and brand identity. Continuity of commercial lighting and signage. Smoothness of the shopping journey and discovery."
+  },
+  "technical_specifications": {
+    "resolution": "4K (3840x2160)",
+    "color_space": "Rec. 2020",
+    "bit_depth": "10-bit",
+    "output_quality": "ProRes 422 HQ eq.",
+    "duration_seconds": 20
+  }
+}

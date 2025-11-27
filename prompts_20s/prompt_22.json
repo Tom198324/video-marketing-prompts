@@ -1,0 +1,98 @@
+{
+  "shot": {
+    "camera_system": "ARRI Alexa Mini LF",
+    "primary_lens": "Zeiss Supreme Prime 18mm, T2.8",
+    "composition": "Wide shot, rule of thirds, agent on the right, ocean and villa on the left.",
+    "camera_motion": "Sequence 1 (0-12s): Smooth Steadicam tracking, slow right-to-left pan, revealing the ocean view.. Sequence 2 (12-14s): Smooth transition to wider establishing shot, then slow push-in to capture detail and emotion. Sequence 3 (14-20s): Final close-up with subtle dolly movement, ending on a confident, impactful frame.",
+    "frame_rate": "24 fps",
+    "aspect_ratio": "16:9"
+  },
+  "subject": {
+    "identity": {
+      "age": "38",
+      "gender": "male",
+      "ethnicity": "Caucasian"
+    },
+    "physical": {
+      "height": "180 cm",
+      "posture": "Confident, elegant, hands in pockets."
+    },
+    "facial_features": {
+      "face_shape": "Oval",
+      "eyes": "Blue, professional and welcoming gaze.",
+      "hair": "Short, brown, well-groomed.",
+      "expression": "Subtle, professional smile."
+    },
+    "wardrobe": {
+      "suit": "Light linen suit (light beige), Italian cut.",
+      "shirt": "White shirt, open collar.",
+      "shoes": "Suede loafers without socks.",
+      "accessories": "Discreet luxury watch."
+    }
+  },
+  "action": {
+    "sequences": [
+      {
+        "timing": "0-12 seconds",
+        "primary_motion": "The agent stands on the deck, slowly turns towards the ocean, then makes an open-arm gesture towards the view.",
+        "camera_follows": "Extended tracking of the primary action"
+      },
+      {
+        "timing": "12-20 seconds",
+        "primary_motion": "The subject takes a moment to appreciate the result, showing visible satisfaction. A final confident look, subtle smile, or gesture of approval completes the narrative arc with emotional resonance.",
+        "camera_follows": "Close-up on facial expression transitioning to final hero shot"
+      }
+    ],
+    "total_duration": "20 seconds"
+  },
+  "scene": {
+    "location": "Teak deck of a modern luxury villa, overlooking the ocean.",
+    "layout": {
+      "width": "Very wide, minimalist designer furniture (white lounge chairs).",
+      "flooring": "Oiled teak.",
+      "walls": "Immaculate white walls and large bay windows."
+    },
+    "time_of_day": "Golden hour (late afternoon).",
+    "environment": {
+      "background": "Calm Atlantic Ocean, slightly orange sky, discreet palm trees.",
+      "temporal_progression": "Environment remains consistent throughout the 20-second narrative. Background elements may subtly shift focus as camera moves, but spatial continuity is maintained for coherent storytelling."
+    }
+  },
+  "cinematography": {
+    "lighting": {
+      "primary_source": "Golden hour (warm, low natural light).",
+      "quality": "Soft diffused (soft and enveloping light).",
+      "color_temperature": "3200K (Warm/Golden).",
+      "key_to_fill_ratio": "2:1 (slightly contrasted for luxury look).",
+      "evolution": "Lighting remains consistent throughout the 20-second sequence, maintaining the established mood. Subtle adjustments in intensity during the final 6 seconds to emphasize the emotional climax and create visual impact."
+    },
+    "color_grading": {
+      "palette": "Warm tones, saturated (gold, deep blue, pure white).",
+      "tone": "Elegant & sophisticated, high-end luxury."
+    }
+  },
+  "audio": {
+    "ambient": "Subtle sound of waves, light wind, distant birdsong.",
+    "foley": "Sequence 1 (0-12s): Discreet footsteps of the agent on the teak, fabric rustle.. Sequence 2: Additional environmental sounds, subtle interactions with objects, breathing, fabric movement. Sequence 3: Final satisfying sound (smile, exhale, object placement), ambient fade.",
+    "music": "Lounge/chill-out background music, piano and strings, very subtle. The score builds progressively over 20 seconds, starting subtly and crescendoing toward the final moment. Emotional peak at 14-18s, then resolving with a confident, memorable final chord at 20s.",
+    "dialogue": "None"
+  },
+  "visual_rules": {
+    "frame_purity": "without text overlays, logos unless branded, no subtitles",
+    "quality_requirements": {
+      "no_artifacts": true,
+      "no_morphing": true,
+      "no_unnatural_motion": true,
+      "hyperrealism": "Photorealistic, cinematic quality, high detail."
+    },
+    "realism": "Precise human anatomy and proportions with authentic facial expressions. Realistic skin details (pores, natural texture, micro-imperfections). Soft and flattering lighting simulating natural light. Smooth and biomechanically correct body movements.",
+    "continuity": "Logical and credible progression of actions and movements. Consistency of lighting direction and quality throughout the sequence. Maintenance of skin tones, makeup, and hairstyle. Fluidity of facial expressions and body language."
+  },
+  "technical_specifications": {
+    "resolution": "4K (3840x2160)",
+    "color_space": "Rec. 2020",
+    "bit_depth": "10-bit",
+    "output_quality": "ProRes 422 HQ eq.",
+    "duration_seconds": 20
+  }
+}

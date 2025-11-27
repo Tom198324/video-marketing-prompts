@@ -1,0 +1,98 @@
+{
+  "shot": {
+    "camera_system": "ARRI Alexa Mini LF",
+    "primary_lens": "Zeiss Supreme Prime 85mm, T1.5",
+    "composition": "Extreme close-up (ECU) on the subject's lips, centered and perfectly sharp. Shallow depth of field (bokeh) to isolate the product application.",
+    "camera_motion": "Sequence 1 (0-4s): Gimbal smooth motion, a very slow, subtle push-in (dolly in) to enhance intimacy and focus on the texture.. Sequence 2 (4-12s): Smooth transition to wider establishing shot, then slow push-in to capture detail and emotion. Sequence 3 (12-20s): Final close-up with subtle dolly movement, ending on a confident, impactful frame.",
+    "frame_rate": "48 fps (slow-motion effect for application detail)",
+    "aspect_ratio": "9:16"
+  },
+  "subject": {
+    "identity": {
+      "age": "28 years old",
+      "gender": "Female",
+      "ethnicity": "Mediterranean, clear skin tone"
+    },
+    "physical": {
+      "height": "N/A (only face visible)",
+      "posture": "Head slightly tilted, focused and elegant"
+    },
+    "facial_features": {
+      "face_shape": "Oval, defined jawline",
+      "eyes": "Almond shape, intense gaze, subtle eye makeup",
+      "hair": "Sleek, pulled-back ponytail, dark brown color",
+      "expression": "Confident, sensual, focused on the application"
+    },
+    "wardrobe": {
+      "top": "High-end, black silk camisole, minimal and elegant"
+    }
+  },
+  "action": {
+    "sequences": [
+      {
+        "timing": "0-4 seconds",
+        "primary_motion": "Slow, precise application of a vibrant red lipstick (Bright Red) from a sleek gold applicator onto the lower lip.",
+        "camera_follows": "Close tracking of the initial action"
+      },
+      {
+        "timing": "4-12 seconds",
+        "primary_motion": "The subject continues the action with increased confidence and detail. Slow, precise application of a vibrant red lipstick (Bright Red) from a sleek gold applicator onto the lower lip evolves into a more complete demonstration, showing mastery and precision.",
+        "camera_follows": "Medium shot capturing the full context and environment interaction"
+      },
+      {
+        "timing": "12-20 seconds",
+        "primary_motion": "The subject completes the action with a satisfied expression, looks at the result with approval, and shows a subtle smile of accomplishment. Final moment captures the positive outcome.",
+        "camera_follows": "Close-up on facial expression and final result, ending with a confident pose"
+      }
+    ],
+    "total_duration": "20 seconds"
+  },
+  "scene": {
+    "location": "High-end minimalist beauty studio, clean and modern aesthetic.",
+    "layout": {
+      "width": "N/A (focus on subject)",
+      "flooring": "Polished concrete or white marble, highly reflective",
+      "walls": "Matte white or light grey, seamless background"
+    },
+    "time_of_day": "Mid-day, bright and consistent light.",
+    "environment": {
+      "background": "Soft, out-of-focus reflections of studio lighting equipment, creating subtle geometric bokeh.",
+      "temporal_progression": "Environment remains consistent throughout the 20-second narrative. Background elements may subtly shift focus as camera moves, but spatial continuity is maintained for coherent storytelling."
+    }
+  },
+  "cinematography": {
+    "lighting": {
+      "primary_source": "Large softbox (Octodome) positioned slightly above and to the right of the subject.",
+      "quality": "Soft diffused, high-key lighting to eliminate shadows and highlight skin texture and product shine.",
+      "color_temperature": "5600K (Daylight balanced, crisp and clean)",
+      "key_to_fill_ratio": "2:1 (minimal contrast, very flat and flattering light)",
+      "evolution": "Lighting remains consistent throughout the 20-second sequence, maintaining the established mood. Subtle adjustments in intensity during the final 6 seconds to emphasize the emotional climax and create visual impact."
+    },
+    "color_grading": {
+      "palette": "Vibrant, high saturation on the lipstick color (red), neutral and clean whites and skin tones.",
+      "tone": "Elegant, luxurious, and highly polished."
+    }
+  },
+  "audio": {
+    "ambient": "Silent studio environment, slight, distant, muffled city sounds.",
+    "foley": "Sequence 1 (0-4s): Extremely subtle, crisp sound of the lipstick applicator touching the lip, followed by a soft, luxurious 'smack' of the lips at the end.. Sequence 2: Additional environmental sounds, subtle interactions with objects, breathing, fabric movement. Sequence 3: Final satisfying sound (smile, exhale, object placement), ambient fade.",
+    "music": "N/A (Focus on foley and visual impact) The score builds progressively over 20 seconds, starting subtly and crescendoing toward the final moment. Emotional peak at 14-18s, then resolving with a confident, memorable final chord at 20s."
+  },
+  "visual_rules": {
+    "frame_purity": "without text overlays, logos unless branded, no subtitles. Focus exclusively on the texture and application.",
+    "quality_requirements": {
+      "no_artifacts": true,
+      "no_morphing": true,
+      "no_unnatural_motion": true
+    },
+    "realism": "Fluid athletic movements and biomechanically correct. Defined muscular anatomy with credible perspiration. Dynamic lighting accentuating physical form. Effort and intensity visible in expressions.",
+    "continuity": "Logical progression of physical effort intensity. Consistency of perspiration and signs of fatigue. Maintenance of posture and technical form. Continuity of lighting and visible motivation."
+  },
+  "technical_specifications": {
+    "resolution": "4K (3840x2160)",
+    "color_space": "Rec. 2020",
+    "bit_depth": "10-bit",
+    "output_quality": "ProRes 422 HQ eq.",
+    "duration_seconds": 20
+  }
+}

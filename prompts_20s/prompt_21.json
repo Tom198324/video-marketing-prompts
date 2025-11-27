@@ -1,0 +1,103 @@
+{
+  "shot": {
+    "camera_system": "ARRI Alexa Mini LF",
+    "primary_lens": "Zeiss Supreme Prime 35mm, T1.3",
+    "composition": "Low-angle tracking shot, following the motorcycle from the side, emphasizing speed and the rider's focus. Rule of thirds applied to the rider's helmet.",
+    "camera_motion": "Sequence 1 (0-8s): Gimbal smooth motion, tracking the subject at high speed, slight upward tilt to capture the mountain backdrop.. Sequence 2 (8-12s): Smooth transition to wider establishing shot, then slow push-in to capture detail and emotion. Sequence 3 (12-20s): Final close-up with subtle dolly movement, ending on a confident, impactful frame.",
+    "frame_rate": "48 fps (slowed to 24 fps for cinematic motion blur)",
+    "aspect_ratio": "2.39:1 (Cinemascope)"
+  },
+  "subject": {
+    "identity": {
+      "age": "33 years old",
+      "gender": "Male",
+      "ethnicity": "Mediterranean"
+    },
+    "physical": {
+      "height": "180 cm",
+      "posture": "Aggressive, leaned into the turn, focused and confident"
+    },
+    "facial_features": {
+      "face_shape": "Defined jawline",
+      "eyes": "Intense, visible through the helmet visor",
+      "hair": "Short, dark (not visible under helmet)",
+      "expression": "Concentrated, determined"
+    },
+    "wardrobe": {
+      "helmet": "High-end matte black full-face helmet with a dark smoke visor",
+      "suit": "Black and dark grey leather racing suit with subtle electric blue accents, aerodynamic hump",
+      "gloves": "Black leather racing gloves",
+      "boots": "Black high-performance motorcycle boots"
+    }
+  },
+  "action": {
+    "sequences": [
+      {
+        "timing": "0-8 seconds",
+        "primary_motion": "Rider executes a dynamic, deep lean into a sharp mountain curve on the electric sport bike. The bike's lean angle is extreme but controlled.",
+        "camera_follows": "Initial action with detailed tracking"
+      },
+      {
+        "timing": "8-14 seconds",
+        "primary_motion": "Building on the initial action, the subject demonstrates additional aspects and benefits. The movement becomes more fluid and confident, showcasing expertise and comfort.",
+        "camera_follows": "Wider shot revealing more context, then pushing in for detail"
+      },
+      {
+        "timing": "14-20 seconds",
+        "primary_motion": "The subject concludes with a moment of satisfaction - a knowing smile, a final appreciative glance, or a confident gesture that conveys success and approval of the result.",
+        "camera_follows": "Close-up on emotional response and final impactful moment"
+      }
+    ],
+    "total_duration": "20 seconds"
+  },
+  "scene": {
+    "location": "Winding mountain road (e.g., Dolomites or Swiss Alps), freshly paved asphalt, no guardrails on the outside of the curve.",
+    "layout": {
+      "width": "Two-lane road",
+      "flooring": "Dark, clean asphalt with clear white lane markings",
+      "walls": "Steep, rocky mountain face on the inside of the curve, lush green pine forest on the outside"
+    },
+    "time_of_day": "Late afternoon (Golden Hour), approximately 5:30 PM",
+    "environment": {
+      "background": "Dramatic, sun-drenched mountain peaks and clear blue sky with scattered cirrus clouds. The road surface is dry.",
+      "temporal_progression": "Environment remains consistent throughout the 20-second narrative. Background elements may subtly shift focus as camera moves, but spatial continuity is maintained for coherent storytelling."
+    }
+  },
+  "cinematography": {
+    "lighting": {
+      "primary_source": "Natural sunlight, low angle from the side/rear of the bike",
+      "quality": "Hard directional light, creating long, dramatic shadows and strong highlights on the bike's bodywork and helmet",
+      "color_temperature": "Warm (Golden Hour, 3200K equivalent)",
+      "key_to_fill_ratio": "8:1 (High contrast, dramatic look)",
+      "evolution": "Lighting remains consistent throughout the 20-second sequence, maintaining the established mood. Subtle adjustments in intensity during the final 6 seconds to emphasize the emotional climax and create visual impact."
+    },
+    "color_grading": {
+      "palette": "Desaturated blues and greens of the environment, contrasting with the deep blacks and electric blue accents of the bike/suit. High dynamic range.",
+      "tone": "Bold, aggressive, and luxurious. Cinematic, high-contrast look."
+    }
+  },
+  "audio": {
+    "ambient": "Wind noise, subtle tire grip on the asphalt, distant echo of the mountain.",
+    "foley": "Sequence 1 (0-8s): High-frequency electric motor whine (futuristic, powerful), subtle chain/belt drive sound, precise click of the rider's boot on the footpeg.. Sequence 2: Additional environmental sounds, subtle interactions with objects, breathing, fabric movement. Sequence 3: Final satisfying sound (smile, exhale, object placement), ambient fade.",
+    "music": "None (or a very subtle, deep, pulsing electronic bassline for tension, but prioritize natural sound for realism). The score builds progressively over 20 seconds, starting subtly and crescendoing toward the final moment. Emotional peak at 14-18s, then resolving with a confident, memorable final chord at 20s."
+  },
+  "visual_rules": {
+    "frame_purity": "Hyperrealistic, no text overlays, no logos unless branded (e.g., subtle logo on the bike), no subtitles, no visible watermarks.",
+    "quality_requirements": {
+      "no_artifacts": true,
+      "no_morphing": true,
+      "no_unnatural_motion": true,
+      "hyperrealism": true
+    },
+    "realism": "Photorealistic rendering of textures with visible micro-details. Professional studio lighting creating natural reflections and shadows. Realistic physics of materials (metals, fabrics, liquids). Cinematic depth of field isolating the main subject.",
+    "continuity": "Absolute consistency of lighting and cast shadows across all shots. Smooth and natural transitions between camera angles. Constant maintenance of color temperature and white balance. Continuity of visual elements and props within the frame."
+  },
+  "technical_specifications": {
+    "resolution": "4K (3840x2160)",
+    "color_space": "Rec. 2020",
+    "bit_depth": "10-bit",
+    "output_quality": "ProRes 422 HQ equivalent",
+    "model_preference": "Sora 2 or Veo 3",
+    "duration_seconds": 20
+  }
+}

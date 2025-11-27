@@ -1,0 +1,100 @@
+{
+  "shot": {
+    "camera_system": "RED Komodo 6K",
+    "primary_lens": "Zeiss Supreme Prime 35mm, T1.5",
+    "composition": "Medium close-up, slightly high angle, the designer is centered, the laptop screen is the secondary focal point, rule of thirds applied.",
+    "camera_motion": "Sequence 1 (0-8s): Smooth Steadicam tracking, very slow lateral movement (slider effect) from left to right, following the hand movement on the trackpad.. Sequence 2 (8-12s): Smooth transition to wider establishing shot, then slow push-in to capture detail and emotion. Sequence 3 (12-20s): Final close-up with subtle dolly movement, ending on a confident, impactful frame.",
+    "frame_rate": "24 fps",
+    "aspect_ratio": "16:9"
+  },
+  "subject": {
+    "identity": {
+      "age": "27 years old",
+      "gender": "female",
+      "ethnicity": "Caucasian"
+    },
+    "physical": {
+      "height": "170 cm",
+      "posture": "Seated, slightly leaning forward, focused, ergonomic and professional posture."
+    },
+    "facial_features": {
+      "face_shape": "Oval",
+      "eyes": "Blue, gaze fixed on the screen",
+      "hair": "Light brown, professional 'messy bun' hairstyle",
+      "expression": "Focused, professional, slight satisfaction."
+    },
+    "wardrobe": {
+      "top": "Fine knit dark gray sweater",
+      "bottom": "Straight-cut black tailored pants",
+      "accessories": "Minimalist brushed metal smartwatch, thin silver ring."
+    }
+  },
+  "action": {
+    "sequences": [
+      {
+        "timing": "0-8 seconds",
+        "primary_motion": "The designer interacts fluidly and quickly on the ultrabook laptop (keyboard and trackpad) to finalize a complex graphic design (e.g., high-resolution photo retouching or 3D modeling).",
+        "camera_follows": "Initial action with detailed tracking"
+      },
+      {
+        "timing": "8-14 seconds",
+        "primary_motion": "Building on the initial action, the subject demonstrates additional aspects and benefits. The movement becomes more fluid and confident, showcasing expertise and comfort.",
+        "camera_follows": "Wider shot revealing more context, then pushing in for detail"
+      },
+      {
+        "timing": "14-20 seconds",
+        "primary_motion": "The subject concludes with a moment of satisfaction - a knowing smile, a final appreciative glance, or a confident gesture that conveys success and approval of the result.",
+        "camera_follows": "Close-up on emotional response and final impactful moment"
+      }
+    ],
+    "total_duration": "20 seconds"
+  },
+  "scene": {
+    "location": "Modern and bright creative design studio, 'Tech Creative' ambiance.",
+    "layout": {
+      "width": "Minimalist light wood desk, large 4K external monitor next to the laptop, indoor plants (succulents), white walls with a few framed sketches.",
+      "flooring": "Light gray polished concrete.",
+      "walls": "Pristine white walls, indirect lighting from integrated LEDs."
+    },
+    "time_of_day": "Mid-morning (10:30 AM).",
+    "environment": {
+      "background": "Slightly blurred (bokeh) to isolate the subject and product, while hinting at the high-end work environment.",
+      "temporal_progression": "Environment remains consistent throughout the 20-second narrative. Background elements may subtly shift focus as camera moves, but spatial continuity is maintained for coherent storytelling."
+    }
+  },
+  "cinematography": {
+    "lighting": {
+      "primary_source": "Soft natural light from a large window (soft window light) to the left of the subject.",
+      "quality": "Soft diffused, without harsh shadows.",
+      "color_temperature": "5600K (Daylight), very slightly warmed by fill light.",
+      "key_to_fill_ratio": "2:1 (slightly contrasted for a professional look, but soft).",
+      "evolution": "Lighting remains consistent throughout the 20-second sequence, maintaining the established mood. Subtle adjustments in intensity during the final 6 seconds to emphasize the emotional climax and create visual impact."
+    },
+    "color_grading": {
+      "palette": "Neutral and modern (gray, white, light wood, touches of green from plants).",
+      "tone": "Clean, professional, slightly desaturated for a sophisticated 'tech' look."
+    }
+  },
+  "audio": {
+    "ambient": "Very low background noise of a work studio (discreet mouse clicks, laptop ventilation barely audible).",
+    "foley": "Sequence 1 (0-8s): Precise and clear keyboard typing sounds, trackpad 'click' sound.. Sequence 2: Additional environmental sounds, subtle interactions with objects, breathing, fabric movement. Sequence 3: Final satisfying sound (smile, exhale, object placement), ambient fade.",
+    "music": "Minimalist and inspiring background music, 'lo-fi beats' or 'ambient electronic' style at low volume. The score builds progressively over 20 seconds, starting subtly and crescendoing toward the final moment. Emotional peak at 14-18s, then resolving with a confident, memorable final chord at 20s."
+  },
+  "visual_rules": {
+    "frame_purity": "without text overlays, logos unless branded (laptop logo is visible), no subtitles, focus on hyperrealism.",
+    "quality_requirements": {
+      "no_artifacts": true,
+      "no_morphing": true,
+      "no_unnatural_motion": true
+    },
+    "realism": "Photorealistic rendering of textures with visible micro-details. Professional studio lighting creating natural reflections and shadows. Realistic physics of materials (metals, fabrics, liquids). Cinematic depth of field isolating the main subject.",
+    "continuity": "Absolute consistency of lighting and cast shadows between all shots. Smooth and natural transitions between camera angles. Constant maintenance of color temperature and white balance. Continuity of visual elements and props within the frame."
+  },
+  "technical_specifications": {
+    "resolution": "4K (3840x2160)",
+    "color_space": "Rec. 2020",
+    "bit_depth": "10-bit",
+    "output_quality": "ProRes 422 HQ eq.",
+    "duration_seconds": 20
+  }
+}

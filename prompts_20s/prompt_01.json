@@ -1,0 +1,100 @@
+{
+  "shot": {
+    "camera_system": "ARRI Alexa Mini LF",
+    "primary_lens": "Zeiss Supreme Prime 35mm T1.5, focus pull from screen to subject's face",
+    "composition": "Medium Close-Up (MCU) of the subject's hands and the smartphone, then a slight pull-back to a Medium Shot (MS)",
+    "camera_motion": "Sequence 1 (0-8s): Smooth Steadicam tracking, starting low and rising slightly to reveal the subject's face. Sequence 2 (8-12s): Smooth transition to wider establishing shot, then slow push-in to capture detail and emotion. Sequence 3 (12-20s): Final close-up with subtle dolly movement, ending on a confident, impactful frame.",
+    "frame_rate": "24 fps (cinematic standard)",
+    "aspect_ratio": "16:9"
+  },
+  "subject": {
+    "identity": {
+      "age": "28 years old",
+      "gender": "male",
+      "ethnicity": "Caucasian, light skin tone"
+    },
+    "physical": {
+      "height": "180 cm",
+      "posture": "Focused, slightly leaning forward, confident"
+    },
+    "facial_features": {
+      "face_shape": "Oval",
+      "eyes": "Intense blue, focused on the screen",
+      "hair": "Short, modern, dark brown",
+      "expression": "Subtle smile of satisfaction and discovery"
+    },
+    "wardrobe": {
+      "top": "High-quality, dark grey merino wool turtleneck sweater",
+      "accessories": "Minimalist, high-end stainless steel watch"
+    }
+  },
+  "action": {
+    "sequences": [
+      {
+        "timing": "0-8 seconds",
+        "primary_motion": "The subject smoothly navigates the smartphone interface, then performs a quick, precise gesture to activate the AI camera feature, followed by a subtle nod of approval.",
+        "camera_follows": "Initial action with detailed tracking"
+      },
+      {
+        "timing": "8-14 seconds",
+        "primary_motion": "Building on the initial action, the subject demonstrates additional aspects and benefits. The movement becomes more fluid and confident, showcasing expertise and comfort.",
+        "camera_follows": "Wider shot revealing more context, then pushing in for detail"
+      },
+      {
+        "timing": "14-20 seconds",
+        "primary_motion": "The subject concludes with a moment of satisfaction - a knowing smile, a final appreciative glance, or a confident gesture that conveys success and approval of the result.",
+        "camera_follows": "Close-up on emotional response and final impactful moment"
+      }
+    ],
+    "total_duration": "20 seconds"
+  },
+  "scene": {
+    "location": "High-tech modern office, private executive workspace",
+    "layout": {
+      "width": "Spacious, minimalist desk with integrated wireless charging pad",
+      "flooring": "Polished dark concrete or matte black wood",
+      "walls": "Floor-to-ceiling window with a blurred city view (bokeh), one wall in textured dark wood paneling"
+    },
+    "time_of_day": "Late afternoon (4:00 PM), soft diffused light",
+    "environment": {
+      "background": "Minimalist setup, a single high-design lamp (e.g., Flos IC Light), a small, perfectly aligned stack of design books, no clutter.",
+      "temporal_progression": "Environment remains consistent throughout the 20-second narrative. Background elements may subtly shift focus as camera moves, but spatial continuity is maintained for coherent storytelling."
+    }
+  },
+  "cinematography": {
+    "lighting": {
+      "primary_source": "Large softbox (key light) positioned high and to the left, simulating window light",
+      "quality": "Soft and diffused, high contrast ratio (key-to-fill 4:1) for a dramatic, premium look",
+      "color_temperature": "5600K (Daylight balanced), with a slight warm tint (3200K) on the background elements",
+      "key_to_fill_ratio": "4:1 (High contrast, dramatic shadows)",
+      "evolution": "Lighting remains consistent throughout the 20-second sequence, maintaining the established mood. Subtle adjustments in intensity during the final 6 seconds to emphasize the emotional climax and create visual impact."
+    },
+    "color_grading": {
+      "palette": "Monochromatic, dominated by deep blacks, cool greys, and subtle metallic accents (teal and orange look)",
+      "tone": "Elegant, sophisticated, and futuristic. Deep blacks, crushed shadows, high saturation on the smartphone screen only."
+    }
+  },
+  "audio": {
+    "ambient": "Extremely low-level, distant city hum, faint, high-quality electronic music playing softly in the background",
+    "foley": "Sequence 1 (0-8s): Crisp, precise sound of a finger tapping the glass screen, a subtle 'click' when the AI feature activates, the soft whir of the camera motion.. Sequence 2: Additional environmental sounds, subtle interactions with objects, breathing, fabric movement. Sequence 3: Final satisfying sound (smile, exhale, object placement), ambient fade.",
+    "music": "Minimalist, modern electronic score (e.g., Max Richter style), building tension and then resolving with a clean, high-frequency synth note. The score builds progressively over 20 seconds, starting subtly and crescendoing toward the final moment. Emotional peak at 14-18s, then resolving with a confident, memorable final chord at 20s."
+  },
+  "visual_rules": {
+    "frame_purity": "No text overlays, no logos (except the subtle, unbranded smartphone logo), no subtitles, no visible artifacts.",
+    "quality_requirements": {
+      "no_artifacts": true,
+      "no_morphing": true,
+      "no_unnatural_motion": true,
+      "hyperrealism": "Photorealistic detail, every reflection on the screen and surface must be perfect."
+    },
+    "realism": "Photorealistic rendering of textures with visible micro-details. Professional studio lighting creating natural reflections and shadows. Realistic physics of materials (metals, fabrics, liquids). Cinematic depth of field isolating the main subject.",
+    "continuity": "Absolute consistency of lighting and cast shadows between all shots. Smooth and natural transitions between camera angles. Constant maintenance of color temperature and white balance. Continuity of visual elements and props within the frame."
+  },
+  "technical_specifications": {
+    "resolution": "4K (3840x2160)",
+    "color_space": "Rec. 2020",
+    "bit_depth": "10-bit",
+    "output_quality": "ProRes 422 HQ eq.",
+    "duration_seconds": 20
+  }
+}

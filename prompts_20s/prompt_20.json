@@ -1,0 +1,101 @@
+{
+  "shot": {
+    "camera_system": "ARRI Alexa Mini LF",
+    "primary_lens": "Zeiss Supreme Prime 50mm, T2.1",
+    "composition": "Medium close-up, focus on the barista's hands and the coffee cup, shallow depth of field (creamy bokeh) to isolate the action.",
+    "camera_motion": "Sequence 1 (0-8s): Gimbal smooth motion, slight forward tracking (dolly in) for 1 second to emphasize the latte art detail, then static stabilization. Sequence 2 (8-12s): Smooth transition to wider establishing shot, then slow push-in to capture detail and emotion. Sequence 3 (12-20s): Final close-up with subtle dolly movement, ending on a confident, impactful frame.",
+    "frame_rate": "24 fps (cinematic)",
+    "aspect_ratio": "16:9"
+  },
+  "subject": {
+    "identity": {
+      "age": "28 years old",
+      "gender": "female",
+      "ethnicity": "Caucasian, fair skin"
+    },
+    "physical": {
+      "height": "Average height",
+      "posture": "Focused, leaning slightly over the cup"
+    },
+    "facial_features": {
+      "face_shape": "Oval",
+      "eyes": "Brown, gaze fixed on the cup",
+      "hair": "Light brown, tied in a casual bun",
+      "expression": "Serious, focused, a slight satisfied smile at the end of the action"
+    },
+    "wardrobe": {
+      "top": "Dark denim shirt, sleeves rolled up",
+      "apron": "Light brown leather apron, artisanal style",
+      "accessories": "Simple silver wedding band, no heavy makeup"
+    }
+  },
+  "action": {
+    "sequences": [
+      {
+        "timing": "0-8 seconds",
+        "primary_motion": "Meticulous preparation of latte art (pouring frothed milk to form a fern leaf or heart) with professional precision and grace.",
+        "camera_follows": "Initial action with detailed tracking"
+      },
+      {
+        "timing": "8-14 seconds",
+        "primary_motion": "Building on the initial action, the subject demonstrates additional aspects and benefits. The movement becomes more fluid and confident, showcasing expertise and comfort.",
+        "camera_follows": "Wider shot revealing more context, then pushing in for detail"
+      },
+      {
+        "timing": "14-20 seconds",
+        "primary_motion": "The subject concludes with a moment of satisfaction - a knowing smile, a final appreciative glance, or a confident gesture that conveys success and approval of the result.",
+        "camera_follows": "Close-up on emotional response and final impactful moment"
+      }
+    ],
+    "total_duration": "20 seconds"
+  },
+  "scene": {
+    "location": "Artisanal coffee shop 'Le Grain Doré', solid wood and white marble counter.",
+    "layout": {
+      "width": "Clear workspace, professional espresso machine (La Marzocco) in blurred background.",
+      "flooring": "Black and white hexagonal tile",
+      "walls": "Exposed brick wall, wooden shelves with specialty coffee bags"
+    },
+    "time_of_day": "Mid-morning (10:30 AM)",
+    "environment": {
+      "background": "Light blurred activity in the background (some customers reading, calm atmosphere), subtle steam escaping from the espresso machine.",
+      "temporal_progression": "Environment remains consistent throughout the 20-second narrative. Background elements may subtly shift focus as camera moves, but spatial continuity is maintained for coherent storytelling."
+    }
+  },
+  "cinematography": {
+    "lighting": {
+      "primary_source": "Soft natural light from a large side window (soft window light)",
+      "quality": "Soft diffused (enveloping light, soft shadows)",
+      "color_temperature": "3200K (warm and welcoming light)",
+      "key_to_fill_ratio": "2:1 (moderate contrast for a cozy ambiance)",
+      "evolution": "Lighting remains consistent throughout the 20-second sequence, maintaining the established mood. Subtle adjustments in intensity during the final 6 seconds to emphasize the emotional climax and create visual impact."
+    },
+    "color_grading": {
+      "palette": "Warm tones (brown, cream, gold, dark green from plants)",
+      "tone": "Aspirational lifestyle, saturated yet soft, slightly desaturated for a timeless cinematic look."
+    }
+  },
+  "audio": {
+    "ambient": "Soft background noise of a coffee shop (clinking cups, distant murmurs of conversations, muted espresso machine sounds).",
+    "foley": "Sequence 1 (0-8s): Crystal clear sound of milk pouring, cup placed on the counter, slight 'clack' of the spoon. Sequence 2: Additional environmental sounds, subtle interactions with objects, breathing, fabric movement. Sequence 3: Final satisfying sound (smile, exhale, object placement), ambient fade.",
+    "music": "Acoustic jazz-lounge background music, very discreet, focused on piano and double bass. The score builds progressively over 20 seconds, starting subtly and crescendoing toward the final moment. Emotional peak at 14-18s, then resolving with a confident, memorable final chord at 20s."
+  },
+  "visual_rules": {
+    "frame_purity": "without text overlays, logos unless branded, no subtitles, focus on the craft and the product.",
+    "quality_requirements": {
+      "no_artifacts": true,
+      "no_morphing": true,
+      "no_unnatural_motion": true,
+      "hyperrealism": "Extreme detail on the texture of the milk foam and reflections in the coffee."
+    },
+    "realism": "Warm ambiance with professional welcoming lighting. Luxurious textures of materials (wood, fabrics, stone). High-end furnishing details. Authentic service and human interactions.",
+    "continuity": "Consistency of lighting and sound ambiance. Maintaining service level and attention to detail. Continuity of decorative style and atmosphere. Smooth customer experience and interactions."
+  },
+  "technical_specifications": {
+    "resolution": "4K (3840x2160)",
+    "color_space": "Rec. 2020",
+    "bit_depth": "10-bit",
+    "output_quality": "ProRes 422 HQ eq.",
+    "duration_seconds": 20
+  }
+}

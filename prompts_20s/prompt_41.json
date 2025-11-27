@@ -1,0 +1,104 @@
+{
+  "shot": {
+    "camera_system": "ARRI Alexa Mini LF",
+    "primary_lens": "Zeiss Supreme Prime 50mm, T2.1",
+    "composition": "Medium Close-Up (MCU) on the therapist's hands and the client's back, very shallow depth of field, rule of thirds.",
+    "camera_motion": "Sequence 1 (0-8s): Gimbal smooth motion, slight very slow and subtle forward dolly to enhance intimacy and focus. Sequence 2 (8-12s): Smooth transition to wider establishing shot, then slow push-in to capture detail and emotion. Sequence 3 (12-20s): Final close-up with subtle dolly movement, ending on a confident, impactful frame.",
+    "frame_rate": "24 fps (standard cinematic)",
+    "aspect_ratio": "16:9"
+  },
+  "subject": {
+    "identity": {
+      "age": "33 years old",
+      "gender": "female",
+      "ethnicity": "Mediterranean, warm and radiant skin"
+    },
+    "physical": {
+      "height": "1.70m",
+      "posture": "Focused, fluid and precise movements, relaxed shoulders",
+      "hands": "Well-groomed hands, long and agile fingers, no jewelry"
+    },
+    "facial_features": {
+      "face_shape": "Oval",
+      "eyes": "Closed or lowered, expression of serenity and professionalism",
+      "hair": "Low neat bun, dark chestnut color",
+      "expression": "Calm and focused"
+    },
+    "wardrobe": {
+      "top": "Off-white linen spa tunic, V-neck, short sleeves",
+      "bottom": "Matching spa pants (not visible in the shot)"
+    }
+  },
+  "action": {
+    "sequences": [
+      {
+        "timing": "0-8 seconds",
+        "primary_motion": "Application of massage oil, then slow and deep effleurage on the client's upper back (off-frame). The movement is continuous, rhythmic, and soothing.",
+        "camera_follows": "Initial action with detailed tracking"
+      },
+      {
+        "timing": "8-14 seconds",
+        "primary_motion": "Building on the initial action, the subject demonstrates additional aspects and benefits. The movement becomes more fluid and confident, showcasing expertise and comfort.",
+        "camera_follows": "Wider shot revealing more context, then pushing in for detail"
+      },
+      {
+        "timing": "14-20 seconds",
+        "primary_motion": "The subject concludes with a moment of satisfaction - a knowing smile, a final appreciative glance, or a confident gesture that conveys success and approval of the result.",
+        "camera_follows": "Close-up on emotional response and final impactful moment"
+      }
+    ],
+    "total_duration": "20 seconds"
+  },
+  "scene": {
+    "location": "Private massage room in a luxury spa 'Zen Wellness'",
+    "layout": {
+      "width": "Spacious, minimalist and clean ambiance",
+      "flooring": "Light oiled wood parquet, slightly glossy",
+      "walls": "Textured sand beige walls, indirectly lit",
+      "elements": "A scented candle (subtle flickering light), a ceramic bowl containing warm massage oil, a bouquet of white flowers (orchids) in a blurred background."
+    },
+    "time_of_day": "Mid-morning (10:30 AM)",
+    "environment": {
+      "background": "Artistic blur (bokeh) of zen decorative elements, soft light filtered through a white linen curtain",
+      "temporal_progression": "Environment remains consistent throughout the 20-second narrative. Background elements may subtly shift focus as camera moves, but spatial continuity is maintained for coherent storytelling."
+    }
+  },
+  "cinematography": {
+    "lighting": {
+      "primary_source": "Natural window light coming from the left, filtered through a white linen curtain",
+      "quality": "Soft diffused light, very gentle and enveloping, without harsh shadows",
+      "color_temperature": "Warm white (3200K - 3500K) for a warm and relaxing atmosphere",
+      "key_to_fill_ratio": "2:1 (low contrast for a serene rendering)",
+      "evolution": "Lighting remains consistent throughout the 20-second sequence, maintaining the established mood. Subtle adjustments in intensity during the final 6 seconds to emphasize the emotional climax and create visual impact."
+    },
+    "color_grading": {
+      "palette": "Neutral tones (off-white, beige, light wood, pale green of plants)",
+      "tone": "Serene, soothing, luxurious. Slight desaturation, soft contrast, warm and flattering skin tones."
+    }
+  },
+  "audio": {
+    "ambient": "Very low background noise (hum) from ventilation, slight crackling of the candle.",
+    "foley": "Sequence 1 (0-8s): Sound of hands gliding on oiled skin, very calm and deep breathing of the therapist. Sequence 2: Additional environmental sounds, subtle interactions with objects, breathing, fabric movement. Sequence 3: Final satisfying sound (smile, exhale, object placement), ambient fade.",
+    "music": "Ambient 'Wellness' music, very soft and minimalist piano and Tibetan bowls melody. The score builds progressively over 20 seconds, starting subtly and crescendoing toward the final moment. Emotional peak at 14-18s, then resolving with a confident, memorable final chord at 20s.",
+    "dialogue": "None"
+  },
+  "visual_rules": {
+    "frame_purity": "without text overlays, logos unless branded, no subtitles, no visible brand names on products",
+    "quality_requirements": {
+      "no_artifacts": true,
+      "no_morphing": true,
+      "no_unnatural_motion": true,
+      "hyperrealism": "Photorealistic, cinematic quality, attention to skin texture and oil sheen"
+    },
+    "realism": "Photorealistic rendering of textures with visible micro-details. Professional studio lighting creating natural reflections and shadows. Realistic physics of materials (metals, fabrics, liquids). Cinematic depth of field isolating the main subject.",
+    "continuity": "Absolute consistency of lighting and cast shadows across all shots. Smooth and natural transitions between camera angles. Constant maintenance of color temperature and white balance. Continuity of visual elements and props within the frame."
+  },
+  "technical_specifications": {
+    "resolution": "4K (3840x2160)",
+    "color_space": "Rec. 2020",
+    "bit_depth": "10-bit",
+    "output_quality": "ProRes 422 HQ eq.",
+    "rendering_style": "Hyperrealistic cinematic render, high fidelity",
+    "duration_seconds": 20
+  }
+}

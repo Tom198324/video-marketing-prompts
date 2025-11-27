@@ -1,0 +1,102 @@
+{
+  "shot": {
+    "camera_system": "ARRI Alexa Mini LF",
+    "primary_lens": "Zeiss Supreme Prime 35mm, T2.1",
+    "composition": "Medium close-up, rule of thirds, subject centered in the frame, slight high angle to enhance immersion.",
+    "camera_motion": "Sequence 1 (0-8s): Smooth Steadicam tracking, slight progressive dolly in over the last 3 seconds. Sequence 2 (8-12s): Smooth transition to wider establishing shot, then slow push-in to capture detail and emotion. Sequence 3 (12-20s): Final close-up with subtle dolly movement, ending on a confident, impactful frame.",
+    "frame_rate": "24 fps",
+    "aspect_ratio": "16:9"
+  },
+  "subject": {
+    "identity": {
+      "age": "22 years",
+      "gender": "Female",
+      "ethnicity": "East Asian"
+    },
+    "physical": {
+      "height": "170 cm",
+      "posture": "Seated, slightly leaning forward, focused, hands holding invisible VR controllers."
+    },
+    "facial_features": {
+      "face_shape": "Oval",
+      "eyes": "Closed behind the futuristic VR headset (matte white with blue LED lines), expression of surprise and intense pleasure.",
+      "hair": "Mid-length black hair, tied in a high ponytail.",
+      "expression": "Intense concentration evolving into a satisfied smile."
+    },
+    "wardrobe": {
+      "top": "Black technical sweatshirt, crew neck, discreet logo on the sleeve.",
+      "bottom": "Anthracite gray joggers, slim fit."
+    }
+  },
+  "action": {
+    "sequences": [
+      {
+        "timing": "0-8 seconds",
+        "primary_motion": "The young woman is still, but her hands perform broad and precise movements in the air, simulating complex interaction in a virtual environment. A slight twitch of the head and body indicates a reaction to a virtual event.",
+        "camera_follows": "Initial action with detailed tracking"
+      },
+      {
+        "timing": "8-14 seconds",
+        "primary_motion": "Building on the initial action, the subject demonstrates additional aspects and benefits. The movement becomes more fluid and confident, showcasing expertise and comfort.",
+        "camera_follows": "Wider shot revealing more context, then pushing in for detail"
+      },
+      {
+        "timing": "14-20 seconds",
+        "primary_motion": "The subject concludes with a moment of satisfaction - a knowing smile, a final appreciative glance, or a confident gesture that conveys success and approval of the result.",
+        "camera_follows": "Close-up on emotional response and final impactful moment"
+      }
+    ],
+    "total_duration": "20 seconds"
+  },
+  "scene": {
+    "location": "Futuristic and minimalist exhibition booth at a technology trade show (Tech Expo).",
+    "layout": {
+      "width": "Open demonstration space, polished concrete floor, matte white partition walls with blue and purple light accents.",
+      "flooring": "Light gray polished concrete, reflections from LED lights.",
+      "walls": "White acoustic panels, vertical LED ambient lighting."
+    },
+    "time_of_day": "Daytime, controlled indoor trade show lighting.",
+    "environment": {
+      "background": "Artistic blur (bokeh) showing the trade show crowd, bright screens, and visitor silhouettes, reinforcing the subject's isolation in her experience.",
+      "temporal_progression": "Environment remains consistent throughout the 20-second narrative. Background elements may subtly shift focus as camera moves, but spatial continuity is maintained for coherent storytelling."
+    }
+  },
+  "cinematography": {
+    "lighting": {
+      "primary_source": "Octagonal softbox (Key Light) top right, simulating professional studio lighting.",
+      "quality": "Soft and enveloping light (Soft diffused), without harsh shadows.",
+      "color_temperature": "5600K (Neutral daylight), with touches of electric blue (4800K) backlight for a futuristic ambiance.",
+      "key_to_fill_ratio": "2:1 (Moderate contrast, high-tech and clean atmosphere).",
+      "evolution": "Lighting remains consistent throughout the 20-second sequence, maintaining the established mood. Subtle adjustments in intensity during the final 6 seconds to emphasize the emotional climax and create visual impact."
+    },
+    "color_grading": {
+      "palette": "Dominance of cool tones (blue, cyan, gray) with high contrast for the headset and LEDs, and warm skin tones for the subject.",
+      "tone": "Futuristic, high-tech, immersive and professional. 'Blockbuster' look with deep blacks and controlled highlights."
+    }
+  },
+  "audio": {
+    "ambient": "Muted background noise of a tech expo (whispers, distant ambient music, mouse clicks).",
+    "foley": "Sequence 1 (0-8s): Digital 'swish' and 'click' sounds synchronized with the subject's hand movements, emphasizing virtual interaction. Sequence 2: Additional environmental sounds, subtle interactions with objects, breathing, fabric movement. Sequence 3: Final satisfying sound (smile, exhale, object placement), ambient fade.",
+    "music": "Minimalist and progressive electronic music (synthwave/ambient) with a subtle crescendo toward the end of the clip. The score builds progressively over 20 seconds, starting subtly and crescendoing toward the final moment. Emotional peak at 14-18s, then resolving with a confident, memorable final chord at 20s.",
+    "dialogue": "No dialogue."
+  },
+  "visual_rules": {
+    "frame_purity": "without text overlays, logos unless branded, no subtitles. VR headset must be the focal point.",
+    "quality_requirements": {
+      "no_artifacts": true,
+      "no_morphing": true,
+      "no_unnatural_motion": true,
+      "hyperrealism": "Ultra-realistic skin and clothing details, cinematic depth of field."
+    },
+    "realism": "Credible architectural environment with authentic materials. Realistic natural lighting according to time and weather. Consistent furnishing and decoration details. Correct spatial perspectives and proportions.",
+    "continuity": "Consistency of natural light according to temporal progression. Maintenance of architectural and decorative style. Continuity of exterior views through windows. Smooth spatial flow and discovery."
+  },
+  "technical_specifications": {
+    "resolution": "4K (3840x2160)",
+    "color_space": "Rec. 2020",
+    "bit_depth": "10-bit",
+    "output_quality": "ProRes 422 HQ eq.",
+    "model_hint": "Optimized for Sora 2 / Veo 3 for hyperrealistic rendering and temporal coherence.",
+    "duration_seconds": 20
+  }
+}

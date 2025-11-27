@@ -1,0 +1,100 @@
+{
+  "shot": {
+    "camera_system": "ARRI Alexa Mini LF",
+    "primary_lens": "Zeiss Supreme Prime 35mm, T2.1",
+    "composition": "Medium Close-Up (MCU) of the entrepreneur, slightly low angle, rule of thirds, focus on the face and the phone screen.",
+    "camera_motion": "Sequence 1 (0-4s): Slow, smooth Gimbal push-in (20cm) to emphasize focus on the app interaction.. Sequence 2 (4-12s): Smooth transition to wider establishing shot, then slow push-in to capture detail and emotion. Sequence 3 (12-20s): Final close-up with subtle dolly movement, ending on a confident, impactful frame.",
+    "frame_rate": "24 fps",
+    "aspect_ratio": "9:16 (Vertical)"
+  },
+  "subject": {
+    "identity": {
+      "age": "31 years old",
+      "gender": "Female",
+      "ethnicity": "Mediterranean/Caucasian"
+    },
+    "physical": {
+      "height": "Average height",
+      "posture": "Confident, focused, slightly leaning forward over the table"
+    },
+    "facial_features": {
+      "face_shape": "Oval",
+      "eyes": "Brown, intense",
+      "hair": "Dark brown, shoulder-length, styled in a modern, professional manner",
+      "expression": "Subtle smile of satisfaction and concentration"
+    },
+    "wardrobe": {
+      "jacket": "Structured, minimalist blazer in deep navy blue",
+      "top": "High-quality silk camisole in off-white",
+      "accessories": "Minimalist gold hoop earrings, sleek smartwatch"
+    }
+  },
+  "action": {
+    "sequences": [
+      {
+        "timing": "0-4 seconds",
+        "primary_motion": "The entrepreneur quickly and confidently navigates a clean, modern fintech application on her smartphone, performing a final tap to confirm a transaction or investment.",
+        "camera_follows": "Close tracking of the initial action"
+      },
+      {
+        "timing": "4-12 seconds",
+        "primary_motion": "The subject continues the action with increased confidence and detail. The entrepreneur quickly and confidently navigates a clean, modern fintech application on her smartphone, performing a final tap to confirm a transaction or investment evolves into a more complete demonstration, showing mastery and precision.",
+        "camera_follows": "Medium shot capturing the full context and environment interaction"
+      },
+      {
+        "timing": "12-20 seconds",
+        "primary_motion": "The subject completes the action with a satisfied expression, looks at the result with approval, and shows a subtle smile of accomplishment. Final moment captures the positive outcome.",
+        "camera_follows": "Close-up on facial expression and final result, ending with a confident pose"
+      }
+    ],
+    "total_duration": "20 seconds"
+  },
+  "scene": {
+    "location": "High-end, modern, minimalist coffee shop (e.g., in a financial district)",
+    "layout": {
+      "width": "Clean wooden table, a single, high-design ceramic coffee cup, a minimalist notebook",
+      "flooring": "Polished concrete or light oak wood",
+      "walls": "Textured white wall with a subtle, abstract art piece in the background"
+    },
+    "time_of_day": "Mid-morning (10:30 AM)",
+    "environment": {
+      "background": "Softly blurred background with other patrons working on laptops, suggesting a productive, professional environment.",
+      "temporal_progression": "Environment remains consistent throughout the 20-second narrative. Background elements may subtly shift focus as camera moves, but spatial continuity is maintained for coherent storytelling."
+    }
+  },
+  "cinematography": {
+    "lighting": {
+      "primary_source": "Large, soft window light (North-facing) acting as key light",
+      "quality": "Soft and diffused, high contrast ratio (4:1) to create a focused, professional mood",
+      "color_temperature": "5600K (Daylight balanced), with a slight warm tint (3800K) from practical lamps in the background",
+      "key_to_fill_ratio": "4:1",
+      "evolution": "Lighting remains consistent throughout the 20-second sequence, maintaining the established mood. Subtle adjustments in intensity during the final 6 seconds to emphasize the emotional climax and create visual impact."
+    },
+    "color_grading": {
+      "palette": "Cool blues, deep navy, and crisp whites (Fintech aesthetic), contrasted with warm wood tones and coffee.",
+      "tone": "Sharp, high-fidelity, and sophisticated. Cinematic, slightly desaturated for a modern, serious feel."
+    }
+  },
+  "audio": {
+    "ambient": "Low-level, sophisticated cafe chatter (espresso machine hiss, soft clinking of cups, distant, muffled conversation)",
+    "foley": "Sequence 1 (0-4s): Crisp, distinct sound of a finger tapping the glass screen of the smartphone, subtle rustle of the blazer fabric.. Sequence 2: Additional environmental sounds, subtle interactions with objects, breathing, fabric movement. Sequence 3: Final satisfying sound (smile, exhale, object placement), ambient fade.",
+    "music": "Minimalist, ambient electronic track with a driving, confident rhythm (e.g., similar to Tycho or Moby's instrumental work). The score builds progressively over 20 seconds, starting subtly and crescendoing toward the final moment. Emotional peak at 14-18s, then resolving with a confident, memorable final chord at 20s."
+  },
+  "visual_rules": {
+    "frame_purity": "without text overlays, logos unless branded, no subtitles. Ensure the smartphone screen is clear and legible, displaying a clean, modern UI.",
+    "quality_requirements": {
+      "no_artifacts": true,
+      "no_morphing": true,
+      "no_unnatural_motion": true
+    },
+    "realism": "Ultra-detailed textures revealing the premium quality of the products. Consistent environmental reflections on glossy surfaces. Professional three-point lighting sculpting the shapes. Visible macro details (grains, fibers, finishes).",
+    "continuity": "Continuity of environmental reflections on surfaces. Maintenance of cleanliness and product condition. Consistency of ambient lighting and color temperature. Smooth camera movements and transitions."
+  },
+  "technical_specifications": {
+    "resolution": "4K (3840x2160)",
+    "color_space": "Rec. 2020",
+    "bit_depth": "10-bit",
+    "output_quality": "ProRes 422 HQ eq.",
+    "duration_seconds": 20
+  }
+}

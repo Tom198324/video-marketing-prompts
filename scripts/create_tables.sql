@@ -1,0 +1,23 @@
+-- Create prompts table
+CREATE TABLE IF NOT EXISTS `prompts` (
+  `id` INT AUTO_INCREMENT PRIMARY KEY,
+  `promptNumber` INT NOT NULL UNIQUE,
+  `title` VARCHAR(255) NOT NULL,
+  `description` TEXT NOT NULL,
+  `scenarioType` VARCHAR(100) NOT NULL,
+  `industrySector` VARCHAR(100) NOT NULL,
+  `visualStyle` VARCHAR(100) NOT NULL,
+  `durationSeconds` INT NOT NULL,
+  `originalDuration` INT NOT NULL,
+  `promptJson` MEDIUMTEXT NOT NULL,
+  `createdAt` TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
+  `updatedAt` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP NOT NULL
+);
+
+-- Create favorites table
+CREATE TABLE IF NOT EXISTS `favorites` (
+  `id` INT AUTO_INCREMENT PRIMARY KEY,
+  `userId` INT NOT NULL,
+  `promptId` INT NOT NULL,
+  `createdAt` TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL
+);

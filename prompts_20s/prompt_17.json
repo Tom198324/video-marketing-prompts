@@ -1,0 +1,101 @@
+{
+  "shot": {
+    "camera_system": "ARRI Alexa Mini LF",
+    "primary_lens": "Zeiss Supreme Prime 85mm T1.5, focus on the bottle",
+    "composition": "Medium shot centered on the subject and the perfume bottle, rule of thirds for the blurred background (bokeh)",
+    "camera_motion": "Sequence 1 (0-8s): Very slow and smooth dolly in, ending with a slight pause on the elegant gesture. Sequence 2 (8-12s): Smooth transition to wider establishing shot, then slow push-in to capture detail and emotion. Sequence 3 (12-20s): Final close-up with subtle dolly movement, ending on a confident, impactful frame.",
+    "frame_rate": "24 fps (cinematic)",
+    "aspect_ratio": "9:16 (vertical for social media)"
+  },
+  "subject": {
+    "identity": {
+      "age": "30 years old",
+      "gender": "Female",
+      "ethnicity": "Mediterranean, smooth and luminous skin"
+    },
+    "physical": {
+      "height": "Model height",
+      "posture": "Seated with a straight and confident posture, shoulders slightly tilted"
+    },
+    "facial_features": {
+      "face_shape": "Oval",
+      "eyes": "Subtle 'smoky eyes' makeup, mysterious and direct gaze",
+      "hair": "Long brown hair styled in soft, shiny waves",
+      "expression": "Subtle and enigmatic smile, expression of luxury and serenity"
+    },
+    "wardrobe": {
+      "top": "Black silk evening dress, discreet neckline",
+      "jewelry": "Delicate white gold necklace with a small solitaire diamond"
+    }
+  },
+  "action": {
+    "sequences": [
+      {
+        "timing": "0-8 seconds",
+        "primary_motion": "The woman takes the golden perfume bottle from the table, slowly raises it to face level, and makes a delicate gesture to spray a touch of perfume into the air. The movement is extremely slow and graceful.",
+        "camera_follows": "Initial action with detailed tracking"
+      },
+      {
+        "timing": "8-14 seconds",
+        "primary_motion": "Building on the initial action, the subject demonstrates additional aspects and benefits. The movement becomes more fluid and confident, showcasing expertise and comfort.",
+        "camera_follows": "Wider shot revealing more context, then pushing in for detail"
+      },
+      {
+        "timing": "14-20 seconds",
+        "primary_motion": "The subject concludes with a moment of satisfaction - a knowing smile, a final appreciative glance, or a confident gesture that conveys success and approval of the result.",
+        "camera_follows": "Close-up on emotional response and final impactful moment"
+      }
+    ],
+    "total_duration": "20 seconds"
+  },
+  "scene": {
+    "location": "Luxury Parisian hotel suite, blurred view of the Eiffel Tower in the background",
+    "layout": {
+      "width": "Intimate and confined space",
+      "flooring": "Dark, glossy wooden parquet",
+      "walls": "Walls covered with textured golden wallpaper and classic moldings",
+      "furniture": "White marble coffee table, vase of white roses"
+    },
+    "time_of_day": "Early evening (7:00 PM), soft and dimmed lighting",
+    "environment": {
+      "background": "Artistic blur (bokeh) of a richly decorated interior, golden reflections from city lights",
+      "temporal_progression": "Environment remains consistent throughout the 20-second narrative. Background elements may subtly shift focus as camera moves, but spatial continuity is maintained for coherent storytelling."
+    }
+  },
+  "cinematography": {
+    "lighting": {
+      "primary_source": "Soft warm light coming from a large window on the right (simulating late golden hour)",
+      "quality": "Soft and diffused lighting (giant softbox) to minimize harsh shadows, creating a 'glow' on the skin and bottle",
+      "color_temperature": "3200K (warm tungsten)",
+      "key_to_fill_ratio": "4:1 (dramatic and contrasted lighting)",
+      "evolution": "Lighting remains consistent throughout the 20-second sequence, maintaining the established mood. Subtle adjustments in intensity during the final 6 seconds to emphasize the emotional climax and create visual impact."
+    },
+    "color_grading": {
+      "palette": "Dominance of gold, black, and off-white tones (Gold & Noir)",
+      "tone": "Rich, saturated, with deep blacks and soft highlights (Vogue or Chanel style)"
+    }
+  },
+  "audio": {
+    "ambient": "Absolute silence, then a very faint background noise of the distant city (muted traffic)",
+    "foley": "Sequence 1 (0-8s): Crisp and precise sound of the perfume bottle being placed, then the subtle and airy 'pschitt' of the spray. Sequence 2: Additional environmental sounds, subtle interactions with objects, breathing, fabric movement. Sequence 3: Final satisfying sound (smile, exhale, object placement), ambient fade.",
+    "music": "Minimalist chamber music (solo cello) or a very slow and sophisticated electronic beat. The score builds progressively over 20 seconds, starting subtly and crescendoing toward the final moment. Emotional peak at 14-18s, then resolving with a confident, memorable final chord at 20s."
+  },
+  "visual_rules": {
+    "frame_purity": "without text overlays, logos unless branded, no subtitles, focus on hyperrealism and texture",
+    "quality_requirements": {
+      "no_artifacts": true,
+      "no_morphing": true,
+      "no_unnatural_motion": true,
+      "texture_detail": "Extreme detail on the texture of silk, marble, and glass of the bottle"
+    },
+    "realism": "Fluid athletic movements and biomechanically correct. Defined muscular anatomy with credible perspiration. Dynamic lighting accentuating physical form. Effort and intensity visible in expressions.",
+    "continuity": "Logical progression of physical effort intensity. Consistency of perspiration and signs of fatigue. Maintenance of posture and technical form. Continuity of lighting and visible motivation."
+  },
+  "technical_specifications": {
+    "resolution": "4K (3840x2160)",
+    "color_space": "Rec. 2020",
+    "bit_depth": "10-bit",
+    "output_quality": "ProRes 422 HQ eq.",
+    "duration_seconds": 20
+  }
+}

@@ -1,0 +1,103 @@
+{
+  "shot": {
+    "camera_system": "RED Komodo 6K",
+    "primary_lens": "Sigma Cine FF 35mm T1.5, aperture T2.8",
+    "composition": "Medium shot centered on the athlete, slightly low-angle to emphasize power, rule of thirds respected.",
+    "camera_motion": "Sequence 1 (0-8s): Gimbal smooth motion, very slow forward tracking (Creeping Dolly In) of 0.5m towards the athlete to intensify the action. Sequence 2 (8-12s): Smooth transition to wider establishing shot, then slow push-in to capture detail and emotion. Sequence 3 (12-20s): Final close-up with subtle dolly movement, ending on a confident, impactful frame.",
+    "frame_rate": "48 fps (slight slow motion for intensity), rendered at 24 fps.",
+    "aspect_ratio": "9:16 (Vertical for social media)"
+  },
+  "subject": {
+    "identity": {
+      "age": "26 years",
+      "gender": "Female",
+      "ethnicity": "Caucasian, slightly tanned complexion"
+    },
+    "physical": {
+      "height": "170 cm",
+      "posture": "Muscular, athletic, performing a deadlift or Burpee movement.",
+      "details": "Discreet tattoo on the forearm, hands chalked with magnesium."
+    },
+    "facial_features": {
+      "face_shape": "Oval, clenched jaw",
+      "eyes": "Focused, looking at the camera",
+      "hair": "High ponytail, wet strands stuck to the forehead",
+      "expression": "Intense determination, maximal physical effort"
+    },
+    "wardrobe": {
+      "top": "Black sports bra, fitted cut, breathable technical fabric",
+      "bottom": "Black or dark gray Crossfit shorts, short length",
+      "shoes": "Weightlifting/Crossfit shoes, flat sole"
+    }
+  },
+  "action": {
+    "sequences": [
+      {
+        "timing": "0-8 seconds",
+        "primary_motion": "Execution of a weightlifting movement (Clean and Jerk or Snatch) or an explosive Burpee, with perfect technique and an expression of raw strength.",
+        "camera_follows": "Initial action with detailed tracking"
+      },
+      {
+        "timing": "8-14 seconds",
+        "primary_motion": "Building on the initial action, the subject demonstrates additional aspects and benefits. The movement becomes more fluid and confident, showcasing expertise and comfort.",
+        "camera_follows": "Wider shot revealing more context, then pushing in for detail"
+      },
+      {
+        "timing": "14-20 seconds",
+        "primary_motion": "The subject concludes with a moment of satisfaction - a knowing smile, a final appreciative glance, or a confident gesture that conveys success and approval of the result.",
+        "camera_follows": "Close-up on emotional response and final impactful moment"
+      }
+    ],
+    "total_duration": "20 seconds"
+  },
+  "scene": {
+    "location": "Industrial Crossfit Box, high-end 'garage gym' style, dark brick walls and black rubber floor.",
+    "layout": {
+      "width": "Open training space, squat racks in blurred background, some kettlebells and dumbbells visible.",
+      "flooring": "Black rubber floor, slightly worn from use.",
+      "walls": "Dark red brick or raw concrete walls, with a discreet box logo."
+    },
+    "time_of_day": "Late afternoon (5:00 PM), 'after-work grind' atmosphere.",
+    "environment": {
+      "background": "Backlight filtering through a large industrial window, creating light rays and suspended dust.",
+      "props": "Chrome weightlifting bar with brightly colored plates (red/blue), a blinking WOD clock in the background.",
+      "temporal_progression": "Environment remains consistent throughout the 20-second narrative. Background elements may subtly shift focus as camera moves, but spatial continuity is maintained for coherent storytelling."
+    }
+  },
+  "cinematography": {
+    "lighting": {
+      "primary_source": "Powerful backlight simulating the setting sun through a window.",
+      "quality": "Hard directional light to create sharp shadows and accentuate musculature ('hardcore fitness' style).",
+      "color_temperature": "Mixed color temperature: 5600K (daylight) for the background, 3200K (tungsten) for a slight warm tint on the subject.",
+      "key_to_fill_ratio": "High ratio (8:1) for dramatic contrast and deep blacks.",
+      "evolution": "Lighting remains consistent throughout the 20-second sequence, maintaining the established mood. Subtle adjustments in intensity during the final 6 seconds to emphasize the emotional climax and create visual impact."
+    },
+    "color_grading": {
+      "palette": "Desaturated monochrome with color accents (red of plates, blue of logo) for a gritty and intense look.",
+      "tone": "Dramatic, contrasted, saturated only on vivid colors, 'hardcore training' ambiance."
+    }
+  },
+  "audio": {
+    "ambient": "Background gym noise: clinking weights, squeaking shoes on rubber floor, athlete's heavy breathing.",
+    "foley": "Sequence 1 (0-8s): Clear and powerful sound of the weightlifting bar hitting the floor, chalk noise on hands, effort sounds (controlled grunts). Sequence 2: Additional environmental sounds, subtle interactions with objects, breathing, fabric movement. Sequence 3: Final satisfying sound (smile, exhale, object placement), ambient fade.",
+    "music": "Industrial electronic or instrumental rock music, high tempo, mixed very low to let ambient sound dominate. The score builds progressively over 20 seconds, starting subtly and crescendoing toward the final moment. Emotional peak at 14-18s, then resolving with a confident, memorable final chord at 20s."
+  },
+  "visual_rules": {
+    "frame_purity": "without text overlays, logos unless branded, no subtitles, hyperrealistic rendering, no motion blur artifacts.",
+    "quality_requirements": {
+      "no_artifacts": true,
+      "no_morphing": true,
+      "no_unnatural_motion": true,
+      "photorealism": "Maximum photorealism, indistinguishable from real-life footage."
+    },
+    "realism": "Bodywork with dynamic reflections of the environment. Mechanical details and premium finishes visible. Studio lighting revealing design lines. Realistic physics of movement and suspension.",
+    "continuity": "Consistency of environmental reflections on the bodywork. Maintenance of cleanliness and vehicle finish. Continuity of lighting and atmosphere. Smooth camera movements around the vehicle."
+  },
+  "technical_specifications": {
+    "resolution": "4K (3840x2160) upscaled to 6K for maximum detail",
+    "color_space": "Rec. 2020",
+    "bit_depth": "10-bit minimum",
+    "output_quality": "ProRes 422 HQ eq., maximum sharpness and detail.",
+    "duration_seconds": 20
+  }
+}

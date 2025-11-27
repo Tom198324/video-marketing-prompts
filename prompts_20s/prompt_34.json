@@ -1,0 +1,102 @@
+{
+  "shot": {
+    "camera_system": "ARRI Alexa Mini LF",
+    "primary_lens": "Zeiss Supreme Prime 50mm T1.5",
+    "composition": "Medium full shot, model centered, leading lines of the staircase converging towards the subject. Shallow depth of field (bokeh) to isolate the model.",
+    "camera_motion": "Sequence 1 (0-8s): Smooth Steadicam tracking shot, moving slowly backward and slightly down, maintaining a constant distance from the model as she descends.. Sequence 2 (8-12s): Smooth transition to wider establishing shot, then slow push-in to capture detail and emotion. Sequence 3 (12-20s): Final close-up with subtle dolly movement, ending on a confident, impactful frame.",
+    "frame_rate": "24 fps (cinematic standard)",
+    "aspect_ratio": "9:16"
+  },
+  "subject": {
+    "identity": {
+      "age": "26 years old",
+      "gender": "Female",
+      "ethnicity": "Mediterranean (light olive skin, dark hair)"
+    },
+    "physical": {
+      "height": "178 cm",
+      "posture": "Majestic, elegant, perfectly upright, shoulders back, head slightly tilted down."
+    },
+    "facial_features": {
+      "face_shape": "Oval, high cheekbones",
+      "eyes": "Smoky makeup, intense gaze, looking slightly past the camera",
+      "hair": "Sleek, dark hair pulled back into a low, polished chignon",
+      "expression": "Confident, serene, and sophisticated"
+    },
+    "wardrobe": {
+      "dress": "Haute couture evening gown, floor-length, deep emerald green silk velvet, dramatic train, intricate crystal embroidery on the bodice.",
+      "accessories": "Diamond chandelier earrings, single diamond bracelet, no necklace.",
+      "footwear": "Hidden stiletto heels."
+    }
+  },
+  "action": {
+    "sequences": [
+      {
+        "timing": "0-8 seconds",
+        "primary_motion": "Slow, majestic descent of the grand staircase, one step at a time, allowing the dress train to flow dramatically behind her.",
+        "camera_follows": "Initial action with detailed tracking"
+      },
+      {
+        "timing": "8-14 seconds",
+        "primary_motion": "Building on the initial action, the subject demonstrates additional aspects and benefits. The movement becomes more fluid and confident, showcasing expertise and comfort.",
+        "camera_follows": "Wider shot revealing more context, then pushing in for detail"
+      },
+      {
+        "timing": "14-20 seconds",
+        "primary_motion": "The subject concludes with a moment of satisfaction - a knowing smile, a final appreciative glance, or a confident gesture that conveys success and approval of the result.",
+        "camera_follows": "Close-up on emotional response and final impactful moment"
+      }
+    ],
+    "total_duration": "20 seconds"
+  },
+  "scene": {
+    "location": "Grand staircase of a Parisian palace (e.g., Hôtel de Crillon style), marble steps, ornate wrought-iron banister.",
+    "layout": {
+      "width": "Wide, sweeping staircase, high ceilings, grand chandelier visible in the upper background.",
+      "flooring": "Polished white and black marble.",
+      "walls": "Pale gold stucco with intricate classical moldings and large, framed mirrors.",
+      "props": "Large, ornate floral arrangement (white lilies and roses) on a landing."
+    },
+    "time_of_day": "Evening, 9:00 PM",
+    "environment": {
+      "background": "Softly lit, empty ballroom visible through an archway at the bottom of the stairs, suggesting an exclusive event.",
+      "temporal_progression": "Environment remains consistent throughout the 20-second narrative. Background elements may subtly shift focus as camera moves, but spatial continuity is maintained for coherent storytelling."
+    }
+  },
+  "cinematography": {
+    "lighting": {
+      "primary_source": "Large, soft-box key light positioned high and to the right (simulating a grand window/chandelier).",
+      "quality": "Soft, diffused, and luxurious, highlighting the texture of the velvet and the sparkle of the crystals.",
+      "color_temperature": "Warm tungsten (3200K) to enhance the gold and the emerald green.",
+      "key_to_fill_ratio": "3:1 (Dramatic, high contrast, but with rich shadows).",
+      "evolution": "Lighting remains consistent throughout the 20-second sequence, maintaining the established mood. Subtle adjustments in intensity during the final 6 seconds to emphasize the emotional climax and create visual impact."
+    },
+    "color_grading": {
+      "palette": "Deep emerald, gold, ivory, and rich blacks.",
+      "tone": "Elegant, luxurious, and slightly dramatic. High saturation on the dress color, deep blacks, and slightly crushed shadows for a cinematic feel."
+    }
+  },
+  "audio": {
+    "ambient": "Very faint, distant murmur of a sophisticated crowd and the clinking of champagne glasses.",
+    "foley": "Sequence 1 (0-8s): Subtle, soft rustle of the silk velvet fabric as the model moves; the delicate click of the stiletto heel on the marble.. Sequence 2: Additional environmental sounds, subtle interactions with objects, breathing, fabric movement. Sequence 3: Final satisfying sound (smile, exhale, object placement), ambient fade.",
+    "music": "Minimalist, slow, and elegant orchestral piece (e.g., a solo cello or piano) with a sense of grandeur. The score builds progressively over 20 seconds, starting subtly and crescendoing toward the final moment. Emotional peak at 14-18s, then resolving with a confident, memorable final chord at 20s."
+  },
+  "visual_rules": {
+    "frame_purity": "without text overlays, logos unless branded, no subtitles, no visible crew or equipment.",
+    "quality_requirements": {
+      "no_artifacts": true,
+      "no_morphing": true,
+      "no_unnatural_motion": true,
+      "hyperrealism": "Extreme detail on fabric texture and crystal reflections."
+    },
+    "realism": "Credible architectural environment with authentic materials. Realistic natural lighting according to time and weather. Consistent furnishing and decoration details. Correct spatial perspectives and proportions.",
+    "continuity": "Consistency of natural light according to temporal progression. Maintenance of architectural and decorative style. Continuity of exterior views through windows. Smooth spatial flow and discovery."
+  },
+  "technical_specifications": {
+    "resolution": "4K (3840x2160)",
+    "color_space": "Rec. 2020",
+    "bit_depth": "10-bit",
+    "output_quality": "ProRes 422 HQ eq.",
+    "duration_seconds": 20
+  }
+}

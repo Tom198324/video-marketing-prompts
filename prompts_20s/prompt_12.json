@@ -1,0 +1,99 @@
+{
+  "shot": {
+    "camera_system": "ARRI Alexa Mini LF",
+    "primary_lens": "Zeiss Supreme Prime 35mm, T2.1",
+    "composition": "Medium shot, rule of thirds, sofa occupying the lower two-thirds of the frame, shallow depth of field to isolate the couple.",
+    "camera_motion": "Sequence 1 (0-8s): Smooth Steadicam tracking, slight 1-meter dolly in over 8 seconds, slow and contemplative movement. Sequence 2 (8-12s): Smooth transition to wider establishing shot, then slow push-in to capture detail and emotion. Sequence 3 (12-20s): Final close-up with subtle dolly movement, ending on a confident, impactful frame.",
+    "frame_rate": "24 fps (Cinematic Standard)",
+    "aspect_ratio": "16:9"
+  },
+  "subject": {
+    "identity": {
+      "age": "Man 32 years old, Woman 30 years old",
+      "gender": "Man and Woman",
+      "ethnicity": "Caucasian (Fair complexion, chestnut hair)"
+    },
+    "physical": {
+      "height": "Man 180cm, Woman 168cm",
+      "posture": "Relaxed, man reading a book, woman leaning on his shoulder, both smiling slightly."
+    },
+    "facial_features": {
+      "face_shape": "Oval",
+      "eyes": "Light eyes (blue/green), calm gaze",
+      "hair": "Man: neat short cut, Woman: loose mid-length hair",
+      "expression": "Serenity, comfort, connection"
+    },
+    "wardrobe": {
+      "Homme": "Light beige knitted sweater, casual grey chino pants, wool socks.",
+      "Femme": "Pearl grey cashmere sweater dress, barefoot."
+    }
+  },
+  "action": {
+    "sequences": [
+      {
+        "timing": "0-8 seconds",
+        "primary_motion": "The couple relaxes on the sofa. The man slowly turns a page of his book. The woman gently closes her eyes and breathes deeply, a subtle gesture of satisfaction.",
+        "camera_follows": "Initial action with detailed tracking"
+      },
+      {
+        "timing": "8-14 seconds",
+        "primary_motion": "Building on the initial action, the subject demonstrates additional aspects and benefits. The movement becomes more fluid and confident, showcasing expertise and comfort.",
+        "camera_follows": "Wider shot revealing more context, then pushing in for detail"
+      },
+      {
+        "timing": "14-20 seconds",
+        "primary_motion": "The subject concludes with a moment of satisfaction - a knowing smile, a final appreciative glance, or a confident gesture that conveys success and approval of the result.",
+        "camera_follows": "Close-up on emotional response and final impactful moment"
+      }
+    ],
+    "total_duration": "20 seconds"
+  },
+  "scene": {
+    "location": "Modern Scandinavian-style living room, large southwest-facing bay window.",
+    "layout": {
+      "width": "Spacious room (5m x 7m), off-white walls, minimalist light wood shelves, indoor plants (Ficus Lyrata).",
+      "flooring": "Oiled light oak parquet, cream-colored woven wool rug under the sofa.",
+      "walls": "Matte white paint, an abstract painting in pastel tones (powder blue, pale pink)."
+    },
+    "time_of_day": "Late afternoon (4:30 PM), soft golden light.",
+    "environment": {
+      "background": "Blurred view of a lush garden through the bay window. A grey linen throw casually draped over the sofa armrest.",
+      "temporal_progression": "Environment remains consistent throughout the 20-second narrative. Background elements may subtly shift focus as camera moves, but spatial continuity is maintained for coherent storytelling."
+    }
+  },
+  "cinematography": {
+    "lighting": {
+      "primary_source": "Natural window light (Soft Diffused Window Light), complemented by a warm light (2700K) arc floor lamp.",
+      "quality": "Soft, enveloping, without harsh shadows.",
+      "color_temperature": "3200K (Warm Tungsten Look)",
+      "key_to_fill_ratio": "2:1 (Low Contrast, Warm Ambiance)",
+      "evolution": "Lighting remains consistent throughout the 20-second sequence, maintaining the established mood. Subtle adjustments in intensity during the final 6 seconds to emphasize the emotional climax and create visual impact."
+    },
+    "color_grading": {
+      "palette": "Neutral and pastel tones (grey, beige, off-white, light wood), slightly desaturated saturation for a 'hygge' look.",
+      "tone": "Calm, soothing, aspirational, highlighting the texture of the sofa fabric."
+    }
+  },
+  "audio": {
+    "ambient": "Very low city background noise (distant), slight crackling of an off-screen fireplace, subtle sound of the book's fabric being turned.",
+    "foley": "Sequence 1 (0-8s): Sound of the woman settling more comfortably, light sigh of satisfaction. Sequence 2: Additional environmental sounds, subtle interactions with objects, breathing, fabric movement. Sequence 3: Final satisfying sound (smile, exhale, object placement), ambient fade.",
+    "music": "Minimalist instrumental music (piano and soft strings), slow and comforting melody. The score builds progressively over 20 seconds, starting subtly and crescendoing toward the final moment. Emotional peak at 14-18s, then resolving with a confident, memorable final chord at 20s."
+  },
+  "visual_rules": {
+    "frame_purity": "without text overlays, logos unless branded (subtle tag on the couch), no subtitles, no visible brand names on the book.",
+    "quality_requirements": {
+      "no_artifacts": true,
+      "no_morphing": true,
+      "no_unnatural_motion": true
+    },
+    "realism": "Accurate human anatomy and proportions with authentic facial expressions. Realistic skin details (pores, natural texture, micro-imperfections). Soft and flattering lighting simulating natural light. Smooth and biomechanically correct body movements.",
+    "continuity": "Logical and credible progression of actions and movements. Consistency of lighting direction and quality throughout the sequence. Maintenance of skin tones, makeup, and hairstyle. Fluidity of facial expressions and body language."
+  },
+  "technical_specifications": {
+    "resolution": "4K (3840x2160)",
+    "color_space": "Rec. 2020",
+    "bit_depth": "10-bit",
+    "output_quality": "ProRes 422 HQ eq.",
+    "duration_seconds": 20
+  }
+}

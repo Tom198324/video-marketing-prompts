@@ -25,4 +25,36 @@ export const users = mysqlTable("users", {
 export type User = typeof users.$inferSelect;
 export type InsertUser = typeof users.$inferInsert;
 
-// TODO: Add your tables here
+/**
+ * Prompts table - stores all 50 video marketing prompts
+ */
+export const prompts = mysqlTable("prompts", {
+  id: int("id").autoincrement().primaryKey(),
+  promptNumber: int("promptNumber").notNull().unique(),
+  title: varchar("title", { length: 255 }).notNull(),
+  description: text("description").notNull(),
+  scenarioType: varchar("scenarioType", { length: 100 }).notNull(),
+  industrySector: varchar("industrySector", { length: 100 }).notNull(),
+  visualStyle: varchar("visualStyle", { length: 100 }).notNull(),
+  durationSeconds: int("durationSeconds").notNull(),
+  originalDuration: int("originalDuration").notNull(),
+  promptJson: text("promptJson").notNull(), // Stores the full JSON prompt (MEDIUMTEXT)
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+  updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
+});
+
+export type Prompt = typeof prompts.$inferSelect;
+export type InsertPrompt = typeof prompts.$inferInsert;
+
+/**
+ * Favorites table - allows users to save their favorite prompts
+ */
+export const favorites = mysqlTable("favorites", {
+  id: int("id").autoincrement().primaryKey(),
+  userId: int("userId").notNull(),
+  promptId: int("promptId").notNull(),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+});
+
+export type Favorite = typeof favorites.$inferSelect;
+export type InsertFavorite = typeof favorites.$inferInsert;

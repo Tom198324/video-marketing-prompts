@@ -1,0 +1,99 @@
+{
+  "shot": {
+    "camera_system": "ARRI Alexa Mini LF",
+    "primary_lens": "Zeiss Supreme Prime 25mm, T2.1",
+    "composition": "Medium shot, eye level, slightly tilted down on the brainstorming table, highlighting the team's interaction.",
+    "camera_motion": "Sequence 1 (0-8s): Smooth Steadicam tracking, a slight 8-second 'push-in' (dolly in) movement to intensify the group's dynamics. Sequence 2 (8-12s): Smooth transition to wider establishing shot, then slow push-in to capture detail and emotion. Sequence 3 (12-20s): Final close-up with subtle dolly movement, ending on a confident, impactful frame.",
+    "frame_rate": "24 fps",
+    "aspect_ratio": "16:9"
+  },
+  "subject": {
+    "identity": {
+      "age": "28-35 years",
+      "gender": "Mixed (3 men, 3 women)",
+      "ethnicity": "Diverse (Caucasian, Asian, African American)"
+    },
+    "physical": {
+      "height": "Average",
+      "posture": "Engaged, leaning forward, active gestures"
+    },
+    "facial_features": {
+      "face_shape": "Varied",
+      "eyes": "Lively, focused",
+      "hair": "Modern and well-groomed hairstyles",
+      "expression": "Enthusiastic, creative, smiling"
+    },
+    "wardrobe": {
+      "style": "Creative agency smart casual",
+      "details": "Contemporary branded clothing, bright and neutral colors, open shirts, casual blazers, stylish sneakers."
+    }
+  },
+  "action": {
+    "sequences": [
+      {
+        "timing": "0-8 seconds",
+        "primary_motion": "Dynamic and collaborative brainstorming. Team members exchange ideas, point at elements on a whiteboard or tablet, laugh, and write quickly.",
+        "camera_follows": "Initial action with detailed tracking"
+      },
+      {
+        "timing": "8-14 seconds",
+        "primary_motion": "Building on the initial action, the subject demonstrates additional aspects and benefits. The movement becomes more fluid and confident, showcasing expertise and comfort.",
+        "camera_follows": "Wider shot revealing more context, then pushing in for detail"
+      },
+      {
+        "timing": "14-20 seconds",
+        "primary_motion": "The subject concludes with a moment of satisfaction - a knowing smile, a final appreciative glance, or a confident gesture that conveys success and approval of the result.",
+        "camera_follows": "Close-up on emotional response and final impactful moment"
+      }
+    ],
+    "total_duration": "20 seconds"
+  },
+  "scene": {
+    "location": "Modern and bright open space of a digital marketing agency",
+    "layout": {
+      "width": "Large open space",
+      "flooring": "Light polished concrete or raw wood flooring",
+      "walls": "White walls with an exposed brick accent wall or a whiteboard filled with colorful notes."
+    },
+    "time_of_day": "Mid-morning (10:30 AM)",
+    "environment": {
+      "background": "Indoor plants, designer office furniture (Eames, Herman Miller), computer screens displaying colorful graphics, coffee cups and reusable water bottles on the table.",
+      "temporal_progression": "Environment remains consistent throughout the 20-second narrative. Background elements may subtly shift focus as camera moves, but spatial continuity is maintained for coherent storytelling."
+    }
+  },
+  "cinematography": {
+    "lighting": {
+      "primary_source": "Soft natural light coming from a large side window (Natural window light)",
+      "quality": "Soft diffused, with gentle shadows for a flattering and energetic look.",
+      "color_temperature": "5600K (Neutral daylight)",
+      "key_to_fill_ratio": "2:1 (Moderate contrast for a professional 'agency' look)",
+      "evolution": "Lighting remains consistent throughout the 20-second sequence, maintaining the established mood. Subtle adjustments in intensity during the final 6 seconds to emphasize the emotional climax and create visual impact."
+    },
+    "color_grading": {
+      "palette": "Bright and saturated colors (blue, yellow, green) for energy, contrasted with neutral tones for professionalism.",
+      "tone": "Energetic, modern, and optimistic (similar to the style of advertising films for tech startups)."
+    }
+  },
+  "audio": {
+    "ambient": "Light background noise of a creative office (mouse clicks, quiet typing, distant conversation murmurs).",
+    "foley": "Sequence 1 (0-8s): Pen on paper sounds, tapping on tablet, coffee cup noises. Sequence 2: Additional environmental sounds, subtle interactions with objects, breathing, fabric movement. Sequence 3: Final satisfying sound (smile, exhale, object placement), ambient fade.",
+    "music": "Background music 'Corporate Energetic' (light electronic rhythm, inspiring melody, no lyrics). The score builds progressively over 20 seconds, starting subtly and crescendoing toward the final moment. Emotional peak at 14-18s, then resolving with a confident, memorable final chord at 20s."
+  },
+  "visual_rules": {
+    "frame_purity": "without text overlays, logos unless branded, no subtitles, focus on human interaction and creative energy",
+    "quality_requirements": {
+      "no_artifacts": true,
+      "no_morphing": true,
+      "no_unnatural_motion": true
+    },
+    "realism": "Ultra-detailed textures revealing the premium quality of the products. Consistent environmental reflections on glossy surfaces. Professional three-point lighting sculpting shapes. Visible macro details (grains, fibers, finishes).",
+    "continuity": "Continuity of environmental reflections on surfaces. Maintenance of cleanliness and product condition. Consistency of ambient lighting and color temperature. Smooth camera movements and transitions."
+  },
+  "technical_specifications": {
+    "resolution": "4K (3840x2160)",
+    "color_space": "Rec. 2020",
+    "bit_depth": "10-bit",
+    "output_quality": "ProRes 422 HQ eq.",
+    "duration_seconds": 20
+  }
+}

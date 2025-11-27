@@ -1,0 +1,102 @@
+{
+  "shot": {
+    "camera_system": "RED Komodo 6K",
+    "primary_lens": "Zeiss Supreme Prime 25mm, T2.1",
+    "composition": "Medium close-up, rule of thirds, smartwatch in sharp focal point, blurred background (cinematic bokeh)",
+    "camera_motion": "Sequence 1 (0-8s): Gimbal smooth motion, lateral tracking of the athlete, slight downward tilt to capture the watch. Sequence 2 (8-12s): Smooth transition to wider establishing shot, then slow push-in to capture detail and emotion. Sequence 3 (12-20s): Final close-up with subtle dolly movement, ending on a confident, impactful frame.",
+    "frame_rate": "60 fps (for potential slow-motion effect in post-production)",
+    "aspect_ratio": "9:16 (Vertical for social media)"
+  },
+  "subject": {
+    "identity": {
+      "age": "27 years",
+      "gender": "male",
+      "ethnicity": "Caucasian, tanned complexion"
+    },
+    "physical": {
+      "height": "180 cm",
+      "posture": "athletic, dynamic, perfect running posture"
+    },
+    "facial_features": {
+      "face_shape": "oval, defined jawline",
+      "eyes": "focused, gaze fixed on the trail",
+      "hair": "short hair, slightly sweaty",
+      "expression": "determination, controlled effort"
+    },
+    "wardrobe": {
+      "top": "Technical running T-shirt, navy blue, fitted",
+      "bottom": "Black trail shorts, mid-thigh cut",
+      "accessories": "Sport smartwatch (product) on left wrist, discreet wireless earbuds"
+    }
+  },
+  "action": {
+    "sequences": [
+      {
+        "timing": "0-8 seconds",
+        "primary_motion": "Dynamic running on mountain trail, powerful and steady stride",
+        "camera_follows": "Initial action with detailed tracking"
+      },
+      {
+        "timing": "8-14 seconds",
+        "primary_motion": "Building on the initial action, the subject demonstrates additional aspects and benefits. The movement becomes more fluid and confident, showcasing expertise and comfort.",
+        "camera_follows": "Wider shot revealing more context, then pushing in for detail"
+      },
+      {
+        "timing": "14-20 seconds",
+        "primary_motion": "The subject concludes with a moment of satisfaction - a knowing smile, a final appreciative glance, or a confident gesture that conveys success and approval of the result.",
+        "camera_follows": "Close-up on emotional response and final impactful moment"
+      }
+    ],
+    "total_duration": "20 seconds"
+  },
+  "scene": {
+    "location": "Trail path in coniferous forest, mountainous region",
+    "layout": {
+      "width": "narrow trail, surrounded by dense vegetation",
+      "flooring": "packed earth, some roots and small stones (hyper-realistic details)",
+      "walls": "pine and fir tree trunks, filtered light"
+    },
+    "time_of_day": "Mid-morning (10:30 AM)",
+    "environment": {
+      "background": "dense forest, light mist in the distance, sun rays filtering through the trees",
+      "temporal_progression": "Environment remains consistent throughout the 20-second narrative. Background elements may subtly shift focus as camera moves, but spatial continuity is maintained for coherent storytelling."
+    }
+  },
+  "cinematography": {
+    "lighting": {
+      "primary_source": "Filtered sunlight (Natural window light effect)",
+      "quality": "Soft diffused, with hard golden light shafts",
+      "color_temperature": "5600K (Daylight), with touches of 3200K (Golden hour) for filtered rays",
+      "key_to_fill_ratio": "4:1 (High contrast for a sporty and dramatic look)",
+      "evolution": "Lighting remains consistent throughout the 20-second sequence, maintaining the established mood. Subtle adjustments in intensity during the final 6 seconds to emphasize the emotional climax and create visual impact."
+    },
+    "color_grading": {
+      "palette": "Deep green tones, earthy brown, navy blue (clothing), with a vivid accent on the watch screen (blue/orange)",
+      "tone": "Cinematic, saturated, contrasted, 'adventure/outdoor' look"
+    }
+  },
+  "audio": {
+    "ambient": "Forest sounds (light wind in trees, distant bird song)",
+    "foley": "Sequence 1 (0-8s): Rhythmic footsteps on earth and leaves, athlete's controlled breathing, subtle watch click. Sequence 2: Additional environmental sounds, subtle interactions with objects, breathing, fabric movement. Sequence 3: Final satisfying sound (smile, exhale, object placement), ambient fade.",
+    "music": "Minimalist and motivating electronic music, high tempo (140 BPM), no lyrics. The score builds progressively over 20 seconds, starting subtly and crescendoing toward the final moment. Emotional peak at 14-18s, then resolving with a confident, memorable final chord at 20s."
+  },
+  "visual_rules": {
+    "frame_purity": "without text overlays, logos unless branded, no subtitles, focus on the product and the action",
+    "quality_requirements": {
+      "no_artifacts": true,
+      "no_morphing": true,
+      "no_unnatural_motion": true,
+      "hyperrealism": true
+    },
+    "realism": "Realistic physics of liquids and foods (pouring, steam, condensation). Vibrant and appetizing colors under optimal lighting. Macro details of food textures (shine, moisture). Professional visual composition of food styling.",
+    "continuity": "Consistency of steam, condensation and fresh state of foods. Maintenance of vibrant colors and appetizing textures. Continuity of food styling lighting. Fluidity of preparation and serving movements."
+  },
+  "technical_specifications": {
+    "resolution": "4K (3840x2160) upscaled for 9:16",
+    "color_space": "Rec. 2020",
+    "bit_depth": "10-bit",
+    "output_quality": "ProRes 422 HQ eq.",
+    "data_rate": "High bitrate for maximum detail",
+    "duration_seconds": 20
+  }
+}

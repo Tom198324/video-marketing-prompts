@@ -1,0 +1,101 @@
+{
+  "shot": {
+    "camera_system": "ARRI Alexa Mini LF",
+    "primary_lens": "Zeiss Supreme Prime 35mm, T2.1",
+    "composition": "Medium shot, eye level, the pendant light fixture is the upper focal point, the couple is in the blurred background (bokeh) subtly interacting.",
+    "camera_motion": "Sequence 1 (0-4s): Gimbal smooth motion, slight 0.5 meter dolly in to reveal the texture of the light fixture. Sequence 2 (4-12s): Smooth transition to wider establishing shot, then slow push-in to capture detail and emotion. Sequence 3 (12-20s): Final close-up with subtle dolly movement, ending on a confident, impactful frame.",
+    "frame_rate": "24 fps",
+    "aspect_ratio": "16:9"
+  },
+  "subject": {
+    "identity": {
+      "age": "32 years old (male and female)",
+      "gender": "Male and Female",
+      "ethnicity": "Caucasian, Scandinavian/European style"
+    },
+    "physical": {
+      "height": "Medium",
+      "posture": "Relaxed, seated on a textured linen sofa"
+    },
+    "facial_features": {
+      "face_shape": "Defined",
+      "eyes": "Soft gaze, directed towards the light fixture",
+      "hair": "Short and neat hair for the man, long and loose hair for the woman",
+      "expression": "Serenity, satisfaction, intimate atmosphere"
+    },
+    "wardrobe": {
+      "homme": "Anthracite gray cashmere sweater, fitted chino pants",
+      "femme": "Light beige knitted sweater dress, minimalist and elegant"
+    }
+  },
+  "action": {
+    "sequences": [
+      {
+        "timing": "0-4 seconds",
+        "primary_motion": "The woman gently raises her hand to brush the edge of the light fixture, the man smiles slightly while looking at her. Very slow and deliberate movement.",
+        "camera_follows": "Close tracking of the initial action"
+      },
+      {
+        "timing": "4-12 seconds",
+        "primary_motion": "The subject continues the action with increased confidence and detail. The woman gently raises her hand to brush the edge of the light fixture, the man smiles slightly while looking at her evolves into a more complete demonstration, showing mastery and precision.",
+        "camera_follows": "Medium shot capturing the full context and environment interaction"
+      },
+      {
+        "timing": "12-20 seconds",
+        "primary_motion": "The subject completes the action with a satisfied expression, looks at the result with approval, and shows a subtle smile of accomplishment. Final moment captures the positive outcome.",
+        "camera_follows": "Close-up on facial expression and final result, ending with a confident pose"
+      }
+    ],
+    "total_duration": "20 seconds"
+  },
+  "scene": {
+    "location": "Luxury contemporary living room, renovated Haussmannian apartment in Paris",
+    "layout": {
+      "width": "Open and airy space, ceiling height of 3.5m",
+      "flooring": "Light oak herringbone parquet, minimalist Berber rug",
+      "walls": "Off-white walls, discreet moldings, a large window on the right"
+    },
+    "time_of_day": "Early evening (7:00 PM), blue twilight light entering through the window",
+    "environment": {
+      "background": "Built-in dark wood bookshelf, a few minimalist art objects, an indoor plant (Ficus Lyrata).",
+      "temporal_progression": "Environment remains consistent throughout the 20-second narrative. Background elements may subtly shift focus as camera moves, but spatial continuity is maintained for coherent storytelling."
+    }
+  },
+  "cinematography": {
+    "lighting": {
+      "primary_source": "Warm and soft light emanating from the pendant light fixture (key source)",
+      "quality": "Soft diffused, with soft shadows and subtle reflections on the brushed metal of the fixture.",
+      "color_temperature": "3000K (Warm White) for the fixture, 4500K (Cool White) for the ambient exterior light.",
+      "key_to_fill_ratio": "4:1 (Moderate contrast for an intimate atmosphere)",
+      "evolution": "Lighting remains consistent throughout the 20-second sequence, maintaining the established mood. Subtle adjustments in intensity during the final 6 seconds to emphasize the emotional climax and create visual impact."
+    },
+    "color_grading": {
+      "palette": "Neutral tones (gray, beige, off-white) with warm color accents (light from the fixture).",
+      "tone": "Elegant, luxurious, intimate, 'Architectural Digest' style."
+    }
+  },
+  "audio": {
+    "ambient": "Light crackling of a distant fireplace, very muted city noise (distant traffic).",
+    "foley": "Sequence 1 (0-4s): Subtle rubbing of the cashmere sweater, light 'click' of finger brushing the fixture. Sequence 2: Additional environmental sounds, subtle interactions with objects, breathing, fabric movement. Sequence 3: Final satisfying sound (smile, exhale, object placement), ambient fade.",
+    "music": "Very minimalist jazz lounge background music, piano and double bass, very low volume. The score builds progressively over 20 seconds, starting subtly and crescendoing toward the final moment. Emotional peak at 14-18s, then resolving with a confident, memorable final chord at 20s."
+  },
+  "visual_rules": {
+    "frame_purity": "without text overlays, logos unless branded, no subtitles. Focus on hyperrealistic texture and detail.",
+    "quality_requirements": {
+      "no_artifacts": true,
+      "no_morphing": true,
+      "no_unnatural_motion": true,
+      "photorealistic_detail": true
+    },
+    "realism": "Accurate human anatomy and proportions with authentic facial expressions. Realistic skin details (pores, natural texture, micro-imperfections). Soft and flattering lighting simulating natural light. Smooth and biomechanically correct body movements.",
+    "continuity": "Logical and credible progression of actions and movements. Consistency of lighting direction and quality throughout the sequence. Maintenance of skin tones, makeup, and hairstyle. Fluidity of facial expressions and body language."
+  },
+  "technical_specifications": {
+    "resolution": "4K (3840x2160)",
+    "color_space": "Rec. 2020",
+    "bit_depth": "10-bit",
+    "output_quality": "ProRes 422 HQ eq.",
+    "rendering_style": "Hyperrealistic, Cinematic",
+    "duration_seconds": 20
+  }
+}

@@ -1,0 +1,103 @@
+{
+  "shot": {
+    "camera_system": "ARRI Alexa Mini LF",
+    "primary_lens": "Zeiss Supreme Prime 50mm T1.5",
+    "composition": "Medium close-up, full body, rule of thirds, focus on the model's movement and the fabric's texture.",
+    "camera_motion": "Sequence 1 (0-8s): Smooth Steadicam tracking, moving laterally and slightly pulling back to follow the model's elegant stride.. Sequence 2 (8-12s): Smooth transition to wider establishing shot, then slow push-in to capture detail and emotion. Sequence 3 (12-20s): Final close-up with subtle dolly movement, ending on a confident, impactful frame.",
+    "frame_rate": "24 fps (with motion blur for cinematic feel)",
+    "aspect_ratio": "9:16"
+  },
+  "subject": {
+    "identity": {
+      "age": "25 years old",
+      "gender": "Female",
+      "ethnicity": "Caucasian, fair skin"
+    },
+    "physical": {
+      "height": "178 cm",
+      "posture": "Confident, elegant, professional model's posture"
+    },
+    "facial_features": {
+      "face_shape": "Oval",
+      "eyes": "Piercing blue, direct gaze",
+      "hair": "Sleek, pulled-back low ponytail, dark brown",
+      "expression": "Subtle, sophisticated, high-fashion editorial look"
+    },
+    "wardrobe": {
+      "outerwear": "Lightweight, flowing trench coat in a pastel spring color (e.g., mint green)",
+      "dress": "Minimalist silk slip dress, ivory color, under the coat",
+      "shoes": "Designer high-heeled sandals, metallic silver",
+      "accessories": "Delicate gold chain necklace, no other visible jewelry"
+    }
+  },
+  "action": {
+    "sequences": [
+      {
+        "timing": "0-8 seconds",
+        "primary_motion": "Elegant, controlled catwalk stride, a slow turn at the end of the frame.",
+        "camera_follows": "Initial action with detailed tracking"
+      },
+      {
+        "timing": "8-14 seconds",
+        "primary_motion": "Building on the initial action, the subject demonstrates additional aspects and benefits. The movement becomes more fluid and confident, showcasing expertise and comfort.",
+        "camera_follows": "Wider shot revealing more context, then pushing in for detail"
+      },
+      {
+        "timing": "14-20 seconds",
+        "primary_motion": "The subject concludes with a moment of satisfaction - a knowing smile, a final appreciative glance, or a confident gesture that conveys success and approval of the result.",
+        "camera_follows": "Close-up on emotional response and final impactful moment"
+      }
+    ],
+    "total_duration": "20 seconds"
+  },
+  "scene": {
+    "location": "High-end minimalist fashion photo studio",
+    "layout": {
+      "width": "Wide, empty space with high ceilings",
+      "flooring": "Polished concrete, light grey, reflective",
+      "walls": "Seamless white cyclorama background, perfectly clean",
+      "props": "None, pure minimalist aesthetic"
+    },
+    "time_of_day": "Mid-day",
+    "environment": {
+      "background": "Pure, diffused white light, creating a sense of infinite space and focus on the subject.",
+      "temporal_progression": "Environment remains consistent throughout the 20-second narrative. Background elements may subtly shift focus as camera moves, but spatial continuity is maintained for coherent storytelling."
+    }
+  },
+  "cinematography": {
+    "lighting": {
+      "primary_source": "Large, softbox key light positioned high and slightly to the left (Butterfly lighting effect)",
+      "quality": "Soft, diffused, high-key lighting",
+      "color_temperature": "5600K (Daylight balanced), crisp and clean",
+      "key_to_fill_ratio": "2:1, minimal shadows for a bright, fresh look",
+      "evolution": "Lighting remains consistent throughout the 20-second sequence, maintaining the established mood. Subtle adjustments in intensity during the final 6 seconds to emphasize the emotional climax and create visual impact."
+    },
+    "color_grading": {
+      "palette": "Monochromatic with a single pop of pastel color (the coat), high contrast, deep blacks, and pure whites.",
+      "tone": "Elegant, sophisticated, fresh, and luxurious"
+    }
+  },
+  "audio": {
+    "ambient": "Silent studio atmosphere, faint sound of the model's footsteps on the concrete.",
+    "foley": "Sequence 1 (0-8s): Subtle rustle of the silk dress and trench coat fabric, soft click of the heels.. Sequence 2: Additional environmental sounds, subtle interactions with objects, breathing, fabric movement. Sequence 3: Final satisfying sound (smile, exhale, object placement), ambient fade.",
+    "music": "Minimalist, ambient electronic track with a slow, sophisticated beat, no vocals. The score builds progressively over 20 seconds, starting subtly and crescendoing toward the final moment. Emotional peak at 14-18s, then resolving with a confident, memorable final chord at 20s."
+  },
+  "visual_rules": {
+    "frame_purity": "without text overlays, logos unless branded, no subtitles, no visible crew or equipment",
+    "quality_requirements": {
+      "no_artifacts": true,
+      "no_morphing": true,
+      "no_unnatural_motion": true,
+      "hyperrealism": "Photorealistic rendering, extreme detail in fabric texture and skin tone"
+    },
+    "realism": "Credible architectural environment with authentic materials. Realistic natural lighting according to time and weather. Consistent furnishing and decoration details. Correct spatial perspectives and proportions.",
+    "continuity": "Consistency of natural light according to temporal progression. Maintenance of architectural and decorative style. Continuity of exterior views through windows. Smooth spatial flow and discovery."
+  },
+  "technical_specifications": {
+    "resolution": "4K (3840x2160)",
+    "color_space": "Rec. 2020",
+    "bit_depth": "10-bit",
+    "output_quality": "ProRes 422 HQ eq.",
+    "duration_seconds": 20
+  }
+}

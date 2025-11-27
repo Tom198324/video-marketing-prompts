@@ -1,0 +1,99 @@
+{
+  "shot": {
+    "camera_system": "ARRI Alexa Mini LF",
+    "primary_lens": "Zeiss Supreme Prime 35mm, T1.5",
+    "composition": "Medium close-up, rule of thirds, subject slightly off-center, very shallow depth of field (soft bokeh) on the office background.",
+    "camera_motion": "Sequence 1 (0-8s): Smooth Steadicam tracking, subtle and slow 'push-in' (dolly in) movement towards the subject to emphasize focus. Sequence 2 (8-12s): Smooth transition to wider establishing shot, then slow push-in to capture detail and emotion. Sequence 3 (12-20s): Final close-up with subtle dolly movement, ending on a confident, impactful frame.",
+    "frame_rate": "24 fps (standard cinematic)",
+    "aspect_ratio": "16:9"
+  },
+  "subject": {
+    "identity": {
+      "age": "42 years",
+      "gender": "male",
+      "ethnicity": "Caucasian, fair complexion"
+    },
+    "physical": {
+      "height": "180 cm",
+      "posture": "Seated, upright, confident, slightly leaning towards the laptop screen."
+    },
+    "facial_features": {
+      "face_shape": "Oval, defined jawline",
+      "eyes": "Blue, focused and professional gaze",
+      "hair": "Short, neat, salt and pepper",
+      "expression": "Serious, focused, conveying authority and satisfaction."
+    },
+    "wardrobe": {
+      "suit": "Custom navy blue three-piece suit, pristine white shirt, discreet burgundy silk tie.",
+      "accessories": "Minimalist luxury steel watch, thin wedding band."
+    }
+  },
+  "action": {
+    "sequences": [
+      {
+        "timing": "0-8 seconds",
+        "primary_motion": "The manager interacts with a CRM dashboard on an ultra-thin laptop screen. He makes a precise and confident finger gesture to click on a key dashboard element, then slightly nods in approval.",
+        "camera_follows": "Initial action with detailed tracking"
+      },
+      {
+        "timing": "8-14 seconds",
+        "primary_motion": "Building on the initial action, the subject demonstrates additional aspects and benefits. The movement becomes more fluid and confident, showcasing expertise and comfort.",
+        "camera_follows": "Wider shot revealing more context, then pushing in for detail"
+      },
+      {
+        "timing": "14-20 seconds",
+        "primary_motion": "The subject concludes with a moment of satisfaction - a knowing smile, a final appreciative glance, or a confident gesture that conveys success and approval of the result.",
+        "camera_follows": "Close-up on emotional response and final impactful moment"
+      }
+    ],
+    "total_duration": "20 seconds"
+  },
+  "scene": {
+    "location": "Modern and minimalist executive office, located in a skyscraper with panoramic views of a dynamic city.",
+    "layout": {
+      "width": "Spacious, with a large dark and sleek wooden desk, a black leather executive chair, and a minimalist shelf with a few books and an abstract art object.",
+      "flooring": "Polished dark wood parquet.",
+      "walls": "One glass wall (city view) and one anthracite gray accent wall."
+    },
+    "time_of_day": "Late afternoon (4:00 PM), soft golden light filtering through the window.",
+    "environment": {
+      "background": "Blurred urban view (bokeh) through the window, a hot coffee in a white ceramic cup placed on the desk, a laptop displaying a CRM dashboard with clear and modern colors.",
+      "temporal_progression": "Environment remains consistent throughout the 20-second narrative. Background elements may subtly shift focus as camera moves, but spatial continuity is maintained for coherent storytelling."
+    }
+  },
+  "cinematography": {
+    "lighting": {
+      "primary_source": "Natural light from the window (Key Light) coming from the subject's left.",
+      "quality": "Soft diffused (softbox) for flattering and professional lighting, without harsh shadows.",
+      "color_temperature": "5000K (neutral daylight) with a slight warmth (3800K) for indoor ambiance.",
+      "key_to_fill_ratio": "3:1 (moderate contrast, professional and high-end look).",
+      "evolution": "Lighting remains consistent throughout the 20-second sequence, maintaining the established mood. Subtle adjustments in intensity during the final 6 seconds to emphasize the emotional climax and create visual impact."
+    },
+    "color_grading": {
+      "palette": "Dominance of blue tones (software) and gray (office), with warm accents (wood, sunlight).",
+      "tone": "Professional corporate, saturated yet natural colors, high contrast for a premium 'enterprise software' look."
+    }
+  },
+  "audio": {
+    "ambient": "Very low background noise of a distant city, silent air conditioning.",
+    "foley": "Sequence 1 (0-8s): Subtle sound of finger touching the touchscreen, slight fabric rustle of the suit. Sequence 2: Additional environmental sounds, subtle interactions with objects, breathing, fabric movement. Sequence 3: Final satisfying sound (smile, exhale, object placement), ambient fade.",
+    "music": "Minimalist and optimistic ambient music, 'corporate success' style, moderate tempo (e.g., piano and synthetic strings). The score builds progressively over 20 seconds, starting subtly and crescendoing toward the final moment. Emotional peak at 14-18s, then resolving with a confident, memorable final chord at 20s."
+  },
+  "visual_rules": {
+    "frame_purity": "without text overlays, logos unless branded (clean dashboard UI), no subtitles, hyperrealistic rendering.",
+    "quality_requirements": {
+      "no_artifacts": true,
+      "no_morphing": true,
+      "no_unnatural_motion": true
+    },
+    "realism": "Photorealistic rendering of fabrics with natural draping and folds. Accurate material textures (cotton, silk, denim, leather). Fashion lighting highlighting cuts and silhouettes. Smooth movements and natural garment fall.",
+    "continuity": "Consistency of style, color palette and fashion aesthetic. Maintenance of garment fit and fall. Continuity of fashion lighting and ambiance. Smooth transitions between looks and poses."
+  },
+  "technical_specifications": {
+    "resolution": "4K (3840x2160)",
+    "color_space": "Rec. 2020",
+    "bit_depth": "10-bit",
+    "output_quality": "ProRes 422 HQ eq.",
+    "duration_seconds": 20
+  }
+}

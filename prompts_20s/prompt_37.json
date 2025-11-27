@@ -1,0 +1,101 @@
+{
+  "shot": {
+    "camera_system": "ARRI Alexa Mini LF",
+    "primary_lens": "Zeiss Supreme Prime 35mm T1.5, focus on the subject",
+    "composition": "Medium close-up, rule of thirds, subject slightly off-center",
+    "camera_motion": "Sequence 1 (0-8s): Smooth Steadicam tracking, slight lateral movement from left to right. Sequence 2 (8-12s): Smooth transition to wider establishing shot, then slow push-in to capture detail and emotion. Sequence 3 (12-20s): Final close-up with subtle dolly movement, ending on a confident, impactful frame.",
+    "frame_rate": "24 fps",
+    "aspect_ratio": "16:9"
+  },
+  "subject": {
+    "identity": {
+      "age": "36 years",
+      "gender": "female",
+      "ethnicity": "Caucasian"
+    },
+    "physical": {
+      "height": "170 cm",
+      "posture": "Professional, confident, measured gestures"
+    },
+    "facial_features": {
+      "face_shape": "Oval",
+      "eyes": "Green, direct and engaging gaze",
+      "hair": "Long bob light chestnut, neat hairstyle",
+      "expression": "Professional smile, focused and passionate"
+    },
+    "wardrobe": {
+      "top": "Structured dark gray blazer, fine black turtleneck",
+      "bottom": "Straight-cut black suit pants",
+      "accessories": "Minimalist steel watch, discreet ring"
+    }
+  },
+  "action": {
+    "sequences": [
+      {
+        "timing": "0-8 seconds",
+        "primary_motion": "The architect makes a precise hand gesture towards a work plan, explaining the project with conviction.",
+        "camera_follows": "Initial action with detailed tracking"
+      },
+      {
+        "timing": "8-14 seconds",
+        "primary_motion": "Building on the initial action, the subject demonstrates additional aspects and benefits. The movement becomes more fluid and confident, showcasing expertise and comfort.",
+        "camera_follows": "Wider shot revealing more context, then pushing in for detail"
+      },
+      {
+        "timing": "14-20 seconds",
+        "primary_motion": "The subject concludes with a moment of satisfaction - a knowing smile, a final appreciative glance, or a confident gesture that conveys success and approval of the result.",
+        "camera_follows": "Close-up on emotional response and final impactful moment"
+      }
+    ],
+    "total_duration": "20 seconds"
+  },
+  "scene": {
+    "location": "Renovated industrial loft, artistic district",
+    "layout": {
+      "width": "Large open space, exposed white-painted brick walls, black metal beams",
+      "flooring": "Dark solid wood floor (smoked oak)",
+      "walls": "White brick wall, large workshop-style bay window"
+    },
+    "time_of_day": "Late afternoon (4:00 PM)",
+    "environment": {
+      "background": "Polished concrete work surface, modern architectural model, natural light filtered through the bay window",
+      "temporal_progression": "Environment remains consistent throughout the 20-second narrative. Background elements may subtly shift focus as camera moves, but spatial continuity is maintained for coherent storytelling."
+    }
+  },
+  "cinematography": {
+    "lighting": {
+      "primary_source": "Soft natural light from the large bay window (window light)",
+      "quality": "Soft diffused, with gentle and gradual shadows",
+      "color_temperature": "5600K (neutral daylight)",
+      "key_to_fill_ratio": "2:1 (slightly contrasted for volume)",
+      "evolution": "Lighting remains consistent throughout the 20-second sequence, maintaining the established mood. Subtle adjustments in intensity during the final 6 seconds to emphasize the emotional climax and create visual impact."
+    },
+    "color_grading": {
+      "palette": "Neutral tones (gray, white, black, dark wood), color accent on the model",
+      "tone": "Modern, elegant, professional, slightly desaturated for a cinematic look"
+    }
+  },
+  "audio": {
+    "ambient": "Very low background noise of a distant city, professional silence",
+    "foley": "Sequence 1 (0-8s): Subtle sound of finger tapping the work surface, slight fabric rustle. Sequence 2: Additional environmental sounds, subtle interactions with objects, breathing, fabric movement. Sequence 3: Final satisfying sound (smile, exhale, object placement), ambient fade.",
+    "music": "Minimalist and sophisticated instrumental background music (piano and light strings). The score builds progressively over 20 seconds, starting subtly and crescendoing toward the final moment. Emotional peak at 14-18s, then resolving with a confident, memorable final chord at 20s.",
+    "dialogue": "Architect's voice clear and calm (not audible, but the intention is present)"
+  },
+  "visual_rules": {
+    "frame_purity": "without text overlays, logos unless branded, no subtitles, hyperrealistic rendering",
+    "quality_requirements": {
+      "no_artifacts": true,
+      "no_morphing": true,
+      "no_unnatural_motion": true
+    },
+    "realism": "Fluid athletic movements biomechanically correct. Defined muscular anatomy with credible perspiration. Dynamic lighting accentuating physical form. Effort and intensity visible in expressions.",
+    "continuity": "Logical progression of physical effort intensity. Consistency of perspiration and signs of fatigue. Maintenance of posture and technical form. Continuity of lighting and visible motivation."
+  },
+  "technical_specifications": {
+    "resolution": "4K (3840x2160)",
+    "color_space": "Rec. 2020",
+    "bit_depth": "10-bit",
+    "output_quality": "ProRes 422 HQ eq.",
+    "duration_seconds": 20
+  }
+}

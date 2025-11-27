@@ -1,0 +1,100 @@
+{
+  "shot": {
+    "camera_system": "ARRI Alexa Mini LF",
+    "primary_lens": "Zeiss Supreme Prime 35mm, T1.5",
+    "composition": "Medium close-up, rule of thirds, very shallow depth of field (soft bokeh)",
+    "camera_motion": "Sequence 1 (0-8s): Smooth Steadicam tracking, slight 1-second dolly in to emphasize intimacy. Sequence 2 (8-12s): Smooth transition to wider establishing shot, then slow push-in to capture detail and emotion. Sequence 3 (12-20s): Final close-up with subtle dolly movement, ending on a confident, impactful frame.",
+    "frame_rate": "24 fps",
+    "aspect_ratio": "16:9"
+  },
+  "subject": {
+    "identity": {
+      "age": "39 years old",
+      "gender": "female",
+      "ethnicity": "Caucasian"
+    },
+    "physical": {
+      "height": "170 cm",
+      "posture": "Seated, leaning slightly forward, open and reassuring posture"
+    },
+    "facial_features": {
+      "face_shape": "Oval",
+      "eyes": "Blue, soft and focused gaze",
+      "hair": "Light brown, tied in a low ponytail",
+      "expression": "Subtle smile, empathetic and professional"
+    },
+    "wardrobe": {
+      "top": "White medical blouse, clean and ironed",
+      "bottom": "Navy blue suit trousers",
+      "accessories": "Simple silver watch, stethoscope around the neck"
+    }
+  },
+  "action": {
+    "sequences": [
+      {
+        "timing": "0-8 seconds",
+        "primary_motion": "The pediatrician gently examines a child's ear (off-screen) with an otoscope, then looks up towards the camera with a kind and reassuring gaze.",
+        "camera_follows": "Initial action with detailed tracking"
+      },
+      {
+        "timing": "8-14 seconds",
+        "primary_motion": "Building on the initial action, the subject demonstrates additional aspects and benefits. The movement becomes more fluid and confident, showcasing expertise and comfort.",
+        "camera_follows": "Wider shot revealing more context, then pushing in for detail"
+      },
+      {
+        "timing": "14-20 seconds",
+        "primary_motion": "The subject concludes with a moment of satisfaction - a knowing smile, a final appreciative glance, or a confident gesture that conveys success and approval of the result.",
+        "camera_follows": "Close-up on emotional response and final impactful moment"
+      }
+    ],
+    "total_duration": "20 seconds"
+  },
+  "scene": {
+    "location": "Modern and bright pediatric consultation room in a hospital",
+    "layout": {
+      "width": "Medium-sized room, minimalist and ergonomic furniture",
+      "flooring": "Light gray vinyl flooring, immaculate",
+      "walls": "Off-white walls with a pastel-colored stripe (aqua green) at child height"
+    },
+    "time_of_day": "Mid-morning (10:30 AM)",
+    "environment": {
+      "background": "Light wood desk, a few discreet toys on a blurred shelf, a turned-off computer screen",
+      "temporal_progression": "Environment remains consistent throughout the 20-second narrative. Background elements may subtly shift focus as camera moves, but spatial continuity is maintained for coherent storytelling."
+    }
+  },
+  "cinematography": {
+    "lighting": {
+      "primary_source": "Soft natural light coming from a large window (off-screen) on the left",
+      "quality": "Soft diffused light, no harsh shadows",
+      "color_temperature": "5600K (Daylight), slightly warmed for a 'caring' tone",
+      "key_to_fill_ratio": "2:1 (low contrast for a soothing atmosphere)",
+      "evolution": "Lighting remains consistent throughout the 20-second sequence, maintaining the established mood. Subtle adjustments in intensity during the final 6 seconds to emphasize the emotional climax and create visual impact."
+    },
+    "color_grading": {
+      "palette": "Pastel tones (blue, aqua green, white) and neutrals (light wood)",
+      "tone": "Calm & reassuring, slightly desaturated for a professional and cinematic look"
+    }
+  },
+  "audio": {
+    "ambient": "Very low hospital background noise (distant murmurs, discreet beep of medical equipment)",
+    "foley": "Sequence 1 (0-8s): Light rustling of the blouse, soft click of the otoscope. Sequence 2: Additional environmental sounds, subtle interactions with objects, breathing, fabric movement. Sequence 3: Final satisfying sound (smile, exhale, object placement), ambient fade.",
+    "music": "Soft and minimalist instrumental ambient music (piano and light strings), very low volume. The score builds progressively over 20 seconds, starting subtly and crescendoing toward the final moment. Emotional peak at 14-18s, then resolving with a confident, memorable final chord at 20s."
+  },
+  "visual_rules": {
+    "frame_purity": "without text overlays, logos unless branded, no subtitles",
+    "quality_requirements": {
+      "no_artifacts": true,
+      "no_morphing": true,
+      "no_unnatural_motion": true
+    },
+    "realism": "Hyper-realistic rendering of products with visible premium finishes. Commercial lighting highlighting key features. Precise material textures (wood, metal, glass, plastic). Selective depth of field directing attention.",
+    "continuity": "Consistency in product presentation and staging. Maintaining retail ambiance and brand identity. Continuity of commercial lighting and signage. Smooth shopping journey and discovery."
+  },
+  "technical_specifications": {
+    "resolution": "4K (3840x2160)",
+    "color_space": "Rec. 2020",
+    "bit_depth": "10-bit",
+    "output_quality": "ProRes 422 HQ eq.",
+    "duration_seconds": 20
+  }
+}

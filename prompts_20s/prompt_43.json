@@ -1,0 +1,101 @@
+{
+  "shot": {
+    "camera_system": "ARRI Alexa Mini LF",
+    "primary_lens": "Zeiss Supreme Prime 35mm T1.5, aperture T2.8",
+    "composition": "Medium close-up (MCU) of the instructor, centered, with shallow depth of field (bokeh) to isolate the subject from the classroom background.",
+    "camera_motion": "Sequence 1 (0-8s): Slow and subtle dolly in (push-in) lasting 8 seconds, increasing intensity and focus on the instructor. Sequence 2 (8-12s): Smooth transition to wider establishing shot, then slow push-in to capture detail and emotion. Sequence 3 (12-20s): Final close-up with subtle dolly movement, ending on a confident, impactful frame.",
+    "frame_rate": "24 fps (standard cinematic)",
+    "aspect_ratio": "16:9"
+  },
+  "subject": {
+    "identity": {
+      "age": "Approximately 30 years old",
+      "gender": "Male",
+      "ethnicity": "Not specified, professional and modern appearance"
+    },
+    "physical": {
+      "height": "Average height",
+      "posture": "Standing, slightly leaning forward, confident and engaging posture",
+      "features": "Neatly trimmed short beard, thin glasses"
+    },
+    "facial_features": {
+      "face_shape": "Oval",
+      "eyes": "Direct and passionate gaze towards the camera (simulating eye contact with the student)",
+      "hair": "Short, modern hairstyle",
+      "expression": "Engaging and professional smile, expression of concentration and expertise"
+    },
+    "wardrobe": {
+      "upper_body": "Fitted dark denim shirt, sleeves rolled up to forearms",
+      "lower_body": "Anthracite gray chino pants",
+      "accessories": "Discreet smartwatch"
+    }
+  },
+  "action": {
+    "sequences": [
+      {
+        "timing": "0-8 seconds",
+        "primary_motion": "The instructor speaks passionately and uses a hand gesture to emphasize a key point on the screen behind him (off-frame).",
+        "camera_follows": "Initial action with detailed tracking"
+      },
+      {
+        "timing": "8-14 seconds",
+        "primary_motion": "Building on the initial action, the subject demonstrates additional aspects and benefits. The movement becomes more fluid and confident, showcasing expertise and comfort.",
+        "camera_follows": "Wider shot revealing more context, then pushing in for detail"
+      },
+      {
+        "timing": "14-20 seconds",
+        "primary_motion": "The subject concludes with a moment of satisfaction - a knowing smile, a final appreciative glance, or a confident gesture that conveys success and approval of the result.",
+        "camera_follows": "Close-up on emotional response and final impactful moment"
+      }
+    ],
+    "total_duration": "20 seconds"
+  },
+  "scene": {
+    "location": "Modern and bright technological training room, 'Silicon Valley' style",
+    "layout": {
+      "width": "Large open space",
+      "flooring": "Light gray polished concrete",
+      "walls": "Accent wall of white bricks or light gray acoustic panel, giant projection screen blurred in the background"
+    },
+    "time_of_day": "Mid-morning (10:00 AM)",
+    "environment": {
+      "background": "Rows of open laptops, a few blurred students (bokeh) working in the background, modern indoor plants (sansevieria, monstera) for a touch of life.",
+      "temporal_progression": "Environment remains consistent throughout the 20-second narrative. Background elements may subtly shift focus as camera moves, but spatial continuity is maintained for coherent storytelling."
+    }
+  },
+  "cinematography": {
+    "lighting": {
+      "primary_source": "Soft natural light coming from large side windows (daylight)",
+      "quality": "Soft diffused (softbox/umbrella) for flattering lighting without harsh shadows",
+      "color_temperature": "5600K (neutral daylight)",
+      "key_to_fill_ratio": "2:1 (slightly contrasted for professionalism)",
+      "evolution": "Lighting remains consistent throughout the 20-second sequence, maintaining the established mood. Subtle adjustments in intensity during the final 6 seconds to emphasize the emotional climax and create visual impact."
+    },
+    "color_grading": {
+      "palette": "Shades of blue, gray, and off-white (tech/corporate palette)",
+      "tone": "Bright, saturated, with slight cinematic grain for hyperrealism. High contrast for a professional look."
+    }
+  },
+  "audio": {
+    "ambient": "Very low background noise of keyboard clicks, student murmurs, quiet room ventilation.",
+    "foley": "Sequence 1 (0-8s): Clear and precise sound of the instructor's voice (lav mic), a slight pen tap on a tablet. Sequence 2: Additional environmental sounds, subtle interactions with objects, breathing, fabric movement. Sequence 3: Final satisfying sound (smile, exhale, object placement), ambient fade.",
+    "music": "Inspirational and minimalist instrumental background music, 'tech corporate' style (soft synthesizers, light rhythm). The score builds progressively over 20 seconds, starting subtly and crescendoing toward the final moment. Emotional peak at 14-18s, then resolving with a confident, memorable final chord at 20s."
+  },
+  "visual_rules": {
+    "frame_purity": "No text, no visible logo (except subtle branding on the blurred laptop), no subtitles.",
+    "quality_requirements": {
+      "no_artifacts": true,
+      "no_morphing": true,
+      "no_unnatural_motion": true
+    },
+    "realism": "Ultra-detailed textures revealing the premium quality of the products. Consistent environmental reflections on glossy surfaces. Professional three-point lighting sculpting shapes. Visible macro details (grains, fibers, finishes).",
+    "continuity": "Continuity of environmental reflections on surfaces. Maintenance of cleanliness and condition of products. Consistency of ambient lighting and color temperature. Smoothness of camera movements and transitions."
+  },
+  "technical_specifications": {
+    "resolution": "4K (3840x2160)",
+    "color_space": "Rec. 2020",
+    "bit_depth": "10-bit",
+    "output_quality": "ProRes 422 HQ eq.",
+    "duration_seconds": 20
+  }
+}

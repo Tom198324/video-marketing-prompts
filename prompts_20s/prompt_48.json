@@ -1,0 +1,102 @@
+{
+  "shot": {
+    "camera_system": "ARRI Alexa Mini LF",
+    "primary_lens": "Zeiss Supreme Prime 35mm, T2.1",
+    "composition": "Medium Close-Up (MCU) of the notary, focusing on his expression and the document to be signed. Rule of thirds applied.",
+    "camera_motion": "Sequence 1 (0-8s): Smooth Steadicam tracking, very slow, moving slightly from left to right to reveal the document on the desk. Sequence 2 (8-12s): Smooth transition to wider establishing shot, then slow push-in to capture detail and emotion. Sequence 3 (12-20s): Final close-up with subtle dolly movement, ending on a confident, impactful frame.",
+    "frame_rate": "24 fps (cinematic)",
+    "aspect_ratio": "16:9"
+  },
+  "subject": {
+    "identity": {
+      "age": "52 years old",
+      "gender": "male",
+      "ethnicity": "Caucasian, fair complexion"
+    },
+    "physical": {
+      "height": "180 cm",
+      "posture": "Seated, upright, dignified and solemn"
+    },
+    "facial_features": {
+      "face_shape": "Oval, defined features",
+      "eyes": "Blue-gray, focused and confident gaze",
+      "hair": "Salt and pepper gray, classic hairstyle",
+      "expression": "Serious, professional, inspiring confidence"
+    },
+    "wardrobe": {
+      "suit": "Dark navy blue wool three-piece suit, classic cut, perfectly tailored",
+      "shirt": "White Egyptian cotton shirt, French collar",
+      "tie": "Burgundy silk tie with subtle patterns, impeccable Windsor knot",
+      "accessories": "Classic gold watch on left wrist, discreet cufflinks"
+    }
+  },
+  "action": {
+    "sequences": [
+      {
+        "timing": "0-8 seconds",
+        "primary_motion": "The notary takes a fountain pen in hand, positions it above the notarized document, then signs the document with deliberate precision and slowness.",
+        "camera_follows": "Initial action with detailed tracking"
+      },
+      {
+        "timing": "8-14 seconds",
+        "primary_motion": "Building on the initial action, the subject demonstrates additional aspects and benefits. The movement becomes more fluid and confident, showcasing expertise and comfort.",
+        "camera_follows": "Wider shot revealing more context, then pushing in for detail"
+      },
+      {
+        "timing": "14-20 seconds",
+        "primary_motion": "The subject concludes with a moment of satisfaction - a knowing smile, a final appreciative glance, or a confident gesture that conveys success and approval of the result.",
+        "camera_follows": "Close-up on emotional response and final impactful moment"
+      }
+    ],
+    "total_duration": "20 seconds"
+  },
+  "scene": {
+    "location": "Classic and luxurious notary office, in a Parisian legal study",
+    "layout": {
+      "width": "Desk in dark solid wood (mahogany or walnut), Persian rug on the floor, wall bookshelf filled with leather-bound law books.",
+      "flooring": "Polished dark oak parquet, partially covered by an Oriental rug",
+      "walls": "Dark wood paneling (wainscoting) and walls painted in bottle green or cream"
+    },
+    "time_of_day": "Late afternoon (4:00 PM)",
+    "environment": {
+      "background": "A large window behind the notary (off direct frame) letting in soft light. A few symbolic objects on the desk: a crystal inkwell, a brass seal, a neatly stacked pile of files.",
+      "temporal_progression": "Environment remains consistent throughout the 20-second narrative. Background elements may subtly shift focus as camera moves, but spatial continuity is maintained for coherent storytelling."
+    }
+  },
+  "cinematography": {
+    "lighting": {
+      "primary_source": "Natural window light (soft light coming from the left, slightly behind)",
+      "quality": "Soft diffused light, creating soft shadows and moderate contrast (4:1 ratio)",
+      "color_temperature": "Warm white (3200K), for a warm and dignified atmosphere",
+      "key_to_fill_ratio": "4:1 (dominant key light to sculpt the face and desk)",
+      "evolution": "Lighting remains consistent throughout the 20-second sequence, maintaining the established mood. Subtle adjustments in intensity during the final 6 seconds to emphasize the emotional climax and create visual impact."
+    },
+    "color_grading": {
+      "palette": "Rich and saturated tones (navy blue, burgundy, dark wood), with clean whites for the document.",
+      "tone": "Solemn, dignified, professional and reassuring. High contrast for a cinematic look."
+    }
+  },
+  "audio": {
+    "ambient": "Muted silence of a luxury office, slight ventilation noise, distant city sounds (low).",
+    "foley": "Sequence 1 (0-8s): Subtle sound of fountain pen scratching paper, slight rustling of the document, watch clicking sound. Sequence 2: Additional environmental sounds, subtle interactions with objects, breathing, fabric movement. Sequence 3: Final satisfying sound (smile, exhale, object placement), ambient fade.",
+    "music": "Very soft and discreet classical instrumental music (cello or piano), serious and confident tone. The score builds progressively over 20 seconds, starting subtly and crescendoing toward the final moment. Emotional peak at 14-18s, then resolving with a confident, memorable final chord at 20s."
+  },
+  "visual_rules": {
+    "frame_purity": "without text overlays, logos unless branded, no subtitles, focus on hyperrealism and cinematic quality",
+    "quality_requirements": {
+      "no_artifacts": true,
+      "no_morphing": true,
+      "no_unnatural_motion": true,
+      "hyperrealism": true
+    },
+    "realism": "Photorealistic rendering of fabrics with natural draping and folds. Precise material textures (cotton, silk, denim, leather). Fashion lighting highlighting cuts and silhouettes. Smooth movements and natural fall of clothing.",
+    "continuity": "Consistency of style, color palette and fashion aesthetic. Maintenance of fit and fall of garments. Continuity of fashion lighting and atmosphere. Smooth transitions between looks and poses."
+  },
+  "technical_specifications": {
+    "resolution": "4K (3840x2160)",
+    "color_space": "Rec. 2020",
+    "bit_depth": "10-bit",
+    "output_quality": "ProRes 422 HQ eq.",
+    "duration_seconds": 20
+  }
+}

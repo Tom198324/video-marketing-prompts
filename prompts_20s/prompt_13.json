@@ -1,0 +1,102 @@
+{
+  "shot": {
+    "camera_system": "Sony Venice 2",
+    "primary_lens": "Zeiss Supreme Prime 35mm T1.5, aperture T2.8",
+    "composition": "Medium Close-Up (MCU) of the instructor, rule of thirds, minimal negative space above the head.",
+    "camera_motion": "Sequence 1 (0-8s): Static locked-off on heavy tripod, subtle lens breathing for a cinematic effect. Sequence 2 (8-12s): Smooth transition to wider establishing shot, then slow push-in to capture detail and emotion. Sequence 3 (12-20s): Final close-up with subtle dolly movement, ending on a confident, impactful frame.",
+    "frame_rate": "24 fps (standard cinematic)",
+    "aspect_ratio": "16:9"
+  },
+  "subject": {
+    "identity": {
+      "age": "38 years old",
+      "gender": "male",
+      "ethnicity": "Caucasian, neatly trimmed short beard"
+    },
+    "physical": {
+      "height": "180 cm",
+      "posture": "Seated, leaning slightly forward, open and engaging posture."
+    },
+    "facial_features": {
+      "face_shape": "Oval",
+      "eyes": "Blue, direct and confident gaze towards the camera (simulating eye contact with the student).",
+      "hair": "Short, dark brown, professionally styled.",
+      "expression": "Slight smile, dynamic and passionate expression, conveying expertise."
+    },
+    "wardrobe": {
+      "jacket": "Casual navy blue blazer, tailored fit.",
+      "shirt": "Off-white cotton shirt, open collar (no tie).",
+      "accessories": "Minimalist brown leather watch, discreet wedding band."
+    }
+  },
+  "action": {
+    "sequences": [
+      {
+        "timing": "0-8 seconds",
+        "primary_motion": "The instructor gestures with his hands to emphasize a key point, then leans slightly forward with an affirmative nod.",
+        "camera_follows": "Initial action with detailed tracking"
+      },
+      {
+        "timing": "8-14 seconds",
+        "primary_motion": "Building on the initial action, the subject demonstrates additional aspects and benefits. The movement becomes more fluid and confident, showcasing expertise and comfort.",
+        "camera_follows": "Wider shot revealing more context, then pushing in for detail"
+      },
+      {
+        "timing": "14-20 seconds",
+        "primary_motion": "The subject concludes with a moment of satisfaction - a knowing smile, a final appreciative glance, or a confident gesture that conveys success and approval of the result.",
+        "camera_follows": "Close-up on emotional response and final impactful moment"
+      }
+    ],
+    "total_duration": "20 seconds"
+  },
+  "scene": {
+    "location": "Professional e-learning recording studio, soundproofed.",
+    "layout": {
+      "width": "Solid anthracite gray or dark blue background, slightly textured.",
+      "flooring": "Dark wood floor, visible only at the bottom of the frame.",
+      "walls": "Discreet acoustic panels on the side walls, subtly lit."
+    },
+    "time_of_day": "Indoor, controlled lighting simulating a bright afternoon.",
+    "environment": {
+      "background": "Blurred background (bokeh) with a subtle certification logo and a minimalist green plant (Monstera) for a touch of life.",
+      "temporal_progression": "Environment remains consistent throughout the 20-second narrative. Background elements may subtly shift focus as camera moves, but spatial continuity is maintained for coherent storytelling."
+    }
+  },
+  "cinematography": {
+    "lighting": {
+      "primary_source": "Key light: 120cm octagonal softbox, positioned at 45 degrees upper right.",
+      "quality": "Soft and enveloping light (soft diffused) to minimize harsh shadows.",
+      "color_temperature": "5600K (neutral daylight) for a professional and clean look.",
+      "key_to_fill_ratio": "2:1 (moderate contrast, modern corporate look).",
+      "evolution": "Lighting remains consistent throughout the 20-second sequence, maintaining the established mood. Subtle adjustments in intensity during the final 6 seconds to emphasize the emotional climax and create visual impact."
+    },
+    "color_grading": {
+      "palette": "Warm tones for skin, cool tones for background (complementary palette).",
+      "tone": "'Clean & Crisp' grading, slightly desaturated for a professional look, deep blacks."
+    }
+  },
+  "audio": {
+    "ambient": "Studio silence, very low background noise from ventilation equipment (HVAC).",
+    "foley": "Sequence 1 (0-8s): Subtle fabric noise during instructor movements, finger snaps or hand taps on desk (if visible). Sequence 2: Additional environmental sounds, subtle interactions with objects, breathing, fabric movement. Sequence 3: Final satisfying sound (smile, exhale, object placement), ambient fade.",
+    "music": "Minimalist and motivating instrumental background music, 'corporate success' style, very low volume. The score builds progressively over 20 seconds, starting subtly and crescendoing toward the final moment. Emotional peak at 14-18s, then resolving with a confident, memorable final chord at 20s.",
+    "dialogue": "Instructor's voice clear, rich and well-compressed, confident and educational tone."
+  },
+  "visual_rules": {
+    "frame_purity": "without text overlays, logos unless branded, no subtitles, hyperrealistic skin texture and detail.",
+    "quality_requirements": {
+      "no_artifacts": true,
+      "no_morphing": true,
+      "no_unnatural_motion": true,
+      "photorealism_level": "Cinematic 8K photorealism"
+    },
+    "realism": "Ultra-detailed textures revealing the premium quality of the products. Consistent environmental reflections on glossy surfaces. Professional three-point lighting sculpting shapes. Visible macro details (grains, fibers, finishes).",
+    "continuity": "Continuity of environmental reflections on surfaces. Maintenance of product cleanliness and condition. Consistency of ambient lighting and color temperature. Smooth camera movements and transitions."
+  },
+  "technical_specifications": {
+    "resolution": "4K (3840x2160)",
+    "color_space": "Rec. 2020",
+    "bit_depth": "10-bit",
+    "output_quality": "ProRes 422 HQ equivalent, maximum detail retention.",
+    "duration_seconds": 20
+  }
+}

@@ -1,0 +1,102 @@
+{
+  "shot": {
+    "camera_system": "ARRI Alexa Mini LF",
+    "primary_lens": "Zeiss Supreme Prime 50mm, T2.1",
+    "composition": "Medium close-up (MCU) of the advisor, slightly off-center (rule of thirds), with a very shallow depth of field (bokeh) to isolate the subject and emphasize her expression.",
+    "camera_motion": "Sequence 1 (0-8s): Smooth Steadicam tracking, a very slight 'push-in' (subtle zoom-in) of 0.5 seconds on the advisor's face to highlight a moment of confidence and connection. Sequence 2 (8-12s): Smooth transition to wider establishing shot, then slow push-in to capture detail and emotion. Sequence 3 (12-20s): Final close-up with subtle dolly movement, ending on a confident, impactful frame.",
+    "frame_rate": "24 fps (standard cinematic)",
+    "aspect_ratio": "16:9"
+  },
+  "subject": {
+    "identity": {
+      "age": "40 years old, professional and experienced appearance",
+      "gender": "Female",
+      "ethnicity": "Caucasian, fair complexion"
+    },
+    "physical": {
+      "height": "Average height",
+      "posture": "Seated, upright, slightly leaning forward towards the client (off-frame) to show attentiveness and engagement."
+    },
+    "facial_features": {
+      "face_shape": "Oval",
+      "eyes": "Brown eyes, direct and reassuring gaze",
+      "hair": "Long bob, dark chestnut, neat hairstyle",
+      "expression": "Subtle smile, confident and caring, micro-expression of understanding."
+    },
+    "wardrobe": {
+      "jacket": "Fitted navy blue cold wool blazer, modern cut",
+      "shirt": "White or cream silk shirt, discreet collar",
+      "accessories": "Classic steel watch, thin wedding band, no ostentatious jewelry."
+    }
+  },
+  "action": {
+    "sequences": [
+      {
+        "timing": "0-8 seconds",
+        "primary_motion": "The advisor slowly nods in approval and understanding, then takes a brief and thoughtful note in a leather notebook.",
+        "camera_follows": "Initial action with detailed tracking"
+      },
+      {
+        "timing": "8-14 seconds",
+        "primary_motion": "Building on the initial action, the subject demonstrates additional aspects and benefits. The movement becomes more fluid and confident, showcasing expertise and comfort.",
+        "camera_follows": "Wider shot revealing more context, then pushing in for detail"
+      },
+      {
+        "timing": "14-20 seconds",
+        "primary_motion": "The subject concludes with a moment of satisfaction - a knowing smile, a final appreciative glance, or a confident gesture that conveys success and approval of the result.",
+        "camera_follows": "Close-up on emotional response and final impactful moment"
+      }
+    ],
+    "total_duration": "20 seconds"
+  },
+  "scene": {
+    "location": "Private and elegant consultation office in a high-end financial services bank.",
+    "layout": {
+      "width": "Well-proportioned space, dark wood desk (walnut) and light leather armchairs.",
+      "flooring": "Thick neutral-colored carpet (pearl gray).",
+      "walls": "Walls painted anthracite gray, a discreet abstract painting on the back wall."
+    },
+    "time_of_day": "Mid-morning (10:30 AM).",
+    "environment": {
+      "background": "Artistic blur (bokeh) showing a shelf of bound books and a discreet glass trophy, suggesting expertise and success. Natural light filtered through a large window on the right.",
+      "temporal_progression": "Environment remains consistent throughout the 20-second narrative. Background elements may subtly shift focus as camera moves, but spatial continuity is maintained for coherent storytelling."
+    }
+  },
+  "cinematography": {
+    "lighting": {
+      "primary_source": "Natural window light (soft daylight) coming from the right, serving as the main light source.",
+      "quality": "Soft diffused (soft and flattering light) with slight backlighting to separate the subject from the background.",
+      "color_temperature": "5600K (neutral daylight) with slight warmth added in post-production (4500K) for a 'trustworthy' ambiance.",
+      "key_to_fill_ratio": "2:1 (low contrast ratio) for a professional and non-dramatic look.",
+      "evolution": "Lighting remains consistent throughout the 20-second sequence, maintaining the established mood. Subtle adjustments in intensity during the final 6 seconds to emphasize the emotional climax and create visual impact."
+    },
+    "color_grading": {
+      "palette": "Desaturated colors (navy blue, gray, dark wood) with an emphasis on warm skin tones.",
+      "tone": "Serious, confident, and slightly warm (warm and trustworthy)."
+    }
+  },
+  "audio": {
+    "ambient": "Very low and professional background noise (silent air conditioning, distant city hum).",
+    "foley": "Sequence 1 (0-8s): Subtle sound of pen on paper, slight rustling of blazer fabric. Sequence 2: Additional environmental sounds, subtle interactions with objects, breathing, fabric movement. Sequence 3: Final satisfying sound (smile, exhale, object placement), ambient fade.",
+    "music": "Classical and discreet ambient music (solo piano or light strings) with a slow tempo. The score builds progressively over 20 seconds, starting subtly and crescendoing toward the final moment. Emotional peak at 14-18s, then resolving with a confident, memorable final chord at 20s.",
+    "dialogue": "Not applicable (silence or inaudible whisper)."
+  },
+  "visual_rules": {
+    "frame_purity": "without text overlays, logos unless branded, no subtitles, no visible branding on the subject's clothing or accessories.",
+    "quality_requirements": {
+      "no_artifacts": true,
+      "no_morphing": true,
+      "no_unnatural_motion": true,
+      "hyperrealism": true
+    },
+    "realism": "Warm ambiance with professional welcoming lighting. Luxurious textures of materials (wood, fabrics, stone). High-end furnishing details. Authentic service and human interactions.",
+    "continuity": "Consistency of lighting and sound ambiance. Maintaining service level and attention to detail. Continuity of decorative style and atmosphere. Smooth client experience and interactions."
+  },
+  "technical_specifications": {
+    "resolution": "4K (3840x2160)",
+    "color_space": "Rec. 2020",
+    "bit_depth": "10-bit",
+    "output_quality": "ProRes 422 HQ eq.",
+    "duration_seconds": 20
+  }
+}

@@ -1,0 +1,102 @@
+{
+  "shot": {
+    "camera_system": "ARRI Alexa Mini LF",
+    "primary_lens": "Zeiss Supreme Prime 35mm T1.5, focus on the vehicle",
+    "composition": "Low-angle tracking shot, the SUV filling the lower third of the frame, coastal horizon line on the upper third",
+    "camera_motion": "Sequence 1 (0-12s): Smooth Steadicam tracking, following the SUV from the rear three-quarters, with a slight lateral movement to emphasize speed. Sequence 2 (12-14s): Smooth transition to wider establishing shot, then slow push-in to capture detail and emotion. Sequence 3 (14-20s): Final close-up with subtle dolly movement, ending on a confident, impactful frame.",
+    "frame_rate": "24 fps (standard cinematic)",
+    "aspect_ratio": "2.39:1 (Cinemascope)"
+  },
+  "subject": {
+    "identity": {
+      "age": "35 years old",
+      "gender": "Male",
+      "ethnicity": "Caucasian or Mediterranean",
+      "description": "Confident and stylish driver"
+    },
+    "physical": {
+      "height": "180 cm",
+      "posture": "Relaxed but focused, hands at '10 and 2' on the steering wheel"
+    },
+    "facial_features": {
+      "face_shape": "Oval",
+      "eyes": "Gaze focused on the road",
+      "hair": "Short, neat",
+      "expression": "Subtle smile of satisfaction"
+    },
+    "wardrobe": {
+      "jacket": "Black or anthracite gray leather jacket, modern cut",
+      "shirt": "Off-white or light gray crew neck t-shirt",
+      "accessories": "Minimalist brushed steel watch"
+    },
+    "vehicle": {
+      "model": "Premium electric SUV (futuristic design, metallic midnight blue color)",
+      "condition": "Impeccable, glossy bodywork"
+    }
+  },
+  "action": {
+    "sequences": [
+      {
+        "timing": "0-12 seconds",
+        "primary_motion": "Dynamic and smooth driving of the SUV on a winding road",
+        "camera_follows": "Extended tracking of the primary action"
+      },
+      {
+        "timing": "12-20 seconds",
+        "primary_motion": "The subject takes a moment to appreciate the result, showing visible satisfaction. A final confident look, subtle smile, or gesture of approval completes the narrative arc with emotional resonance.",
+        "camera_follows": "Close-up on facial expression transitioning to final hero shot"
+      }
+    ],
+    "total_duration": "20 seconds"
+  },
+  "scene": {
+    "location": "Panoramic coastal road (e.g., Big Sur, California or Amalfi Coast, Italy)",
+    "layout": {
+      "road_surface": "Immaculate black asphalt, clean white markings",
+      "side_elements": "Wooden or natural stone guardrail, steep cliffs on the right, deep blue ocean on the left"
+    },
+    "time_of_day": "Golden Hour (around 6:30 PM)",
+    "environment": {
+      "background": "Choppy ocean, clear sky with a few low clouds, warm and low-angle light",
+      "vegetation": "Mediterranean or coastal vegetation (pines, low shrubs)",
+      "temporal_progression": "Environment remains consistent throughout the 20-second narrative. Background elements may subtly shift focus as camera moves, but spatial continuity is maintained for coherent storytelling."
+    }
+  },
+  "cinematography": {
+    "lighting": {
+      "primary_source": "Low and slanting sun (Golden Hour)",
+      "quality": "Soft and directional light, warm reflections on the SUV bodywork",
+      "color_temperature": "3200K (Warm Tungsten)",
+      "key_to_fill_ratio": "4:1 (High contrast for a dramatic look)",
+      "evolution": "Lighting remains consistent throughout the 20-second sequence, maintaining the established mood. Subtle adjustments in intensity during the final 6 seconds to emphasize the emotional climax and create visual impact."
+    },
+    "color_grading": {
+      "palette": "Warm tones (oranges, yellows) contrasting with the deep blues of the ocean and SUV",
+      "tone": "Cinematic, rich, saturated, with deep blacks and soft highlights"
+    }
+  },
+  "audio": {
+    "ambient": "Subtle sound of wind, distant waves crashing on rocks",
+    "foley": "Sequence 1 (0-12s): Tire rolling noise on asphalt, minimalist steering wheel clicks, futuristic and discreet electric motor sound. Sequence 2: Additional environmental sounds, subtle interactions with objects, breathing, fabric movement. Sequence 3: Final satisfying sound (smile, exhale, object placement), ambient fade.",
+    "music": "Minimalist and sophisticated electronic track, moderate tempo, subtle crescendo. The score builds progressively over 20 seconds, starting subtly and crescendoing toward the final moment. Emotional peak at 14-18s, then resolving with a confident, memorable final chord at 20s."
+  },
+  "visual_rules": {
+    "frame_purity": "without text overlays, logos unless branded, no subtitles, focus on hyperrealism and cinematic quality",
+    "quality_requirements": {
+      "no_artifacts": true,
+      "no_morphing": true,
+      "no_unnatural_motion": true,
+      "high_fidelity_details": "Fine details on road texture and bodywork reflections"
+    },
+    "realism": "Realistic physics of liquids and food (pouring, steam, condensation). Vibrant and appetizing colors under optimal lighting. Macro details of food textures (shine, moisture). Professional visual composition of food styling.",
+    "continuity": "Consistency of steam, condensation, and freshness of food. Maintenance of vibrant colors and appetizing textures. Continuity of food styling lighting. Fluidity of preparation and serving movements."
+  },
+  "technical_specifications": {
+    "resolution": "4K (3840x2160)",
+    "color_space": "Rec. 2020",
+    "bit_depth": "10-bit",
+    "output_quality": "ProRes 422 HQ eq.",
+    "model_preference": "Sora 2 or Veo 3",
+    "duration_seconds": 20
+  }
+}

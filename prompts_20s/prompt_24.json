@@ -1,0 +1,104 @@
+{
+  "shot": {
+    "camera_system": "ARRI Alexa Mini LF",
+    "primary_lens": "Zeiss Supreme Prime 35mm T1.5, with a soft diffusion filter (Pro-Mist 1/4)",
+    "composition": "Medium close-up (MCU) on the instructor, centered, with soft background bokeh (shallow depth of field)",
+    "camera_motion": "Sequence 1 (0-8s): Slow, smooth 4-second dolly-in movement, ending with a static locked-off shot for the remaining 4 seconds. Sequence 2 (8-12s): Smooth transition to wider establishing shot, then slow push-in to capture detail and emotion. Sequence 3 (12-20s): Final close-up with subtle dolly movement, ending on a confident, impactful frame.",
+    "frame_rate": "24 fps (cinematic standard)",
+    "aspect_ratio": "16:9"
+  },
+  "subject": {
+    "identity": {
+      "age": "29 years old",
+      "gender": "Female",
+      "ethnicity": "Mediterranean or mixed-race (natural, glowing skin tone)"
+    },
+    "physical": {
+      "height": "Average height (170cm)",
+      "posture": "Perfectly straight, seated in a comfortable cross-legged meditation pose (Sukhasana)"
+    },
+    "facial_features": {
+      "face_shape": "Oval, soft features",
+      "eyes": "Closed, peaceful expression",
+      "hair": "Long, dark hair tied in a loose, elegant bun",
+      "expression": "Serene, calm, and deeply focused"
+    },
+    "wardrobe": {
+      "top": "Seamless, light grey, high-neck yoga bra",
+      "bottom": "Matching light grey, high-waisted yoga leggings",
+      "accessories": "No jewelry, minimal, natural makeup"
+    }
+  },
+  "action": {
+    "sequences": [
+      {
+        "timing": "0-8 seconds",
+        "primary_motion": "The instructor remains perfectly still in meditation, with only a subtle, slow, and deep breath visible in her chest and shoulders.",
+        "camera_follows": "Initial action with detailed tracking"
+      },
+      {
+        "timing": "8-14 seconds",
+        "primary_motion": "Building on the initial action, the subject demonstrates additional aspects and benefits. The movement becomes more fluid and confident, showcasing expertise and comfort.",
+        "camera_follows": "Wider shot revealing more context, then pushing in for detail"
+      },
+      {
+        "timing": "14-20 seconds",
+        "primary_motion": "The subject concludes with a moment of satisfaction - a knowing smile, a final appreciative glance, or a confident gesture that conveys success and approval of the result.",
+        "camera_follows": "Close-up on emotional response and final impactful moment"
+      }
+    ],
+    "total_duration": "20 seconds"
+  },
+  "scene": {
+    "location": "Modern, minimalist yoga studio, high-end wellness center",
+    "layout": {
+      "width": "Spacious, open-plan room",
+      "flooring": "Light oak wood flooring, clean and polished",
+      "walls": "White or very light beige textured walls, large floor-to-ceiling windows on the right side",
+      "props": "A single, high-quality, light-colored yoga mat (e.g., Liforme), a small, unlit aromatherapy diffuser in the background"
+    },
+    "time_of_day": "Mid-morning (10:00 AM)",
+    "environment": {
+      "background": "Softly blurred background showing natural light streaming in and a few out-of-focus green plants (e.g., Monstera or Fiddle Leaf Fig)",
+      "temporal_progression": "Environment remains consistent throughout the 20-second narrative. Background elements may subtly shift focus as camera moves, but spatial continuity is maintained for coherent storytelling."
+    }
+  },
+  "cinematography": {
+    "lighting": {
+      "primary_source": "Large, soft natural window light (simulated by a large HMI through a 12x12 silk)",
+      "quality": "Soft, diffused, and enveloping light, creating very gentle shadows",
+      "color_temperature": "Daylight balanced (5600K) with a slight warmth added in post (6000K look)",
+      "key_to_fill_ratio": "2:1 (very low contrast, high-key lighting)",
+      "evolution": "Lighting remains consistent throughout the 20-second sequence, maintaining the established mood. Subtle adjustments in intensity during the final 6 seconds to emphasize the emotional climax and create visual impact."
+    },
+    "color_grading": {
+      "palette": "Monochromatic, soft pastels (light grey, white, light wood, subtle green)",
+      "tone": "Calm, serene, high-key, slightly desaturated for a 'zen' feel"
+    }
+  },
+  "audio": {
+    "ambient": "Very low-level, distant city sounds (barely audible), subtle white noise from the aromatherapy diffuser",
+    "foley": "Sequence 1 (0-8s): Extremely subtle, slow sound of deep inhalation and exhalation (ASMR quality). Sequence 2: Additional environmental sounds, subtle interactions with objects, breathing, fabric movement. Sequence 3: Final satisfying sound (smile, exhale, object placement), ambient fade.",
+    "music": "Minimalist, ambient drone music (e.g., Brian Eno style) with a slow, evolving pad sound, very low in the mix The score builds progressively over 20 seconds, starting subtly and crescendoing toward the final moment. Emotional peak at 14-18s, then resolving with a confident, memorable final chord at 20s."
+  },
+  "visual_rules": {
+    "frame_purity": "without text overlays, logos unless branded, no subtitles, no distracting elements",
+    "quality_requirements": {
+      "no_artifacts": true,
+      "no_morphing": true,
+      "no_unnatural_motion": true,
+      "hyperrealism": true,
+      "cinematic_quality": true
+    },
+    "realism": "Credible architectural environment with authentic materials. Realistic natural lighting according to time and weather. Consistent furnishing and decoration details. Correct spatial perspectives and proportions.",
+    "continuity": "Consistency of natural light according to temporal progression. Maintenance of architectural and decorative style. Continuity of exterior views through windows. Smooth spatial flow and discovery."
+  },
+  "technical_specifications": {
+    "resolution": "4K (3840x2160)",
+    "color_space": "Rec. 2020",
+    "bit_depth": "10-bit",
+    "output_quality": "ProRes 422 HQ equivalent",
+    "data_rate": "High (for maximum detail retention)",
+    "duration_seconds": 20
+  }
+}

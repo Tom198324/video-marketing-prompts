@@ -1,0 +1,103 @@
+{
+  "shot": {
+    "camera_system": "ARRI Alexa Mini LF",
+    "primary_lens": "Zeiss Supreme Prime 35mm, T2.1",
+    "composition": "Medium shot, rule of thirds, subject slightly off-center to the right, clean background separation.",
+    "camera_motion": "Sequence 1 (0-8s): Slow, smooth 4-foot dolly-in, starting from a slightly wider frame and ending on the concierge's warm expression.. Sequence 2 (8-12s): Smooth transition to wider establishing shot, then slow push-in to capture detail and emotion. Sequence 3 (12-20s): Final close-up with subtle dolly movement, ending on a confident, impactful frame.",
+    "frame_rate": "24 fps (cinematic standard)",
+    "aspect_ratio": "16:9"
+  },
+  "subject": {
+    "identity": {
+      "age": "35 years old",
+      "gender": "Female",
+      "ethnicity": "Mediterranean (or other specific, e.g., Caucasian, East Asian, to ensure diversity)"
+    },
+    "physical": {
+      "height": "Average height, professional posture, standing straight but relaxed",
+      "posture": "Elegant and welcoming, hands clasped lightly in front or resting on the counter"
+    },
+    "facial_features": {
+      "face_shape": "Oval, soft features",
+      "eyes": "Warm, direct eye contact with a slight, genuine smile",
+      "hair": "Dark, professionally styled in a neat bun or sleek bob",
+      "expression": "Genuine, warm, and highly professional welcome smile"
+    },
+    "wardrobe": {
+      "jacket": "Tailored, dark navy blue blazer, high-quality wool blend",
+      "shirt": "Crisp white silk blouse, buttoned to the neck",
+      "accessory": "Subtle, high-end lapel pin with the hotel's logo, thin gold watch"
+    }
+  },
+  "action": {
+    "sequences": [
+      {
+        "timing": "0-8 seconds",
+        "primary_motion": "The concierge slightly leans forward with a welcoming gesture, maintaining eye contact, and offers a subtle, genuine nod of acknowledgment.",
+        "camera_follows": "Initial action with detailed tracking"
+      },
+      {
+        "timing": "8-14 seconds",
+        "primary_motion": "Building on the initial action, the subject demonstrates additional aspects and benefits. The movement becomes more fluid and confident, showcasing expertise and comfort.",
+        "camera_follows": "Wider shot revealing more context, then pushing in for detail"
+      },
+      {
+        "timing": "14-20 seconds",
+        "primary_motion": "The subject concludes with a moment of satisfaction - a knowing smile, a final appreciative glance, or a confident gesture that conveys success and approval of the result.",
+        "camera_follows": "Close-up on emotional response and final impactful moment"
+      }
+    ],
+    "total_duration": "20 seconds"
+  },
+  "scene": {
+    "location": "Lobby of a luxury boutique hotel, high-end design",
+    "layout": {
+      "width": "Spacious, high ceiling, minimalist reception desk made of polished dark wood and marble",
+      "flooring": "Large format polished concrete or light marble tiles",
+      "walls": "Textured wall panels in muted earth tones (taupe, beige), subtle art installations",
+      "decor": "Large, modern floral arrangement on the desk, soft indirect lighting fixtures"
+    },
+    "time_of_day": "Late afternoon (Golden Hour effect indoors)",
+    "environment": {
+      "background": "Softly blurred background showing a glimpse of comfortable, designer seating area and a large window with city lights starting to appear outside",
+      "temporal_progression": "Environment remains consistent throughout the 20-second narrative. Background elements may subtly shift focus as camera moves, but spatial continuity is maintained for coherent storytelling."
+    }
+  },
+  "cinematography": {
+    "lighting": {
+      "primary_source": "Soft, diffused key light from a large softbox (simulating natural window light) slightly above and to the right of the subject",
+      "quality": "Soft and flattering, with deep but not crushed shadows",
+      "color_temperature": "Warm (3200K - 4000K) to enhance the welcoming atmosphere",
+      "key_to_fill_ratio": "3:1 (high contrast for a premium, dramatic look)",
+      "evolution": "Lighting remains consistent throughout the 20-second sequence, maintaining the established mood. Subtle adjustments in intensity during the final 6 seconds to emphasize the emotional climax and create visual impact."
+    },
+    "color_grading": {
+      "palette": "Muted, sophisticated palette of gold, navy, white, and deep wood tones",
+      "tone": "Elegant, warm, and high-contrast, with a slight film grain overlay for texture"
+    }
+  },
+  "audio": {
+    "ambient": "Very low-level, sophisticated jazz music (instrumental), faint sound of distant, muffled city traffic, subtle hum of HVAC",
+    "foley": "Sequence 1 (0-8s): Soft, almost inaudible rustle of the concierge's jacket, a gentle, welcoming 'click' of a pen being placed on the desk (optional). Sequence 2: Additional environmental sounds, subtle interactions with objects, breathing, fabric movement. Sequence 3: Final satisfying sound (smile, exhale, object placement), ambient fade.",
+    "music": "Minimalist, elegant piano track (e.g., neo-classical or smooth jazz) at a very low volume The score builds progressively over 20 seconds, starting subtly and crescendoing toward the final moment. Emotional peak at 14-18s, then resolving with a confident, memorable final chord at 20s."
+  },
+  "visual_rules": {
+    "frame_purity": "without text overlays, logos unless branded, no subtitles, maintain a clean, high-end aesthetic",
+    "quality_requirements": {
+      "no_artifacts": true,
+      "no_morphing": true,
+      "no_unnatural_motion": true,
+      "hyperrealism": true,
+      "cinematic_quality": true
+    },
+    "realism": "Photorealistic rendering of textures with visible micro-details. Professional studio lighting creating natural reflections and shadows. Realistic physics of materials (metals, fabrics, liquids). Cinematic depth of field isolating the main subject.",
+    "continuity": "Absolute consistency of lighting and cast shadows across all shots. Smooth and natural transitions between camera angles. Constant maintenance of color temperature and white balance. Continuity of visual elements and props within the frame."
+  },
+  "technical_specifications": {
+    "resolution": "4K (3840x2160)",
+    "color_space": "Rec. 2020",
+    "bit_depth": "10-bit",
+    "output_quality": "ProRes 422 HQ eq.",
+    "duration_seconds": 20
+  }
+}

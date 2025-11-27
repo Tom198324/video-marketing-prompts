@@ -1,0 +1,104 @@
+{
+  "shot": {
+    "camera_system": "ARRI Alexa Mini LF",
+    "primary_lens": "Zeiss Supreme Prime 35mm T1.5",
+    "composition": "Medium close-up (MCU) centered on the subject, slight high angle to emphasize authority. Rule of thirds respected for subject placement.",
+    "camera_motion": "Sequence 1 (0-8s): Slow and subtle dolly in, starting on a wide shot and ending in MCU, to highlight the importance of the message. Sequence 2 (8-12s): Smooth transition to wider establishing shot, then slow push-in to capture detail and emotion. Sequence 3 (12-20s): Final close-up with subtle dolly movement, ending on a confident, impactful frame.",
+    "frame_rate": "24 fps (Standard cinematic)",
+    "aspect_ratio": "16:9"
+  },
+  "subject": {
+    "identity": {
+      "age": "45 years",
+      "gender": "Male",
+      "ethnicity": "Caucasian, fair complexion"
+    },
+    "physical": {
+      "height": "180 cm",
+      "posture": "Upright, shoulders back, posture of a confident and charismatic leader."
+    },
+    "facial_features": {
+      "face_shape": "Oval, defined jawline",
+      "eyes": "Blue, direct and engaging gaze",
+      "hair": "Short, salt and pepper, well-groomed hairstyle",
+      "expression": "Subtle and confident smile, micro-expressions of assurance and conviction."
+    },
+    "wardrobe": {
+      "suit": "Custom navy blue double-breasted suit, Super 150s wool fabric, modern and tailored cut.",
+      "shirt": "White Egyptian cotton poplin shirt, Italian collar, French cuffs.",
+      "tie": "Burgundy silk tie with subtle pattern, perfect Windsor knot.",
+      "accessories": "Discreet luxury steel watch on left wrist, white gold wedding band."
+    }
+  },
+  "action": {
+    "sequences": [
+      {
+        "timing": "0-8 seconds",
+        "primary_motion": "The subject makes an opening gesture with hands, palms up, speaking with conviction. He maintains sustained eye contact with the camera (the audience).",
+        "camera_follows": "Initial action with detailed tracking"
+      },
+      {
+        "timing": "8-14 seconds",
+        "primary_motion": "Building on the initial action, the subject demonstrates additional aspects and benefits. The movement becomes more fluid and confident, showcasing expertise and comfort.",
+        "camera_follows": "Wider shot revealing more context, then pushing in for detail"
+      },
+      {
+        "timing": "14-20 seconds",
+        "primary_motion": "The subject concludes with a moment of satisfaction - a knowing smile, a final appreciative glance, or a confident gesture that conveys success and approval of the result.",
+        "camera_follows": "Close-up on emotional response and final impactful moment"
+      }
+    ],
+    "total_duration": "20 seconds"
+  },
+  "scene": {
+    "location": "Modern and high-end executive conference room, with panoramic view of a dynamic city (e.g., New York or London).",
+    "layout": {
+      "width": "Large projection screen behind the subject displaying an abstract exponential growth graph (blue and gold colors).",
+      "flooring": "Thick anthracite gray carpet.",
+      "walls": "Tinted glass back wall allowing natural light to filter through, and a dark walnut wood side wall.",
+      "furniture": "Minimalist light wood conference table, designer black leather chairs, a few glass water bottles and neatly arranged notepads."
+    },
+    "time_of_day": "Mid-morning (10:30 AM), bright but indirect light.",
+    "environment": {
+      "background": "Artistic blur (bokeh) of the city in the background, adding depth and high-level context.",
+      "temporal_progression": "Environment remains consistent throughout the 20-second narrative. Background elements may subtly shift focus as camera moves, but spatial continuity is maintained for coherent storytelling."
+    }
+  },
+  "cinematography": {
+    "lighting": {
+      "primary_source": "Soft natural light coming from the window (key light), complemented by studio lighting.",
+      "quality": "Soft diffused light, to minimize harsh shadows and flatter the subject.",
+      "color_temperature": "5600K (Daylight), slightly warmed to 4500K for a welcoming corporate tone.",
+      "key_to_fill_ratio": "2:1 (Moderate contrast, professional and serious ambiance).",
+      "evolution": "Lighting remains consistent throughout the 20-second sequence, maintaining the established mood. Subtle adjustments in intensity during the final 6 seconds to emphasize the emotional climax and create visual impact."
+    },
+    "color_grading": {
+      "palette": "Dominance of blue, gray, and burgundy tones (colors of trust and power).",
+      "tone": "Professional corporate, slightly desaturated for a high-end and timeless look."
+    }
+  },
+  "audio": {
+    "ambient": "Silence of the conference room, very light background noise of air conditioning and distant city sounds.",
+    "foley": "Sequence 1 (0-8s): Subtle sound of the subject's hand touching the lectern, controlled breathing sound. Sequence 2: Additional environmental sounds, subtle interactions with objects, breathing, fabric movement. Sequence 3: Final satisfying sound (smile, exhale, object placement), ambient fade.",
+    "music": "Minimalist and inspiring background music (score), piano and strings, slow and ascending tempo, very low volume (under-score). The score builds progressively over 20 seconds, starting subtly and crescendoing toward the final moment. Emotional peak at 14-18s, then resolving with a confident, memorable final chord at 20s."
+  },
+  "visual_rules": {
+    "frame_purity": "without text overlays, logos unless branded, no subtitles, hyperrealistic rendering, no digital artifacts, no lens distortion.",
+    "quality_requirements": {
+      "no_artifacts": true,
+      "no_morphing": true,
+      "no_unnatural_motion": true,
+      "photorealism_level": "Cinematic 8K quality"
+    },
+    "realism": "Ultra-detailed textures revealing the premium quality of the products. Consistent environmental reflections on glossy surfaces. Professional three-point lighting sculpting shapes. Visible macro details (grains, fibers, finishes).",
+    "continuity": "Continuity of environmental reflections on surfaces. Maintenance of cleanliness and product condition. Consistency of ambient lighting and color temperature. Smooth camera movements and transitions."
+  },
+  "technical_specifications": {
+    "resolution": "4K (3840x2160)",
+    "color_space": "Rec. 2020",
+    "bit_depth": "10-bit",
+    "output_quality": "ProRes 422 HQ eq.",
+    "ai_model_preference": "Sora 2 or Veo 3",
+    "duration_seconds": 20
+  }
+}

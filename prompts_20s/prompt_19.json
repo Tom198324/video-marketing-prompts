@@ -1,0 +1,101 @@
+{
+  "shot": {
+    "camera_system": "RED Komodo 6K",
+    "primary_lens": "Zeiss Supreme Prime 35mm, T1.5",
+    "composition": "Medium shot centered on the subject and the sneaker box, slightly low angle to emphasize energy.",
+    "camera_motion": "Sequence 1 (0-4s): Fast and smooth dolly in, starting at the waist and ending in a close-up on the excited face and hands opening the box. Sequence 2 (4-12s): Smooth transition to wider establishing shot, then slow push-in to capture detail and emotion. Sequence 3 (12-20s): Final close-up with subtle dolly movement, ending on a confident, impactful frame.",
+    "frame_rate": "48 fps (slight slow motion for impact)",
+    "aspect_ratio": "9:16"
+  },
+  "subject": {
+    "identity": {
+      "age": "24 years old",
+      "gender": "Male",
+      "ethnicity": "Mixed race (African American/Asian)"
+    },
+    "physical": {
+      "height": "180 cm",
+      "posture": "Sitting on an industrial stool, leaning forward with anticipation."
+    },
+    "facial_features": {
+      "face_shape": "Square jaw, fine features",
+      "eyes": "Large, staring at the box with intensity",
+      "hair": "Neatly faded haircut",
+      "expression": "Excited, wide and genuine smile, eyes wide with surprise."
+    },
+    "wardrobe": {
+      "outerwear": "Oversized black nylon technical bomber jacket, slightly shiny.",
+      "top": "Off-white boxy cut T-shirt with a thick collar.",
+      "bottom": "Casual black cargo pants, slightly wrinkled at the ankles.",
+      "accessories": "Minimalist digital watch in matte black metal, simple silver ring."
+    }
+  },
+  "action": {
+    "sequences": [
+      {
+        "timing": "0-4 seconds",
+        "primary_motion": "Quick and energetic unboxing of a limited edition sneaker box. The subject tears the packaging, lifts the lid with an expression of intense joy, and carefully takes out the shoe.",
+        "camera_follows": "Close tracking of the initial action"
+      },
+      {
+        "timing": "4-12 seconds",
+        "primary_motion": "The subject continues the action with increased confidence and detail. Quick and energetic unboxing of a limited edition sneaker box evolves into a more complete demonstration, showing mastery and precision.",
+        "camera_follows": "Medium shot capturing the full context and environment interaction"
+      },
+      {
+        "timing": "12-20 seconds",
+        "primary_motion": "The subject completes the action with a satisfied expression, looks at the result with approval, and shows a subtle smile of accomplishment. Final moment captures the positive outcome.",
+        "camera_follows": "Close-up on facial expression and final result, ending with a confident pose"
+      }
+    ],
+    "total_duration": "20 seconds"
+  },
+  "scene": {
+    "location": "Urban studio with industrial loft style, raw concrete walls and dark gray epoxy floor.",
+    "layout": {
+      "width": "Minimalist space, lit by a single main light source.",
+      "flooring": "Dark gray polished concrete floor, very slightly reflective.",
+      "walls": "Textured raw concrete accent wall, with subtle and stylized graffiti in the blurred background."
+    },
+    "time_of_day": "Early evening (6:00 PM), dominant artificial light.",
+    "environment": {
+      "background": "Blurred background (bokeh) showing silhouettes of studio equipment (softbox, tripod) and textured concrete wall.",
+      "temporal_progression": "Environment remains consistent throughout the 20-second narrative. Background elements may subtly shift focus as camera moves, but spatial continuity is maintained for coherent storytelling."
+    }
+  },
+  "cinematography": {
+    "lighting": {
+      "primary_source": "Giant octagonal softbox (Key Light) placed above and to the right of the subject.",
+      "quality": "Soft and enveloping light, but with sharp shadows on the edges for contrast.",
+      "color_temperature": "5600K (neutral daylight), with a slight cool blue backlight (8000K) for separation.",
+      "key_to_fill_ratio": "4:1 (High contrast for a dramatic 'streetwear' look).",
+      "evolution": "Lighting remains consistent throughout the 20-second sequence, maintaining the established mood. Subtle adjustments in intensity during the final 6 seconds to emphasize the emotional climax and create visual impact."
+    },
+    "color_grading": {
+      "palette": "Desaturated color palette dominated by grays, blacks, and whites, with a 'pop' of bright color (red or electric blue) coming from the sneakers.",
+      "tone": "Cold, cinematic and highly contrasted tone (modern 'Blade Runner' look)."
+    }
+  },
+  "audio": {
+    "ambient": "Studio silence, very light distant ventilation hum.",
+    "foley": "Sequence 1 (0-4s): Sound of torn cardboard, crinkling of tissue paper inside the box, sharp 'click' of the box opening, subject's sigh of anticipation. Sequence 2: Additional environmental sounds, subtle interactions with objects, breathing, fabric movement. Sequence 3: Final satisfying sound (smile, exhale, object placement), ambient fade.",
+    "music": "Minimalist and rhythmic Lo-Fi/Trap beat, with deep bass, entering at the moment the sneakers are revealed. The score builds progressively over 20 seconds, starting subtly and crescendoing toward the final moment. Emotional peak at 14-18s, then resolving with a confident, memorable final chord at 20s."
+  },
+  "visual_rules": {
+    "frame_purity": "without text overlays, logos unless branded, no subtitles",
+    "quality_requirements": {
+      "no_artifacts": true,
+      "no_morphing": true,
+      "no_unnatural_motion": true
+    },
+    "realism": "Bodywork with dynamic reflections of the environment. Mechanical details and premium finishes visible. Studio lighting revealing design lines. Realistic physics of movement and suspension.",
+    "continuity": "Consistency of environmental reflections on the bodywork. Maintenance of cleanliness and vehicle finish. Continuity of lighting and ambiance. Smooth camera movements around the vehicle."
+  },
+  "technical_specifications": {
+    "resolution": "4K (3840x2160)",
+    "color_space": "Rec. 2020",
+    "bit_depth": "10-bit",
+    "output_quality": "ProRes 422 HQ eq.",
+    "duration_seconds": 20
+  }
+}

@@ -1,0 +1,103 @@
+{
+  "shot": {
+    "camera_system": "ARRI Alexa Mini LF",
+    "primary_lens": "Zeiss Supreme Prime 50mm, T2.1",
+    "composition": "Medium close-up, over the shoulder shot, focusing on the trader's intense gaze and the data on the screens in the background (shallow depth of field). Rule of thirds applied.",
+    "camera_motion": "Sequence 1 (0-8s): Very slow, smooth dolly in (1cm/s) to increase tension and focus on the subject's concentration. Stabilized with a Ronin 2 gimbal.. Sequence 2 (8-12s): Smooth transition to wider establishing shot, then slow push-in to capture detail and emotion. Sequence 3 (12-20s): Final close-up with subtle dolly movement, ending on a confident, impactful frame.",
+    "frame_rate": "24 fps (cinematic standard)",
+    "aspect_ratio": "16:9"
+  },
+  "subject": {
+    "identity": {
+      "age": "35 years old",
+      "gender": "male",
+      "ethnicity": "Caucasian, professional appearance"
+    },
+    "physical": {
+      "height": "Average",
+      "posture": "Sitting upright, focused, slightly leaning towards the screens"
+    },
+    "facial_features": {
+      "face_shape": "Defined jawline",
+      "eyes": "Intense, focused on the screen, slight reflection of the monitor light",
+      "hair": "Short, neatly styled, dark brown",
+      "expression": "Concentrated, confident, serious"
+    },
+    "wardrobe": {
+      "suit_jacket": "Tailored navy blue suit jacket, high-quality wool",
+      "shirt": "Crisp white dress shirt, open collar (no tie)",
+      "watch": "Subtle, high-end stainless steel watch on the left wrist"
+    }
+  },
+  "action": {
+    "sequences": [
+      {
+        "timing": "0-8 seconds",
+        "primary_motion": "The trader subtly moves the mouse and clicks once on a screen, then briefly touches his chin while analyzing the data. The eyes scan rapidly across the multiple monitors.",
+        "camera_follows": "Initial action with detailed tracking"
+      },
+      {
+        "timing": "8-14 seconds",
+        "primary_motion": "Building on the initial action, the subject demonstrates additional aspects and benefits. The movement becomes more fluid and confident, showcasing expertise and comfort.",
+        "camera_follows": "Wider shot revealing more context, then pushing in for detail"
+      },
+      {
+        "timing": "14-20 seconds",
+        "primary_motion": "The subject concludes with a moment of satisfaction - a knowing smile, a final appreciative glance, or a confident gesture that conveys success and approval of the result.",
+        "camera_follows": "Close-up on emotional response and final impactful moment"
+      }
+    ],
+    "total_duration": "20 seconds"
+  },
+  "scene": {
+    "location": "High-end private trading office, skyscraper view visible through the window (blurred)",
+    "layout": {
+      "width": "Large, dark wood desk, clean and organized",
+      "flooring": "Dark, polished hardwood or low-pile commercial carpet",
+      "walls": "Charcoal grey or dark paneled walls, subtle modern art",
+      "equipment": "Six large, high-resolution trading monitors displaying complex financial charts and real-time data feeds (green and red color scheme)"
+    },
+    "time_of_day": "Late afternoon (4:00 PM), just before market close",
+    "environment": {
+      "background": "Blurred city skyline at dusk, providing a sense of scale and success",
+      "temporal_progression": "Environment remains consistent throughout the 20-second narrative. Background elements may subtly shift focus as camera moves, but spatial continuity is maintained for coherent storytelling."
+    }
+  },
+  "cinematography": {
+    "lighting": {
+      "primary_source": "Soft, cool LED light from the monitors (key light) and a warm, directional practical lamp on the desk (fill light)",
+      "quality": "Low-key, dramatic, with deep shadows and bright highlights on the face and screens",
+      "color_temperature": "Mixed: Cool (5500K) from screens, Warm (3200K) from desk lamp",
+      "key_to_fill_ratio": "4:1 (high contrast, dramatic effect)",
+      "evolution": "Lighting remains consistent throughout the 20-second sequence, maintaining the established mood. Subtle adjustments in intensity during the final 6 seconds to emphasize the emotional climax and create visual impact."
+    },
+    "color_grading": {
+      "palette": "Monochromatic with strong accents of blue, green, and red (data colors)",
+      "tone": "Saturated, high contrast, professional, and authoritative"
+    }
+  },
+  "audio": {
+    "ambient": "Very low hum of computer fans, distant, muffled city traffic",
+    "foley": "Sequence 1 (0-8s): Subtle, sharp click of a mouse, soft rustle of the suit fabric, faint sound of a keyboard tap. Sequence 2: Additional environmental sounds, subtle interactions with objects, breathing, fabric movement. Sequence 3: Final satisfying sound (smile, exhale, object placement), ambient fade.",
+    "music": "Minimalist, sophisticated electronic score (ambient techno) with a slow, building rhythm, conveying focus and precision The score builds progressively over 20 seconds, starting subtly and crescendoing toward the final moment. Emotional peak at 14-18s, then resolving with a confident, memorable final chord at 20s.",
+    "dialogue": "None"
+  },
+  "visual_rules": {
+    "frame_purity": "Without text overlays, logos unless branded, no subtitles. Focus entirely on the visual narrative.",
+    "quality_requirements": {
+      "no_artifacts": true,
+      "no_morphing": true,
+      "no_unnatural_motion": true,
+      "hyperrealism": "Photorealistic detail, indistinguishable from a high-budget commercial"
+    },
+    "realism": "Warm ambiance with professional welcoming lighting. Luxurious textures of materials (wood, fabrics, stone). High-end furnishing details. Authentic service and human interactions.",
+    "continuity": "Consistency of lighting and sound ambiance. Maintenance of service level and attention to detail. Continuity of decorative style and atmosphere. Smoothness of client experience and interactions."
+  },
+  "technical_specifications": {
+    "resolution": "4K (3840x2160)",
+    "color_space": "Rec. 2020",
+    "bit_depth": "10-bit",
+    "output_quality": "ProRes 422 HQ eq.",
+    "duration_seconds": 20
+  }
+}

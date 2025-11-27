@@ -1,0 +1,101 @@
+{
+  "shot": {
+    "camera_system": "ARRI Alexa Mini LF",
+    "primary_lens": "Zeiss Supreme Prime 50mm T1.5, f/2.0",
+    "composition": "Medium Shot, centered on the face and hands, rule of thirds respected",
+    "camera_motion": "Sequence 1 (0-4s): Gimbal smooth motion, slight forward dolly of 0.5m over 4 seconds. Sequence 2 (4-12s): Smooth transition to wider establishing shot, then slow push-in to capture detail and emotion. Sequence 3 (12-20s): Final close-up with subtle dolly movement, ending on a confident, impactful frame.",
+    "frame_rate": "24 fps",
+    "aspect_ratio": "9:16"
+  },
+  "subject": {
+    "identity": {
+      "age": "35 years",
+      "gender": "Female",
+      "ethnicity": "Caucasian, clear and healthy skin"
+    },
+    "physical": {
+      "height": "170cm",
+      "posture": "Seated, slightly leaning forward, focused and calm"
+    },
+    "facial_features": {
+      "face_shape": "Oval",
+      "eyes": "Green, soft and serene gaze",
+      "hair": "Light brown, tied in a loose bun, a few strands framing the face",
+      "expression": "Subtle smile, expression of well-being and satisfaction"
+    },
+    "wardrobe": {
+      "top": "Off-white linen robe, soft and natural texture",
+      "jewelry": "No jewelry, minimalism"
+    }
+  },
+  "action": {
+    "sequences": [
+      {
+        "timing": "0-4 seconds",
+        "primary_motion": "Delicate application of moisturizer on the right cheek, slow and sensory finger movement",
+        "camera_follows": "Close tracking of the initial action"
+      },
+      {
+        "timing": "4-12 seconds",
+        "primary_motion": "The subject continues the action with increased confidence and detail. Delicate application of moisturizer on the right cheek, slow and sensory finger movement evolves into a more complete demonstration, showing mastery and precision.",
+        "camera_follows": "Medium shot capturing the full context and environment interaction"
+      },
+      {
+        "timing": "12-20 seconds",
+        "primary_motion": "The subject completes the action with a satisfied expression, looks at the result with approval, and shows a subtle smile of accomplishment. Final moment captures the positive outcome.",
+        "camera_follows": "Close-up on facial expression and final result, ending with a confident pose"
+      }
+    ],
+    "total_duration": "20 seconds"
+  },
+  "scene": {
+    "location": "Modern and minimalist bathroom, spa ambiance",
+    "layout": {
+      "width": "Well-lit space, light wood countertop, white ceramic sink",
+      "flooring": "Large format tile in natural stone color",
+      "walls": "Textured white walls, wooden shelves with green plants (fern, eucalyptus)"
+    },
+    "time_of_day": "Morning (9:00 AM), soft and diffuse light",
+    "environment": {
+      "background": "Artistic blur (bokeh) on amber glass skincare bottles, a round mirror, and an organic cotton towel",
+      "temporal_progression": "Environment remains consistent throughout the 20-second narrative. Background elements may subtly shift focus as camera moves, but spatial continuity is maintained for coherent storytelling."
+    }
+  },
+  "cinematography": {
+    "lighting": {
+      "primary_source": "Soft natural light from a large side window (key light)",
+      "quality": "Soft diffused, use of a large virtual softbox to soften shadows",
+      "color_temperature": "5600K (Daylight), slightly warmed to 5800K for a 'wellness' tone",
+      "key_to_fill_ratio": "2:1, soft and subtle shadows",
+      "evolution": "Lighting remains consistent throughout the 20-second sequence, maintaining the established mood. Subtle adjustments in intensity during the final 6 seconds to emphasize the emotional climax and create visual impact."
+    },
+    "color_grading": {
+      "palette": "Neutral tones, soft greens, off-whites, and warm skin hues",
+      "tone": "Natural, fresh, bright and soothing (Natural Beauty/Lifestyle)"
+    }
+  },
+  "audio": {
+    "ambient": "Silence, light background sound of gently flowing water (indoor fountain or discreet faucet)",
+    "foley": "Sequence 1 (0-4s): Subtle sound of cream taken from the jar, light rubbing of fingers on skin. Sequence 2: Additional environmental sounds, subtle interactions with objects, breathing, fabric movement. Sequence 3: Final satisfying sound (smile, exhale, object placement), ambient fade.",
+    "music": "Minimalist and relaxing ambient music, soft piano and airy synth pads. The score builds progressively over 20 seconds, starting subtly and crescendoing toward the final moment. Emotional peak at 14-18s, then resolving with a confident, memorable final chord at 20s.",
+    "dialogue": "None"
+  },
+  "visual_rules": {
+    "frame_purity": "without text overlays, logos unless branded, no subtitles, hyperrealistic quality",
+    "quality_requirements": {
+      "no_artifacts": true,
+      "no_morphing": true,
+      "no_unnatural_motion": true,
+      "photorealistic_skin_texture": true
+    },
+    "realism": "Precise human anatomy and proportions with authentic facial expressions. Realistic skin details (pores, natural texture, micro-imperfections). Soft and flattering lighting simulating natural light. Smooth and biomechanically correct body movements.",
+    "continuity": "Logical and credible progression of actions and movements. Consistency of lighting direction and quality throughout the sequence. Maintenance of skin tones, makeup, and hairstyle. Fluidity of facial expressions and body language."
+  },
+  "technical_specifications": {
+    "resolution": "4K (3840x2160)",
+    "color_space": "Rec. 2020",
+    "bit_depth": "10-bit",
+    "output_quality": "ProRes 422 HQ eq.",
+    "duration_seconds": 20
+  }
+}

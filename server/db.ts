@@ -1,6 +1,6 @@
-import { eq } from "drizzle-orm";
+import { eq, and } from "drizzle-orm";
 import { drizzle } from "drizzle-orm/mysql2";
-import { InsertUser, users } from "../drizzle/schema";
+import { InsertUser, users, prompts, InsertPrompt, favorites } from "../drizzle/schema";
 import { ENV } from './_core/env';
 
 let _db: ReturnType<typeof drizzle> | null = null;
@@ -89,4 +89,72 @@ export async function getUserByOpenId(openId: string) {
   return result.length > 0 ? result[0] : undefined;
 }
 
-// TODO: add feature queries here as your schema grows.
+// Prompts queries
+export async function getAllPrompts() {
+  const db = await getDb();
+  if (!db) return [];
+  return db.select().from(prompts).orderBy(prompts.promptNumber);
+}
+
+export async function getPromptById(id: number) {
+  const db = await getDb();
+  if (!db) return undefined;
+  const result = await db.select().from(prompts).where(eq(prompts.id, id)).limit(1);
+  return result.length > 0 ? result[0] : undefined;
+}
+
+export async function getPromptByNumber(promptNumber: number) {
+  const db = await getDb();
+  if (!db) return undefined;
+  const result = await db.select().from(prompts).where(eq(prompts.promptNumber, promptNumber)).limit(1);
+  return result.length > 0 ? result[0] : undefined;
+}
+
+export async function searchPrompts(filters: {
+  search?: string;
+  industrySector?: string;
+  visualStyle?: string;
+  scenarioType?: string;
+}) {
+  const db = await getDb();
+  if (!db) return [];
+  
+  let query = db.select().from(prompts);
+  
+  // Note: For production, implement proper full-text search
+  // This is a simple LIKE-based search for demonstration
+  
+  return query.orderBy(prompts.promptNumber);
+}
+
+export async function insertPrompt(prompt: InsertPrompt) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  return db.insert(prompts).values(prompt);
+}
+
+// Favorites queries
+export async function getUserFavorites(userId: number) {
+  const db = await getDb();
+  if (!db) return [];
+  return db.select()
+    .from(favorites)
+    .innerJoin(prompts, eq(favorites.promptId, prompts.id))
+    .where(eq(favorites.userId, userId));
+}
+
+export async function addFavorite(userId: number, promptId: number) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  return db.insert(favorites).values({ userId, promptId });
+}
+
+export async function removeFavorite(userId: number, promptId: number) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  return db.delete(favorites)
+    .where(and(
+      eq(favorites.userId, userId),
+      eq(favorites.promptId, promptId)
+    ));
+}

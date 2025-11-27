@@ -1,0 +1,32 @@
+{
+  "name": "@prompts-video-marketing/sdk",
+  "version": "1.0.0",
+  "description": "SDK officiel pour l'API Prompts Vidéo Marketing - Génération de variations de prompts avec IA",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "prompts",
+    "video",
+    "marketing",
+    "ai",
+    "sora",
+    "veo",
+    "runway",
+    "sdk"
+  ],
+  "author": "Prompts Vidéo Marketing",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/votre-org/prompts-video-marketing-sdk"
+  }
+}

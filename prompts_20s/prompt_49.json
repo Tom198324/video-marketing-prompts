@@ -1,0 +1,101 @@
+{
+  "shot": {
+    "camera_system": "ARRI Alexa Mini LF",
+    "primary_lens": "Zeiss Supreme Prime 35mm, T2.1",
+    "composition": "Medium shot centered on the runner, with particular attention to the feet and sneakers at impact. Very shallow depth of field.",
+    "camera_motion": "Sequence 1 (0-8s): Smooth Steadicam tracking, following the runner from the side at her speed, then a slight push-in dolly movement to emphasize the power of the sprint. Sequence 2 (8-12s): Smooth transition to wider establishing shot, then slow push-in to capture detail and emotion. Sequence 3 (12-20s): Final close-up with subtle dolly movement, ending on a confident, impactful frame.",
+    "frame_rate": "48 fps (for a slight cinematic slow motion in post-production)",
+    "aspect_ratio": "9:16"
+  },
+  "subject": {
+    "identity": {
+      "age": "25 years old",
+      "gender": "female",
+      "ethnicity": "Latin American"
+    },
+    "physical": {
+      "height": "170 cm",
+      "posture": "Athletic, body leaning forward, arms and legs fully extended for the sprint."
+    },
+    "facial_features": {
+      "face_shape": "Oval",
+      "eyes": "Focused, gaze fixed on the horizon",
+      "hair": "High ponytail, tight braids",
+      "expression": "Intense determination, maximal physical effort"
+    },
+    "wardrobe": {
+      "top": "Technical sports bra, neon color (lemon green)",
+      "bottom": "Short, light running shorts, matte black",
+      "footwear": "Performance running sneakers (target product), white with bright orange accents",
+      "accessories": "Discreet GPS sports watch on the left wrist"
+    }
+  },
+  "action": {
+    "sequences": [
+      {
+        "timing": "0-8 seconds",
+        "primary_motion": "Powerful and explosive sprint on an athletics track. The action focuses on the stride transition and the energy transmitted to the ground.",
+        "camera_follows": "Initial action with detailed tracking"
+      },
+      {
+        "timing": "8-14 seconds",
+        "primary_motion": "Building on the initial action, the subject demonstrates additional aspects and benefits. The movement becomes more fluid and confident, showcasing expertise and comfort.",
+        "camera_follows": "Wider shot revealing more context, then pushing in for detail"
+      },
+      {
+        "timing": "14-20 seconds",
+        "primary_motion": "The subject concludes with a moment of satisfaction - a knowing smile, a final appreciative glance, or a confident gesture that conveys success and approval of the result.",
+        "camera_follows": "Close-up on emotional response and final impactful moment"
+      }
+    ],
+    "total_duration": "20 seconds"
+  },
+  "scene": {
+    "location": "Professional athletics track with bright blue tartan surface, 100m straight line.",
+    "layout": {
+      "width": "Wide and clear track",
+      "flooring": "Blue synthetic tartan, with sharp white lines",
+      "walls": "Empty stands in the background, blurred due to shallow depth of field."
+    },
+    "time_of_day": "Late afternoon (Golden Hour), around 5:30 PM.",
+    "environment": {
+      "background": "Low sunlight creating long cast shadows. Dry and warm atmosphere.",
+      "temporal_progression": "Environment remains consistent throughout the 20-second narrative. Background elements may subtly shift focus as camera moves, but spatial continuity is maintained for coherent storytelling."
+    }
+  },
+  "cinematography": {
+    "lighting": {
+      "primary_source": "Late day sun (Golden Hour) backlighting for a halo effect on the runner.",
+      "quality": "Hard and directional light, softened by the heat haze of the track.",
+      "color_temperature": "Very warm (5500K - 6000K), golden and orange tones.",
+      "key_to_fill_ratio": "High (8:1), creating dramatic contrast between the silhouette and the bright background.",
+      "evolution": "Lighting remains consistent throughout the 20-second sequence, maintaining the established mood. Subtle adjustments in intensity during the final 6 seconds to emphasize the emotional climax and create visual impact."
+    },
+    "color_grading": {
+      "palette": "Saturated colors (blue tartan, neon top, orange sneakers) contrasting with warm skin tones and background.",
+      "tone": "Energetic, dramatic, and aspirational. High-end sports film look."
+    }
+  },
+  "audio": {
+    "ambient": "Light wind, relative silence of the track.",
+    "foley": "Sequence 1 (0-8s): Sharp and powerful impact sounds of sneakers on tartan (each stride amplified), strong and rhythmic breathing of the runner. Sequence 2: Additional environmental sounds, subtle interactions with objects, breathing, fabric movement. Sequence 3: Final satisfying sound (smile, exhale, object placement), ambient fade.",
+    "music": "Minimalist and rhythmic electronic music, with a crescendo toward the end of the clip. The score builds progressively over 20 seconds, starting subtly and crescendoing toward the final moment. Emotional peak at 14-18s, then resolving with a confident, memorable final chord at 20s."
+  },
+  "visual_rules": {
+    "frame_purity": "without text overlays, logos unless branded, no subtitles, no visible brand logos on clothing other than the product (sneakers).",
+    "quality_requirements": {
+      "no_artifacts": true,
+      "no_morphing": true,
+      "no_unnatural_motion": true
+    },
+    "realism": "Bodywork with dynamic reflections of the environment. Mechanical details and premium finishes visible. Studio lighting revealing design lines. Realistic physics of movement and suspension.",
+    "continuity": "Consistency of environmental reflections on the bodywork. Maintenance of vehicle cleanliness and finish. Continuity of lighting and ambiance. Smooth camera movements around the vehicle."
+  },
+  "technical_specifications": {
+    "resolution": "4K (3840x2160)",
+    "color_space": "Rec. 2020",
+    "bit_depth": "10-bit",
+    "output_quality": "ProRes 422 HQ eq.",
+    "duration_seconds": 20
+  }
+}

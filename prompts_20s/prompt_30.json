@@ -1,0 +1,104 @@
+{
+  "shot": {
+    "camera_system": "ARRI Alexa Mini LF",
+    "primary_lens": "Zeiss Supreme Prime 50mm, T2.1",
+    "composition": "Medium Close-Up (MCU) of the surgeon, slightly low angle for authority, rule of thirds applied",
+    "camera_motion": "Sequence 1 (0-8s): Smooth Steadicam tracking, slight 0.5 second dolly in at the start to emphasize intimacy. Sequence 2 (8-12s): Smooth transition to wider establishing shot, then slow push-in to capture detail and emotion. Sequence 3 (12-20s): Final close-up with subtle dolly movement, ending on a confident, impactful frame.",
+    "frame_rate": "24 fps (Standard cinematic)",
+    "aspect_ratio": "16:9"
+  },
+  "subject": {
+    "identity": {
+      "age": "48 years old",
+      "gender": "male",
+      "ethnicity": "Caucasian, slightly tanned complexion"
+    },
+    "physical": {
+      "height": "180 cm",
+      "posture": "Seated, upright, confident, hands clasped on the desk",
+      "demeanor": "Professional, empathetic, authoritative"
+    },
+    "facial_features": {
+      "face_shape": "Oval, defined jawline",
+      "eyes": "Blue-gray, direct and reassuring gaze",
+      "hair": "Short, salt and pepper, professionally styled",
+      "expression": "Subtle smile, focused and benevolent"
+    },
+    "wardrobe": {
+      "upper_body": "Immaculate white medical coat over a high-quality sky blue shirt",
+      "accessories": "Discreet luxury steel watch, white gold wedding band"
+    }
+  },
+  "action": {
+    "sequences": [
+      {
+        "timing": "0-8 seconds",
+        "primary_motion": "The surgeon slightly nods in approval, then takes a pen and points to a document on the desk. Slow and measured movement.",
+        "camera_follows": "Initial action with detailed tracking"
+      },
+      {
+        "timing": "8-14 seconds",
+        "primary_motion": "Building on the initial action, the subject demonstrates additional aspects and benefits. The movement becomes more fluid and confident, showcasing expertise and comfort.",
+        "camera_follows": "Wider shot revealing more context, then pushing in for detail"
+      },
+      {
+        "timing": "14-20 seconds",
+        "primary_motion": "The subject concludes with a moment of satisfaction - a knowing smile, a final appreciative glance, or a confident gesture that conveys success and approval of the result.",
+        "camera_follows": "Close-up on emotional response and final impactful moment"
+      }
+    ],
+    "total_duration": "20 seconds"
+  },
+  "scene": {
+    "location": "Private consultation office in a high-end aesthetic surgery clinic",
+    "layout": {
+      "width": "Spacious, with a large dark wood desk and two light leather armchairs",
+      "flooring": "Polished light wood parquet",
+      "walls": "Off-white painted walls, with a framed diploma and minimalist abstract artwork"
+    },
+    "time_of_day": "Mid-morning (10:30 AM)",
+    "environment": {
+      "background": "Artistic blur (bokeh) on a window revealing a well-kept garden, symbolizing serenity and nature",
+      "props": "An open notebook, a crystal-clear glass of water, a discreet anatomical model",
+      "temporal_progression": "Environment remains consistent throughout the 20-second narrative. Background elements may subtly shift focus as camera moves, but spatial continuity is maintained for coherent storytelling."
+    }
+  },
+  "cinematography": {
+    "lighting": {
+      "primary_source": "Soft natural light coming from a large window (soft window light) as Key Light",
+      "quality": "Soft diffused, flattering lighting without harsh shadows",
+      "color_temperature": "5600K (Neutral daylight), slightly warmed by fill light",
+      "key_to_fill_ratio": "2:1 (Moderate contrast for a professional and reassuring look)",
+      "evolution": "Lighting remains consistent throughout the 20-second sequence, maintaining the established mood. Subtle adjustments in intensity during the final 6 seconds to emphasize the emotional climax and create visual impact."
+    },
+    "color_grading": {
+      "palette": "Neutral tones, pure whites, subtle blues and greens (calming medical colors)",
+      "tone": "Calm, professional, luxurious and very slightly desaturated for a mature cinematic look"
+    }
+  },
+  "audio": {
+    "ambient": "Very low background noise of a quiet clinic (distant murmurs, discreet air conditioning)",
+    "foley": "Sequence 1 (0-8s): Subtle sound of pen touching paper, light rustling of the coat. Sequence 2: Additional environmental sounds, subtle interactions with objects, breathing, fabric movement. Sequence 3: Final satisfying sound (smile, exhale, object placement), ambient fade.",
+    "music": "Very soft and minimalist instrumental background music (piano and strings), slow tempo. The score builds progressively over 20 seconds, starting subtly and crescendoing toward the final moment. Emotional peak at 14-18s, then resolving with a confident, memorable final chord at 20s.",
+    "dialogue": "No dialogue"
+  },
+  "visual_rules": {
+    "frame_purity": "without text overlays, logos unless branded, no subtitles, focus on hyperrealism and texture detail",
+    "quality_requirements": {
+      "no_artifacts": true,
+      "no_morphing": true,
+      "no_unnatural_motion": true,
+      "hyperrealism_level": "Extreme photorealism, focus on skin texture and fabric detail"
+    },
+    "realism": "Warm ambiance with professional welcoming lighting. Luxurious textures of materials (wood, fabrics, stone). High-end furnishing details. Authentic service and human interactions.",
+    "continuity": "Consistency of lighting and sound ambiance. Maintaining service level and attention to detail. Continuity of decorative style and atmosphere. Smoothness of client experience and interactions."
+  },
+  "technical_specifications": {
+    "resolution": "4K (3840x2160)",
+    "color_space": "Rec. 2020",
+    "bit_depth": "10-bit",
+    "output_quality": "ProRes 422 HQ eq.",
+    "render_engine_focus": "Coherence of subject's expression and action",
+    "duration_seconds": 20
+  }
+}

@@ -1,0 +1,102 @@
+{
+  "shot": {
+    "camera_system": "ARRI Alexa Mini LF",
+    "primary_lens": "Zeiss Supreme Prime 35mm T1.5",
+    "composition": "Medium close-up on the professor, slightly high angle to emphasize authority, rule of thirds respected.",
+    "camera_motion": "Sequence 1 (0-8s): Slow Steadicam tracking, moving from left to right behind the front rows of students, stopping on the professor.. Sequence 2 (8-12s): Smooth transition to wider establishing shot, then slow push-in to capture detail and emotion. Sequence 3 (12-20s): Final close-up with subtle dolly movement, ending on a confident, impactful frame.",
+    "frame_rate": "24 fps",
+    "aspect_ratio": "16:9"
+  },
+  "subject": {
+    "identity": {
+      "age": "50 years",
+      "gender": "male",
+      "ethnicity": "Caucasian"
+    },
+    "physical": {
+      "height": "180 cm",
+      "posture": "standing, confident, measured and authoritative hand gestures"
+    },
+    "facial_features": {
+      "face_shape": "oval, square jaw",
+      "eyes": "blue, intense and engaging gaze",
+      "hair": "salt and pepper gray, short and neat",
+      "expression": "serious, passionate, slightly smiling at the end of the sentence"
+    },
+    "wardrobe": {
+      "jacket": "anthracite gray wool blazer, tailored fit",
+      "shirt": "white Egyptian cotton shirt, Italian collar",
+      "tie": "navy blue silk tie with subtle patterns",
+      "accessories": "discreet luxury watch on left wrist"
+    }
+  },
+  "action": {
+    "sequences": [
+      {
+        "timing": "0-8 seconds",
+        "primary_motion": "The professor speaks eloquently, moving slightly in front of the whiteboard, using a laser pointer to indicate a key concept.",
+        "camera_follows": "Initial action with detailed tracking"
+      },
+      {
+        "timing": "8-14 seconds",
+        "primary_motion": "Building on the initial action, the subject demonstrates additional aspects and benefits. The movement becomes more fluid and confident, showcasing expertise and comfort.",
+        "camera_follows": "Wider shot revealing more context, then pushing in for detail"
+      },
+      {
+        "timing": "14-20 seconds",
+        "primary_motion": "The subject concludes with a moment of satisfaction - a knowing smile, a final appreciative glance, or a confident gesture that conveys success and approval of the result.",
+        "camera_follows": "Close-up on emotional response and final impactful moment"
+      }
+    ],
+    "total_duration": "20 seconds"
+  },
+  "scene": {
+    "location": "Modern and high-end MBA style amphitheater",
+    "layout": {
+      "width": "large space, dark wood and leather seats, individual tables",
+      "flooring": "dark gray acoustic carpet",
+      "walls": "light wood acoustic panels and polished concrete, large projection screen turned on"
+    },
+    "time_of_day": "mid-morning (10:30 AM)",
+    "environment": {
+      "background": "rows of students (20-25 years old, diverse, professionally dressed) taking notes with open laptops. The screen displays a strategic growth chart.",
+      "temporal_progression": "Environment remains consistent throughout the 20-second narrative. Background elements may subtly shift focus as camera moves, but spatial continuity is maintained for coherent storytelling."
+    }
+  },
+  "cinematography": {
+    "lighting": {
+      "primary_source": "soft and diffuse light coming from LED ceiling lights and a large side window (off-frame)",
+      "quality": "soft diffused, controlled studio lighting for a corporate look",
+      "color_temperature": "5600K (neutral daylight)",
+      "key_to_fill_ratio": "2:1, soft and subtle shadows",
+      "evolution": "Lighting remains consistent throughout the 20-second sequence, maintaining the established mood. Subtle adjustments in intensity during the final 6 seconds to emphasize the emotional climax and create visual impact."
+    },
+    "color_grading": {
+      "palette": "navy blue, gray, and warm wood tones",
+      "tone": "professional, contrasted, slightly desaturated for a serious academic look"
+    }
+  },
+  "audio": {
+    "ambient": "light background noise of students taking notes, occasional cough, sound of laser pointer clicking",
+    "foley": "Sequence 1 (0-8s): clear and authoritative professor's voice, natural reverberation of the amphitheater. Sequence 2: Additional environmental sounds, subtle interactions with objects, breathing, fabric movement. Sequence 3: Final satisfying sound (smile, exhale, object placement), ambient fade.",
+    "music": "minimalist orchestral background music, inspiring and subtle (strings and piano) The score builds progressively over 20 seconds, starting subtly and crescendoing toward the final moment. Emotional peak at 14-18s, then resolving with a confident, memorable final chord at 20s.",
+    "dialogue": "The professor says: 'Leadership is not a position, it is a strategic decision.'"
+  },
+  "visual_rules": {
+    "frame_purity": "no overlaid text, no visible logo (except discreetly on a student's laptop), no subtitles",
+    "quality_requirements": {
+      "no_artifacts": true,
+      "no_morphing": true,
+      "no_unnatural_motion": true
+    },
+    "realism": "Photorealistic rendering of fabrics with natural draping and folds. Accurate material textures (cotton, silk, denim, leather). Fashion lighting highlighting cuts and silhouettes. Smooth movements and natural garment fall.",
+    "continuity": "Consistency in style, color palette, and fashion aesthetics. Maintenance of garment fit and fall. Continuity of fashion lighting and ambiance. Smooth transitions between looks and poses."
+  },
+  "technical_specifications": {
+    "resolution": "4K (3840x2160)",
+    "color_space": "Rec. 2020",
+    "bit_depth": "10-bit",
+    "output_quality": "ProRes 422 HQ eq.",
+    "duration_seconds": 20
+  }
+}

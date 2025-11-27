@@ -1,0 +1,103 @@
+{
+  "shot": {
+    "camera_system": "ARRI Alexa Mini LF",
+    "primary_lens": "Zeiss Supreme Prime 35mm T1.5, wide open at T1.5 for shallow depth of field",
+    "composition": "Medium close-up (MCU) on the developer, with the screen interface in the foreground and the open space blurred in the background (bokeh). Rule of thirds applied to the subject's face.",
+    "camera_motion": "Sequence 1 (0-8s): Very slow, smooth Steadicam push-in (dolly in) of 0.5 meters over 8 seconds, maintaining focus on the developer's face and the screen.. Sequence 2 (8-12s): Smooth transition to wider establishing shot, then slow push-in to capture detail and emotion. Sequence 3 (12-20s): Final close-up with subtle dolly movement, ending on a confident, impactful frame.",
+    "frame_rate": "24 fps (cinematic standard)",
+    "aspect_ratio": "16:9"
+  },
+  "subject": {
+    "identity": {
+      "age": "29 years old",
+      "gender": "Female",
+      "ethnicity": "South Asian or Mediterranean, professional appearance"
+    },
+    "physical": {
+      "height": "Average",
+      "posture": "Engaged, leaning slightly towards the screen, focused"
+    },
+    "facial_features": {
+      "face_shape": "Oval",
+      "eyes": "Intense, focused on the screen",
+      "hair": "Dark, tied back in a neat bun or ponytail",
+      "expression": "Concentrated, slight, confident smile of satisfaction"
+    },
+    "wardrobe": {
+      "top": "High-quality, dark grey or navy blue merino wool sweater",
+      "accessories": "Minimalist silver watch, no visible jewelry"
+    }
+  },
+  "action": {
+    "sequences": [
+      {
+        "timing": "0-8 seconds",
+        "primary_motion": "The developer's right hand moves smoothly to interact with the SaaS interface on the screen (mouse click or subtle gesture on a trackpad), demonstrating a key feature. Her eyes follow the action on the screen.",
+        "camera_follows": "Initial action with detailed tracking"
+      },
+      {
+        "timing": "8-14 seconds",
+        "primary_motion": "Building on the initial action, the subject demonstrates additional aspects and benefits. The movement becomes more fluid and confident, showcasing expertise and comfort.",
+        "camera_follows": "Wider shot revealing more context, then pushing in for detail"
+      },
+      {
+        "timing": "14-20 seconds",
+        "primary_motion": "The subject concludes with a moment of satisfaction - a knowing smile, a final appreciative glance, or a confident gesture that conveys success and approval of the result.",
+        "camera_follows": "Close-up on emotional response and final impactful moment"
+      }
+    ],
+    "total_duration": "20 seconds"
+  },
+  "scene": {
+    "location": "Modern, high-tech open-plan office (open space tech)",
+    "layout": {
+      "width": "Large, spacious desk with minimalist setup (one large monitor, ergonomic keyboard)",
+      "flooring": "Polished concrete or light wood",
+      "walls": "Glass partitions and white walls with subtle, abstract tech-themed art",
+      "props": "High-end laptop, a single ceramic coffee mug, a notebook with technical drawings"
+    },
+    "time_of_day": "Mid-morning (10:30 AM)",
+    "environment": {
+      "background": "Blurred background with other developers working quietly, soft blue/green ambient light from distant monitors, suggesting productivity and focus.",
+      "temporal_progression": "Environment remains consistent throughout the 20-second narrative. Background elements may subtly shift focus as camera moves, but spatial continuity is maintained for coherent storytelling."
+    }
+  },
+  "cinematography": {
+    "lighting": {
+      "primary_source": "Large, soft window light (natural light) coming from the left, acting as the key light.",
+      "quality": "Soft diffused light, with a subtle, controlled rim light from the right (LED panel) to separate the subject from the background.",
+      "color_temperature": "5600K (Daylight balanced), with a slight push towards cool tones (6000K) for a 'tech innovative' feel.",
+      "key_to_fill_ratio": "3:1 (professional, slightly dramatic contrast)",
+      "evolution": "Lighting remains consistent throughout the 20-second sequence, maintaining the established mood. Subtle adjustments in intensity during the final 6 seconds to emphasize the emotional climax and create visual impact."
+    },
+    "color_grading": {
+      "palette": "Cool blues, deep greys, and crisp whites, with a single warm accent color (e.g., the coffee mug) to draw the eye.",
+      "tone": "High contrast, slightly desaturated, clean, and sharp. Cinematic, 'tech innovative' aesthetic."
+    }
+  },
+  "audio": {
+    "ambient": "Very low-level, professional open-space ambiance: distant, soft keyboard clicks, the faint hum of servers, and very quiet, distant conversation.",
+    "foley": "Sequence 1 (0-8s): Crisp, distinct sound of the mouse click/trackpad tap, and the subtle rustle of the sweater.. Sequence 2: Additional environmental sounds, subtle interactions with objects, breathing, fabric movement. Sequence 3: Final satisfying sound (smile, exhale, object placement), ambient fade.",
+    "music": "Minimalist, sophisticated electronic music (ambient techno or deep house), low volume, emphasizing focus and innovation. The score builds progressively over 20 seconds, starting subtly and crescendoing toward the final moment. Emotional peak at 14-18s, then resolving with a confident, memorable final chord at 20s."
+  },
+  "visual_rules": {
+    "frame_purity": "without text overlays, logos unless branded, no subtitles. The focus must be on the hyperrealistic quality of the subject and the interface.",
+    "quality_requirements": {
+      "no_artifacts": true,
+      "no_morphing": true,
+      "no_unnatural_motion": true,
+      "hyperrealism": true,
+      "cinematic_quality": true
+    },
+    "realism": "Photorealistic rendering of fabrics with natural draping and folds. Precise material textures (cotton, silk, denim, leather). Fashion lighting highlighting cuts and silhouettes. Smooth movements and natural garment fall.",
+    "continuity": "Consistency of style, color palette, and fashion aesthetic. Maintenance of fit and garment fall. Continuity of fashion lighting and ambiance. Smooth transitions between looks and poses."
+  },
+  "technical_specifications": {
+    "resolution": "4K (3840x2160)",
+    "color_space": "Rec. 2020",
+    "bit_depth": "10-bit",
+    "output_quality": "ProRes 422 HQ equivalent",
+    "rendering_style": "Photorealistic, hyper-detailed, high fidelity",
+    "duration_seconds": 20
+  }
+}

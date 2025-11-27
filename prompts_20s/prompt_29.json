@@ -1,0 +1,100 @@
+{
+  "shot": {
+    "camera_system": "RED Komodo 6K",
+    "primary_lens": "Zeiss Supreme Prime 35mm, T1.5",
+    "composition": "Medium close-up (MCU) on the gamer's face, focusing on the intense concentration and the reflection of the screen light in his eyes. Shallow depth of field.",
+    "camera_motion": "Sequence 1 (0-8s): Smooth Steadicam tracking, slowly pushing in (dolly in) on the subject to increase intensity.. Sequence 2 (8-12s): Smooth transition to wider establishing shot, then slow push-in to capture detail and emotion. Sequence 3 (12-20s): Final close-up with subtle dolly movement, ending on a confident, impactful frame.",
+    "frame_rate": "24 fps (cinematic standard)",
+    "aspect_ratio": "16:9"
+  },
+  "subject": {
+    "identity": {
+      "age": "22 years old",
+      "gender": "Male",
+      "ethnicity": "Ambiguous, modern look"
+    },
+    "physical": {
+      "height": "Average",
+      "posture": "Leaning forward, intensely focused on the screen, hands gripping the controller"
+    },
+    "facial_features": {
+      "face_shape": "Sharp jawline",
+      "eyes": "Wide, focused, reflecting RGB light",
+      "hair": "Short, modern cut",
+      "expression": "Intense concentration, slight furrow in the brow"
+    },
+    "wardrobe": {
+      "top": "High-quality, dark, minimalist e-sports jersey or hoodie",
+      "accessories": "High-end gaming headset with subtle RGB lighting"
+    }
+  },
+  "action": {
+    "sequences": [
+      {
+        "timing": "0-8 seconds",
+        "primary_motion": "Rapid, precise movements of the fingers on the next-gen controller buttons and joysticks. Quick, intense eye movements following the action on the screen (off-camera).",
+        "camera_follows": "Initial action with detailed tracking"
+      },
+      {
+        "timing": "8-14 seconds",
+        "primary_motion": "Building on the initial action, the subject demonstrates additional aspects and benefits. The movement becomes more fluid and confident, showcasing expertise and comfort.",
+        "camera_follows": "Wider shot revealing more context, then pushing in for detail"
+      },
+      {
+        "timing": "14-20 seconds",
+        "primary_motion": "The subject concludes with a moment of satisfaction - a knowing smile, a final appreciative glance, or a confident gesture that conveys success and approval of the result.",
+        "camera_follows": "Close-up on emotional response and final impactful moment"
+      }
+    ],
+    "total_duration": "20 seconds"
+  },
+  "scene": {
+    "location": "High-end, dedicated gaming room (man cave)",
+    "layout": {
+      "width": "Spacious, but focus is tight on the subject and immediate setup",
+      "flooring": "Dark, sound-dampening carpet",
+      "walls": "Matte black acoustic panels, subtle neon light strips",
+      "props": "Next-gen console, large 4K gaming monitor, ergonomic gaming chair, high-end mechanical keyboard (out of focus)"
+    },
+    "time_of_day": "Late night (dark environment)",
+    "environment": {
+      "background": "Intense, pulsating RGB lighting from the gaming setup (monitor glow, LED strips, PC tower) creating a futuristic, energetic atmosphere.",
+      "temporal_progression": "Environment remains consistent throughout the 20-second narrative. Background elements may subtly shift focus as camera moves, but spatial continuity is maintained for coherent storytelling."
+    }
+  },
+  "cinematography": {
+    "lighting": {
+      "primary_source": "The light emitted by the gaming monitor (off-camera) and the RGB setup lights (key light and fill light)",
+      "quality": "Hard and directional from the screen, soft and diffused from the RGB strips (rim light)",
+      "color_temperature": "Mixed: Cool blue/cyan from the screen, warm red/magenta from the RGB accents (high contrast)",
+      "key_to_fill_ratio": "High ratio (4:1) to create deep shadows and dramatic contrast (chiaroscuro effect)",
+      "evolution": "Lighting remains consistent throughout the 20-second sequence, maintaining the established mood. Subtle adjustments in intensity during the final 6 seconds to emphasize the emotional climax and create visual impact."
+    },
+    "color_grading": {
+      "palette": "Cyberpunk-inspired, high-saturation neon colors (blue, magenta, cyan) against deep blacks.",
+      "tone": "Energetic, intense, and futuristic. High contrast, slightly crushed blacks, and vibrant highlights."
+    }
+  },
+  "audio": {
+    "ambient": "Low hum of the console/PC fans, distant, muffled sounds of the game (explosions, music bass).",
+    "foley": "Sequence 1 (0-8s): Sharp, distinct clicks of the controller buttons and triggers, subtle fabric rustling as the gamer shifts.. Sequence 2: Additional environmental sounds, subtle interactions with objects, breathing, fabric movement. Sequence 3: Final satisfying sound (smile, exhale, object placement), ambient fade.",
+    "music": "Uplifting, high-energy electronic music (synthwave or aggressive EDM) with a strong, driving beat. The score builds progressively over 20 seconds, starting subtly and crescendoing toward the final moment. Emotional peak at 14-18s, then resolving with a confident, memorable final chord at 20s."
+  },
+  "visual_rules": {
+    "frame_purity": "without text overlays, logos unless branded, no subtitles",
+    "quality_requirements": {
+      "no_artifacts": true,
+      "no_morphing": true,
+      "no_unnatural_motion": true
+    },
+    "realism": "Bodywork with dynamic reflections of the environment. Mechanical details and premium finishes visible. Studio lighting revealing design lines. Realistic physics of movement and suspension.",
+    "continuity": "Consistency of environmental reflections on the bodywork. Maintenance of cleanliness and finish of the vehicle. Continuity of lighting and ambiance. Smooth camera movements around the vehicle."
+  },
+  "technical_specifications": {
+    "resolution": "4K (3840x2160)",
+    "color_space": "Rec. 2020",
+    "bit_depth": "10-bit",
+    "output_quality": "ProRes 422 HQ eq.",
+    "duration_seconds": 20
+  }
+}

@@ -1,0 +1,99 @@
+{
+  "shot": {
+    "camera_system": "ARRI Alexa Mini LF",
+    "primary_lens": "Zeiss Supreme Prime 50mm, T1.5",
+    "composition": "Medium Close-Up (MCU) of the musician, emphasizing the headphones and focused facial expression. Rule of thirds for subject placement.",
+    "camera_motion": "Sequence 1 (0-4s): Smooth Steadicam tracking, very slow, moving slightly from left to right (20cm) to subtly reveal the studio environment. Sequence 2 (4-12s): Smooth transition to wider establishing shot, then slow push-in to capture detail and emotion. Sequence 3 (12-20s): Final close-up with subtle dolly movement, ending on a confident, impactful frame.",
+    "frame_rate": "24 fps (standard cinematic)",
+    "aspect_ratio": "9:16"
+  },
+  "subject": {
+    "identity": {
+      "age": "29 years old",
+      "gender": "Male",
+      "ethnicity": "Caucasian, well-groomed stubble beard"
+    },
+    "physical": {
+      "height": "180 cm",
+      "posture": "Seated, slightly leaning forward, posture of critical and focused listening"
+    },
+    "facial_features": {
+      "face_shape": "Oval",
+      "eyes": "Brown, focused gaze, slightly squinting",
+      "hair": "Short hair, modern hairstyle",
+      "expression": "Intense concentration, professionalism, subtle satisfaction"
+    },
+    "wardrobe": {
+      "top": "High-quality black T-shirt (thick cotton) or thin dark gray cashmere sweater",
+      "accessories": "Minimalist brushed steel watch, premium wireless headphones (featured product) on ears"
+    }
+  },
+  "action": {
+    "sequences": [
+      {
+        "timing": "0-4 seconds",
+        "primary_motion": "The musician nods very slightly to the rhythm of the music, then closes his eyes for a fraction of a second, a sign of total immersion and exceptional audio quality.",
+        "camera_follows": "Close tracking of the initial action"
+      },
+      {
+        "timing": "4-12 seconds",
+        "primary_motion": "The subject continues the action with increased confidence and detail. The musician nods very slightly to the rhythm of the music, then closes his eyes for a fraction of a second, a sign of total immersion and exceptional audio quality evolves into a more complete demonstration, showing mastery and precision.",
+        "camera_follows": "Medium shot capturing the full context and environment interaction"
+      },
+      {
+        "timing": "12-20 seconds",
+        "primary_motion": "The subject completes the action with a satisfied expression, looks at the result with approval, and shows a subtle smile of accomplishment. Final moment captures the positive outcome.",
+        "camera_follows": "Close-up on facial expression and final result, ending with a confident pose"
+      }
+    ],
+    "total_duration": "20 seconds"
+  },
+  "scene": {
+    "location": "High-end professional recording studio (acoustically treated)",
+    "layout": {
+      "width": "Organized workspace, analog mixing console visible in blurred background (bokeh)",
+      "flooring": "Dark hardwood floor or neutral-colored acoustic carpet",
+      "walls": "Light wood and anthracite gray acoustic panels, subtle ambient lighting"
+    },
+    "time_of_day": "Late afternoon (soft light)",
+    "environment": {
+      "background": "High-end studio monitors (speakers), computer screen displaying a DAW (Digital Audio Workstation) with complex waveforms, vintage musical instruments in the background",
+      "temporal_progression": "Environment remains consistent throughout the 20-second narrative. Background elements may subtly shift focus as camera moves, but spatial continuity is maintained for coherent storytelling."
+    }
+  },
+  "cinematography": {
+    "lighting": {
+      "primary_source": "Soft window light (simulated) coming from the left (key light)",
+      "quality": "Soft diffused (giant softbox), creating soft and flattering shadows",
+      "color_temperature": "3200K (warm tungsten) for a creative and intimate atmosphere",
+      "key_to_fill_ratio": "4:1 (dramatic yet soft lighting, typical of studios)",
+      "evolution": "Lighting remains consistent throughout the 20-second sequence, maintaining the established mood. Subtle adjustments in intensity during the final 6 seconds to emphasize the emotional climax and create visual impact."
+    },
+    "color_grading": {
+      "palette": "Contrasted warm tones (wood, amber) and cool tones (anthracite gray, brushed metal)",
+      "tone": "Cinematic, rich in contrast, slightly desaturated for a professional and serious look"
+    }
+  },
+  "audio": {
+    "ambient": "Perfect studio silence, very low noise from professional equipment ventilation",
+    "foley": "Sequence 1 (0-4s): Very light finger rubbing on the console volume knob, subtle and satisfying 'click' sound of volume adjustment. Sequence 2: Additional environmental sounds, subtle interactions with objects, breathing, fabric movement. Sequence 3: Final satisfying sound (smile, exhale, object placement), ambient fade.",
+    "music": "A 2-second excerpt of a complex and richly detailed instrumental track (Jazz Fusion or minimalist Electronica) that stops abruptly at the end of the clip, giving way to silence. The score builds progressively over 20 seconds, starting subtly and crescendoing toward the final moment. Emotional peak at 14-18s, then resolving with a confident, memorable final chord at 20s."
+  },
+  "visual_rules": {
+    "frame_purity": "without text overlays, logos unless branded (headphones), no subtitles, no visible brand names on other equipment",
+    "quality_requirements": {
+      "no_artifacts": true,
+      "no_morphing": true,
+      "no_unnatural_motion": true
+    },
+    "realism": "Realistic physics of liquids and food (pouring, steam, condensation). Vibrant and appetizing colors under optimal lighting. Macro details of food textures (shine, moisture). Professional visual composition of food styling.",
+    "continuity": "Consistency of steam, condensation, and freshness state of foods. Maintenance of vibrant colors and appetizing textures. Continuity of food styling lighting. Fluidity of preparation and serving movements."
+  },
+  "technical_specifications": {
+    "resolution": "4K (3840x2160)",
+    "color_space": "Rec. 2020",
+    "bit_depth": "10-bit",
+    "output_quality": "ProRes 422 HQ eq.",
+    "duration_seconds": 20
+  }
+}
