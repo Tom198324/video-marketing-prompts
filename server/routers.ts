@@ -313,6 +313,81 @@ Respond ONLY with the complete JSON of the variation, no additional text.`
           variations: variations,
         };
       }),
+
+    analyzePrompt: publicProcedure
+      .input(z.object({
+        promptId: z.number(),
+      }))
+      .mutation(async ({ input }) => {
+        const { getPromptById } = await import("./db");
+        const promptData = await getPromptById(input.promptId);
+        
+        if (!promptData) {
+          throw new Error("Prompt not found");
+        }
+
+        const promptJson = JSON.parse(promptData.promptJson);
+
+        const analysisResponse = await invokeLLM({
+          messages: [
+            {
+              role: "system",
+              content: "You are an expert video prompt analyst. Analyze the prompt across 8 sections and provide scores and suggestions in JSON format."
+            },
+            {
+              role: "user",
+              content: `Analyze this prompt:\n\nTitle: ${promptData.title}\nSector: ${promptData.industrySector}\n\nPrompt:\n${JSON.stringify(promptJson, null, 2)}\n\nProvide analysis with overall_score (0-10), overall_assessment (string), section_scores (object with 8 sections), section_analysis (object with strengths/weaknesses/suggestions arrays for each section), and priority_improvements (array of strings).`
+            }
+          ],
+          response_format: { type: "json_object" }
+        });
+
+        const analysisContent = analysisResponse.choices[0].message.content;
+        const analysis = JSON.parse(typeof analysisContent === 'string' ? analysisContent : '{}');
+
+        return {
+          promptId: input.promptId,
+          promptTitle: promptData.title,
+          analysis
+        };
+      }),
+
+    optimizePrompt: publicProcedure
+      .input(z.object({
+        promptId: z.number(),
+      }))
+      .mutation(async ({ input }) => {
+        const { getPromptById } = await import("./db");
+        const promptData = await getPromptById(input.promptId);
+        
+        if (!promptData) {
+          throw new Error("Prompt not found");
+        }
+
+        const originalPrompt = JSON.parse(promptData.promptJson);
+
+        const optimizationResponse = await invokeLLM({
+          messages: [
+            {
+              role: "system",
+              content: "You are an expert video prompt optimizer. Improve the prompt while maintaining the exact 8-section JSON structure. Return ONLY valid JSON."
+            },
+            {
+              role: "user",
+              content: `Optimize this prompt maintaining the exact structure:\n\n${JSON.stringify(originalPrompt, null, 2)}\n\nImprove coherence, technical accuracy, and creative quality. Return the complete optimized prompt as JSON with all 8 sections: shot, subject, action, scene, cinematography, audio, visual_rules, technical_specifications.`
+            }
+          ],
+          response_format: { type: "json_object" }
+        });
+
+        const optimizedContent = optimizationResponse.choices[0].message.content;
+        const optimizedPrompt = JSON.parse(typeof optimizedContent === 'string' ? optimizedContent : '{}');
+
+        return {
+          original: originalPrompt,
+          optimized: optimizedPrompt
+        };
+      }),
   }),
 
   favorites: router({

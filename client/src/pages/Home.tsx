@@ -29,6 +29,9 @@ export default function Home() {
             <Link href="/generator">
               <Button variant="ghost">Generator</Button>
             </Link>
+            <Link href="/optimize">
+              <Button variant="ghost">Optimizer</Button>
+            </Link>
             <Link href="/documentation">
               <Button variant="ghost">Documentation</Button>
             </Link>
