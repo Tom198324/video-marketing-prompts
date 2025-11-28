@@ -5,7 +5,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { trpc } from "@/lib/trpc";
-import { Loader2, ShieldCheck, AlertCircle, CheckCircle, XCircle, AlertTriangle } from "lucide-react";
+import { Loader2, ShieldCheck, AlertCircle, CheckCircle, XCircle, AlertTriangle, Save } from "lucide-react";
 import { toast } from "sonner";
 import { exportToPDF, exportToMarkdown, downloadMarkdown } from "@/lib/exportUtils";
 import { FileDown } from "lucide-react";
@@ -24,6 +24,15 @@ export default function Validator() {
     },
     onError: (error) => {
       toast.error(`❌ Validation error: ${error.message}`);
+    },
+  });
+
+  const saveToLibraryMutation = trpc.library.savePrompt.useMutation({
+    onSuccess: () => {
+      toast.success("💾 Prompt saved to your library!");
+    },
+    onError: (error) => {
+      toast.error(`Failed to save: ${error.message}`);
     },
   });
 
@@ -410,6 +419,26 @@ export default function Validator() {
                       >
                         <FileDown className="h-4 w-4 mr-2" />
                         Export Markdown
+                      </Button>
+                      <Button
+                        size="sm"
+                        onClick={() => {
+                          try {
+                            const promptJson = JSON.parse(promptText);
+                            saveToLibraryMutation.mutate({
+                              title: promptTitle || 'Custom Prompt',
+                              promptJson,
+                              qualityScore: validationResult.analysis.overall_score,
+                              tags: 'validated',
+                            });
+                          } catch (e) {
+                            toast.error('Invalid JSON format');
+                          }
+                        }}
+                        disabled={saveToLibraryMutation.isPending}
+                      >
+                        <Save className="h-4 w-4 mr-2" />
+                        {saveToLibraryMutation.isPending ? 'Saving...' : 'Save to Library'}
                       </Button>
                     </div>
                   </div>

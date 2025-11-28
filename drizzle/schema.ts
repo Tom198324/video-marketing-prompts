@@ -59,3 +59,97 @@ export const favorites = mysqlTable("favorites", {
 
 export type Favorite = typeof favorites.$inferSelect;
 export type InsertFavorite = typeof favorites.$inferInsert;
+
+/**
+ * User prompts table - stores user's custom saved prompts
+ */
+export const userPrompts = mysqlTable("userPrompts", {
+  id: int("id").autoincrement().primaryKey(),
+  userId: int("userId").notNull(),
+  title: varchar("title", { length: 255 }).notNull(),
+  promptJson: text("promptJson").notNull(), // Full JSON prompt structure
+  folderId: int("folderId"), // NULL means root folder
+  tags: text("tags"), // Comma-separated tags for filtering
+  qualityScore: int("qualityScore"), // Score from validation
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+  updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
+});
+
+export type UserPrompt = typeof userPrompts.$inferSelect;
+export type InsertUserPrompt = typeof userPrompts.$inferInsert;
+
+/**
+ * Folders table - for organizing user prompts
+ */
+export const folders = mysqlTable("folders", {
+  id: int("id").autoincrement().primaryKey(),
+  userId: int("userId").notNull(),
+  name: varchar("name", { length: 100 }).notNull(),
+  parentFolderId: int("parentFolderId"), // NULL means root level
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+});
+
+export type Folder = typeof folders.$inferSelect;
+export type InsertFolder = typeof folders.$inferInsert;
+
+/**
+ * Prompt shares table - for collaboration
+ */
+export const promptShares = mysqlTable("promptShares", {
+  id: int("id").autoincrement().primaryKey(),
+  promptId: int("promptId").notNull(),
+  ownerId: int("ownerId").notNull(), // User who owns the prompt
+  sharedWithUserId: int("sharedWithUserId").notNull(), // User who receives access
+  permission: mysqlEnum("permission", ["view", "edit"]).default("view").notNull(),
+  sharedAt: timestamp("sharedAt").defaultNow().notNull(),
+});
+
+export type PromptShare = typeof promptShares.$inferSelect;
+export type InsertPromptShare = typeof promptShares.$inferInsert;
+
+/**
+ * Prompt comments table - for collaboration feedback
+ */
+export const promptComments = mysqlTable("promptComments", {
+  id: int("id").autoincrement().primaryKey(),
+  promptId: int("promptId").notNull(),
+  userId: int("userId").notNull(),
+  commentText: text("commentText").notNull(),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+});
+
+export type PromptComment = typeof promptComments.$inferSelect;
+export type InsertPromptComment = typeof promptComments.$inferInsert;
+
+/**
+ * Prompt versions table - for revision history
+ */
+export const promptVersions = mysqlTable("promptVersions", {
+  id: int("id").autoincrement().primaryKey(),
+  promptId: int("promptId").notNull(),
+  versionNumber: int("versionNumber").notNull(),
+  promptJson: text("promptJson").notNull(),
+  createdBy: int("createdBy").notNull(),
+  changeDescription: varchar("changeDescription", { length: 255 }),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+});
+
+export type PromptVersion = typeof promptVersions.$inferSelect;
+export type InsertPromptVersion = typeof promptVersions.$inferInsert;
+
+/**
+ * Templates table - industry-specific prompt templates
+ */
+export const templates = mysqlTable("templates", {
+  id: int("id").autoincrement().primaryKey(),
+  industry: varchar("industry", { length: 100 }).notNull(),
+  useCase: varchar("useCase", { length: 255 }).notNull(),
+  title: varchar("title", { length: 255 }).notNull(),
+  description: text("description").notNull(),
+  templateJson: text("templateJson").notNull(), // JSON with placeholders
+  previewImage: varchar("previewImage", { length: 500 }),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+});
+
+export type Template = typeof templates.$inferSelect;
+export type InsertTemplate = typeof templates.$inferInsert;

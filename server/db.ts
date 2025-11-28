@@ -1,6 +1,14 @@
-import { eq, sql, and } from "drizzle-orm";
+import { eq, sql, and, desc, like, or } from "drizzle-orm";
 import { drizzle } from "drizzle-orm/mysql2";
-import { InsertUser, users, prompts, InsertPrompt, favorites } from "../drizzle/schema";
+import { 
+  InsertUser, users, prompts, InsertPrompt, favorites,
+  userPrompts, InsertUserPrompt,
+  folders, InsertFolder,
+  promptShares, InsertPromptShare,
+  promptComments, InsertPromptComment,
+  promptVersions, InsertPromptVersion,
+  templates, InsertTemplate
+} from "../drizzle/schema";
 import { ENV } from './_core/env';
 
 let _db: ReturnType<typeof drizzle> | null = null;
@@ -165,4 +173,220 @@ export async function removeFavorite(userId: number, promptId: number) {
       eq(favorites.userId, userId),
       eq(favorites.promptId, promptId)
     ));
+}
+
+// User Prompts Library queries
+export async function saveUserPrompt(data: InsertUserPrompt) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  const result = await db.insert(userPrompts).values(data);
+  return result;
+}
+
+export async function getUserPrompts(userId: number, folderId?: number | null) {
+  const db = await getDb();
+  if (!db) return [];
+  
+  if (folderId === undefined) {
+    // Get all prompts
+    return db.select().from(userPrompts)
+      .where(eq(userPrompts.userId, userId))
+      .orderBy(desc(userPrompts.updatedAt));
+  } else if (folderId === null) {
+    // Get root folder prompts
+    return db.select().from(userPrompts)
+      .where(and(
+        eq(userPrompts.userId, userId),
+        sql`${userPrompts.folderId} IS NULL`
+      ))
+      .orderBy(desc(userPrompts.updatedAt));
+  } else {
+    // Get specific folder prompts
+    return db.select().from(userPrompts)
+      .where(and(
+        eq(userPrompts.userId, userId),
+        eq(userPrompts.folderId, folderId)
+      ))
+      .orderBy(desc(userPrompts.updatedAt));
+  }
+}
+
+export async function getUserPromptById(id: number, userId: number) {
+  const db = await getDb();
+  if (!db) return undefined;
+  const result = await db.select().from(userPrompts)
+    .where(and(
+      eq(userPrompts.id, id),
+      eq(userPrompts.userId, userId)
+    ))
+    .limit(1);
+  return result.length > 0 ? result[0] : undefined;
+}
+
+export async function updateUserPrompt(id: number, userId: number, data: Partial<InsertUserPrompt>) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  return db.update(userPrompts)
+    .set(data)
+    .where(and(
+      eq(userPrompts.id, id),
+      eq(userPrompts.userId, userId)
+    ));
+}
+
+export async function deleteUserPrompt(id: number, userId: number) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  return db.delete(userPrompts)
+    .where(and(
+      eq(userPrompts.id, id),
+      eq(userPrompts.userId, userId)
+    ));
+}
+
+export async function searchUserPrompts(userId: number, searchTerm: string) {
+  const db = await getDb();
+  if (!db) return [];
+  return db.select().from(userPrompts)
+    .where(and(
+      eq(userPrompts.userId, userId),
+      or(
+        like(userPrompts.title, `%${searchTerm}%`),
+        like(userPrompts.tags, `%${searchTerm}%`)
+      )
+    ))
+    .orderBy(desc(userPrompts.updatedAt));
+}
+
+// Folders queries
+export async function createFolder(data: InsertFolder) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  const result = await db.insert(folders).values(data);
+  return result;
+}
+
+export async function getUserFolders(userId: number) {
+  const db = await getDb();
+  if (!db) return [];
+  return db.select().from(folders)
+    .where(eq(folders.userId, userId))
+    .orderBy(folders.name);
+}
+
+export async function updateFolder(id: number, userId: number, name: string) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  return db.update(folders)
+    .set({ name })
+    .where(and(
+      eq(folders.id, id),
+      eq(folders.userId, userId)
+    ));
+}
+
+export async function deleteFolder(id: number, userId: number) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  // First, move all prompts in this folder to root
+  await db.update(userPrompts)
+    .set({ folderId: null })
+    .where(eq(userPrompts.folderId, id));
+  // Then delete the folder
+  return db.delete(folders)
+    .where(and(
+      eq(folders.id, id),
+      eq(folders.userId, userId)
+    ));
+}
+
+// Prompt Shares queries
+export async function sharePrompt(data: InsertPromptShare) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  return db.insert(promptShares).values(data);
+}
+
+export async function getSharedPrompts(userId: number) {
+  const db = await getDb();
+  if (!db) return [];
+  return db.select()
+    .from(promptShares)
+    .innerJoin(userPrompts, eq(promptShares.promptId, userPrompts.id))
+    .where(eq(promptShares.sharedWithUserId, userId))
+    .orderBy(desc(promptShares.sharedAt));
+}
+
+export async function removeShare(promptId: number, sharedWithUserId: number) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  return db.delete(promptShares)
+    .where(and(
+      eq(promptShares.promptId, promptId),
+      eq(promptShares.sharedWithUserId, sharedWithUserId)
+    ));
+}
+
+// Prompt Comments queries
+export async function addComment(data: InsertPromptComment) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  return db.insert(promptComments).values(data);
+}
+
+export async function getPromptComments(promptId: number) {
+  const db = await getDb();
+  if (!db) return [];
+  return db.select()
+    .from(promptComments)
+    .innerJoin(users, eq(promptComments.userId, users.id))
+    .where(eq(promptComments.promptId, promptId))
+    .orderBy(promptComments.createdAt);
+}
+
+// Prompt Versions queries
+export async function savePromptVersion(data: InsertPromptVersion) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  return db.insert(promptVersions).values(data);
+}
+
+export async function getPromptVersions(promptId: number) {
+  const db = await getDb();
+  if (!db) return [];
+  return db.select()
+    .from(promptVersions)
+    .innerJoin(users, eq(promptVersions.createdBy, users.id))
+    .where(eq(promptVersions.promptId, promptId))
+    .orderBy(desc(promptVersions.versionNumber));
+}
+
+// Templates queries
+export async function getAllTemplates() {
+  const db = await getDb();
+  if (!db) return [];
+  return db.select().from(templates).orderBy(templates.industry, templates.useCase);
+}
+
+export async function getTemplatesByIndustry(industry: string) {
+  const db = await getDb();
+  if (!db) return [];
+  return db.select().from(templates)
+    .where(eq(templates.industry, industry))
+    .orderBy(templates.useCase);
+}
+
+export async function getTemplateById(id: number) {
+  const db = await getDb();
+  if (!db) return undefined;
+  const result = await db.select().from(templates)
+    .where(eq(templates.id, id))
+    .limit(1);
+  return result.length > 0 ? result[0] : undefined;
+}
+
+export async function insertTemplate(data: InsertTemplate) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  return db.insert(templates).values(data);
 }

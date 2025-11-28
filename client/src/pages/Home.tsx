@@ -35,6 +35,12 @@ export default function Home() {
             <Link href="/validator">
               <Button variant="ghost">Validator</Button>
             </Link>
+            <Link href="/my-prompts">
+              <Button variant="ghost">My Prompts</Button>
+            </Link>
+            <Link href="/templates">
+              <Button variant="ghost">Templates</Button>
+            </Link>
             <Link href="/documentation">
               <Button variant="ghost">Documentation</Button>
             </Link>

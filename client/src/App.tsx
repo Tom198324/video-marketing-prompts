@@ -16,6 +16,8 @@ import BeforeAfter from "./pages/BeforeAfter";
 import ExcellenceGuide from "./pages/ExcellenceGuide";
 import Validator from "./pages/Validator";
 import BatchValidator from "./pages/BatchValidator";
+import MyPrompts from "./pages/MyPrompts";
+import Templates from "./pages/Templates";
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
@@ -33,6 +35,8 @@ function Router() {
       <Route path="/excellence-guide" component={ExcellenceGuide} />
       <Route path="/validator" component={Validator} />
       <Route path="/batch-validator" component={BatchValidator} />
+      <Route path="/my-prompts" component={MyPrompts} />
+      <Route path="/templates" component={Templates} />
       <Route path={"/404"} component={NotFound} />
       {/* Final fallback route */}
       <Route component={NotFound} />

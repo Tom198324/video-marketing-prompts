@@ -683,6 +683,246 @@ RETURN ONLY THE COMPLETE OPTIMIZED JSON. No explanations, no markdown.`
       }),
   }),
 
+  library: router({
+    // User Prompts Management
+    savePrompt: protectedProcedure
+      .input(z.object({
+        title: z.string(),
+        promptJson: z.any(),
+        folderId: z.number().nullable().optional(),
+        tags: z.string().optional(),
+        qualityScore: z.number().optional(),
+      }))
+      .mutation(async ({ ctx, input }) => {
+        const { saveUserPrompt } = await import("./db");
+        await saveUserPrompt({
+          userId: ctx.user.id,
+          title: input.title,
+          promptJson: JSON.stringify(input.promptJson),
+          folderId: input.folderId,
+          tags: input.tags || "",
+          qualityScore: input.qualityScore,
+        });
+        return { success: true };
+      }),
+    
+    getMyPrompts: protectedProcedure
+      .input(z.object({ folderId: z.number().nullable().optional() }).optional())
+      .query(async ({ ctx, input }) => {
+        const { getUserPrompts } = await import("./db");
+        const prompts = await getUserPrompts(ctx.user.id, input?.folderId);
+        return prompts.map(p => ({
+          ...p,
+          promptJson: JSON.parse(p.promptJson),
+        }));
+      }),
+    
+    getPromptById: protectedProcedure
+      .input(z.object({ id: z.number() }))
+      .query(async ({ ctx, input }) => {
+        const { getUserPromptById } = await import("./db");
+        const prompt = await getUserPromptById(input.id, ctx.user.id);
+        if (!prompt) return null;
+        return {
+          ...prompt,
+          promptJson: JSON.parse(prompt.promptJson),
+        };
+      }),
+    
+    updatePrompt: protectedProcedure
+      .input(z.object({
+        id: z.number(),
+        title: z.string().optional(),
+        promptJson: z.any().optional(),
+        folderId: z.number().nullable().optional(),
+        tags: z.string().optional(),
+        qualityScore: z.number().optional(),
+      }))
+      .mutation(async ({ ctx, input }) => {
+        const { updateUserPrompt } = await import("./db");
+        const data: any = {};
+        if (input.title) data.title = input.title;
+        if (input.promptJson) data.promptJson = JSON.stringify(input.promptJson);
+        if (input.folderId !== undefined) data.folderId = input.folderId;
+        if (input.tags !== undefined) data.tags = input.tags;
+        if (input.qualityScore !== undefined) data.qualityScore = input.qualityScore;
+        await updateUserPrompt(input.id, ctx.user.id, data);
+        return { success: true };
+      }),
+    
+    deletePrompt: protectedProcedure
+      .input(z.object({ id: z.number() }))
+      .mutation(async ({ ctx, input }) => {
+        const { deleteUserPrompt } = await import("./db");
+        await deleteUserPrompt(input.id, ctx.user.id);
+        return { success: true };
+      }),
+    
+    searchPrompts: protectedProcedure
+      .input(z.object({ searchTerm: z.string() }))
+      .query(async ({ ctx, input }) => {
+        const { searchUserPrompts } = await import("./db");
+        const prompts = await searchUserPrompts(ctx.user.id, input.searchTerm);
+        return prompts.map(p => ({
+          ...p,
+          promptJson: JSON.parse(p.promptJson),
+        }));
+      }),
+    
+    // Folders Management
+    createFolder: protectedProcedure
+      .input(z.object({
+        name: z.string(),
+        parentFolderId: z.number().nullable().optional(),
+      }))
+      .mutation(async ({ ctx, input }) => {
+        const { createFolder } = await import("./db");
+        await createFolder({
+          userId: ctx.user.id,
+          name: input.name,
+          parentFolderId: input.parentFolderId,
+        });
+        return { success: true };
+      }),
+    
+    getMyFolders: protectedProcedure.query(async ({ ctx }) => {
+      const { getUserFolders } = await import("./db");
+      return getUserFolders(ctx.user.id);
+    }),
+    
+    updateFolder: protectedProcedure
+      .input(z.object({ id: z.number(), name: z.string() }))
+      .mutation(async ({ ctx, input }) => {
+        const { updateFolder } = await import("./db");
+        await updateFolder(input.id, ctx.user.id, input.name);
+        return { success: true };
+      }),
+    
+    deleteFolder: protectedProcedure
+      .input(z.object({ id: z.number() }))
+      .mutation(async ({ ctx, input }) => {
+        const { deleteFolder } = await import("./db");
+        await deleteFolder(input.id, ctx.user.id);
+        return { success: true };
+      }),
+    
+    // Sharing
+    sharePrompt: protectedProcedure
+      .input(z.object({
+        promptId: z.number(),
+        sharedWithUserId: z.number(),
+        permission: z.enum(["view", "edit"]).default("view"),
+      }))
+      .mutation(async ({ ctx, input }) => {
+        const { sharePrompt } = await import("./db");
+        await sharePrompt({
+          promptId: input.promptId,
+          ownerId: ctx.user.id,
+          sharedWithUserId: input.sharedWithUserId,
+          permission: input.permission,
+        });
+        return { success: true };
+      }),
+    
+    getSharedWithMe: protectedProcedure.query(async ({ ctx }) => {
+      const { getSharedPrompts } = await import("./db");
+      return getSharedPrompts(ctx.user.id);
+    }),
+    
+    removeShare: protectedProcedure
+      .input(z.object({ promptId: z.number(), sharedWithUserId: z.number() }))
+      .mutation(async ({ ctx, input }) => {
+        const { removeShare } = await import("./db");
+        await removeShare(input.promptId, input.sharedWithUserId);
+        return { success: true };
+      }),
+    
+    // Comments
+    addComment: protectedProcedure
+      .input(z.object({ promptId: z.number(), commentText: z.string() }))
+      .mutation(async ({ ctx, input }) => {
+        const { addComment } = await import("./db");
+        await addComment({
+          promptId: input.promptId,
+          userId: ctx.user.id,
+          commentText: input.commentText,
+        });
+        return { success: true };
+      }),
+    
+    getComments: protectedProcedure
+      .input(z.object({ promptId: z.number() }))
+      .query(async ({ input }) => {
+        const { getPromptComments } = await import("./db");
+        return getPromptComments(input.promptId);
+      }),
+    
+    // Versions
+    saveVersion: protectedProcedure
+      .input(z.object({
+        promptId: z.number(),
+        versionNumber: z.number(),
+        promptJson: z.any(),
+        changeDescription: z.string().optional(),
+      }))
+      .mutation(async ({ ctx, input }) => {
+        const { savePromptVersion } = await import("./db");
+        await savePromptVersion({
+          promptId: input.promptId,
+          versionNumber: input.versionNumber,
+          promptJson: JSON.stringify(input.promptJson),
+          createdBy: ctx.user.id,
+          changeDescription: input.changeDescription,
+        });
+        return { success: true };
+      }),
+    
+    getVersions: protectedProcedure
+      .input(z.object({ promptId: z.number() }))
+      .query(async ({ input }) => {
+        const { getPromptVersions } = await import("./db");
+        const versions = await getPromptVersions(input.promptId);
+        return versions.map(v => ({
+          ...v,
+          promptJson: JSON.parse((v as any).promptVersions.promptJson),
+        }));
+      }),
+  }),
+  
+  templates: router({
+    list: publicProcedure.query(async () => {
+      const { getAllTemplates } = await import("./db");
+      const templates = await getAllTemplates();
+      return templates.map(t => ({
+        ...t,
+        templateJson: JSON.parse(t.templateJson),
+      }));
+    }),
+    
+    getByIndustry: publicProcedure
+      .input(z.object({ industry: z.string() }))
+      .query(async ({ input }) => {
+        const { getTemplatesByIndustry } = await import("./db");
+        const templates = await getTemplatesByIndustry(input.industry);
+        return templates.map(t => ({
+          ...t,
+          templateJson: JSON.parse(t.templateJson),
+        }));
+      }),
+    
+    getById: publicProcedure
+      .input(z.object({ id: z.number() }))
+      .query(async ({ input }) => {
+        const { getTemplateById } = await import("./db");
+        const template = await getTemplateById(input.id);
+        if (!template) return null;
+        return {
+          ...template,
+          templateJson: JSON.parse(template.templateJson),
+        };
+      }),
+  }),
+
   favorites: router({
     list: protectedProcedure.query(async ({ ctx }) => {
       const { getUserFavorites } = await import("./db");
