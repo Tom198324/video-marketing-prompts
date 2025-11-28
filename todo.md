@@ -788,3 +788,25 @@
 - [x] Test mobile navigation
 - [x] Run unit tests (26/26 passing)
 - [x] Save checkpoint with new architecture
+
+
+## 🔄 Replace Dropdown Navigation with Static Sub-Menus
+
+### Phase 1: Simplify Header
+- [x] Remove dropdown menus from Header.tsx
+- [x] Keep only main navigation items (Production, Prompts Studio, Templates, Tone Guide, Documentation)
+- [x] Remove DropdownMenu component imports
+
+### Phase 2: Add Static Sub-Navigation
+- [x] Move tabs from Production page body to header area (sticky sub-nav)
+- [x] Move tabs from PromptsStudio page body to header area (sticky sub-nav)
+- [x] Move tabs from ToneGuide page body to header area (sticky sub-nav)
+- [x] Style sub-navigation to be visually distinct from main header
+- [x] Ensure sub-navigation is sticky and visible while scrolling
+
+### Phase 3: Testing and Checkpoint
+- [x] Test navigation flow on all pages
+- [x] Verify sub-menus are always visible (sticky top-16, z-40)
+- [x] Test mobile responsiveness
+- [x] Run unit tests (22/22 passing)
+- [x] Save checkpoint

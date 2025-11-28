@@ -7,6 +7,7 @@ import { TONE_CATEGORIES } from "@/../../shared/promptStructure";
 import { Search, Sparkles, Briefcase, Palette, TrendingUp, Heart, Zap, Users, Lightbulb, GraduationCap, Play, BookOpen } from "lucide-react";
 import Header from "@/components/Header";
 import ToneExamples from "./ToneExamples";
+import { useLocation } from "wouter";
 
 type CategoryKey = keyof typeof TONE_CATEGORIES;
 
@@ -101,8 +102,27 @@ const CATEGORY_INFO: Record<CategoryKey, {
 };
 
 export default function ToneGuide() {
+  const [location, setLocation] = useLocation();
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState<CategoryKey | "all">("all");
+
+  // Determine active tab from URL
+  const getActiveTab = () => {
+    const params = new URLSearchParams(window.location.search);
+    return params.get("tab") === "examples" ? "examples" : "categories";
+  };
+
+  const [activeTab, setActiveTab] = useState(getActiveTab());
+
+  // Update URL when tab changes
+  const handleTabChange = (value: string) => {
+    setActiveTab(value);
+    if (value === "categories") {
+      setLocation("/tone-guide");
+    } else {
+      setLocation(`/tone-guide?tab=${value}`);
+    }
+  };
 
   // Filter tones based on search and category
   const getFilteredTones = () => {
@@ -124,29 +144,41 @@ export default function ToneGuide() {
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-purple-50 to-pink-50">
       <Header />
 
-      {/* Header */}
-      <header className="border-b bg-white/80 backdrop-blur-sm">
-        <div className="container mx-auto px-4 py-6">
-          <h1 className="text-3xl font-bold text-slate-900 mb-2">Tone & Atmosphere Guide</h1>
-          <p className="text-slate-600">Master the art of emotional storytelling with our comprehensive tone library</p>
+      {/* Sticky Sub-Navigation */}
+      <div className="sticky top-16 z-40 bg-white/95 backdrop-blur border-b">
+        <div className="container mx-auto px-4">
+          <Tabs value={activeTab} onValueChange={handleTabChange} className="w-full">
+            <TabsList className="h-14 bg-transparent border-0 w-full justify-start gap-4">
+              <TabsTrigger 
+                value="categories" 
+                className="data-[state=active]:bg-transparent data-[state=active]:border-b-2 data-[state=active]:border-primary rounded-none px-4 h-full"
+              >
+                <BookOpen className="h-4 w-4 mr-2" />
+                Tone Categories
+              </TabsTrigger>
+              <TabsTrigger 
+                value="examples" 
+                className="data-[state=active]:bg-transparent data-[state=active]:border-b-2 data-[state=active]:border-primary rounded-none px-4 h-full"
+              >
+                <Play className="h-4 w-4 mr-2" />
+                Tone Examples
+              </TabsTrigger>
+            </TabsList>
+          </Tabs>
         </div>
-      </header>
+      </div>
 
+      {/* Page Content */}
       <div className="container mx-auto px-4 py-8">
-        <Tabs defaultValue="categories" className="w-full">
-          <TabsList className="grid w-full max-w-md grid-cols-2 mb-8">
-            <TabsTrigger value="categories" className="flex items-center gap-2">
-              <BookOpen className="h-4 w-4" />
-              Tone Categories
-            </TabsTrigger>
-            <TabsTrigger value="examples" className="flex items-center gap-2">
-              <Play className="h-4 w-4" />
-              Tone Examples
-            </TabsTrigger>
-          </TabsList>
-
+        <Tabs value={activeTab} className="w-full">
           {/* Tone Categories Tab */}
           <TabsContent value="categories" className="space-y-8">
+            {/* Header */}
+            <div>
+              <h1 className="text-3xl font-bold text-slate-900 mb-2">Tone Categories</h1>
+              <p className="text-slate-600">Master the art of emotional storytelling with our comprehensive tone library</p>
+            </div>
+
             {/* Search and Filter */}
             <Card>
               <CardHeader>

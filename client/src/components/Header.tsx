@@ -1,17 +1,9 @@
 import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
 import { trpc } from "@/lib/trpc";
 import { 
-  Film, Image, Sparkles, Zap, CheckCircle, FolderOpen, 
-  LayoutTemplate, BookOpen, LogOut, LogIn, Menu, Palette, ChevronDown,
-  Wand2, Play
+  Film, FolderOpen, LayoutTemplate, BookOpen, LogOut, LogIn, Menu, Palette
 } from "lucide-react";
 import { useState } from "react";
 
@@ -21,50 +13,12 @@ export default function Header() {
   const [location] = useLocation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  const navigationWithDropdowns = [
-    {
-      name: "Production",
-      href: "/production",
-      icon: Film,
-      items: [
-        { name: "Prompts Library", href: "/production" },
-        { name: "Visual Gallery", href: "/production?tab=gallery" },
-      ]
-    },
-    {
-      name: "Prompts Studio",
-      href: "/prompts-studio",
-      icon: FolderOpen,
-      items: [
-        { name: "My Prompts", href: "/prompts-studio" },
-        { name: "Customizer", href: "/prompts-studio?tab=customizer" },
-        { name: "Optimizer", href: "/prompts-studio?tab=optimizer" },
-        { name: "Validator", href: "/prompts-studio?tab=validator" },
-      ]
-    },
-    {
-      name: "Templates",
-      href: "/templates",
-      icon: LayoutTemplate,
-    },
-    {
-      name: "Tone Guide",
-      href: "/tone-guide",
-      icon: Palette,
-      items: [
-        { name: "Tone Categories", href: "/tone-guide" },
-        { name: "Tone Examples", href: "/tone-guide?tab=examples" },
-      ]
-    },
-    {
-      name: "Documentation",
-      href: "/documentation",
-      icon: BookOpen,
-      items: [
-        { name: "Overview", href: "/documentation" },
-        { name: "LLM API", href: "/documentation#llm-api" },
-      ]
-    },
+  const navigation = [
+    { name: "Production", href: "/production", icon: Film },
+    { name: "Prompts Studio", href: "/prompts-studio", icon: FolderOpen },
+    { name: "Templates", href: "/templates", icon: LayoutTemplate },
+    { name: "Tone Guide", href: "/tone-guide", icon: Palette },
+    { name: "Documentation", href: "/documentation", icon: BookOpen },
   ];
 
   const isActive = (href: string) => {
@@ -86,43 +40,10 @@ export default function Header() {
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-1">
-          {navigationWithDropdowns.map((item) => {
+          {navigation.map((item) => {
             const Icon = item.icon;
             const active = isActive(item.href);
 
-            // If item has dropdown
-            if (item.items) {
-              return (
-                <DropdownMenu key={item.name}>
-                  <DropdownMenuTrigger asChild>
-                    <button
-                      className={`flex items-center gap-2 px-3 py-2 rounded-md text-sm font-medium transition-colors ${
-                        active
-                          ? "bg-primary text-primary-foreground"
-                          : "text-muted-foreground hover:bg-accent hover:text-accent-foreground"
-                      }`}
-                    >
-                      <Icon className="h-4 w-4" />
-                      {item.name}
-                      <ChevronDown className="h-3 w-3 opacity-50" />
-                    </button>
-                  </DropdownMenuTrigger>
-                  <DropdownMenuContent align="start">
-                    {item.items.map((subItem) => (
-                      <DropdownMenuItem key={subItem.name} asChild>
-                        <Link href={subItem.href}>
-                          <a className="w-full cursor-pointer">
-                            {subItem.name}
-                          </a>
-                        </Link>
-                      </DropdownMenuItem>
-                    ))}
-                  </DropdownMenuContent>
-                </DropdownMenu>
-              );
-            }
-
-            // Regular link without dropdown
             return (
               <Link key={item.name} href={item.href}>
                 <a
@@ -177,34 +98,18 @@ export default function Header() {
               <SheetTitle>Navigation</SheetTitle>
             </SheetHeader>
             <nav className="flex flex-col gap-4 mt-8">
-              {navigationWithDropdowns.map((item) => {
+              {navigation.map((item) => {
                 const Icon = item.icon;
                 return (
-                  <div key={item.name}>
-                    <Link href={item.href}>
-                      <a
-                        className="flex items-center gap-3 text-lg font-medium hover:text-primary transition-colors"
-                        onClick={() => setMobileMenuOpen(false)}
-                      >
-                        <Icon className="h-5 w-5" />
-                        {item.name}
-                      </a>
-                    </Link>
-                    {item.items && (
-                      <div className="ml-8 mt-2 space-y-2">
-                        {item.items.map((subItem) => (
-                          <Link key={subItem.name} href={subItem.href}>
-                            <a
-                              className="block text-sm text-muted-foreground hover:text-foreground transition-colors"
-                              onClick={() => setMobileMenuOpen(false)}
-                            >
-                              {subItem.name}
-                            </a>
-                          </Link>
-                        ))}
-                      </div>
-                    )}
-                  </div>
+                  <Link key={item.name} href={item.href}>
+                    <a
+                      className="flex items-center gap-3 text-lg font-medium hover:text-primary transition-colors"
+                      onClick={() => setMobileMenuOpen(false)}
+                    >
+                      <Icon className="h-5 w-5" />
+                      {item.name}
+                    </a>
+                  </Link>
                 );
               })}
 
