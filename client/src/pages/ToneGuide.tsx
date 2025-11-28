@@ -4,7 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import { TONE_CATEGORIES } from "@/../../shared/promptStructure";
 import { Search, Sparkles, Briefcase, Palette, TrendingUp, Heart, Zap, Users, GraduationCap } from "lucide-react";
-import Header from "@/components/Header";
+
 
 type CategoryKey = keyof typeof TONE_CATEGORIES;
 
@@ -119,8 +119,7 @@ export default function ToneGuide() {
   const filteredCategories = getFilteredTones();
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-purple-50 to-pink-50">
-      <Header />
+    <div className="space-y-8">
 
       {/* Page Content */}
       <div className="container mx-auto px-4 py-8 space-y-8">

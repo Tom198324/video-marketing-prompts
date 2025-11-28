@@ -831,3 +831,23 @@
 - [x] Test Prompts Studio with 5 tabs
 - [x] Update unit tests (15/15 passing)
 - [x] Save checkpoint
+
+
+## 🔄 Move Tone Guide to Documentation
+
+### Phase 1: Add Tone Guide to Documentation
+- [x] Read current Documentation.tsx structure
+- [x] Add sticky sub-navigation with 3 tabs (Overview / LLM API / Tone Guide)
+- [x] Import ToneGuide component
+- [x] Add tab content for Tone Guide
+- [x] Update URL handling for tone-guide tab
+
+### Phase 2: Update Header Navigation
+- [x] Remove Tone Guide from main navigation in Header.tsx
+- [x] Keep only 4 main items (Production, Prompts Studio, Templates, Documentation)
+
+### Phase 3: Testing and Checkpoint
+- [x] Test Documentation with 3 tabs
+- [x] Test navigation flow
+- [x] Update unit tests (17/17 passing)
+- [x] Save checkpoint

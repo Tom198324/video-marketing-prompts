@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { trpc } from "@/lib/trpc";
 import { 
-  Film, FolderOpen, LayoutTemplate, BookOpen, LogOut, LogIn, Menu, Palette
+  Film, FolderOpen, LayoutTemplate, BookOpen, LogOut, LogIn, Menu
 } from "lucide-react";
 import { useState } from "react";
 
@@ -17,7 +17,6 @@ export default function Header() {
     { name: "Production", href: "/production", icon: Film },
     { name: "Prompts Studio", href: "/prompts-studio", icon: FolderOpen },
     { name: "Templates", href: "/templates", icon: LayoutTemplate },
-    { name: "Tone Guide", href: "/tone-guide", icon: Palette },
     { name: "Documentation", href: "/documentation", icon: BookOpen },
   ];
 
