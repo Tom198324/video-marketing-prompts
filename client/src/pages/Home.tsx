@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { getLoginUrl } from "@/const";
 import { trpc } from "@/lib/trpc";
-import { ArrowRight, Database, Download, Film, Lock, Search, Sparkles } from "lucide-react";
+import { ArrowRight, Database, Download, Film, Lock, Search, Sparkles, ShieldCheck } from "lucide-react";
 import { Link } from "wouter";
 
 export default function Home() {
@@ -31,6 +31,9 @@ export default function Home() {
             </Link>
             <Link href="/optimize">
               <Button variant="ghost">Optimizer</Button>
+            </Link>
+            <Link href="/validator">
+              <Button variant="ghost">Validator</Button>
             </Link>
             <Link href="/documentation">
               <Button variant="ghost">Documentation</Button>

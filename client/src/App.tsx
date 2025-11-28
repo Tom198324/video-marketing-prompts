@@ -13,6 +13,8 @@ import Generator from "./pages/Generator";
 import Prompts from "./pages/Prompts";
 import Optimize from "./pages/Optimize";
 import BeforeAfter from "./pages/BeforeAfter";
+import ExcellenceGuide from "./pages/ExcellenceGuide";
+import Validator from "./pages/Validator";
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
@@ -27,6 +29,8 @@ function Router() {
       <Route path="/generator" component={Generator} />
       <Route path="/optimize" component={Optimize} />
       <Route path="/before-after" component={BeforeAfter} />
+      <Route path="/excellence-guide" component={ExcellenceGuide} />
+      <Route path="/validator" component={Validator} />
       <Route path={"/404"} component={NotFound} />
       {/* Final fallback route */}
       <Route component={NotFound} />

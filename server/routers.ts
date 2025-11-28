@@ -314,6 +314,91 @@ Respond ONLY with the complete JSON of the variation, no additional text.`
         };
       }),
 
+    validateCustomPrompt: publicProcedure
+      .input(z.object({
+        promptText: z.string(),
+        title: z.string().optional(),
+      }))
+      .mutation(async ({ input }) => {
+        // Parse the custom prompt JSON
+        let promptJson;
+        try {
+          promptJson = JSON.parse(input.promptText);
+        } catch (error) {
+          throw new Error("Invalid JSON format. Please provide a valid JSON prompt.");
+        }
+
+        // Validate that it has the required structure
+        const requiredSections = ['shot', 'subject', 'action', 'scene', 'cinematography', 'audio', 'visual_rules', 'technical_specifications'];
+        const missingSections = requiredSections.filter(section => !promptJson[section]);
+        
+        if (missingSections.length > 0) {
+          throw new Error(`Missing required sections: ${missingSections.join(', ')}. All 8 sections are mandatory.`);
+        }
+
+        // Run ultra-strict evaluation
+        const analysisResponse = await invokeLLM({
+          messages: [
+            {
+              role: "system",
+              content: `You are a WORLD-CLASS cinematography expert with 20+ years of experience in Oscar-winning productions (Blade Runner 2049, 1917, The Revenant). You have ZERO tolerance for mediocrity.
+
+CRITICAL EVALUATION STANDARDS:
+- 10/10 = PERFECT - Worthy of Cannes Film Festival, zero improvements possible
+- 9/10 = CINEMATIC EXCELLENCE - Hollywood/Pixar level, ready for Super Bowl commercial
+- 8/10 = PROFESSIONAL MASTERY - High-end production quality, minor refinements only
+- 7/10 = SOLID PROFESSIONAL - Good but needs optimization for premium use
+- 6/10 = ACCEPTABLE - Multiple improvements required for professional standards
+- 5/10 = MEDIOCRE - Significant weaknesses, major reconstruction needed
+- 4/10 = POOR - Fundamental flaws, complete redesign required
+- 1-3/10 = UNACCEPTABLE - Start from scratch
+
+AUTOMATIC PENALTIES (apply these strictly):
+- Generic sequences ("Sequence 2", "Product showcase", "Display features"): -5 points
+- Narrative incoherence between sequences: -3 points
+- Vague technical terms ("good lighting", "nice camera"): -3 points
+- Missing emotional progression across sequences: -2 points
+- Visual or narrative clichés: -2 points
+- Imprecise timing (no seconds specified): -2 points
+- Incomplete technical specifications: -3 points
+
+ONLY award 9-10/10 if ALL criteria are met:
+✓ Cinematic mastery in camera work (specific lens, aperture, movement)
+✓ Precise timing down to the second for each action
+✓ Clear emotional storytelling arc across all sequences
+✓ Complete technical specifications (resolution, fps, color space, codec)
+✓ Creative originality (no generic "showcase" language)
+✓ Professional-grade audio design with specific sync points
+✓ Perfect visual continuity and realism rules
+✓ Specific subject details (age, expression, wardrobe evolution)
+
+Be RUTHLESSLY CRITICAL. Excellence is the ONLY acceptable standard.`
+            },
+            {
+              role: "user",
+              content: `Analyze this custom video prompt with EXTREME RIGOR:\n\nTitle: ${input.title || 'Custom Prompt'}\n\nPrompt JSON:\n${JSON.stringify(promptJson, null, 2)}\n\nEVALUATE EACH OF THE 8 SECTIONS:\n1. Shot (camera_system, lens, composition, movement) - 20% weight\n2. Subject (identity, appearance, expression, evolution) - 15% weight\n3. Action (precise timing, specific movements, camera tracking) - 25% weight\n4. Scene (location, time, weather, lighting, atmosphere) - 10% weight\n5. Cinematography (camera settings, color, stabilization) - 15% weight\n6. Audio (ambient, music, voice-over, sync) - 10% weight\n7. Visual Rules (realism, continuity) - 5% weight\n8. Technical Specifications (resolution, fps, codec, duration) - 0% (binary: complete or -3 penalty)\n\nAPPLY AUTOMATIC PENALTIES STRICTLY. Start from 5/10 baseline and justify every point above that.\n\nProvide JSON with:\n- overall_score (0-10, weighted average with penalties applied)\n- overall_assessment (harsh critical evaluation)\n- section_scores (object with scores 0-10 for each of 8 sections)\n- section_analysis (object with strengths/weaknesses/suggestions arrays for each section)\n- priority_improvements (array of critical issues to fix)\n- penalties_applied (array of penalty descriptions with point deductions)`
+            }
+          ],
+          response_format: { type: "json_object" }
+        });
+
+        const analysisContent = analysisResponse.choices[0].message.content;
+        const analysis = JSON.parse(typeof analysisContent === 'string' ? analysisContent : '{}');
+
+        return {
+          title: input.title || 'Custom Prompt',
+          analysis,
+          isValid: analysis.overall_score >= 7,
+          recommendation: analysis.overall_score >= 9 
+            ? "✅ EXCELLENT - Ready for professional video generation"
+            : analysis.overall_score >= 7
+            ? "⚠️ GOOD - Minor improvements recommended before generation"
+            : analysis.overall_score >= 5
+            ? "❌ MEDIOCRE - Significant improvements required"
+            : "🚫 POOR - Complete reconstruction needed"
+        };
+      }),
+
     analyzePrompt: publicProcedure
       .input(z.object({
         promptId: z.number(),
