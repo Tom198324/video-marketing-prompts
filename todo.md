@@ -687,3 +687,42 @@
 - [ ] Test Tone Guide navigation
 - [ ] Verify all 50 prompts display tone correctly
 - [ ] Save final checkpoint
+
+
+## 📚 Tone Guide & Examples
+
+### Feature 1: Tone Guide Page
+- [x] Create ToneGuide.tsx page
+  - [x] Display all 200+ tones organized by 10 categories
+  - [x] Add visual cards with colors for each category
+  - [x] Include description and use cases for each tone
+  - [x] Add sector-specific recommendations (E-commerce, Real Estate, SaaS, etc.)
+  - [x] Add search and filter functionality
+- [x] Add route and navigation link
+- [x] Test Tone Guide page
+
+### Feature 2: Interactive Tone Selector in Generator
+- [x] Integrate ToneSelector component in Generator
+  - [x] Replace simple checkbox with full tone selector
+  - [x] Add primary/secondary tone selection
+  - [x] Add mood keywords input
+  - [x] Add emotional arc input
+  - [x] Add visual style reference input
+- [x] Update Generator mutation to handle tone data
+- [x] Test tone selection in Generator
+
+### Feature 3: Tone Examples Page
+- [x] Create ToneExamples.tsx page
+  - [x] Show example prompts for each tone category
+  - [x] Display side-by-side comparisons (same product, different tones)
+  - [x] Add visual indicators (color coding, icons)
+  - [x] Include before/after quality scores
+  - [x] Add "Use This Tone" button to apply to Generator
+- [x] Add route and navigation link
+- [x] Test Tone Examples page
+
+### Final Testing
+- [x] Test complete tone workflow (Guide → Generator → Examples)
+- [x] Verify all navigation links work
+- [x] Write and pass unit tests (14/14 passing)
+- [x] Save final checkpoint

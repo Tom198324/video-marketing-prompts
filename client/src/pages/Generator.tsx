@@ -1,12 +1,14 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import { ToneSelector } from "@/components/ToneSelector";
 import { trpc } from "@/lib/trpc";
-import { Loader2, Sparkles, Copy, Download } from "lucide-react";
+import { Loader2, Sparkles, Copy, Download, Palette, ChevronLeft, ChevronRight } from "lucide-react";
 import { toast } from "sonner";
 import Header from "@/components/Header";
 
@@ -31,6 +33,14 @@ export default function Generator() {
     audio: false,
     technical: false,
   });
+  const [toneDialogOpen, setToneDialogOpen] = useState(false);
+  const [toneData, setToneData] = useState<{
+    primary_tone?: string;
+    secondary_tone?: string;
+    mood_keywords?: string[];
+    emotional_arc?: string;
+    visual_style_reference?: string;
+  }>({});
   const [generatedResult, setGeneratedResult] = useState<any>(null);
 
   const { data: prompts, isLoading: promptsLoading } = trpc.prompts.list.useQuery();
@@ -56,10 +66,17 @@ export default function Generator() {
       return;
     }
 
+    // If tone variation is selected but no tone data provided, warn user
+    if (variations.tone && !toneData.primary_tone) {
+      toast.error("⚠️ Tone variation selected but no tone specified - Please configure tone settings");
+      return;
+    }
+
     generateMutation.mutate({
       promptId: selectedPromptId,
       count: variationCount,
       variations,
+      toneData: variations.tone ? toneData : undefined,
     });
   };
 
@@ -176,18 +193,58 @@ export default function Generator() {
               </CardHeader>
               <CardContent>
                 <div className="space-y-4">
-                  <div className="flex items-center space-x-2">
-                    <Checkbox
-                      id="tone"
-                      checked={variations.tone}
-                      onCheckedChange={(checked) => 
-                        setVariations(prev => ({ ...prev, tone: checked as boolean }))
-                      }
-                    />
-                    <Label htmlFor="tone" className="cursor-pointer">
-                      <span className="font-semibold">Tone & Atmosphere</span>
-                      <span className="text-sm text-slate-500 block">Emotional tone, mood, visual style, emotional arc</span>
-                    </Label>
+                  {/* Tone & Atmosphere with Dialog */}
+                  <div className="flex items-center justify-between p-4 border-2 rounded-lg bg-gradient-to-r from-purple-50 to-pink-50 border-purple-200">
+                    <div className="flex items-center space-x-2">
+                      <Checkbox
+                        id="tone"
+                        checked={variations.tone}
+                        onCheckedChange={(checked) => 
+                          setVariations(prev => ({ ...prev, tone: checked as boolean }))
+                        }
+                      />
+                      <Label htmlFor="tone" className="cursor-pointer">
+                        <span className="font-semibold flex items-center gap-2">
+                          <Palette className="h-4 w-4" />
+                          Tone & Atmosphere
+                        </span>
+                        <span className="text-sm text-slate-600 block">
+                          {toneData.primary_tone 
+                            ? `${toneData.primary_tone}${toneData.secondary_tone ? ` + ${toneData.secondary_tone}` : ''}`
+                            : 'Emotional tone, mood, visual style, emotional arc'
+                          }
+                        </span>
+                      </Label>
+                    </div>
+                    <Dialog open={toneDialogOpen} onOpenChange={setToneDialogOpen}>
+                      <DialogTrigger asChild>
+                        <Button variant="outline" size="sm">
+                          <Palette className="h-4 w-4 mr-2" />
+                          Configure
+                        </Button>
+                      </DialogTrigger>
+                      <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
+                        <DialogHeader>
+                          <DialogTitle>Configure Tone & Atmosphere</DialogTitle>
+                          <DialogDescription>
+                            Select tones and define the emotional characteristics of your video
+                          </DialogDescription>
+                        </DialogHeader>
+                        <ToneSelector value={toneData} onChange={setToneData} />
+                        <div className="flex justify-end gap-2 pt-4 border-t">
+                          <Button variant="outline" onClick={() => setToneDialogOpen(false)}>
+                            Cancel
+                          </Button>
+                          <Button onClick={() => {
+                            setVariations(prev => ({ ...prev, tone: true }));
+                            setToneDialogOpen(false);
+                            toast.success("✅ Tone configuration saved");
+                          }}>
+                            Save & Apply
+                          </Button>
+                        </div>
+                      </DialogContent>
+                    </Dialog>
                   </div>
 
                   <div className="flex items-center space-x-2">
@@ -256,7 +313,7 @@ export default function Generator() {
                     />
                     <Label htmlFor="lighting" className="cursor-pointer">
                       <span className="font-semibold">Lighting</span>
-                      <span className="text-sm text-slate-500 block">Type, quality, direction</span>
+                      <span className="text-sm text-slate-500 block">Light source, intensity, color temperature</span>
                     </Label>
                   </div>
 
@@ -269,8 +326,8 @@ export default function Generator() {
                       }
                     />
                     <Label htmlFor="action" className="cursor-pointer">
-                      <span className="font-semibold">Actions & Sequences</span>
-                      <span className="text-sm text-slate-500 block">Timing, movements, transitions</span>
+                      <span className="font-semibold">Action & Sequences</span>
+                      <span className="text-sm text-slate-500 block">Movements, actions, sequence timing</span>
                     </Label>
                   </div>
 
@@ -284,7 +341,7 @@ export default function Generator() {
                     />
                     <Label htmlFor="audio" className="cursor-pointer">
                       <span className="font-semibold">Audio</span>
-                      <span className="text-sm text-slate-500 block">Sound ambiance, musical style</span>
+                      <span className="text-sm text-slate-500 block">Sound effects, music, ambience</span>
                     </Label>
                   </div>
 
@@ -298,141 +355,136 @@ export default function Generator() {
                     />
                     <Label htmlFor="technical" className="cursor-pointer">
                       <span className="font-semibold">Technical Specifications</span>
-                      <span className="text-sm text-slate-500 block">Resolution, FPS, format</span>
+                      <span className="text-sm text-slate-500 block">Resolution, color space, frame rate</span>
                     </Label>
                   </div>
                 </div>
-
-                <Button
-                  onClick={handleGenerate}
-                  disabled={generateMutation.isPending || !selectedPromptId}
-                  className="w-full mt-6"
-                  size="lg"
-                >
-                  {generateMutation.isPending ? (
-                    <>
-                      <Loader2 className="mr-2 h-5 w-5 animate-spin" />
-                      Generating...
-                    </>
-                  ) : (
-                    <>
-                      <Sparkles className="mr-2 h-5 w-5" />
-                      Generate {variationCount > 1 ? `${variationCount} variations` : 'the variation'}
-                    </>
-                  )}
-                </Button>
               </CardContent>
             </Card>
           </div>
 
+          {/* Generate Button */}
+          <Card>
+            <CardContent className="pt-6">
+              <Button
+                onClick={handleGenerate}
+                disabled={generateMutation.isPending || !selectedPromptId}
+                className="w-full h-14 text-lg"
+                size="lg"
+              >
+                {generateMutation.isPending ? (
+                  <>
+                    <Loader2 className="mr-2 h-5 w-5 animate-spin" />
+                    Generating {variationCount} variation{variationCount > 1 ? 's' : ''}...
+                  </>
+                ) : (
+                  <>
+                    <Sparkles className="mr-2 h-5 w-5" />
+                    Generate {variationCount} Variation{variationCount > 1 ? 's' : ''}
+                  </>
+                )}
+              </Button>
+            </CardContent>
+          </Card>
+
           {/* Results */}
           {generatedResult && (
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-              {/* Original Prompt */}
-              <Card className="border-blue-200">
-                <CardHeader>
-                  <CardTitle className="flex items-center justify-between">
-                    <span>Original Prompt</span>
-                    <div className="flex gap-2">
-                      <Button
-                        variant="outline"
-                        size="sm"
-                        onClick={() => handleCopy(generatedResult.original)}
-                      >
-                        <Copy className="h-4 w-4 mr-1" />
-                        Copy
-                      </Button>
-                      <Button
-                        variant="outline"
-                        size="sm"
-                        onClick={() => handleDownload(generatedResult.original, "prompt_original.json")}
-                      >
-                        <Download className="h-4 w-4 mr-1" />
-                        Download
-                      </Button>
-                    </div>
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <pre className="bg-slate-50 p-4 rounded-lg overflow-auto max-h-[600px] text-xs">
-                    {JSON.stringify(generatedResult.original, null, 2)}
-                  </pre>
-                </CardContent>
-              </Card>
-
-              {/* Generated Variations */}
-              <Card className="border-purple-200 bg-purple-50/50">
-                <CardHeader>
-                  <CardTitle className="flex items-center justify-between">
-                    <span className="flex items-center gap-2">
-                      <Sparkles className="h-5 w-5 text-purple-600" />
-                      {generatedResult.variations.length > 1 
-                        ? `Variation ${activeVariationIndex + 1} / ${generatedResult.variations.length}`
-                        : "Generated Variation"
-                      }
-                    </span>
-                    <div className="flex gap-2">
-                      <Button
-                        variant="outline"
-                        size="sm"
-                        onClick={() => handleCopy(generatedResult.variations[activeVariationIndex].data)}
-                      >
-                        <Copy className="h-4 w-4 mr-1" />
-                        Copy
-                      </Button>
-                      <Button
-                        variant="outline"
-                        size="sm"
-                        onClick={() => handleDownload(generatedResult.variations[activeVariationIndex].data, `prompt_variation_${activeVariationIndex + 1}.json`)}
-                      >
-                        <Download className="h-4 w-4 mr-1" />
-                        Download
-                      </Button>
-                    </div>
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  {/* Variation navigation */}
+            <Card className="border-green-200 bg-gradient-to-br from-green-50 to-emerald-50">
+              <CardHeader>
+                <div className="flex items-center justify-between">
+                  <div>
+                    <CardTitle className="text-2xl text-green-900">✅ Generation Complete!</CardTitle>
+                    <CardDescription className="text-green-700">
+                      {generatedResult.variations.length} variation{generatedResult.variations.length > 1 ? 's' : ''} generated successfully
+                    </CardDescription>
+                  </div>
                   {generatedResult.variations.length > 1 && (
-                    <div className="flex items-center justify-center gap-2 mb-4">
+                    <div className="flex items-center gap-2">
                       <Button
                         variant="outline"
                         size="sm"
                         onClick={() => setActiveVariationIndex(Math.max(0, activeVariationIndex - 1))}
                         disabled={activeVariationIndex === 0}
                       >
-                        ← Previous
+                        <ChevronLeft className="h-4 w-4" />
                       </Button>
-                      <div className="flex gap-1">
-                        {generatedResult.variations.map((_: any, index: number) => (
-                          <button
-                            key={index}
-                            onClick={() => setActiveVariationIndex(index)}
-                            className={`w-2 h-2 rounded-full transition-colors ${
-                              index === activeVariationIndex 
-                                ? 'bg-purple-600' 
-                                : 'bg-purple-200 hover:bg-purple-400'
-                            }`}
-                          />
-                        ))}
-                      </div>
+                      <span className="text-sm font-medium px-3">
+                        {activeVariationIndex + 1} / {generatedResult.variations.length}
+                      </span>
                       <Button
                         variant="outline"
                         size="sm"
                         onClick={() => setActiveVariationIndex(Math.min(generatedResult.variations.length - 1, activeVariationIndex + 1))}
                         disabled={activeVariationIndex === generatedResult.variations.length - 1}
                       >
-                        Next →
+                        <ChevronRight className="h-4 w-4" />
                       </Button>
                     </div>
                   )}
+                </div>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                {/* Active Variation Display */}
+                <div className="bg-white rounded-lg p-6 border-2 border-green-200">
+                  <div className="flex items-center justify-between mb-4">
+                    <h3 className="text-lg font-semibold">
+                      Variation {activeVariationIndex + 1}
+                      {generatedResult.variations[activeVariationIndex].title && 
+                        ` - ${generatedResult.variations[activeVariationIndex].title}`
+                      }
+                    </h3>
+                    <div className="flex gap-2">
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        onClick={() => handleCopy(generatedResult.variations[activeVariationIndex])}
+                      >
+                        <Copy className="h-4 w-4 mr-2" />
+                        Copy JSON
+                      </Button>
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        onClick={() => handleDownload(
+                          generatedResult.variations[activeVariationIndex],
+                          `variation_${activeVariationIndex + 1}.json`
+                        )}
+                      >
+                        <Download className="h-4 w-4 mr-2" />
+                        Download
+                      </Button>
+                    </div>
+                  </div>
                   
-                  <pre className="bg-white p-4 rounded-lg overflow-auto max-h-[600px] text-xs border-2 border-purple-200">
-                    {JSON.stringify(generatedResult.variations[activeVariationIndex].data, null, 2)}
+                  <pre className="bg-slate-50 p-4 rounded-lg overflow-x-auto text-sm">
+                    {JSON.stringify(generatedResult.variations[activeVariationIndex], null, 2)}
                   </pre>
-                </CardContent>
-              </Card>
-            </div>
+                </div>
+
+                {/* Summary */}
+                <div className="bg-white rounded-lg p-4 border border-green-200">
+                  <h4 className="font-semibold mb-2">Generation Summary</h4>
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
+                    <div>
+                      <span className="text-slate-600">Source Prompt:</span>
+                      <p className="font-medium">#{generatedResult.sourcePrompt.promptNumber}</p>
+                    </div>
+                    <div>
+                      <span className="text-slate-600">Variations:</span>
+                      <p className="font-medium">{generatedResult.variations.length}</p>
+                    </div>
+                    <div>
+                      <span className="text-slate-600">Parameters Modified:</span>
+                      <p className="font-medium">{Object.values(variations).filter(Boolean).length}</p>
+                    </div>
+                    <div>
+                      <span className="text-slate-600">Status:</span>
+                      <p className="font-medium text-green-600">✓ Ready to use</p>
+                    </div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
           )}
         </div>
       </div>

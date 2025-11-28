@@ -19,6 +19,8 @@ import BatchValidator from "./pages/BatchValidator";
 import MyPrompts from "./pages/MyPrompts";
 import MyPromptDetail from "./pages/MyPromptDetail";
 import Templates from "./pages/Templates";
+import ToneGuide from "./pages/ToneGuide";
+import ToneExamples from "./pages/ToneExamples";
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
@@ -38,7 +40,9 @@ function Router() {
       <Route path="/batch-validator" component={BatchValidator} />
       <Route path="/my-prompts" component={MyPrompts} />
       <Route path="/my-prompt/:id" component={MyPromptDetail} />
-      <Route path="/templates" component={Templates} />
+        <Route path="/templates" component={Templates} />
+        <Route path="/tone-guide" component={ToneGuide} />
+        <Route path="/tone-examples" component={ToneExamples} />
       <Route path={"/404"} component={NotFound} />
       {/* Final fallback route */}
       <Route component={NotFound} />

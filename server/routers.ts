@@ -80,6 +80,7 @@ export const appRouter = router({
         promptId: z.number(),
         count: z.number().min(1).max(5).default(1),
         variations: z.object({
+          tone: z.boolean().optional(),
           subject: z.boolean().optional(),
           location: z.boolean().optional(),
           style: z.boolean().optional(),
@@ -89,6 +90,13 @@ export const appRouter = router({
           audio: z.boolean().optional(),
           technical: z.boolean().optional(),
         }),
+        toneData: z.object({
+          primary_tone: z.string().optional(),
+          secondary_tone: z.string().optional(),
+          mood_keywords: z.array(z.string()).optional(),
+          emotional_arc: z.string().optional(),
+          visual_style_reference: z.string().optional(),
+        }).optional(),
       }))
       .mutation(async ({ input }) => {
         const { getPromptById } = await import("./db");
@@ -103,6 +111,13 @@ export const appRouter = router({
 
         // Build variation instructions
         const variationInstructions: string[] = [];
+        if (input.variations.tone) {
+          if (input.toneData?.primary_tone) {
+            variationInstructions.push(`the tone and atmosphere to ${input.toneData.primary_tone}${input.toneData.secondary_tone ? ` with ${input.toneData.secondary_tone}` : ''}${input.toneData.mood_keywords?.length ? `, mood: ${input.toneData.mood_keywords.join(', ')}` : ''}${input.toneData.emotional_arc ? `, emotional arc: ${input.toneData.emotional_arc}` : ''}`);
+          } else {
+            variationInstructions.push("the tone and atmosphere (emotional tone, mood, visual style)");
+          }
+        }
         if (input.variations.subject) variationInstructions.push("the character (age, gender, ethnicity, appearance, clothing)");
         if (input.variations.location) variationInstructions.push("the location and scene (location, time of day, weather, atmosphere)");
         if (input.variations.style) variationInstructions.push("the cinematographic style (shot type, camera angle, framing, movement)");

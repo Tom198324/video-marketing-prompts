@@ -4,7 +4,7 @@ import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/co
 import { trpc } from "@/lib/trpc";
 import { 
   Film, Image, Sparkles, Zap, CheckCircle, FolderOpen, 
-  LayoutTemplate, BookOpen, LogOut, LogIn, Menu
+  LayoutTemplate, BookOpen, LogOut, LogIn, Menu, Palette
 } from "lucide-react";
 import { useState } from "react";
 
@@ -22,6 +22,7 @@ export default function Header() {
     { name: "Validator", href: "/validator", icon: CheckCircle },
     { name: "My Prompts", href: "/my-prompts", icon: FolderOpen },
     { name: "Templates", href: "/templates", icon: LayoutTemplate },
+    { name: "Tone Guide", href: "/tone-guide", icon: Palette },
     { name: "Documentation", href: "/documentation", icon: BookOpen },
   ];
 
