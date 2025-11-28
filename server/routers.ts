@@ -1001,6 +1001,246 @@ RETURN ONLY THE COMPLETE OPTIMIZED JSON. No explanations, no markdown.`
       }),
   }),
 
+  customizer: router({
+    generatePrompt: publicProcedure
+      .input(z.object({
+        mode: z.enum(["modify", "create"]),
+        basePromptId: z.number().optional(),
+        promptName: z.string(),
+        videoObjectives: z.string(),
+        userInputs: z.object({
+          tone: z.object({
+            primary: z.string(),
+            moodKeywords: z.array(z.string()),
+            emotionalArc: z.string(),
+            appearance: z.string(),
+            clothing: z.string(),
+            secondary: z.string().optional(),
+            visualStyle: z.string().optional(),
+          }),
+          character: z.object({
+            age: z.string().optional(),
+            gender: z.string().optional(),
+            ethnicity: z.string().optional(),
+            appearance: z.string().optional(),
+            clothing: z.string().optional(),
+          }).optional(),
+          location: z.object({
+            location: z.string().optional(),
+            time: z.string().optional(),
+            weather: z.string().optional(),
+            atmosphere: z.string().optional(),
+          }).optional(),
+          cinematic: z.object({
+            shotType: z.string().optional(),
+            angle: z.string().optional(),
+            framing: z.string().optional(),
+            movement: z.string().optional(),
+          }).optional(),
+          action: z.object({
+            movements: z.string().optional(),
+            actions: z.string().optional(),
+            sequencesTiming: z.string().optional(),
+          }).optional(),
+        }),
+      }))
+      .mutation(async ({ input }) => {
+        // Build LLM prompt for professional video production
+        const systemPrompt = `You are a professional video production expert with deep knowledge of Sora 2, Veo 3, and Runway Gen-3 APIs. Generate a complete, production-ready JSON video prompt following industry best practices.
+
+Your task:
+1. Use the provided mandatory tone & atmosphere fields exactly as given
+2. Enhance or generate professional defaults for optional fields (character, location, cinematic, action) if not provided
+3. Generate complete Equipment section (camera model, lens specs, technical requirements)
+4. Generate complete Lighting section (setup, color temperature, mood, direction)
+5. Generate complete Audio section (music style, sound effects, dialogue notes)
+6. Generate complete Technical Specifications (resolution, fps, codec, aspect ratio)
+
+Output must be a valid JSON object with these exact sections:
+- tone
+- shot
+- subject
+- action
+- scene
+- cinematography
+- audio
+- visual
+- technical
+
+Ensure all generated content is professional, specific, and optimized for high-quality video generation.`;
+
+        const userPrompt = `Video Objectives: ${input.videoObjectives}
+
+User-Provided Information:
+
+Tone & Atmosphere (Mandatory):
+- Primary Tone: ${input.userInputs.tone.primary}
+- Mood Keywords: ${input.userInputs.tone.moodKeywords.join(", ")}
+- Emotional Arc: ${input.userInputs.tone.emotionalArc}
+- Appearance: ${input.userInputs.tone.appearance}
+- Clothing: ${input.userInputs.tone.clothing}
+${input.userInputs.tone.secondary ? `- Secondary Tone: ${input.userInputs.tone.secondary}` : ""}
+${input.userInputs.tone.visualStyle ? `- Visual Style Reference: ${input.userInputs.tone.visualStyle}` : ""}
+
+${input.userInputs.character ? `Character (Partial):
+${input.userInputs.character.age ? `- Age: ${input.userInputs.character.age}` : ""}
+${input.userInputs.character.gender ? `- Gender: ${input.userInputs.character.gender}` : ""}
+${input.userInputs.character.ethnicity ? `- Ethnicity: ${input.userInputs.character.ethnicity}` : ""}
+${input.userInputs.character.appearance ? `- Appearance: ${input.userInputs.character.appearance}` : ""}
+${input.userInputs.character.clothing ? `- Clothing: ${input.userInputs.character.clothing}` : ""}
+` : "Character: Not provided - generate professional defaults"}
+
+${input.userInputs.location ? `Location & Scene (Partial):
+${input.userInputs.location.location ? `- Location: ${input.userInputs.location.location}` : ""}
+${input.userInputs.location.time ? `- Time: ${input.userInputs.location.time}` : ""}
+${input.userInputs.location.weather ? `- Weather: ${input.userInputs.location.weather}` : ""}
+${input.userInputs.location.atmosphere ? `- Atmosphere: ${input.userInputs.location.atmosphere}` : ""}
+` : "Location & Scene: Not provided - generate professional defaults"}
+
+${input.userInputs.cinematic ? `Cinematic Style (Partial):
+${input.userInputs.cinematic.shotType ? `- Shot Type: ${input.userInputs.cinematic.shotType}` : ""}
+${input.userInputs.cinematic.angle ? `- Angle: ${input.userInputs.cinematic.angle}` : ""}
+${input.userInputs.cinematic.framing ? `- Framing: ${input.userInputs.cinematic.framing}` : ""}
+${input.userInputs.cinematic.movement ? `- Movement: ${input.userInputs.cinematic.movement}` : ""}
+` : "Cinematic Style: Not provided - generate professional defaults"}
+
+${input.userInputs.action ? `Action & Sequences (Partial):
+${input.userInputs.action.movements ? `- Movements: ${input.userInputs.action.movements}` : ""}
+${input.userInputs.action.actions ? `- Actions: ${input.userInputs.action.actions}` : ""}
+${input.userInputs.action.sequencesTiming ? `- Sequences Timing: ${input.userInputs.action.sequencesTiming}` : ""}
+` : "Action & Sequences: Not provided - generate professional defaults"}
+
+Generate a complete, professional JSON video prompt.`;
+
+        const response = await invokeLLM({
+          messages: [
+            { role: "system", content: systemPrompt },
+            { role: "user", content: userPrompt },
+          ],
+          response_format: {
+            type: "json_schema",
+            json_schema: {
+              name: "video_prompt",
+              strict: true,
+              schema: {
+                type: "object",
+                properties: {
+                  tone: {
+                    type: "object",
+                    properties: {
+                      primary_tone: { type: "string" },
+                      secondary_tone: { type: "string" },
+                      mood_keywords: { type: "array", items: { type: "string" } },
+                      emotional_arc: { type: "string" },
+                      visual_style_reference: { type: "string" },
+                    },
+                    required: ["primary_tone", "mood_keywords", "emotional_arc"],
+                    additionalProperties: false,
+                  },
+                  shot: {
+                    type: "object",
+                    properties: {
+                      shot_type: { type: "string" },
+                      angle: { type: "string" },
+                      framing: { type: "string" },
+                      movement: { type: "string" },
+                    },
+                    required: ["shot_type", "angle", "framing", "movement"],
+                    additionalProperties: false,
+                  },
+                  subject: {
+                    type: "object",
+                    properties: {
+                      age: { type: "string" },
+                      gender: { type: "string" },
+                      ethnicity: { type: "string" },
+                      appearance: { type: "string" },
+                      clothing: { type: "string" },
+                    },
+                    required: ["age", "gender", "ethnicity", "appearance", "clothing"],
+                    additionalProperties: false,
+                  },
+                  action: {
+                    type: "object",
+                    properties: {
+                      movements: { type: "string" },
+                      actions: { type: "string" },
+                      sequences_timing: { type: "string" },
+                    },
+                    required: ["movements", "actions", "sequences_timing"],
+                    additionalProperties: false,
+                  },
+                  scene: {
+                    type: "object",
+                    properties: {
+                      location: { type: "string" },
+                      time: { type: "string" },
+                      weather: { type: "string" },
+                      atmosphere: { type: "string" },
+                    },
+                    required: ["location", "time", "weather", "atmosphere"],
+                    additionalProperties: false,
+                  },
+                  cinematography: {
+                    type: "object",
+                    properties: {
+                      camera: { type: "string" },
+                      lens: { type: "string" },
+                      technical_specs: { type: "string" },
+                    },
+                    required: ["camera", "lens", "technical_specs"],
+                    additionalProperties: false,
+                  },
+                  audio: {
+                    type: "object",
+                    properties: {
+                      music: { type: "string" },
+                      sound_effects: { type: "string" },
+                      dialogue: { type: "string" },
+                    },
+                    required: ["music", "sound_effects", "dialogue"],
+                    additionalProperties: false,
+                  },
+                  visual: {
+                    type: "object",
+                    properties: {
+                      lighting_setup: { type: "string" },
+                      color_temperature: { type: "string" },
+                      mood: { type: "string" },
+                    },
+                    required: ["lighting_setup", "color_temperature", "mood"],
+                    additionalProperties: false,
+                  },
+                  technical: {
+                    type: "object",
+                    properties: {
+                      resolution: { type: "string" },
+                      fps: { type: "string" },
+                      codec: { type: "string" },
+                      aspect_ratio: { type: "string" },
+                    },
+                    required: ["resolution", "fps", "codec", "aspect_ratio"],
+                    additionalProperties: false,
+                  },
+                },
+                required: ["tone", "shot", "subject", "action", "scene", "cinematography", "audio", "visual", "technical"],
+                additionalProperties: false,
+              },
+            },
+          },
+        });
+
+        const content = response.choices[0].message.content;
+        const generatedPrompt = JSON.parse(typeof content === 'string' ? content : JSON.stringify(content));
+        
+        return {
+          name: input.promptName,
+          objectives: input.videoObjectives,
+          prompt: generatedPrompt,
+        };
+      }),
+  }),
+
   favorites: router({
     list: protectedProcedure.query(async ({ ctx }) => {
       const { getUserFavorites } = await import("./db");

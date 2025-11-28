@@ -1,492 +1,717 @@
 import { useState } from "react";
-import { useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Checkbox } from "@/components/ui/checkbox";
+import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
-import { ToneSelector } from "@/components/ToneSelector";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { Badge } from "@/components/ui/badge";
+import { Alert, AlertDescription } from "@/components/ui/alert";
 import { trpc } from "@/lib/trpc";
-import { Loader2, Sparkles, Copy, Download, Palette, ChevronLeft, ChevronRight } from "lucide-react";
+import { Loader2, Sparkles, Copy, Download, Send, Bot, AlertCircle, CheckCircle2, MinusCircle } from "lucide-react";
 import { toast } from "sonner";
 
+const TONE_OPTIONS = [
+  "Cinematic", "Energetic", "Luxury", "Minimalist", "Playful", "Professional",
+  "Nostalgic", "Futuristic", "Emotional", "Bold", "Elegant", "Dramatic"
+];
 
-export default function Generator() {
-  const [location] = useLocation();
-  const urlParams = new URLSearchParams(location.split('?')[1] || '');
-  const promptIdFromUrl = urlParams.get('promptId');
-  
-  const [selectedPromptId, setSelectedPromptId] = useState<number | null>(
-    promptIdFromUrl ? parseInt(promptIdFromUrl) : null
-  );
-  const [variationCount, setVariationCount] = useState<number>(1);
-  const [activeVariationIndex, setActiveVariationIndex] = useState<number>(0);
-  const [variations, setVariations] = useState({
-    tone: false,
-    subject: false,
-    location: false,
-    style: false,
-    equipment: false,
-    lighting: false,
-    action: false,
-    audio: false,
-    technical: false,
-  });
-  const [toneDialogOpen, setToneDialogOpen] = useState(false);
-  const [toneData, setToneData] = useState<{
-    primary_tone?: string;
-    secondary_tone?: string;
-    mood_keywords?: string[];
-    emotional_arc?: string;
-    visual_style_reference?: string;
-  }>({});
-  const [generatedResult, setGeneratedResult] = useState<any>(null);
+export default function Customizer() {
+  // Mode selection
+  const [mode, setMode] = useState<"modify" | "create">("modify");
+  const [selectedPromptId, setSelectedPromptId] = useState<number | null>(null);
+
+  // Mandatory fields
+  const [promptName, setPromptName] = useState("");
+  const [videoObjectives, setVideoObjectives] = useState("");
+
+  // Tone & Atmosphere (mandatory)
+  const [primaryTone, setPrimaryTone] = useState("");
+  const [moodKeywords, setMoodKeywords] = useState<string[]>(["", "", "", ""]);
+  const [emotionalArc, setEmotionalArc] = useState("");
+  const [appearance, setAppearance] = useState("");
+  const [clothing, setClothing] = useState("");
+  const [secondaryTone, setSecondaryTone] = useState("");
+  const [visualStyleRef, setVisualStyleRef] = useState("");
+
+  // Character (optional)
+  const [charAge, setCharAge] = useState("");
+  const [charGender, setCharGender] = useState("");
+  const [charEthnicity, setCharEthnicity] = useState("");
+  const [charAppearance, setCharAppearance] = useState("");
+  const [charClothing, setCharClothing] = useState("");
+
+  // Location & Scene (optional)
+  const [location, setLocation] = useState("");
+  const [time, setTime] = useState("");
+  const [weather, setWeather] = useState("");
+  const [atmosphere, setAtmosphere] = useState("");
+
+  // Cinematic Style (optional)
+  const [shotType, setShotType] = useState("");
+  const [angle, setAngle] = useState("");
+  const [framing, setFraming] = useState("");
+  const [movement, setMovement] = useState("");
+
+  // Action & Sequences (optional)
+  const [movements, setMovements] = useState("");
+  const [actions, setActions] = useState("");
+  const [sequencesTiming, setSequencesTiming] = useState("");
+
+  // Generated result
+  const [generatedPrompt, setGeneratedPrompt] = useState<any>(null);
+  const [showPreview, setShowPreview] = useState(false);
 
   const { data: prompts, isLoading: promptsLoading } = trpc.prompts.list.useQuery();
-  const generateMutation = trpc.generator.generateVariation.useMutation({
+  const generateMutation = trpc.customizer.generatePrompt.useMutation({
     onSuccess: (data) => {
-      setGeneratedResult(data);
-      toast.success("✅ Variation generated successfully - Your new prompt is ready!");
+      setGeneratedPrompt(data);
+      setShowPreview(true);
+      toast.success("✅ Professional prompt generated successfully!");
     },
     onError: (error) => {
       toast.error(`❌ Generation error: ${error.message}`);
     },
   });
 
+  // Validation
+  const isMandatoryComplete = () => {
+    return (
+      promptName.trim() !== "" &&
+      videoObjectives.trim().length >= 200 &&
+      primaryTone !== "" &&
+      moodKeywords.filter(k => k.trim() !== "").length >= 4 &&
+      emotionalArc.trim() !== "" &&
+      appearance.trim() !== "" &&
+      clothing.trim() !== ""
+    );
+  };
+
+  const getSectionStatus = (section: string) => {
+    switch (section) {
+      case "tone":
+        return isMandatoryComplete() ? "complete" : "incomplete";
+      case "character":
+        const charFilled = [charAge, charGender, charEthnicity, charAppearance, charClothing].filter(f => f.trim() !== "").length;
+        return charFilled === 0 ? "empty" : charFilled === 5 ? "complete" : "partial";
+      case "location":
+        const locFilled = [location, time, weather, atmosphere].filter(f => f.trim() !== "").length;
+        return locFilled === 0 ? "empty" : locFilled === 4 ? "complete" : "partial";
+      case "cinematic":
+        const cinFilled = [shotType, angle, framing, movement].filter(f => f.trim() !== "").length;
+        return cinFilled === 0 ? "empty" : cinFilled === 4 ? "complete" : "partial";
+      case "action":
+        const actFilled = [movements, actions, sequencesTiming].filter(f => f.trim() !== "").length;
+        return actFilled === 0 ? "empty" : actFilled === 3 ? "complete" : "partial";
+      default:
+        return "ai";
+    }
+  };
+
+  const StatusBadge = ({ status }: { status: string }) => {
+    if (status === "complete") return <Badge className="bg-green-500"><CheckCircle2 className="h-3 w-3 mr-1" />Complete</Badge>;
+    if (status === "partial") return <Badge className="bg-orange-500"><MinusCircle className="h-3 w-3 mr-1" />Partial</Badge>;
+    if (status === "incomplete") return <Badge variant="destructive"><AlertCircle className="h-3 w-3 mr-1" />Required</Badge>;
+    if (status === "ai") return <Badge className="bg-purple-500"><Bot className="h-3 w-3 mr-1" />AI Generated</Badge>;
+    return <Badge variant="outline"><MinusCircle className="h-3 w-3 mr-1" />Empty</Badge>;
+  };
+
   const handleGenerate = () => {
-    if (!selectedPromptId) {
-      toast.error("⚠️ No prompt selected - Please select a source prompt");
-      return;
-    }
-
-    const hasVariations = Object.values(variations).some(v => v);
-    if (!hasVariations) {
-      toast.error("⚠️ No variation selected - Please select at least one parameter to modify");
-      return;
-    }
-
-    // If tone variation is selected but no tone data provided, warn user
-    if (variations.tone && !toneData.primary_tone) {
-      toast.error("⚠️ Tone variation selected but no tone specified - Please configure tone settings");
+    if (!isMandatoryComplete()) {
+      toast.error("⚠️ Please complete all mandatory fields");
       return;
     }
 
     generateMutation.mutate({
-      promptId: selectedPromptId,
-      count: variationCount,
-      variations,
-      toneData: variations.tone ? toneData : undefined,
+      mode,
+      basePromptId: mode === "modify" && selectedPromptId !== null ? selectedPromptId : undefined,
+      promptName,
+      videoObjectives,
+      userInputs: {
+        tone: {
+          primary: primaryTone,
+          moodKeywords: moodKeywords.filter(k => k.trim() !== ""),
+          emotionalArc,
+          appearance,
+          clothing,
+          secondary: secondaryTone || undefined,
+          visualStyle: visualStyleRef || undefined,
+        },
+        character: (charAge || charGender || charEthnicity || charAppearance || charClothing) ? {
+          age: charAge || undefined,
+          gender: charGender || undefined,
+          ethnicity: charEthnicity || undefined,
+          appearance: charAppearance || undefined,
+          clothing: charClothing || undefined,
+        } : undefined,
+        location: (location || time || weather || atmosphere) ? {
+          location: location || undefined,
+          time: time || undefined,
+          weather: weather || undefined,
+          atmosphere: atmosphere || undefined,
+        } : undefined,
+        cinematic: (shotType || angle || framing || movement) ? {
+          shotType: shotType || undefined,
+          angle: angle || undefined,
+          framing: framing || undefined,
+          movement: movement || undefined,
+        } : undefined,
+        action: (movements || actions || sequencesTiming) ? {
+          movements: movements || undefined,
+          actions: actions || undefined,
+          sequencesTiming: sequencesTiming || undefined,
+        } : undefined,
+      },
     });
   };
 
-  const handleCopy = (content: any) => {
-    navigator.clipboard.writeText(JSON.stringify(content, null, 2));
-    toast.success("✅ Copied to clipboard - The JSON prompt has been copied");
+  const handleCopy = () => {
+    navigator.clipboard.writeText(JSON.stringify(generatedPrompt, null, 2));
+    toast.success("✅ Copied to clipboard");
   };
 
-  const handleDownload = (content: any, filename: string) => {
-    const blob = new Blob([JSON.stringify(content, null, 2)], { type: "application/json" });
+  const handleDownload = () => {
+    const blob = new Blob([JSON.stringify(generatedPrompt, null, 2)], { type: "application/json" });
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
     a.href = url;
-    a.download = filename;
+    a.download = `${promptName.replace(/\s+/g, "_")}.json`;
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
     URL.revokeObjectURL(url);
-    toast.success(`✅ Download started - The file ${filename} has been downloaded`);
+    toast.success("✅ Download started");
   };
 
   return (
     <div className="space-y-8">
+      <div>
+        <h1 className="text-4xl font-bold text-slate-900 mb-2">Professional Customizer</h1>
+        <p className="text-lg text-slate-600">
+          Create or modify video prompts with AI-powered professional guidance
+        </p>
+      </div>
 
-      {/* Header */}
-      <header className="border-b bg-white/80 backdrop-blur-sm sticky top-0 z-50">
-        <div className="container mx-auto px-4 py-4">
-          <h1 className="text-2xl font-bold text-slate-900 flex items-center gap-2">
-            <Sparkles className="h-6 w-6 text-purple-600" />
-            Variation Generator
-          </h1>
-        </div>
-      </header>
+      {/* Mode Selection */}
+      <Card>
+        <CardHeader>
+          <CardTitle>Step 1: Choose Your Approach</CardTitle>
+          <CardDescription>Start from an existing prompt or create a new one from scratch</CardDescription>
+        </CardHeader>
+        <CardContent className="space-y-4">
+          <RadioGroup value={mode} onValueChange={(v) => setMode(v as "modify" | "create")}>
+            <div className="flex items-center space-x-2">
+              <RadioGroupItem value="modify" id="modify" />
+              <Label htmlFor="modify" className="cursor-pointer">Modify existing prompt</Label>
+            </div>
+            <div className="flex items-center space-x-2">
+              <RadioGroupItem value="create" id="create" />
+              <Label htmlFor="create" className="cursor-pointer">Create from scratch</Label>
+            </div>
+          </RadioGroup>
 
-      <div className="container mx-auto px-4 py-12">
-        <div className="max-w-7xl mx-auto space-y-8">
-          {/* Introduction */}
-          <Card className="border-purple-200 bg-white/80 backdrop-blur-sm">
-            <CardHeader>
-              <CardTitle className="text-2xl">Create automatic variations of your prompts</CardTitle>
-              <CardDescription className="text-base">
-                Select a source prompt and choose the parameters to modify. Our AI will automatically generate a coherent and professional variation.
-              </CardDescription>
-            </CardHeader>
-          </Card>
+          {mode === "modify" && (
+            <div className="space-y-2">
+              <Label>Select Base Prompt</Label>
+              <Select value={selectedPromptId?.toString()} onValueChange={(v) => setSelectedPromptId(parseInt(v))}>
+                <SelectTrigger>
+                  <SelectValue placeholder="Choose a prompt to modify" />
+                </SelectTrigger>
+                <SelectContent>
+                  {promptsLoading && <SelectItem value="loading">Loading prompts...</SelectItem>}
+                  {prompts?.map((prompt) => (
+                    <SelectItem key={prompt.id} value={prompt.id.toString()}>
+                      {prompt.title} - {prompt.industrySector}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </div>
+          )}
+        </CardContent>
+      </Card>
 
-          {/* Configuration */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {/* Source prompt selection */}
-            <Card>
-              <CardHeader>
-                <CardTitle>1. Select a source prompt</CardTitle>
-                <CardDescription>Choose the prompt you want to modify</CardDescription>
-              </CardHeader>
-              <CardContent>
-                {promptsLoading ? (
-                  <div className="flex items-center justify-center py-8">
-                    <Loader2 className="h-8 w-8 animate-spin text-purple-600" />
-                  </div>
-                ) : (
-                  <Select
-                    value={selectedPromptId?.toString() || ""}
-                    onValueChange={(value) => setSelectedPromptId(parseInt(value))}
-                  >
-                    <SelectTrigger>
-                      <SelectValue placeholder="Select a prompt..." />
-                    </SelectTrigger>
-                    <SelectContent>
-                      {prompts?.map((prompt) => (
-                        <SelectItem key={prompt.id} value={prompt.id.toString()}>
-                          Prompt #{prompt.promptNumber} - {prompt.title}
-                        </SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
-                )}
-                
-                {/* Variation count selector */}
-                <div className="mt-6">
-                  <Label htmlFor="count" className="text-sm font-medium mb-2 block">
-                    Number of variations to generate
-                  </Label>
-                  <Select
-                    value={variationCount.toString()}
-                    onValueChange={(value) => {
-                      setVariationCount(parseInt(value));
-                      setActiveVariationIndex(0);
-                    }}
-                  >
-                    <SelectTrigger>
-                      <SelectValue />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="1">1 variation</SelectItem>
-                      <SelectItem value="2">2 variations</SelectItem>
-                      <SelectItem value="3">3 variations</SelectItem>
-                      <SelectItem value="4">4 variations</SelectItem>
-                      <SelectItem value="5">5 variations</SelectItem>
-                    </SelectContent>
-                  </Select>
-                  <p className="text-xs text-slate-500 mt-2">
-                    Generate multiple variations to compare options
-                  </p>
-                </div>
-              </CardContent>
-            </Card>
-
-            {/* Variation parameters */}
-            <Card>
-              <CardHeader>
-                <CardTitle>2. Choose parameters to modify</CardTitle>
-                <CardDescription>Select one or more aspects to vary</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="space-y-4">
-                  {/* Tone & Atmosphere with Dialog */}
-                  <div className="flex items-center justify-between p-4 border-2 rounded-lg bg-gradient-to-r from-purple-50 to-pink-50 border-purple-200">
-                    <div className="flex items-center space-x-2">
-                      <Checkbox
-                        id="tone"
-                        checked={variations.tone}
-                        onCheckedChange={(checked) => 
-                          setVariations(prev => ({ ...prev, tone: checked as boolean }))
-                        }
-                      />
-                      <Label htmlFor="tone" className="cursor-pointer">
-                        <span className="font-semibold flex items-center gap-2">
-                          <Palette className="h-4 w-4" />
-                          Tone & Atmosphere
-                        </span>
-                        <span className="text-sm text-slate-600 block">
-                          {toneData.primary_tone 
-                            ? `${toneData.primary_tone}${toneData.secondary_tone ? ` + ${toneData.secondary_tone}` : ''}`
-                            : 'Emotional tone, mood, visual style, emotional arc'
-                          }
-                        </span>
-                      </Label>
-                    </div>
-                    <Dialog open={toneDialogOpen} onOpenChange={setToneDialogOpen}>
-                      <DialogTrigger asChild>
-                        <Button variant="outline" size="sm">
-                          <Palette className="h-4 w-4 mr-2" />
-                          Configure
-                        </Button>
-                      </DialogTrigger>
-                      <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
-                        <DialogHeader>
-                          <DialogTitle>Configure Tone & Atmosphere</DialogTitle>
-                          <DialogDescription>
-                            Select tones and define the emotional characteristics of your video
-                          </DialogDescription>
-                        </DialogHeader>
-                        <ToneSelector value={toneData} onChange={setToneData} />
-                        <div className="flex justify-end gap-2 pt-4 border-t">
-                          <Button variant="outline" onClick={() => setToneDialogOpen(false)}>
-                            Cancel
-                          </Button>
-                          <Button onClick={() => {
-                            setVariations(prev => ({ ...prev, tone: true }));
-                            setToneDialogOpen(false);
-                            toast.success("✅ Tone configuration saved");
-                          }}>
-                            Save & Apply
-                          </Button>
-                        </div>
-                      </DialogContent>
-                    </Dialog>
-                  </div>
-
-                  <div className="flex items-center space-x-2">
-                    <Checkbox
-                      id="subject"
-                      checked={variations.subject}
-                      onCheckedChange={(checked) => 
-                        setVariations(prev => ({ ...prev, subject: checked as boolean }))
-                      }
-                    />
-                    <Label htmlFor="subject" className="cursor-pointer">
-                      <span className="font-semibold">Character</span>
-                      <span className="text-sm text-slate-500 block">Age, gender, ethnicity, appearance, clothing</span>
-                    </Label>
-                  </div>
-
-                  <div className="flex items-center space-x-2">
-                    <Checkbox
-                      id="location"
-                      checked={variations.location}
-                      onCheckedChange={(checked) => 
-                        setVariations(prev => ({ ...prev, location: checked as boolean }))
-                      }
-                    />
-                    <Label htmlFor="location" className="cursor-pointer">
-                      <span className="font-semibold">Location & Scene</span>
-                      <span className="text-sm text-slate-500 block">Location, time, weather, atmosphere</span>
-                    </Label>
-                  </div>
-
-                  <div className="flex items-center space-x-2">
-                    <Checkbox
-                      id="style"
-                      checked={variations.style}
-                      onCheckedChange={(checked) => 
-                        setVariations(prev => ({ ...prev, style: checked as boolean }))
-                      }
-                    />
-                    <Label htmlFor="style" className="cursor-pointer">
-                      <span className="font-semibold">Cinematic Style</span>
-                      <span className="text-sm text-slate-500 block">Shot type, angle, framing, movement</span>
-                    </Label>
-                  </div>
-
-                  <div className="flex items-center space-x-2">
-                    <Checkbox
-                      id="equipment"
-                      checked={variations.equipment}
-                      onCheckedChange={(checked) => 
-                        setVariations(prev => ({ ...prev, equipment: checked as boolean }))
-                      }
-                    />
-                    <Label htmlFor="equipment" className="cursor-pointer">
-                      <span className="font-semibold">Equipment</span>
-                      <span className="text-sm text-slate-500 block">Camera, lens, technical settings</span>
-                    </Label>
-                  </div>
-
-                  <div className="flex items-center space-x-2">
-                    <Checkbox
-                      id="lighting"
-                      checked={variations.lighting}
-                      onCheckedChange={(checked) => 
-                        setVariations(prev => ({ ...prev, lighting: checked as boolean }))
-                      }
-                    />
-                    <Label htmlFor="lighting" className="cursor-pointer">
-                      <span className="font-semibold">Lighting</span>
-                      <span className="text-sm text-slate-500 block">Light source, intensity, color temperature</span>
-                    </Label>
-                  </div>
-
-                  <div className="flex items-center space-x-2">
-                    <Checkbox
-                      id="action"
-                      checked={variations.action}
-                      onCheckedChange={(checked) => 
-                        setVariations(prev => ({ ...prev, action: checked as boolean }))
-                      }
-                    />
-                    <Label htmlFor="action" className="cursor-pointer">
-                      <span className="font-semibold">Action & Sequences</span>
-                      <span className="text-sm text-slate-500 block">Movements, actions, sequence timing</span>
-                    </Label>
-                  </div>
-
-                  <div className="flex items-center space-x-2">
-                    <Checkbox
-                      id="audio"
-                      checked={variations.audio}
-                      onCheckedChange={(checked) => 
-                        setVariations(prev => ({ ...prev, audio: checked as boolean }))
-                      }
-                    />
-                    <Label htmlFor="audio" className="cursor-pointer">
-                      <span className="font-semibold">Audio</span>
-                      <span className="text-sm text-slate-500 block">Sound effects, music, ambience</span>
-                    </Label>
-                  </div>
-
-                  <div className="flex items-center space-x-2">
-                    <Checkbox
-                      id="technical"
-                      checked={variations.technical}
-                      onCheckedChange={(checked) => 
-                        setVariations(prev => ({ ...prev, technical: checked as boolean }))
-                      }
-                    />
-                    <Label htmlFor="technical" className="cursor-pointer">
-                      <span className="font-semibold">Technical Specifications</span>
-                      <span className="text-sm text-slate-500 block">Resolution, color space, frame rate</span>
-                    </Label>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
+      {/* Mandatory Fields */}
+      <Card className="border-indigo-200 bg-gradient-to-r from-indigo-50 to-purple-50">
+        <CardHeader>
+          <CardTitle className="flex items-center gap-2">
+            <AlertCircle className="h-5 w-5 text-indigo-600" />
+            Step 2: Essential Information (Required)
+          </CardTitle>
+          <CardDescription>These fields are mandatory to generate a professional prompt</CardDescription>
+        </CardHeader>
+        <CardContent className="space-y-4">
+          <div className="space-y-2">
+            <Label htmlFor="promptName">Prompt Name *</Label>
+            <Input
+              id="promptName"
+              placeholder="e.g., Luxury Watch Commercial - Urban Lifestyle"
+              value={promptName}
+              onChange={(e) => setPromptName(e.target.value)}
+              className={promptName.trim() === "" ? "border-red-300" : ""}
+            />
           </div>
 
-          {/* Generate Button */}
-          <Card>
-            <CardContent className="pt-6">
-              <Button
-                onClick={handleGenerate}
-                disabled={generateMutation.isPending || !selectedPromptId}
-                className="w-full h-14 text-lg"
-                size="lg"
-              >
-                {generateMutation.isPending ? (
-                  <>
-                    <Loader2 className="mr-2 h-5 w-5 animate-spin" />
-                    Generating {variationCount} variation{variationCount > 1 ? 's' : ''}...
-                  </>
-                ) : (
-                  <>
-                    <Sparkles className="mr-2 h-5 w-5" />
-                    Generate {variationCount} Variation{variationCount > 1 ? 's' : ''}
-                  </>
-                )}
-              </Button>
-            </CardContent>
-          </Card>
+          <div className="space-y-2">
+            <Label htmlFor="videoObjectives">Video Objectives * (minimum 200 characters)</Label>
+            <Textarea
+              id="videoObjectives"
+              placeholder="Describe the goals, target audience, key message, and desired emotional impact of the video..."
+              value={videoObjectives}
+              onChange={(e) => setVideoObjectives(e.target.value)}
+              rows={4}
+              className={videoObjectives.trim().length < 200 ? "border-red-300" : ""}
+            />
+            <p className="text-sm text-slate-500">
+              {videoObjectives.length}/200 characters
+            </p>
+          </div>
+        </CardContent>
+      </Card>
 
-          {/* Results */}
-          {generatedResult && (
-            <Card className="border-green-200 bg-gradient-to-br from-green-50 to-emerald-50">
-              <CardHeader>
-                <div className="flex items-center justify-between">
-                  <div>
-                    <CardTitle className="text-2xl text-green-900">✅ Generation Complete!</CardTitle>
-                    <CardDescription className="text-green-700">
-                      {generatedResult.variations.length} variation{generatedResult.variations.length > 1 ? 's' : ''} generated successfully
-                    </CardDescription>
-                  </div>
-                  {generatedResult.variations.length > 1 && (
-                    <div className="flex items-center gap-2">
-                      <Button
-                        variant="outline"
-                        size="sm"
-                        onClick={() => setActiveVariationIndex(Math.max(0, activeVariationIndex - 1))}
-                        disabled={activeVariationIndex === 0}
-                      >
-                        <ChevronLeft className="h-4 w-4" />
-                      </Button>
-                      <span className="text-sm font-medium px-3">
-                        {activeVariationIndex + 1} / {generatedResult.variations.length}
-                      </span>
-                      <Button
-                        variant="outline"
-                        size="sm"
-                        onClick={() => setActiveVariationIndex(Math.min(generatedResult.variations.length - 1, activeVariationIndex + 1))}
-                        disabled={activeVariationIndex === generatedResult.variations.length - 1}
-                      >
-                        <ChevronRight className="h-4 w-4" />
-                      </Button>
-                    </div>
-                  )}
+      {/* Sections Accordion */}
+      <Card>
+        <CardHeader>
+          <CardTitle>Step 3: Configure Prompt Sections</CardTitle>
+          <CardDescription>
+            Fill mandatory sections, customize optional ones, or let AI handle them
+          </CardDescription>
+        </CardHeader>
+        <CardContent>
+          <Accordion type="multiple" className="space-y-2">
+            {/* Tone & Atmosphere - MANDATORY */}
+            <AccordionItem value="tone" className="border border-indigo-200 rounded-lg px-4">
+              <AccordionTrigger className="hover:no-underline">
+                <div className="flex items-center justify-between w-full pr-4">
+                  <span className="font-semibold">1. Tone & Atmosphere</span>
+                  <StatusBadge status={getSectionStatus("tone")} />
                 </div>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                {/* Active Variation Display */}
-                <div className="bg-white rounded-lg p-6 border-2 border-green-200">
-                  <div className="flex items-center justify-between mb-4">
-                    <h3 className="text-lg font-semibold">
-                      Variation {activeVariationIndex + 1}
-                      {generatedResult.variations[activeVariationIndex].title && 
-                        ` - ${generatedResult.variations[activeVariationIndex].title}`
-                      }
-                    </h3>
-                    <div className="flex gap-2">
-                      <Button
-                        variant="outline"
-                        size="sm"
-                        onClick={() => handleCopy(generatedResult.variations[activeVariationIndex])}
-                      >
-                        <Copy className="h-4 w-4 mr-2" />
-                        Copy JSON
-                      </Button>
-                      <Button
-                        variant="outline"
-                        size="sm"
-                        onClick={() => handleDownload(
-                          generatedResult.variations[activeVariationIndex],
-                          `variation_${activeVariationIndex + 1}.json`
-                        )}
-                      >
-                        <Download className="h-4 w-4 mr-2" />
-                        Download
-                      </Button>
-                    </div>
+              </AccordionTrigger>
+              <AccordionContent className="space-y-4 pt-4">
+                <Alert>
+                  <AlertCircle className="h-4 w-4" />
+                  <AlertDescription>
+                    All fields in this section are <strong>mandatory</strong>
+                  </AlertDescription>
+                </Alert>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div className="space-y-2">
+                    <Label>Primary Tone *</Label>
+                    <Select value={primaryTone} onValueChange={setPrimaryTone}>
+                      <SelectTrigger className={primaryTone === "" ? "border-red-300" : ""}>
+                        <SelectValue placeholder="Select primary tone" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        {TONE_OPTIONS.map(tone => (
+                          <SelectItem key={tone} value={tone}>{tone}</SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
                   </div>
-                  
-                  <pre className="bg-slate-50 p-4 rounded-lg overflow-x-auto text-sm">
-                    {JSON.stringify(generatedResult.variations[activeVariationIndex], null, 2)}
-                  </pre>
+
+                  <div className="space-y-2">
+                    <Label>Secondary Tone (Optional)</Label>
+                    <Select value={secondaryTone} onValueChange={setSecondaryTone}>
+                      <SelectTrigger>
+                        <SelectValue placeholder="Select secondary tone" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        {TONE_OPTIONS.map(tone => (
+                          <SelectItem key={tone} value={tone}>{tone}</SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                  </div>
                 </div>
 
-                {/* Summary */}
-                <div className="bg-white rounded-lg p-4 border border-green-200">
-                  <h4 className="font-semibold mb-2">Generation Summary</h4>
-                  <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
-                    <div>
-                      <span className="text-slate-600">Source Prompt:</span>
-                      <p className="font-medium">#{generatedResult.sourcePrompt.promptNumber}</p>
-                    </div>
-                    <div>
-                      <span className="text-slate-600">Variations:</span>
-                      <p className="font-medium">{generatedResult.variations.length}</p>
-                    </div>
-                    <div>
-                      <span className="text-slate-600">Parameters Modified:</span>
-                      <p className="font-medium">{Object.values(variations).filter(Boolean).length}</p>
-                    </div>
-                    <div>
-                      <span className="text-slate-600">Status:</span>
-                      <p className="font-medium text-green-600">✓ Ready to use</p>
-                    </div>
+                <div className="space-y-2">
+                  <Label>Mood Keywords * (minimum 4)</Label>
+                  <div className="grid grid-cols-2 gap-2">
+                    {moodKeywords.map((keyword, idx) => (
+                      <Input
+                        key={idx}
+                        placeholder={`Keyword ${idx + 1}`}
+                        value={keyword}
+                        onChange={(e) => {
+                          const newKeywords = [...moodKeywords];
+                          newKeywords[idx] = e.target.value;
+                          setMoodKeywords(newKeywords);
+                        }}
+                        className={keyword.trim() === "" ? "border-red-300" : ""}
+                      />
+                    ))}
                   </div>
                 </div>
-              </CardContent>
-            </Card>
+
+                <div className="space-y-2">
+                  <Label>Emotional Arc *</Label>
+                  <Textarea
+                    placeholder="Describe how emotions evolve throughout the video..."
+                    value={emotionalArc}
+                    onChange={(e) => setEmotionalArc(e.target.value)}
+                    rows={3}
+                    className={emotionalArc.trim() === "" ? "border-red-300" : ""}
+                  />
+                </div>
+
+                <div className="space-y-2">
+                  <Label>Appearance *</Label>
+                  <Textarea
+                    placeholder="Describe the visual appearance and aesthetic..."
+                    value={appearance}
+                    onChange={(e) => setAppearance(e.target.value)}
+                    rows={3}
+                    className={appearance.trim() === "" ? "border-red-300" : ""}
+                  />
+                </div>
+
+                <div className="space-y-2">
+                  <Label>Clothing *</Label>
+                  <Textarea
+                    placeholder="Describe clothing style and details..."
+                    value={clothing}
+                    onChange={(e) => setClothing(e.target.value)}
+                    rows={3}
+                    className={clothing.trim() === "" ? "border-red-300" : ""}
+                  />
+                </div>
+
+                <div className="space-y-2">
+                  <Label>Visual Style Reference (Optional)</Label>
+                  <Textarea
+                    placeholder="Reference films, photographers, or visual styles..."
+                    value={visualStyleRef}
+                    onChange={(e) => setVisualStyleRef(e.target.value)}
+                    rows={2}
+                  />
+                </div>
+              </AccordionContent>
+            </AccordionItem>
+
+            {/* Character - OPTIONAL */}
+            <AccordionItem value="character" className="border rounded-lg px-4">
+              <AccordionTrigger className="hover:no-underline">
+                <div className="flex items-center justify-between w-full pr-4">
+                  <span className="font-semibold">2. Character</span>
+                  <StatusBadge status={getSectionStatus("character")} />
+                </div>
+              </AccordionTrigger>
+              <AccordionContent className="space-y-4 pt-4">
+                <Alert className="bg-blue-50 border-blue-200">
+                  <Bot className="h-4 w-4" />
+                  <AlertDescription>
+                    Optional section - AI will auto-fill empty fields based on best practices
+                  </AlertDescription>
+                </Alert>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div className="space-y-2">
+                    <Label>Age</Label>
+                    <Input placeholder="e.g., Mid-30s" value={charAge} onChange={(e) => setCharAge(e.target.value)} />
+                  </div>
+                  <div className="space-y-2">
+                    <Label>Gender</Label>
+                    <Input placeholder="e.g., Female" value={charGender} onChange={(e) => setCharGender(e.target.value)} />
+                  </div>
+                  <div className="space-y-2">
+                    <Label>Ethnicity</Label>
+                    <Input placeholder="e.g., Asian" value={charEthnicity} onChange={(e) => setCharEthnicity(e.target.value)} />
+                  </div>
+                </div>
+
+                <div className="space-y-2">
+                  <Label>Appearance</Label>
+                  <Textarea
+                    placeholder="Describe physical appearance, style, and distinctive features..."
+                    value={charAppearance}
+                    onChange={(e) => setCharAppearance(e.target.value)}
+                    rows={3}
+                  />
+                </div>
+
+                <div className="space-y-2">
+                  <Label>Clothing</Label>
+                  <Textarea
+                    placeholder="Describe clothing style, colors, and details..."
+                    value={charClothing}
+                    onChange={(e) => setCharClothing(e.target.value)}
+                    rows={3}
+                  />
+                </div>
+              </AccordionContent>
+            </AccordionItem>
+
+            {/* Location & Scene - OPTIONAL */}
+            <AccordionItem value="location" className="border rounded-lg px-4">
+              <AccordionTrigger className="hover:no-underline">
+                <div className="flex items-center justify-between w-full pr-4">
+                  <span className="font-semibold">3. Location & Scene</span>
+                  <StatusBadge status={getSectionStatus("location")} />
+                </div>
+              </AccordionTrigger>
+              <AccordionContent className="space-y-4 pt-4">
+                <Alert className="bg-blue-50 border-blue-200">
+                  <Bot className="h-4 w-4" />
+                  <AlertDescription>
+                    Optional section - AI will auto-fill empty fields based on best practices
+                  </AlertDescription>
+                </Alert>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div className="space-y-2">
+                    <Label>Location</Label>
+                    <Input placeholder="e.g., Modern office, Urban street" value={location} onChange={(e) => setLocation(e.target.value)} />
+                  </div>
+                  <div className="space-y-2">
+                    <Label>Time</Label>
+                    <Input placeholder="e.g., Golden hour, Night" value={time} onChange={(e) => setTime(e.target.value)} />
+                  </div>
+                  <div className="space-y-2">
+                    <Label>Weather</Label>
+                    <Input placeholder="e.g., Clear sky, Light rain" value={weather} onChange={(e) => setWeather(e.target.value)} />
+                  </div>
+                </div>
+
+                <div className="space-y-2">
+                  <Label>Atmosphere</Label>
+                  <Textarea
+                    placeholder="Describe the overall mood and atmosphere of the scene..."
+                    value={atmosphere}
+                    onChange={(e) => setAtmosphere(e.target.value)}
+                    rows={3}
+                  />
+                </div>
+              </AccordionContent>
+            </AccordionItem>
+
+            {/* Cinematic Style - OPTIONAL */}
+            <AccordionItem value="cinematic" className="border rounded-lg px-4">
+              <AccordionTrigger className="hover:no-underline">
+                <div className="flex items-center justify-between w-full pr-4">
+                  <span className="font-semibold">4. Cinematic Style</span>
+                  <StatusBadge status={getSectionStatus("cinematic")} />
+                </div>
+              </AccordionTrigger>
+              <AccordionContent className="space-y-4 pt-4">
+                <Alert className="bg-blue-50 border-blue-200">
+                  <Bot className="h-4 w-4" />
+                  <AlertDescription>
+                    Optional section - AI will auto-fill empty fields based on best practices
+                  </AlertDescription>
+                </Alert>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div className="space-y-2">
+                    <Label>Shot Type</Label>
+                    <Input placeholder="e.g., Close-up, Wide shot" value={shotType} onChange={(e) => setShotType(e.target.value)} />
+                  </div>
+                  <div className="space-y-2">
+                    <Label>Angle</Label>
+                    <Input placeholder="e.g., Eye level, Low angle" value={angle} onChange={(e) => setAngle(e.target.value)} />
+                  </div>
+                  <div className="space-y-2">
+                    <Label>Framing</Label>
+                    <Input placeholder="e.g., Rule of thirds, Centered" value={framing} onChange={(e) => setFraming(e.target.value)} />
+                  </div>
+                  <div className="space-y-2">
+                    <Label>Movement</Label>
+                    <Input placeholder="e.g., Tracking shot, Static" value={movement} onChange={(e) => setMovement(e.target.value)} />
+                  </div>
+                </div>
+              </AccordionContent>
+            </AccordionItem>
+
+            {/* Equipment - READ-ONLY */}
+            <AccordionItem value="equipment" className="border border-purple-200 rounded-lg px-4 bg-purple-50">
+              <AccordionTrigger className="hover:no-underline">
+                <div className="flex items-center justify-between w-full pr-4">
+                  <span className="font-semibold">5. Equipment</span>
+                  <StatusBadge status="ai" />
+                </div>
+              </AccordionTrigger>
+              <AccordionContent className="pt-4">
+                <Alert className="bg-purple-100 border-purple-300">
+                  <Bot className="h-4 w-4 text-purple-600" />
+                  <AlertDescription>
+                    <strong>AI-Generated Section</strong> - Requires professional expertise. This section will be automatically filled by AI based on industry best practices.
+                  </AlertDescription>
+                </Alert>
+              </AccordionContent>
+            </AccordionItem>
+
+            {/* Lighting - READ-ONLY */}
+            <AccordionItem value="lighting" className="border border-purple-200 rounded-lg px-4 bg-purple-50">
+              <AccordionTrigger className="hover:no-underline">
+                <div className="flex items-center justify-between w-full pr-4">
+                  <span className="font-semibold">6. Lighting</span>
+                  <StatusBadge status="ai" />
+                </div>
+              </AccordionTrigger>
+              <AccordionContent className="pt-4">
+                <Alert className="bg-purple-100 border-purple-300">
+                  <Bot className="h-4 w-4 text-purple-600" />
+                  <AlertDescription>
+                    <strong>AI-Generated Section</strong> - Requires professional expertise. This section will be automatically filled by AI based on industry best practices.
+                  </AlertDescription>
+                </Alert>
+              </AccordionContent>
+            </AccordionItem>
+
+            {/* Action & Sequences - OPTIONAL */}
+            <AccordionItem value="action" className="border rounded-lg px-4">
+              <AccordionTrigger className="hover:no-underline">
+                <div className="flex items-center justify-between w-full pr-4">
+                  <span className="font-semibold">7. Action & Sequences</span>
+                  <StatusBadge status={getSectionStatus("action")} />
+                </div>
+              </AccordionTrigger>
+              <AccordionContent className="space-y-4 pt-4">
+                <Alert className="bg-blue-50 border-blue-200">
+                  <Bot className="h-4 w-4" />
+                  <AlertDescription>
+                    Optional section - AI will auto-fill empty fields based on best practices
+                  </AlertDescription>
+                </Alert>
+
+                <div className="space-y-2">
+                  <Label>Movements</Label>
+                  <Textarea
+                    placeholder="Describe character and camera movements..."
+                    value={movements}
+                    onChange={(e) => setMovements(e.target.value)}
+                    rows={3}
+                  />
+                </div>
+
+                <div className="space-y-2">
+                  <Label>Actions</Label>
+                  <Textarea
+                    placeholder="Describe key actions and interactions..."
+                    value={actions}
+                    onChange={(e) => setActions(e.target.value)}
+                    rows={3}
+                  />
+                </div>
+
+                <div className="space-y-2">
+                  <Label>Sequences Timing</Label>
+                  <Textarea
+                    placeholder="Describe timing and pacing of sequences..."
+                    value={sequencesTiming}
+                    onChange={(e) => setSequencesTiming(e.target.value)}
+                    rows={3}
+                  />
+                </div>
+              </AccordionContent>
+            </AccordionItem>
+
+            {/* Audio - READ-ONLY */}
+            <AccordionItem value="audio" className="border border-purple-200 rounded-lg px-4 bg-purple-50">
+              <AccordionTrigger className="hover:no-underline">
+                <div className="flex items-center justify-between w-full pr-4">
+                  <span className="font-semibold">8. Audio</span>
+                  <StatusBadge status="ai" />
+                </div>
+              </AccordionTrigger>
+              <AccordionContent className="pt-4">
+                <Alert className="bg-purple-100 border-purple-300">
+                  <Bot className="h-4 w-4 text-purple-600" />
+                  <AlertDescription>
+                    <strong>AI-Generated Section</strong> - Requires professional expertise. This section will be automatically filled by AI based on industry best practices.
+                  </AlertDescription>
+                </Alert>
+              </AccordionContent>
+            </AccordionItem>
+
+            {/* Technical Specifications - READ-ONLY */}
+            <AccordionItem value="technical" className="border border-purple-200 rounded-lg px-4 bg-purple-50">
+              <AccordionTrigger className="hover:no-underline">
+                <div className="flex items-center justify-between w-full pr-4">
+                  <span className="font-semibold">9. Technical Specifications</span>
+                  <StatusBadge status="ai" />
+                </div>
+              </AccordionTrigger>
+              <AccordionContent className="pt-4">
+                <Alert className="bg-purple-100 border-purple-300">
+                  <Bot className="h-4 w-4 text-purple-600" />
+                  <AlertDescription>
+                    <strong>AI-Generated Section</strong> - Requires professional expertise. This section will be automatically filled by AI based on industry best practices.
+                  </AlertDescription>
+                </Alert>
+              </AccordionContent>
+            </AccordionItem>
+          </Accordion>
+        </CardContent>
+      </Card>
+
+      {/* Generate Button */}
+      <Card className="border-indigo-200 bg-gradient-to-r from-indigo-50 to-purple-50">
+        <CardContent className="pt-6">
+          <Button
+            onClick={handleGenerate}
+            disabled={!isMandatoryComplete() || generateMutation.isPending}
+            className="w-full h-12 text-lg"
+            size="lg"
+          >
+            {generateMutation.isPending ? (
+              <>
+                <Loader2 className="mr-2 h-5 w-5 animate-spin" />
+                Generating Professional Prompt...
+              </>
+            ) : (
+              <>
+                <Sparkles className="mr-2 h-5 w-5" />
+                Generate Professional Prompt
+              </>
+            )}
+          </Button>
+          {!isMandatoryComplete() && (
+            <p className="text-sm text-red-600 mt-2 text-center">
+              Please complete all mandatory fields to generate
+            </p>
           )}
-        </div>
-      </div>
+        </CardContent>
+      </Card>
+
+      {/* Preview & Export */}
+      {showPreview && generatedPrompt && (
+        <Card className="border-green-200 bg-gradient-to-r from-green-50 to-emerald-50">
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2">
+              <CheckCircle2 className="h-5 w-5 text-green-600" />
+              Generated Prompt Preview
+            </CardTitle>
+            <CardDescription>Your professional video prompt is ready</CardDescription>
+          </CardHeader>
+          <CardContent className="space-y-4">
+            <div className="bg-slate-900 text-slate-100 p-4 rounded-lg overflow-x-auto max-h-96">
+              <pre className="text-sm">{JSON.stringify(generatedPrompt, null, 2)}</pre>
+            </div>
+
+            <div className="flex flex-wrap gap-2">
+              <Button onClick={handleCopy} variant="outline">
+                <Copy className="mr-2 h-4 w-4" />
+                Copy JSON
+              </Button>
+              <Button onClick={handleDownload} variant="outline">
+                <Download className="mr-2 h-4 w-4" />
+                Download JSON
+              </Button>
+              <Button variant="outline">
+                <Send className="mr-2 h-4 w-4" />
+                Send to Validator
+              </Button>
+              <Button variant="outline">
+                <Send className="mr-2 h-4 w-4" />
+                Save to My Prompts
+              </Button>
+            </div>
+          </CardContent>
+        </Card>
+      )}
     </div>
   );
 }

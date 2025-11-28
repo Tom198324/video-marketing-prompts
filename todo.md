@@ -893,3 +893,63 @@
 - [x] Test navigation to Documentation > LLM API
 - [x] Verify all 7 sub-tabs work correctly (8/8 tests passing)
 - [x] Save checkpoint
+
+
+## 🎨 Customizer Pro - Professional Guided Tool
+
+### Phase 1: Interface Refonte
+- [ ] Add mode selection (Radio: Modify existing / Create from scratch)
+- [ ] Add prompt selector dropdown (if modify mode)
+- [ ] Add mandatory fields: Prompt Name (text), Video Objectives (textarea, 200 chars min)
+- [ ] Create 9 section accordions structure
+
+### Phase 2: Editable Sections
+- [ ] Tone & Atmosphere (mandatory): primary tone, mood keywords (min 4), emotional arc, appearance, clothing, secondary tone (optional), visual style (optional)
+- [ ] Character (optional): age, gender, ethnicity, appearance, clothing
+- [ ] Location & Scene (optional): location, time, weather, atmosphere
+- [ ] Cinematic Style (optional): shot type, angle, framing, movement
+- [ ] Action & Sequences (optional): movements, actions, sequences timing
+
+### Phase 3: Read-Only LLM Sections
+- [ ] Equipment (read-only with 🤖 badge)
+- [ ] Lighting (read-only with 🤖 badge)
+- [ ] Audio (read-only with 🤖 badge)
+- [ ] Technical Specifications (read-only with 🤖 badge)
+
+### Phase 4: Backend LLM Integration
+- [ ] Create tRPC mutation `customizer.generatePrompt`
+- [ ] Implement LLM prompt engineering for professional video production
+- [ ] Handle mandatory fields validation
+- [ ] Auto-fill optional empty fields with LLM
+- [ ] Generate Equipment, Lighting, Audio, Technical sections with LLM
+
+### Phase 5: UX Enhancements
+- [ ] Real-time validation for mandatory fields
+- [ ] Section completion badges (Complete/Partial/Empty)
+- [ ] Live JSON preview panel with syntax highlighting
+- [ ] Loading states for LLM generation
+- [ ] Tooltips and help modals
+
+### Phase 6: Save & Export
+- [ ] Save to database (custom_prompts table)
+- [ ] Export options (Download JSON, Copy, Send to Validator, Send to My Prompts)
+- [ ] Unit tests and integration tests
+- [ ] Save checkpoint
+
+
+## 🎨 Customizer Pro - Professional Guided Tool (COMPLETED)
+
+### Phase 1-7: All Completed ✅
+- [x] Refonte interface with mode selection (modify/create)
+- [x] Mandatory fields (Prompt Name + Video Objectives 200+ chars)
+- [x] 9 section accordions with status badges
+- [x] Tone & Atmosphere (mandatory) with all fields
+- [x] Optional sections (Character, Location, Cinematic, Action)
+- [x] Read-only AI sections (Equipment, Lighting, Audio, Technical)
+- [x] Backend LLM integration (customizer.generatePrompt)
+- [x] Structured JSON output with professional best practices
+- [x] Validation with real-time feedback
+- [x] Status badges (Complete/Partial/Empty/AI Generated)
+- [x] JSON preview panel with Copy/Download/Send buttons
+- [x] Unit tests (30/30 passing)
+- [x] Save checkpoint (version: pending)
