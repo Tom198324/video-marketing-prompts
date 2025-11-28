@@ -576,3 +576,61 @@
   - [x] Add Header component to Templates.tsx
   - [x] Fix JSX structure with proper closing tags
 - [x] All pages now have consistent navigation with mobile drawer
+
+
+## 🎨 Add Tone & Atmosphere Section (9th Section)
+
+### Phase 1: Update JSON Structure & Shared Constants
+- [x] Define Tone & Atmosphere section structure
+  - [x] Primary tone (main emotional tone)
+  - [x] Secondary tone (supporting tone)
+  - [x] Mood keywords (list of mood descriptors)
+  - [x] Emotional arc (progression throughout video)
+  - [x] Visual style reference
+- [x] Update shared constants in `shared/` folder
+  - [x] Created shared/promptStructure.ts with complete tone definitions
+  - [x] Added 200+ tone options organized by category
+  - [x] Added mood keywords and validation rules
+- [x] Update TypeScript types for prompt structure
+  - [x] Exported from shared/types.ts
+
+### Phase 2: Update Backend Procedures
+- [x] Modify analyzer procedure
+  - [x] Add Tone & Atmosphere analysis criteria (15% weight)
+  - [x] Update scoring algorithm from 8 to 9 sections
+  - [x] Add tone-specific penalties (-3 for generic, -2 for conflicts)
+  - [x] Updated section weights to total 100%
+- [x] Modify optimizer procedure
+  - [x] Add tone optimization as first mandatory improvement
+  - [x] Ensure tone coherence across all sections
+  - [x] Generate tone-appropriate recommendations
+  - [x] Updated to return 9 sections including tone_and_atmosphere
+- [x] Modify validator procedures
+  - [x] Updated validateCustomPrompt to require 9 sections
+  - [x] Updated validateBatchPrompts required sections
+  - [x] Add tone validation rules and coherence checks
+  - [x] Updated LLM prompts to evaluate tone section### Phase 3: Update 50 Gold-tier Prompts
+- [x] Analyze existing prompts to extract implicit tone
+  - [x] Created intelligent tone mapping based on sector/title
+  - [x] Mapped 8 major categories (Luxury, Tech, Food, Fashion, Automotive, Real Estate, Sports, Beauty)
+- [x] Add Tone & Atmosphere section to all 50 prompts
+  - [x] Created automated script (add-tone-to-prompts.mjs)
+  - [x] Successfully updated all 50 prompts
+  - [x] Added tone as first section in JSON structure
+- [x] Verified tone coherence with existing content
+  - [x] Each prompt has appropriate primary/secondary tone
+  - [x] Mood keywords match sector and content
+  - [x] Emotional arcs align with marketing goalsase 4: Update UI & Documentation
+- [ ] Update Generator page to include Tone & Atmosphere input
+- [ ] Update Validator page to display tone analysis
+- [ ] Update Optimizer page to show tone optimization
+- [ ] Update Excellence Guide with tone section
+- [ ] Update Documentation with tone examples
+- [ ] Update Before/After gallery with tone improvements
+
+### Phase 5: Testing & Delivery
+- [ ] Write unit tests for tone validation
+- [ ] Write unit tests for tone optimization
+- [ ] Test all pages with new section
+- [ ] Verify 50 prompts still work correctly
+- [ ] Save checkpoint
