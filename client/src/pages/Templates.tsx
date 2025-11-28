@@ -113,16 +113,19 @@ export default function Templates() {
 
   if (isLoading) {
     return (
-      <div className="container py-8">
-      <Header />
-
-        <div className="text-center">Loading templates...</div>
+      <div className="min-h-screen bg-background">
+        <Header />
+        <div className="container py-8">
+          <div className="text-center">Loading templates...</div>
+        </div>
       </div>
     );
   }
 
   return (
-    <div className="container py-8">
+    <div className="min-h-screen bg-background">
+      <Header />
+      <div className="container py-8">
       <div className="mb-8">
         <div className="flex items-center gap-2 mb-2">
           <Sparkles className="h-8 w-8 text-purple-600" />
@@ -245,6 +248,7 @@ export default function Templates() {
           )}
         </DialogContent>
       </Dialog>
+      </div>
     </div>
   );
 }

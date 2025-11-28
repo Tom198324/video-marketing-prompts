@@ -1,9 +1,10 @@
 import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { trpc } from "@/lib/trpc";
 import { 
   Film, Image, Sparkles, Zap, CheckCircle, FolderOpen, 
-  LayoutTemplate, BookOpen, LogOut, LogIn, Menu, X 
+  LayoutTemplate, BookOpen, LogOut, LogIn, Menu
 } from "lucide-react";
 import { useState } from "react";
 
@@ -36,7 +37,8 @@ export default function Header() {
         <Link href="/">
           <a className="flex items-center gap-2 font-bold text-xl hover:opacity-80 transition-opacity">
             <Film className="h-6 w-6 text-primary" />
-            <span>Video Marketing Prompts</span>
+            <span className="hidden sm:inline">Video Marketing Prompts</span>
+            <span className="sm:hidden">VMP</span>
           </a>
         </Link>
 
@@ -86,69 +88,70 @@ export default function Header() {
           )}
         </div>
 
-        {/* Mobile Menu Button */}
-        <button
-          className="md:hidden p-2 rounded-md hover:bg-accent"
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-        >
-          {mobileMenuOpen ? (
-            <X className="h-6 w-6" />
-          ) : (
-            <Menu className="h-6 w-6" />
-          )}
-        </button>
-      </div>
-
-      {/* Mobile Navigation */}
-      {mobileMenuOpen && (
-        <div className="md:hidden border-t bg-background">
-          <nav className="container py-4 space-y-1">
-            {navigation.map((item) => {
-              const Icon = item.icon;
-              const active = isActive(item.href);
-              return (
-                <Link key={item.name} href={item.href}>
-                  <a
-                    className={`flex items-center gap-3 px-4 py-3 rounded-md text-sm font-medium transition-colors ${
-                      active
-                        ? "bg-primary text-primary-foreground"
-                        : "text-muted-foreground hover:bg-accent hover:text-accent-foreground"
-                    }`}
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    <Icon className="h-5 w-5" />
-                    {item.name}
-                  </a>
-                </Link>
-              );
-            })}
-            
-            {/* Mobile Auth */}
-            <div className="pt-4 border-t mt-4">
-              {user ? (
-                <div className="space-y-2">
-                  <div className="px-4 py-2 text-sm text-muted-foreground">
-                    {user.name || user.email}
+        {/* Mobile Menu Sheet */}
+        <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
+          <SheetTrigger asChild>
+            <Button variant="ghost" size="icon" className="md:hidden">
+              <Menu className="h-6 w-6" />
+              <span className="sr-only">Toggle menu</span>
+            </Button>
+          </SheetTrigger>
+          <SheetContent side="right" className="w-[300px] sm:w-[400px]">
+            <SheetHeader>
+              <SheetTitle className="flex items-center gap-2">
+                <Film className="h-5 w-5 text-primary" />
+                Navigation
+              </SheetTitle>
+            </SheetHeader>
+            <nav className="flex flex-col gap-2 mt-8">
+              {navigation.map((item) => {
+                const Icon = item.icon;
+                const active = isActive(item.href);
+                return (
+                  <Link key={item.name} href={item.href}>
+                    <a
+                      className={`flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-colors ${
+                        active
+                          ? "bg-primary text-primary-foreground"
+                          : "text-muted-foreground hover:bg-accent hover:text-accent-foreground"
+                      }`}
+                      onClick={() => setMobileMenuOpen(false)}
+                    >
+                      <Icon className="h-5 w-5" />
+                      {item.name}
+                    </a>
+                  </Link>
+                );
+              })}
+              
+              {/* Mobile Auth */}
+              <div className="pt-6 mt-6 border-t">
+                {user ? (
+                  <div className="space-y-3">
+                    <div className="px-4 py-2 text-sm text-muted-foreground bg-accent/50 rounded-lg">
+                      <div className="font-medium text-foreground">{user.name || "User"}</div>
+                      <div className="text-xs">{user.email}</div>
+                    </div>
+                    <Button variant="outline" className="w-full justify-start" asChild>
+                      <a href="/api/auth/logout">
+                        <LogOut className="mr-2 h-4 w-4" />
+                        Logout
+                      </a>
+                    </Button>
                   </div>
-                  <Button variant="outline" className="w-full" asChild>
-                    <a href="/api/auth/logout">
-                      <LogOut className="mr-2 h-4 w-4" />
-                      Logout
+                ) : (
+                  <Button className="w-full justify-start" asChild>
+                    <a href={getLoginUrl()}>
+                      <LogIn className="mr-2 h-4 w-4" />
+                      Login
                     </a>
                   </Button>
-                </div>
-              ) : (
-                <Button className="w-full" asChild>
-                  <a href={getLoginUrl()}>
-                    <LogIn className="mr-2 h-4 w-4" />
-                    Login
-                  </a>
-                </Button>
-              )}
-            </div>
-          </nav>
-        </div>
-      )}
+                )}
+              </div>
+            </nav>
+          </SheetContent>
+        </Sheet>
+      </div>
     </header>
   );
 }
