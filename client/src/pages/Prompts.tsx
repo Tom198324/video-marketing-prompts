@@ -9,6 +9,7 @@ import { Link, useLocation } from "wouter";
 import { Checkbox } from "@/components/ui/checkbox";
 import { toast } from "sonner";
 import { QualityBadge } from "@/components/QualityBadge";
+import Header from "@/components/Header";
 
 export default function Prompts() {
   const [searchTerm, setSearchTerm] = useState("");
@@ -64,6 +65,8 @@ export default function Prompts() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50">
+      <Header />
+
       {/* Header */}
       <header className="border-b bg-white/80 backdrop-blur-sm sticky top-0 z-50">
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">

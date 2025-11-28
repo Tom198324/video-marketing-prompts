@@ -5,6 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import { Film, Play, ExternalLink } from "lucide-react";
 import { Link } from "wouter";
 import { useState } from "react";
+import Header from "@/components/Header";
 
 // Example demonstration videos
 // Note: These URLs are placeholders. In production, replace with your real generated videos
@@ -98,6 +99,8 @@ export default function Gallery() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50">
+      <Header />
+
       {/* Header */}
       <header className="border-b bg-white/80 backdrop-blur-sm sticky top-0 z-50">
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">

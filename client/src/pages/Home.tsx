@@ -5,62 +5,14 @@ import { getLoginUrl } from "@/const";
 import { trpc } from "@/lib/trpc";
 import { ArrowRight, Database, Download, Film, Lock, Search, Sparkles, ShieldCheck } from "lucide-react";
 import { Link } from "wouter";
+import Header from "@/components/Header";
 
 export default function Home() {
-  const { isAuthenticated, loading } = useAuth();
   const { data: stats } = trpc.prompts.getStats.useQuery();
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50">
-      {/* Header */}
-      <header className="border-b bg-white/80 backdrop-blur-sm sticky top-0 z-50">
-        <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <Film className="h-8 w-8 text-indigo-600" />
-            <h1 className="text-2xl font-bold text-slate-900">Video Marketing Prompts</h1>
-          </div>
-          <nav className="flex items-center gap-4">
-            <Link href="/prompts">
-              <Button variant="ghost">Explore</Button>
-            </Link>
-            <Link href="/gallery">
-              <Button variant="ghost">Gallery</Button>
-            </Link>
-            <Link href="/generator">
-              <Button variant="ghost">Generator</Button>
-            </Link>
-            <Link href="/optimize">
-              <Button variant="ghost">Optimizer</Button>
-            </Link>
-            <Link href="/validator">
-              <Button variant="ghost">Validator</Button>
-            </Link>
-            <Link href="/my-prompts">
-              <Button variant="ghost">My Prompts</Button>
-            </Link>
-            <Link href="/templates">
-              <Button variant="ghost">Templates</Button>
-            </Link>
-            <Link href="/documentation">
-              <Button variant="ghost">Documentation</Button>
-            </Link>
-            {!loading && (
-              isAuthenticated ? (
-            <Link href="/prompts">
-              <Button>My Prompts</Button>
-            </Link>
-              ) : (
-                <a href={getLoginUrl()}>
-                  <Button>
-                    <Lock className="h-4 w-4 mr-2" />
-                    Login
-                  </Button>
-                </a>
-              )
-            )}
-          </nav>
-        </div>
-      </header>
+      <Header />
 
       {/* Hero Section */}
       <section className="container mx-auto px-4 py-20 text-center">

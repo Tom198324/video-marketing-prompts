@@ -5,6 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { toast } from "sonner";
+import Header from "@/components/Header";
 import { 
   Folder, FolderPlus, Search, Trash2, Edit, Tag, 
   Share2, Clock, ChevronRight, FileText, Plus
@@ -86,6 +87,8 @@ export default function MyPrompts() {
 
   return (
     <div className="container py-8">
+      <Header />
+
       <div className="flex items-center justify-between mb-8">
         <div>
           <h1 className="text-4xl font-bold mb-2">My Prompts</h1>

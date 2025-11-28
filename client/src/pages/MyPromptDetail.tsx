@@ -10,6 +10,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Badge } from "@/components/ui/badge";
 import { toast } from "sonner";
+import Header from "@/components/Header";
 import { 
   ArrowLeft, Edit, Save, X, Clock, MessageSquare, Share2, 
   Trash2, RotateCcw, Send, Copy, UserPlus
@@ -149,6 +150,8 @@ export default function MyPromptDetail() {
   if (!prompt) {
     return (
       <div className="container py-8">
+      <Header />
+
         <Card>
           <CardContent className="py-12 text-center">
             <h3 className="text-lg font-semibold mb-2">Prompt not found</h3>

@@ -10,6 +10,7 @@ import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
 import { Sparkles, ShoppingBag, Home, Code, UtensilsCrossed, Shirt, ArrowRight } from "lucide-react";
 import { useLocation } from "wouter";
+import Header from "@/components/Header";
 
 const industryIcons: Record<string, any> = {
   "E-commerce": ShoppingBag,
@@ -113,6 +114,8 @@ export default function Templates() {
   if (isLoading) {
     return (
       <div className="container py-8">
+      <Header />
+
         <div className="text-center">Loading templates...</div>
       </div>
     );

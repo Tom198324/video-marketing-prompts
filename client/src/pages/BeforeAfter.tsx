@@ -3,6 +3,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Film, ArrowRight, TrendingUp } from "lucide-react";
 import { Link } from "wouter";
 import { QualityBadge } from "@/components/QualityBadge";
+import Header from "@/components/Header";
 
 // Sample before/after examples showcasing optimization improvements
 // In production, these would come from a database of optimization history
@@ -81,6 +82,8 @@ const examples = [
 export default function BeforeAfter() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-purple-50 to-pink-50">
+      <Header />
+
       {/* Header */}
       <header className="border-b bg-white/80 backdrop-blur-sm sticky top-0 z-50">
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">

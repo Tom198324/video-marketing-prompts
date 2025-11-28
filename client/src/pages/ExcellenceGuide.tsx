@@ -1,10 +1,13 @@
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { CheckCircle2, XCircle, AlertTriangle, Award, Sparkles } from "lucide-react";
+import Header from "@/components/Header";
 
 export default function ExcellenceGuide() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
+      <Header />
+
       <div className="container py-12 max-w-5xl">
         {/* Header */}
         <div className="text-center mb-12">

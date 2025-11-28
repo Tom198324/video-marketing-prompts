@@ -6,6 +6,7 @@ import { ArrowLeft, Copy, Download, Check, Sparkles } from "lucide-react";
 import { useState } from "react";
 import { Link, useParams, useLocation } from "wouter";
 import { toast } from "sonner";
+import Header from "@/components/Header";
 
 export default function PromptDetail() {
   const { promptNumber } = useParams<{ promptNumber: string }>();
@@ -18,6 +19,8 @@ export default function PromptDetail() {
   if (isLoading) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 flex items-center justify-center">
+      <Header />
+
         <p className="text-slate-600">Loading...</p>
       </div>
     );

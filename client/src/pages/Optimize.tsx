@@ -8,6 +8,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { trpc } from "@/lib/trpc";
 import { Loader2, Sparkles, TrendingUp, CheckCircle2, AlertCircle, Copy, Download } from "lucide-react";
 import { toast } from "sonner";
+import Header from "@/components/Header";
 
 export default function Optimize() {
   const [selectedPromptId, setSelectedPromptId] = useState<number | null>(null);
@@ -87,6 +88,8 @@ export default function Optimize() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-indigo-50 to-purple-50">
+      <Header />
+
       {/* Header */}
       <header className="border-b bg-white/80 backdrop-blur-sm sticky top-0 z-50">
         <div className="container mx-auto px-4 py-4">

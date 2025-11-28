@@ -5,6 +5,7 @@ import { Film, Code, BookOpen, Zap, Copy, Check } from "lucide-react";
 import { Link } from "wouter";
 import { useState } from "react";
 import { toast } from "sonner";
+import Header from "@/components/Header";
 
 export default function Documentation() {
   const [copiedCode, setCopiedCode] = useState<string | null>(null);
@@ -131,6 +132,8 @@ console.log(JSON.stringify(promptData, null, 2));`;
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50">
+      <Header />
+
       {/* Header */}
       <header className="border-b bg-white/80 backdrop-blur-sm sticky top-0 z-50">
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
