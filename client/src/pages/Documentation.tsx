@@ -7,6 +7,7 @@ import { Link, useLocation } from "wouter";
 import { toast } from "sonner";
 import Header from "@/components/Header";
 import ToneGuide from "./ToneGuide";
+import LLMAPIDocumentation from "@/components/LLMAPIDocumentation";
 
 export default function Documentation() {
   const [location, setLocation] = useLocation();
@@ -471,29 +472,7 @@ console.log(JSON.stringify(promptData, null, 2));`;
 
           {/* LLM API Tab */}
           <TabsContent value="llm-api">
-            <div className="max-w-6xl space-y-8">
-              <div>
-                <h2 className="text-4xl font-bold text-slate-900 mb-2">LLM API Integration</h2>
-                <p className="text-lg text-slate-600">
-                  Use AI to generate and customize video prompts programmatically
-                </p>
-              </div>
-
-              <Card className="border-indigo-200 bg-gradient-to-r from-indigo-50 to-purple-50">
-                <CardHeader>
-                  <CardTitle>Coming Soon</CardTitle>
-                  <CardDescription>
-                    LLM API integration for automated prompt generation and customization
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-slate-600">
-                    We're working on integrating LLM APIs to help you generate and customize video prompts automatically. 
-                    Stay tuned for updates!
-                  </p>
-                </CardContent>
-              </Card>
-            </div>
+            <LLMAPIDocumentation />
           </TabsContent>
 
           {/* Tone Guide Tab */}
