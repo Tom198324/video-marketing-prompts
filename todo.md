@@ -287,3 +287,60 @@
   - [x] Verify Before/After Gallery shows transformations
   - [x] Run all unit tests (4/4 passing for validator)
   - [x] Test complete workflow (analyze → optimize → validate)
+
+
+## 🚀 Advanced Features (New Implementation)
+
+### Feature 1: Batch Validation
+- [x] Design batch validation UI
+  - [x] Add file upload for JSON array
+  - [x] Create summary report table
+  - [x] Show which prompts need optimization
+- [x] Implement backend tRPC procedure
+  - [x] validateBatchPrompts mutation
+  - [x] Process multiple prompts sequentially
+  - [x] Return aggregated results with statistics
+- [x] Write unit tests for batch validation (5/5 passing)
+- [x] Test UI at /batch-validator
+
+### Feature 2: Export Validation Reports
+- [x] Add PDF export functionality
+  - [x] Install PDF generation library (jsPDF)
+  - [x] Design PDF report template with multi-page support
+  - [x] Include all sections, scores, and penalties
+- [x] Add Markdown export functionality
+  - [x] Generate formatted markdown with headers
+  - [x] Include quality badges as text
+  - [x] Add improvement suggestions and penalties
+- [x] Add export buttons to Validator page
+- [x] Create exportUtils.ts with PDF/Markdown generators
+- [x] Test export functionality (client-side only, no backend tests needed)
+
+### Feature 3: Video Platform Integration
+- [x] Research Sora/Veo/Runway APIs
+  - [x] Check API availability and documentation
+  - [x] Compare features and pricing
+  - [x] **Selected: Google Veo 3.1** (official API, native audio, comprehensive features)
+- [x] Create implementation documentation
+  - [x] Write VEO_INTEGRATION_GUIDE.md with complete step-by-step instructions
+  - [x] Document API endpoints and authentication (Gemini API)
+  - [x] Create helper functions in server/veoVideoGeneration.ts
+  - [x] Document database schema requirements (video_generations table)
+  - [x] Provide frontend UI examples (VideoGenerator.tsx)
+- [ ] **PENDING**: Complete implementation (requires stable network for SDK installation)
+  - [ ] Install @google/genai SDK
+  - [ ] Request GEMINI_API_KEY from user via webdev_request_secrets
+  - [ ] Add tRPC procedures (generateVideo, checkVideoStatus)
+  - [ ] Add database schema for video_generations table
+  - [ ] Create VideoGenerator.tsx page
+  - [ ] Add route and navigation
+  - [ ] Write unit tests
+  - [ ] Test with real API calls
+
+**Note**: All preparation work completed. Implementation ready to continue when network connectivity is stable. See VEO_INTEGRATION_GUIDE.md for complete instructions.
+
+### Final Testing & Delivery
+- [ ] Test complete workflow (validate → export → generate)
+- [ ] Verify all features work together
+- [ ] Check mobile responsiveness
+- [ ] Save final checkpoint

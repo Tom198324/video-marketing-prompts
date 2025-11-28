@@ -7,6 +7,8 @@ import { Label } from "@/components/ui/label";
 import { trpc } from "@/lib/trpc";
 import { Loader2, ShieldCheck, AlertCircle, CheckCircle, XCircle, AlertTriangle } from "lucide-react";
 import { toast } from "sonner";
+import { exportToPDF, exportToMarkdown, downloadMarkdown } from "@/lib/exportUtils";
+import { FileDown } from "lucide-react";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { QualityBadge } from "@/components/QualityBadge";
 
@@ -356,13 +358,60 @@ export default function Validator() {
                       or use our <a href="/optimize" className="text-purple-600 underline">Optimizer</a> tool for a complete transformation.
                     </p>
                   )}
-                  <div className="flex gap-3 pt-2">
-                    <Button variant="outline" onClick={handleClear}>
-                      Validate Another Prompt
-                    </Button>
-                    <Button asChild>
-                      <a href="/excellence-guide">View Excellence Guide</a>
-                    </Button>
+                  <div className="space-y-3 pt-2">
+                    <div className="flex gap-3">
+                      <Button variant="outline" onClick={handleClear}>
+                        Validate Another Prompt
+                      </Button>
+                      <Button variant="outline" asChild>
+                        <a href="/batch-validator">Batch Validation</a>
+                      </Button>
+                      <Button asChild>
+                        <a href="/excellence-guide">View Excellence Guide</a>
+                      </Button>
+                    </div>
+                    
+                    {/* Export Buttons */}
+                    <div className="flex gap-3 pt-2 border-t">
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        onClick={() => {
+                          if (validationResult) {
+                            exportToPDF({
+                              title: promptTitle || 'Custom Prompt',
+                              analysis: validationResult.analysis,
+                              isValid: validationResult.isValid,
+                              recommendation: validationResult.recommendation,
+                            });
+                            toast.success('📄 PDF report downloaded');
+                          }
+                        }}
+                      >
+                        <FileDown className="h-4 w-4 mr-2" />
+                        Export PDF
+                      </Button>
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        onClick={() => {
+                          if (validationResult) {
+                            const markdown = exportToMarkdown({
+                              title: promptTitle || 'Custom Prompt',
+                              analysis: validationResult.analysis,
+                              isValid: validationResult.isValid,
+                              recommendation: validationResult.recommendation,
+                            });
+                            const filename = `validation-report-${(promptTitle || 'custom-prompt').replace(/[^a-z0-9]/gi, '-').toLowerCase()}.md`;
+                            downloadMarkdown(markdown, filename);
+                            toast.success('📝 Markdown report downloaded');
+                          }
+                        }}
+                      >
+                        <FileDown className="h-4 w-4 mr-2" />
+                        Export Markdown
+                      </Button>
+                    </div>
                   </div>
                 </CardContent>
               </Card>

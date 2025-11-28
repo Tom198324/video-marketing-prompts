@@ -399,6 +399,147 @@ Be RUTHLESSLY CRITICAL. Excellence is the ONLY acceptable standard.`
         };
       }),
 
+    validateBatchPrompts: publicProcedure
+      .input(z.object({
+        prompts: z.array(z.object({
+          title: z.string(),
+          promptText: z.string(),
+        })),
+      }))
+      .mutation(async ({ input }) => {
+        const requiredSections = ['shot', 'subject', 'action', 'scene', 'cinematography', 'audio', 'visual_rules', 'technical_specifications'];
+        const results = [];
+
+        // Process each prompt
+        for (let i = 0; i < input.prompts.length; i++) {
+          const { title, promptText } = input.prompts[i];
+          
+          try {
+            // Parse JSON
+            let promptJson;
+            try {
+              promptJson = JSON.parse(promptText);
+            } catch (error) {
+              results.push({
+                index: i,
+                title,
+                success: false,
+                error: 'Invalid JSON format',
+                analysis: null,
+              });
+              continue;
+            }
+
+            // Validate structure
+            const missingSections = requiredSections.filter(section => !promptJson[section]);
+            if (missingSections.length > 0) {
+              results.push({
+                index: i,
+                title,
+                success: false,
+                error: `Missing sections: ${missingSections.join(', ')}`,
+                analysis: null,
+              });
+              continue;
+            }
+
+            // Run ultra-strict evaluation
+            const analysisResponse = await invokeLLM({
+              messages: [
+                {
+                  role: "system",
+                  content: `You are a WORLD-CLASS cinematography expert with 20+ years of experience in Oscar-winning productions (Blade Runner 2049, 1917, The Revenant). You have ZERO tolerance for mediocrity.
+
+CRITICAL EVALUATION STANDARDS:
+- 10/10 = PERFECT - Worthy of Cannes Film Festival, zero improvements possible
+- 9/10 = CINEMATIC EXCELLENCE - Hollywood/Pixar level, ready for Super Bowl commercial
+- 8/10 = PROFESSIONAL MASTERY - High-end production quality, minor refinements only
+- 7/10 = SOLID PROFESSIONAL - Good but needs optimization for premium use
+- 6/10 = ACCEPTABLE - Multiple improvements required for professional standards
+- 5/10 = MEDIOCRE - Significant weaknesses, major reconstruction needed
+- 4/10 = POOR - Fundamental flaws, complete redesign required
+- 1-3/10 = UNACCEPTABLE - Start from scratch
+
+AUTOMATIC PENALTIES (apply these strictly):
+- Generic sequences (\"Sequence 2\", \"Product showcase\", \"Display features\"): -5 points
+- Narrative incoherence between sequences: -3 points
+- Vague technical terms (\"good lighting\", \"nice camera\"): -3 points
+- Missing emotional progression across sequences: -2 points
+- Visual or narrative clichés: -2 points
+- Imprecise timing (no seconds specified): -2 points
+- Incomplete technical specifications: -3 points
+
+ONLY award 9-10/10 if ALL criteria are met:
+✓ Cinematic mastery in camera work (specific lens, aperture, movement)
+✓ Precise timing down to the second for each action
+✓ Clear emotional storytelling arc across all sequences
+✓ Complete technical specifications (resolution, fps, color space, codec)
+✓ Creative originality (no generic \"showcase\" language)
+✓ Professional-grade audio design with specific sync points
+✓ Perfect visual continuity and realism rules
+✓ Specific subject details (age, expression, wardrobe evolution)
+
+Be RUTHLESSLY CRITICAL. Excellence is the ONLY acceptable standard.`
+                },
+                {
+                  role: "user",
+                  content: `Analyze this custom video prompt with EXTREME RIGOR:\n\nTitle: ${title}\n\nPrompt JSON:\n${JSON.stringify(promptJson, null, 2)}\n\nEVALUATE EACH OF THE 8 SECTIONS:\n1. Shot (camera_system, lens, composition, movement) - 20% weight\n2. Subject (identity, appearance, expression, evolution) - 15% weight\n3. Action (precise timing, specific movements, camera tracking) - 25% weight\n4. Scene (location, time, weather, lighting, atmosphere) - 10% weight\n5. Cinematography (camera settings, color, stabilization) - 15% weight\n6. Audio (ambient, music, voice-over, sync) - 10% weight\n7. Visual Rules (realism, continuity) - 5% weight\n8. Technical Specifications (resolution, fps, codec, duration) - 0% (binary: complete or -3 penalty)\n\nAPPLY AUTOMATIC PENALTIES STRICTLY. Start from 5/10 baseline and justify every point above that.\n\nProvide JSON with:\n- overall_score (0-10, weighted average with penalties applied)\n- overall_assessment (harsh critical evaluation)\n- section_scores (object with scores 0-10 for each of 8 sections)\n- priority_improvements (array of critical issues to fix)\n- penalties_applied (array of penalty descriptions with point deductions)`
+                }
+              ],
+              response_format: { type: "json_object" }
+            });
+
+            const analysisContent = analysisResponse.choices[0].message.content;
+            const analysis = JSON.parse(typeof analysisContent === 'string' ? analysisContent : '{}');
+
+            results.push({
+              index: i,
+              title,
+              success: true,
+              error: null,
+              analysis,
+              needsOptimization: analysis.overall_score < 7,
+            });
+          } catch (error: any) {
+            results.push({
+              index: i,
+              title,
+              success: false,
+              error: error.message || 'Unknown error',
+              analysis: null,
+            });
+          }
+        }
+
+        // Calculate summary statistics
+        const successfulValidations = results.filter(r => r.success);
+        const avgScore = successfulValidations.length > 0
+          ? successfulValidations.reduce((sum, r) => sum + (r.analysis?.overall_score || 0), 0) / successfulValidations.length
+          : 0;
+        const needsOptimization = results.filter(r => r.needsOptimization).length;
+        const goldCount = results.filter(r => r.success && r.analysis?.overall_score >= 9).length;
+        const silverCount = results.filter(r => r.success && r.analysis?.overall_score >= 7 && r.analysis?.overall_score < 9).length;
+        const bronzeCount = results.filter(r => r.success && r.analysis?.overall_score >= 5 && r.analysis?.overall_score < 7).length;
+        const poorCount = results.filter(r => r.success && r.analysis?.overall_score < 5).length;
+
+        return {
+          results,
+          summary: {
+            total: input.prompts.length,
+            successful: successfulValidations.length,
+            failed: input.prompts.length - successfulValidations.length,
+            averageScore: Math.round(avgScore * 10) / 10,
+            needsOptimization,
+            distribution: {
+              gold: goldCount,
+              silver: silverCount,
+              bronze: bronzeCount,
+              poor: poorCount,
+            },
+          },
+        };
+      }),
+
     analyzePrompt: publicProcedure
       .input(z.object({
         promptId: z.number(),
