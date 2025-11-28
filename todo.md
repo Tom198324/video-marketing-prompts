@@ -810,3 +810,24 @@
 - [x] Test mobile responsiveness
 - [x] Run unit tests (22/22 passing)
 - [x] Save checkpoint
+
+
+## 🔄 Move Tone Examples to Prompts Studio
+
+### Phase 1: Simplify Tone Guide
+- [x] Remove tab navigation from ToneGuide.tsx
+- [x] Remove ToneExamples import and tab content
+- [x] Keep only Tone Categories content
+- [x] Remove sticky sub-navigation (no longer needed)
+
+### Phase 2: Add Tone Examples to Prompts Studio
+- [x] Add Tone Examples as 5th tab in PromptsStudio.tsx
+- [x] Import ToneExamples component
+- [x] Update sticky sub-navigation with new tab
+- [x] Update URL handling for tone-examples tab
+
+### Phase 3: Testing and Checkpoint
+- [x] Test Tone Guide (simple page, no tabs)
+- [x] Test Prompts Studio with 5 tabs
+- [x] Update unit tests (15/15 passing)
+- [x] Save checkpoint

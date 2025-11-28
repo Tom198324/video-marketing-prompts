@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Folder, Wand2, Zap, ShieldCheck } from "lucide-react";
+import { Folder, Wand2, Zap, ShieldCheck, Palette } from "lucide-react";
 import Header from "@/components/Header";
 import { useLocation } from "wouter";
 
@@ -9,6 +9,7 @@ import MyPromptsContent from "@/components/studio/MyPromptsContent";
 import Customizer from "./Customizer";
 import Optimize from "./Optimize";
 import Validator from "./Validator";
+import ToneExamples from "./ToneExamples";
 
 export default function PromptsStudio() {
   const [location, setLocation] = useLocation();
@@ -20,6 +21,7 @@ export default function PromptsStudio() {
     if (tab === "customizer") return "customizer";
     if (tab === "optimizer") return "optimizer";
     if (tab === "validator") return "validator";
+    if (tab === "tone-examples") return "tone-examples";
     return "my-prompts";
   };
 
@@ -72,6 +74,13 @@ export default function PromptsStudio() {
                 <ShieldCheck className="h-4 w-4 mr-2" />
                 Validator
               </TabsTrigger>
+              <TabsTrigger 
+                value="tone-examples" 
+                className="data-[state=active]:bg-transparent data-[state=active]:border-b-2 data-[state=active]:border-primary rounded-none px-4 h-full"
+              >
+                <Palette className="h-4 w-4 mr-2" />
+                Tone Examples
+              </TabsTrigger>
             </TabsList>
           </Tabs>
         </div>
@@ -98,6 +107,11 @@ export default function PromptsStudio() {
           {/* Validator Tab */}
           <TabsContent value="validator">
             <Validator />
+          </TabsContent>
+
+          {/* Tone Examples Tab */}
+          <TabsContent value="tone-examples">
+            <ToneExamples />
           </TabsContent>
         </Tabs>
       </div>

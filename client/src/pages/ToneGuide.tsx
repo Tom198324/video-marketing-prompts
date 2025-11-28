@@ -2,12 +2,9 @@ import { useState } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { TONE_CATEGORIES } from "@/../../shared/promptStructure";
-import { Search, Sparkles, Briefcase, Palette, TrendingUp, Heart, Zap, Users, Lightbulb, GraduationCap, Play, BookOpen } from "lucide-react";
+import { Search, Sparkles, Briefcase, Palette, TrendingUp, Heart, Zap, Users, GraduationCap } from "lucide-react";
 import Header from "@/components/Header";
-import ToneExamples from "./ToneExamples";
-import { useLocation } from "wouter";
 
 type CategoryKey = keyof typeof TONE_CATEGORIES;
 
@@ -102,27 +99,8 @@ const CATEGORY_INFO: Record<CategoryKey, {
 };
 
 export default function ToneGuide() {
-  const [location, setLocation] = useLocation();
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState<CategoryKey | "all">("all");
-
-  // Determine active tab from URL
-  const getActiveTab = () => {
-    const params = new URLSearchParams(window.location.search);
-    return params.get("tab") === "examples" ? "examples" : "categories";
-  };
-
-  const [activeTab, setActiveTab] = useState(getActiveTab());
-
-  // Update URL when tab changes
-  const handleTabChange = (value: string) => {
-    setActiveTab(value);
-    if (value === "categories") {
-      setLocation("/tone-guide");
-    } else {
-      setLocation(`/tone-guide?tab=${value}`);
-    }
-  };
 
   // Filter tones based on search and category
   const getFilteredTones = () => {
@@ -144,195 +122,161 @@ export default function ToneGuide() {
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-purple-50 to-pink-50">
       <Header />
 
-      {/* Sticky Sub-Navigation */}
-      <div className="sticky top-16 z-40 bg-white/95 backdrop-blur border-b">
-        <div className="container mx-auto px-4">
-          <Tabs value={activeTab} onValueChange={handleTabChange} className="w-full">
-            <TabsList className="h-14 bg-transparent border-0 w-full justify-start gap-4">
-              <TabsTrigger 
-                value="categories" 
-                className="data-[state=active]:bg-transparent data-[state=active]:border-b-2 data-[state=active]:border-primary rounded-none px-4 h-full"
-              >
-                <BookOpen className="h-4 w-4 mr-2" />
-                Tone Categories
-              </TabsTrigger>
-              <TabsTrigger 
-                value="examples" 
-                className="data-[state=active]:bg-transparent data-[state=active]:border-b-2 data-[state=active]:border-primary rounded-none px-4 h-full"
-              >
-                <Play className="h-4 w-4 mr-2" />
-                Tone Examples
-              </TabsTrigger>
-            </TabsList>
-          </Tabs>
-        </div>
-      </div>
-
       {/* Page Content */}
-      <div className="container mx-auto px-4 py-8">
-        <Tabs value={activeTab} className="w-full">
-          {/* Tone Categories Tab */}
-          <TabsContent value="categories" className="space-y-8">
-            {/* Header */}
-            <div>
-              <h1 className="text-3xl font-bold text-slate-900 mb-2">Tone Categories</h1>
-              <p className="text-slate-600">Master the art of emotional storytelling with our comprehensive tone library</p>
+      <div className="container mx-auto px-4 py-8 space-y-8">
+        {/* Header */}
+        <div>
+          <h1 className="text-3xl font-bold text-slate-900 mb-2">Tone Guide</h1>
+          <p className="text-slate-600">Master the art of emotional storytelling with our comprehensive tone library</p>
+        </div>
+
+        {/* Search and Filter */}
+        <Card>
+          <CardHeader>
+            <CardTitle>Explore 120+ Professional Tones</CardTitle>
+            <CardDescription>
+              Search and filter tones by category to find the perfect emotional atmosphere for your video
+            </CardDescription>
+          </CardHeader>
+          <CardContent className="space-y-4">
+            <div className="relative">
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-slate-400" />
+              <Input
+                type="text"
+                placeholder="Search tones (e.g., 'cinematic', 'professional', 'energetic')..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                className="pl-10"
+              />
             </div>
 
-            {/* Search and Filter */}
-            <Card>
-              <CardHeader>
-                <CardTitle>Explore 120+ Professional Tones</CardTitle>
-                <CardDescription>
-                  Search and filter tones by category to find the perfect emotional atmosphere for your video
-                </CardDescription>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <div className="relative">
-                  <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-slate-400" />
-                  <Input
-                    type="text"
-                    placeholder="Search tones (e.g., 'cinematic', 'professional', 'energetic')..."
-                    value={searchTerm}
-                    onChange={(e) => setSearchTerm(e.target.value)}
-                    className="pl-10"
-                  />
-                </div>
+            <div className="flex flex-wrap gap-2">
+              <Badge
+                variant={selectedCategory === "all" ? "default" : "outline"}
+                className="cursor-pointer"
+                onClick={() => setSelectedCategory("all")}
+              >
+                All Categories
+              </Badge>
+              {(Object.keys(CATEGORY_INFO) as CategoryKey[]).map((category) => (
+                <Badge
+                  key={category}
+                  variant={selectedCategory === category ? "default" : "outline"}
+                  className="cursor-pointer"
+                  onClick={() => setSelectedCategory(category)}
+                >
+                  {category.replace(/_/g, " ")}
+                </Badge>
+              ))}
+            </div>
+          </CardContent>
+        </Card>
 
-                <div className="flex flex-wrap gap-2">
-                  <Badge
-                    variant={selectedCategory === "all" ? "default" : "outline"}
-                    className="cursor-pointer"
-                    onClick={() => setSelectedCategory("all")}
-                  >
-                    All Categories
-                  </Badge>
-                  {(Object.keys(CATEGORY_INFO) as CategoryKey[]).map((category) => (
-                    <Badge
-                      key={category}
-                      variant={selectedCategory === category ? "default" : "outline"}
-                      className="cursor-pointer"
-                      onClick={() => setSelectedCategory(category)}
-                    >
+        {/* Category Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {filteredCategories.map(({ category, tones }) => {
+            const info = CATEGORY_INFO[category];
+            const Icon = info.icon;
+
+            return (
+              <Card key={category} className={`${info.bgColor} border-2`}>
+                <CardHeader>
+                  <div className="flex items-center gap-3 mb-2">
+                    <div className={`p-2 rounded-lg bg-white/50`}>
+                      <Icon className={`h-6 w-6 ${info.color}`} />
+                    </div>
+                    <CardTitle className="text-xl capitalize">
                       {category.replace(/_/g, " ")}
-                    </Badge>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
+                    </CardTitle>
+                  </div>
+                  <CardDescription className="text-base">
+                    {info.description}
+                  </CardDescription>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  {/* Tones List */}
+                  <div>
+                    <h4 className="font-semibold mb-2 text-sm">Available Tones ({tones.length})</h4>
+                    <div className="flex flex-wrap gap-2">
+                      {tones.map((tone) => (
+                        <Badge key={tone} variant="secondary" className="text-xs">
+                          {tone}
+                        </Badge>
+                      ))}
+                    </div>
+                  </div>
 
-            {/* Category Cards */}
+                  {/* Use Cases */}
+                  <div>
+                    <h4 className="font-semibold mb-2 text-sm">Common Use Cases</h4>
+                    <ul className="text-sm space-y-1">
+                      {info.useCases.map((useCase, idx) => (
+                        <li key={idx} className="flex items-start gap-2">
+                          <span className="text-slate-400">•</span>
+                          <span>{useCase}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  {/* Recommended Sectors */}
+                  <div>
+                    <h4 className="font-semibold mb-2 text-sm">Recommended Sectors</h4>
+                    <div className="flex flex-wrap gap-2">
+                      {info.sectors.map((sector) => (
+                        <span key={sector} className="text-xs px-2 py-1 bg-white/50 rounded">
+                          {sector}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            );
+          })}
+        </div>
+
+        {/* Pro Tips */}
+        <Card className="bg-gradient-to-r from-indigo-50 to-purple-50 border-indigo-200">
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2">
+              <Sparkles className="h-5 w-5 text-indigo-600" />
+              Pro Tips for Choosing Tones
+            </CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-4">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {filteredCategories.map(({ category, tones }) => {
-                const info = CATEGORY_INFO[category];
-                const Icon = info.icon;
-
-                return (
-                  <Card key={category} className={`${info.bgColor} border-2`}>
-                    <CardHeader>
-                      <div className="flex items-center gap-3 mb-2">
-                        <div className={`p-2 rounded-lg bg-white/50`}>
-                          <Icon className={`h-6 w-6 ${info.color}`} />
-                        </div>
-                        <CardTitle className="text-xl capitalize">
-                          {category.replace(/_/g, " ")}
-                        </CardTitle>
-                      </div>
-                      <CardDescription className="text-base">
-                        {info.description}
-                      </CardDescription>
-                    </CardHeader>
-                    <CardContent className="space-y-4">
-                      {/* Tones List */}
-                      <div>
-                        <h4 className="font-semibold mb-2 text-sm">Available Tones ({tones.length})</h4>
-                        <div className="flex flex-wrap gap-2">
-                          {tones.map((tone) => (
-                            <Badge key={tone} variant="secondary" className="text-xs">
-                              {tone}
-                            </Badge>
-                          ))}
-                        </div>
-                      </div>
-
-                      {/* Use Cases */}
-                      <div>
-                        <h4 className="font-semibold mb-2 text-sm">Common Use Cases</h4>
-                        <ul className="text-sm space-y-1">
-                          {info.useCases.map((useCase, idx) => (
-                            <li key={idx} className="flex items-start gap-2">
-                              <span className="text-slate-400">•</span>
-                              <span>{useCase}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-
-                      {/* Recommended Sectors */}
-                      <div>
-                        <h4 className="font-semibold mb-2 text-sm">Recommended Sectors</h4>
-                        <div className="flex flex-wrap gap-2">
-                          {info.sectors.map((sector) => (
-                            <span key={sector} className="text-xs px-2 py-1 bg-white/50 rounded">
-                              {sector}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
-                    </CardContent>
-                  </Card>
-                );
-              })}
+              <div>
+                <h4 className="font-semibold mb-2">Match Your Audience</h4>
+                <p className="text-sm text-slate-700">
+                  Consider your target audience's demographics, psychographics, and emotional triggers. 
+                  Younger audiences may respond better to energetic tones, while luxury buyers prefer sophisticated atmospheres.
+                </p>
+              </div>
+              <div>
+                <h4 className="font-semibold mb-2">Align with Brand Identity</h4>
+                <p className="text-sm text-slate-700">
+                  Your tone should reflect your brand's personality and values. A tech startup might use innovative tones, 
+                  while a heritage brand benefits from nostalgic or professional atmospheres.
+                </p>
+              </div>
+              <div>
+                <h4 className="font-semibold mb-2">Consider Context & Platform</h4>
+                <p className="text-sm text-slate-700">
+                  Where and when your video will be viewed matters. Social media favors energetic and playful tones, 
+                  while corporate presentations require professional and authoritative atmospheres.
+                </p>
+              </div>
+              <div>
+                <h4 className="font-semibold mb-2">Test & Iterate</h4>
+                <p className="text-sm text-slate-700">
+                  Don't be afraid to experiment with different tones. Use A/B testing to see which emotional atmosphere 
+                  resonates best with your audience and drives the desired actions.
+                </p>
+              </div>
             </div>
-
-            {/* Pro Tips */}
-            <Card className="bg-gradient-to-r from-indigo-50 to-purple-50 border-indigo-200">
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <Sparkles className="h-5 w-5 text-indigo-600" />
-                  Pro Tips for Choosing Tones
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div>
-                    <h4 className="font-semibold mb-2">Match Your Audience</h4>
-                    <p className="text-sm text-slate-700">
-                      Consider your target audience's demographics, psychographics, and emotional triggers. 
-                      Younger audiences may respond better to energetic tones, while luxury buyers prefer sophisticated atmospheres.
-                    </p>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold mb-2">Align with Brand Identity</h4>
-                    <p className="text-sm text-slate-700">
-                      Your tone should reflect your brand's personality and values. A tech startup might use innovative tones, 
-                      while a heritage brand benefits from nostalgic or professional atmospheres.
-                    </p>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold mb-2">Consider Context & Platform</h4>
-                    <p className="text-sm text-slate-700">
-                      Where and when your video will be viewed matters. Social media favors energetic and playful tones, 
-                      while corporate presentations require professional and authoritative atmospheres.
-                    </p>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold mb-2">Test & Iterate</h4>
-                    <p className="text-sm text-slate-700">
-                      Don't be afraid to experiment with different tones. Use A/B testing to see which emotional atmosphere 
-                      resonates best with your audience and drives the desired actions.
-                    </p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          </TabsContent>
-
-          {/* Tone Examples Tab */}
-          <TabsContent value="examples">
-            <ToneExamples />
-          </TabsContent>
-        </Tabs>
+          </CardContent>
+        </Card>
       </div>
     </div>
   );
