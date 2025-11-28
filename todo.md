@@ -726,3 +726,65 @@
 - [x] Verify all navigation links work
 - [x] Write and pass unit tests (14/14 passing)
 - [x] Save final checkpoint
+
+
+## 🏗️ Site Architecture Reorganization
+
+### Phase 1: Rename Main Pages
+- [x] Rename "Explore" to "Production"
+  - [x] Rename Prompts.tsx to Production.tsx
+  - [x] Update route from /prompts to /production
+  - [x] Update all internal links and references
+- [x] Rename "Generator" to "Customizer"
+  - [x] Rename Generator.tsx to Customizer.tsx
+  - [x] Update route from /generator to /customizer
+  - [x] Update all internal links and references
+- [x] Rename "My Prompts" to "Prompts Studio"
+  - [x] Rename MyPrompts.tsx to PromptsStudio.tsx
+  - [x] Update route from /my-prompts to /prompts-studio
+  - [x] Update all internal links and references
+
+### Phase 2: Reorganize Architecture with Sub-pages
+- [x] Make Gallery a sub-page of Production
+  - [x] Create tab navigation in Production (Prompts List / Gallery)
+  - [x] Integrate Gallery.tsx as component
+  - [x] Remove independent /gallery route
+- [x] Make Customizer, Optimizer, Validator sub-pages of Prompts Studio
+  - [x] Create PromptsStudioLayout.tsx with tab navigation
+  - [x] Update routes: /prompts-studio, /prompts-studio/customizer, /prompts-studio/optimizer, /prompts-studio/validator
+  - [x] Integrate components with shared layout
+- [x] Make Tone Examples a sub-page of Tone Guide
+  - [x] Add tab navigation in ToneGuide (Tone Categories / Tone Examples)
+  - [x] Integrate ToneExamples.tsx as tab content
+  - [x] Keep /tone-guide as main route, /tone-examples becomes embedded
+
+### Phase 3: Update Global Navigation
+- [x] Update Header.tsx with new structure
+  - [x] Production (dropdown: Prompts Library, Visual Gallery)
+  - [x] Prompts Studio (dropdown: My Prompts, Customizer, Optimizer, Validator)
+  - [x] Templates (no dropdown)
+  - [x] Tone Guide (dropdown: Tone Categories, Tone Examples)
+  - [x] Documentation (dropdown: Overview, LLM API)
+- [x] Implement dropdown menus in Header
+- [x] Update mobile navigation with new structure
+- [x] Make Tone Examples a sub-page of Tone Guide with tab navigation
+
+### Phase 4: Add Header Systematically to All Pages
+- [x] Audit all pages without Header
+  - [x] PromptDetail.tsx (has Header)
+  - [x] MyPromptDetail.tsx (has Header)
+  - [x] Compare.tsx (has Header)
+  - [x] BeforeAfter.tsx (has Header)
+  - [x] BatchValidator.tsx (has Header)
+  - [x] All other pages verified
+- [x] Add Header component to all missing pages (all pages already have Header)
+- [x] Create PageLayout.tsx wrapper component (not needed - all pages have Header)
+- [x] Document rule: all new pages must include Header
+
+### Phase 5: Testing and Checkpoint
+- [x] Test all navigation paths
+- [x] Test all dropdowns and sub-pages
+- [x] Verify Header appears on 100% of pages
+- [x] Test mobile navigation
+- [x] Run unit tests (26/26 passing)
+- [x] Save checkpoint with new architecture

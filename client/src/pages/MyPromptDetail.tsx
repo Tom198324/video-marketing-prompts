@@ -159,7 +159,7 @@ export default function MyPromptDetail() {
               The prompt you're looking for doesn't exist or you don't have access to it.
             </p>
             <Button asChild>
-              <a href="/my-prompts">
+              <a href="/prompts-studio">
                 <ArrowLeft className="mr-2 h-4 w-4" />
                 Back to My Prompts
               </a>
@@ -175,7 +175,7 @@ export default function MyPromptDetail() {
       {/* Header */}
       <div className="mb-6">
         <Button variant="ghost" asChild className="mb-4">
-          <a href="/my-prompts">
+          <a href="/prompts-studio">
             <ArrowLeft className="mr-2 h-4 w-4" />
             Back to My Prompts
           </a>

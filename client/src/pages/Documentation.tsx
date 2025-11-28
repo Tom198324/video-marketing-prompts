@@ -144,7 +144,7 @@ console.log(JSON.stringify(promptData, null, 2));`;
             </div>
           </Link>
           <nav className="flex items-center gap-4">
-            <Link href="/prompts">
+            <Link href="/production">
               <Button variant="ghost">Explore</Button>
             </Link>
             <Link href="/gallery">
@@ -1141,7 +1141,7 @@ puts "Generated #{variations.length} variations!"`}</code>
               Explore our collection of 50 prompts and start generating professional videos
             </CardDescription>
             <div className="pt-4">
-              <Link href="/prompts">
+              <Link href="/production">
                 <Button size="lg" variant="secondary">
                   Explore Prompts
                 </Button>

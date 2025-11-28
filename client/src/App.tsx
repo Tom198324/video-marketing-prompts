@@ -9,14 +9,14 @@ import Compare from "./pages/Compare";
 import PromptDetail from "./pages/PromptDetail";
 import Documentation from "./pages/Documentation";
 import Gallery from "./pages/Gallery";
-import Generator from "./pages/Generator";
-import Prompts from "./pages/Prompts";
+import Customizer from "./pages/Customizer";
+import Production from "./pages/Production";
 import Optimize from "./pages/Optimize";
 import BeforeAfter from "./pages/BeforeAfter";
 import ExcellenceGuide from "./pages/ExcellenceGuide";
 import Validator from "./pages/Validator";
 import BatchValidator from "./pages/BatchValidator";
-import MyPrompts from "./pages/MyPrompts";
+import PromptsStudio from "./pages/PromptsStudio";
 import MyPromptDetail from "./pages/MyPromptDetail";
 import Templates from "./pages/Templates";
 import ToneGuide from "./pages/ToneGuide";
@@ -27,18 +27,24 @@ function Router() {
   return (
     <Switch>
       <Route path={"/"} component={Home} />
-      <Route path={"/prompts"} component={Prompts} />
+      <Route path={"/production"} component={Production} />
+      {/* Legacy redirect */}
+      <Route path={"/prompts"} component={Production} />
       <Route path={"/compare"} component={Compare} />
       <Route path="/prompt/:promptNumber" component={PromptDetail} />
       <Route path="/documentation" component={Documentation} />
       <Route path="/gallery" component={Gallery} />
-      <Route path="/generator" component={Generator} />
+      <Route path="/customizer" component={Customizer} />
+      {/* Legacy redirect */}
+      <Route path="/generator" component={Customizer} />
       <Route path="/optimize" component={Optimize} />
       <Route path="/before-after" component={BeforeAfter} />
       <Route path="/excellence-guide" component={ExcellenceGuide} />
       <Route path="/validator" component={Validator} />
       <Route path="/batch-validator" component={BatchValidator} />
-      <Route path="/my-prompts" component={MyPrompts} />
+      <Route path="/prompts-studio" component={PromptsStudio} />
+      {/* Legacy redirect */}
+      <Route path="/my-prompts" component={PromptsStudio} />
       <Route path="/my-prompt/:id" component={MyPromptDetail} />
         <Route path="/templates" component={Templates} />
         <Route path="/tone-guide" component={ToneGuide} />

@@ -32,7 +32,7 @@ export default function PromptDetail() {
         <Card>
           <CardContent className="pt-6">
             <p className="text-slate-600 mb-4">Prompt not found</p>
-            <Link href="/prompts">
+            <Link href="/production">
               <Button>Back to prompts</Button>
             </Link>
           </CardContent>
@@ -66,7 +66,7 @@ export default function PromptDetail() {
       {/* Header */}
       <header className="border-b bg-white/80 backdrop-blur-sm sticky top-0 z-50">
         <div className="container mx-auto px-4 py-4">
-          <Link href="/prompts">
+          <Link href="/production">
             <Button variant="ghost" size="sm">
               <ArrowLeft className="h-4 w-4 mr-2" />
               Back to prompts

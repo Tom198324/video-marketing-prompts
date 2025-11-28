@@ -20,7 +20,7 @@ export default function Compare() {
       setPromptIds(ids.split(",").map(Number));
     } else {
       // If no IDs, redirect to prompts page
-      setLocation("/prompts");
+      setLocation("/production");
     }
   }, [setLocation]);
 
@@ -47,8 +47,8 @@ export default function Compare() {
         <main className="flex-1 container py-8 max-w-7xl mx-auto">
           <div className="text-center">
             <p className="text-muted-foreground mb-4">No prompts selected for comparison</p>
-            <Button onClick={() => setLocation("/prompts")}>
-              Go to Prompts
+            <Button onClick={() => setLocation("/production")}>
+              Go to Production
             </Button>
           </div>
         </main>
@@ -65,11 +65,11 @@ export default function Compare() {
           <div>
             <Button
               variant="ghost"
-              onClick={() => setLocation("/prompts")}
+              onClick={() => setLocation("/production")}
               className="mb-4"
             >
               <ArrowLeft className="mr-2 h-4 w-4" />
-              Back to Prompts
+              Back to Production
             </Button>
             <h1 className="text-3xl font-bold">Compare Prompts</h1>
             <p className="text-muted-foreground mt-2">

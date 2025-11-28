@@ -32,7 +32,7 @@ export default function Home() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
-            <Link href="/prompts">
+            <Link href="/production">
               <Button size="lg" className="text-lg">
                 Explore Prompts
                 <ArrowRight className="ml-2 h-5 w-5" />
@@ -205,7 +205,7 @@ export default function Home() {
           </div>
 
           <div className="text-center mt-8">
-            <Link href="/prompts">
+            <Link href="/production">
               <Button size="lg" variant="outline">
                 View All Prompts
                 <ArrowRight className="ml-2 h-5 w-5" />
@@ -271,7 +271,7 @@ export default function Home() {
               Access the complete collection of professional prompts and start generating hyperrealistic marketing videos today.
             </CardDescription>
             <div className="pt-4">
-              <Link href="/prompts">
+              <Link href="/production">
                 <Button size="lg" variant="secondary" className="text-lg">
                   Start Now
                   <ArrowRight className="ml-2 h-5 w-5" />

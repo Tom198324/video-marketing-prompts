@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useLocation } from "wouter";
 import { ArrowRight, Sparkles, Play } from "lucide-react";
-import Header from "@/components/Header";
+// Header removed - ToneExamples is now embedded in ToneGuide
 
 // Example comparisons showing same product with different tones
 const TONE_EXAMPLES = [
@@ -156,24 +156,7 @@ export default function ToneExamples() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-purple-50 to-pink-50">
-      <Header />
-
-      {/* Header */}
-      <header className="border-b bg-white/80 backdrop-blur-sm">
-        <div className="container mx-auto px-4 py-8">
-          <div className="flex items-center gap-3 mb-4">
-            <Play className="h-8 w-8 text-purple-600" />
-            <h1 className="text-3xl font-bold text-slate-900">Tone Examples & Comparisons</h1>
-          </div>
-          <p className="text-lg text-slate-600 max-w-3xl">
-            See how different tones transform the same product. Compare side-by-side examples to understand 
-            the emotional and visual impact of tone selection on your marketing videos.
-          </p>
-        </div>
-      </header>
-
-      <div className="container mx-auto px-4 py-12">
+    <div className="space-y-8">
         <div className="max-w-7xl mx-auto space-y-8">
           
           {/* Category Selector */}
@@ -349,7 +332,6 @@ export default function ToneExamples() {
           </Card>
 
         </div>
-      </div>
     </div>
   );
 }

@@ -5,13 +5,12 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { toast } from "sonner";
-import Header from "@/components/Header";
 import { 
   Folder, FolderPlus, Search, Trash2, Edit, Tag, 
   Share2, Clock, ChevronRight, FileText, Plus
 } from "lucide-react";
 
-export default function MyPrompts() {
+export default function MyPromptsContent() {
   const [selectedFolderId, setSelectedFolderId] = useState<number | null>(null);
   const [searchTerm, setSearchTerm] = useState("");
   const [newFolderName, setNewFolderName] = useState("");
@@ -86,18 +85,16 @@ export default function MyPrompts() {
   };
 
   return (
-    <div className="container py-8">
-      <Header />
-
-      <div className="flex items-center justify-between mb-8">
+    <div className="space-y-6">
+      <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-4xl font-bold mb-2">My Prompts</h1>
+          <h2 className="text-2xl font-bold">My Prompts Library</h2>
           <p className="text-muted-foreground">
             Organize and manage your custom validated prompts
           </p>
         </div>
         <Button asChild>
-          <a href="/validator">
+          <a href="/prompts-studio?tab=validator">
             <Plus className="mr-2 h-4 w-4" />
             Create New Prompt
           </a>
@@ -282,7 +279,7 @@ export default function MyPrompts() {
                 </p>
                 {!searchTerm && (
                   <Button asChild>
-                    <a href="/validator">
+                    <a href="/prompts-studio?tab=validator">
                       <Plus className="mr-2 h-4 w-4" />
                       Create Prompt
                     </a>

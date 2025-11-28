@@ -5,7 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import { Film, Play, ExternalLink } from "lucide-react";
 import { Link } from "wouter";
 import { useState } from "react";
-import Header from "@/components/Header";
+// Header removed - Gallery is now embedded in Production
 
 // Example demonstration videos
 // Note: These URLs are placeholders. In production, replace with your real generated videos
@@ -98,8 +98,7 @@ export default function Gallery() {
   });
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50">
-      <Header />
+    <div className="space-y-8">
 
       {/* Header */}
       <header className="border-b bg-white/80 backdrop-blur-sm sticky top-0 z-50">
@@ -111,7 +110,7 @@ export default function Gallery() {
             </div>
           </Link>
           <nav className="flex items-center gap-4">
-            <Link href="/prompts">
+            <Link href="/production">
               <Button variant="ghost">Explore</Button>
             </Link>
             <Link href="/documentation">
@@ -284,7 +283,7 @@ export default function Gallery() {
               Use our professional prompts to generate marketing videos of similar quality
             </CardDescription>
             <div className="flex gap-4 justify-center pt-4">
-              <Link href="/prompts">
+              <Link href="/production">
                 <Button size="lg" variant="secondary">
                   Explore Prompts
                 </Button>

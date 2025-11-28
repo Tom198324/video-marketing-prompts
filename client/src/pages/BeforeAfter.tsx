@@ -94,7 +94,7 @@ export default function BeforeAfter() {
             </div>
           </Link>
           <nav className="flex items-center gap-4">
-            <Link href="/prompts">
+            <Link href="/production">
               <Button variant="ghost">Prompts</Button>
             </Link>
             <Link href="/optimize">

@@ -41,7 +41,7 @@ export default function Templates() {
       toast.success("Prompt saved to your library!");
       setSelectedTemplate(null);
       setCustomizationData({});
-      navigate("/my-prompts");
+      navigate("/prompts-studio");
     },
     onError: (error) => {
       toast.error(`Failed to save: ${error.message}`);
