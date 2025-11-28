@@ -21,6 +21,7 @@ export default function Generator() {
   const [variationCount, setVariationCount] = useState<number>(1);
   const [activeVariationIndex, setActiveVariationIndex] = useState<number>(0);
   const [variations, setVariations] = useState({
+    tone: false,
     subject: false,
     location: false,
     style: false,
@@ -175,6 +176,20 @@ export default function Generator() {
               </CardHeader>
               <CardContent>
                 <div className="space-y-4">
+                  <div className="flex items-center space-x-2">
+                    <Checkbox
+                      id="tone"
+                      checked={variations.tone}
+                      onCheckedChange={(checked) => 
+                        setVariations(prev => ({ ...prev, tone: checked as boolean }))
+                      }
+                    />
+                    <Label htmlFor="tone" className="cursor-pointer">
+                      <span className="font-semibold">Tone & Atmosphere</span>
+                      <span className="text-sm text-slate-500 block">Emotional tone, mood, visual style, emotional arc</span>
+                    </Label>
+                  </div>
+
                   <div className="flex items-center space-x-2">
                     <Checkbox
                       id="subject"

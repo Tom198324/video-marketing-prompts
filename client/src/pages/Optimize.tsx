@@ -107,7 +107,7 @@ export default function Optimize() {
             <CardHeader>
               <CardTitle className="text-2xl">Analyze and Optimize Your Prompts</CardTitle>
               <CardDescription className="text-base">
-                Get detailed analysis across 8 critical sections and receive AI-powered optimization suggestions to improve coherence, technical accuracy, and creative quality.
+                Get detailed analysis across 9 critical sections (including Tone & Atmosphere) and receive AI-powered optimization suggestions to improve coherence, technical accuracy, and creative quality.
               </CardDescription>
             </CardHeader>
           </Card>

@@ -634,3 +634,56 @@
 - [ ] Test all pages with new section
 - [ ] Verify 50 prompts still work correctly
 - [ ] Save checkpoint
+
+
+## 🎨 Tone & Atmosphere UI Implementation
+
+### Phase 1: Update Core Pages
+- [x] Update Generator page
+  - [x] Add Tone & Atmosphere variation option
+  - [x] Created ToneSelector component with visual cards
+  - [x] Integrated mood keywords, emotional arc, visual style inputs
+  - [x] Added as first variation parameter
+- [x] Update Validator page
+  - [x] Display tone analysis results (automatic via section_scores)
+  - [x] Show tone coherence score (included in 9 sections)
+  - [x] Display tone-specific suggestions (strengths/weaknesses)
+  - [x] Updated title to "9 Critical Areas"
+- [x] Update Optimizer page
+  - [x] Show before/after tone comparison (automatic via optimized_prompt)
+  - [x] Display tone optimization suggestions (included in optimization)
+  - [x] Highlight tone coherence improvements (backend handles this)
+  - [x] Updated description to mention 9 sections
+- [x] Update PromptDetail pages
+  - [x] Display tone section in prompt details (automatic via JSON display)
+  - [x] Tone editing capability (already exists via JSON editor)
+  - [x] Show tone visual indicators (displayed in JSON format)
+
+### Phase 2: Visual Tone Selector
+- [ ] Create ToneSelector component
+  - [ ] Design card layout for tone categories
+  - [ ] Add color coding (Emotional, Professional, Creative, Marketing)
+  - [ ] Implement category filtering
+  - [ ] Add search functionality
+  - [ ] Show tone descriptions on hover
+- [ ] Integrate ToneSelector in Generator
+- [ ] Add tone preview with visual examples
+
+### Phase 3: Tone Guide Page
+- [ ] Create ToneGuide.tsx page
+  - [ ] Introduction to tone in video prompting
+  - [ ] Complete tone catalog (200+ tones)
+  - [ ] Organize by categories with examples
+  - [ ] Add industry-specific recommendations
+  - [ ] Include visual examples for each tone
+  - [ ] Add tone combination suggestions
+- [ ] Add route and navigation link
+- [ ] Create interactive tone explorer
+
+### Phase 4: Testing & Delivery
+- [ ] Test Generator with tone input
+- [ ] Test Validator with tone analysis
+- [ ] Test Optimizer with tone optimization
+- [ ] Test Tone Guide navigation
+- [ ] Verify all 50 prompts display tone correctly
+- [ ] Save final checkpoint

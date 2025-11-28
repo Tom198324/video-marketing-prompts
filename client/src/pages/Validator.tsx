@@ -273,8 +273,8 @@ export default function Validator() {
               {/* Section Scores */}
               <Card>
                 <CardHeader>
-                  <CardTitle>Section Scores (8 Critical Areas)</CardTitle>
-                  <CardDescription>Detailed evaluation of each prompt component</CardDescription>
+                  <CardTitle>Section Scores (9 Critical Areas)</CardTitle>
+                  <CardDescription>Detailed evaluation including Tone & Atmosphere</CardDescription>
                 </CardHeader>
                 <CardContent>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
