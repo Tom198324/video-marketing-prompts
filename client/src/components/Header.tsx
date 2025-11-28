@@ -17,7 +17,7 @@ export default function Header() {
     { name: "Explore", href: "/prompts", icon: Film },
     { name: "Gallery", href: "/gallery", icon: Image },
     { name: "Generator", href: "/generator", icon: Sparkles },
-    { name: "Optimizer", href: "/optimizer", icon: Zap },
+    { name: "Optimizer", href: "/optimize", icon: Zap },
     { name: "Validator", href: "/validator", icon: CheckCircle },
     { name: "My Prompts", href: "/my-prompts", icon: FolderOpen },
     { name: "Templates", href: "/templates", icon: LayoutTemplate },

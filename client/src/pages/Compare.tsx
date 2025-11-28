@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 import { useLocation } from "wouter";
 import { trpc } from "@/lib/trpc";
 import { Button } from "@/components/ui/button";
@@ -6,6 +6,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { ArrowLeft } from "lucide-react";
+import Header from "@/components/Header";
 
 export default function Compare() {
   const [, setLocation] = useLocation();
@@ -31,6 +32,7 @@ export default function Compare() {
   if (isLoading) {
     return (
       <div className="min-h-screen flex flex-col bg-background">
+        <Header />
         <main className="flex-1 container py-8 max-w-7xl mx-auto">
           <div className="text-center">Loading comparison...</div>
         </main>
@@ -41,6 +43,7 @@ export default function Compare() {
   if (!prompts || prompts.length === 0) {
     return (
       <div className="min-h-screen flex flex-col bg-background">
+        <Header />
         <main className="flex-1 container py-8 max-w-7xl mx-auto">
           <div className="text-center">
             <p className="text-muted-foreground mb-4">No prompts selected for comparison</p>
@@ -55,6 +58,7 @@ export default function Compare() {
 
   return (
     <div className="min-h-screen flex flex-col bg-background">
+      <Header />
       <main className="flex-1 container py-8 max-w-7xl mx-auto">
         {/* Header */}
         <div className="flex items-center justify-between mb-8">
