@@ -11,7 +11,7 @@ import { exportToPDF, exportToMarkdown, downloadMarkdown } from "@/lib/exportUti
 import { FileDown } from "lucide-react";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { QualityBadge } from "@/components/QualityBadge";
-import Header from "@/components/Header";
+
 
 export default function Validator() {
   const [promptTitle, setPromptTitle] = useState("");
@@ -70,8 +70,7 @@ export default function Validator() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-purple-50 to-pink-50">
-      <Header />
+    <div className="space-y-8">
 
       {/* Header */}
       <header className="border-b bg-white/80 backdrop-blur-sm sticky top-0 z-50">

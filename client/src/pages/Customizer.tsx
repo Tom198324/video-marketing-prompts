@@ -10,7 +10,7 @@ import { ToneSelector } from "@/components/ToneSelector";
 import { trpc } from "@/lib/trpc";
 import { Loader2, Sparkles, Copy, Download, Palette, ChevronLeft, ChevronRight } from "lucide-react";
 import { toast } from "sonner";
-import Header from "@/components/Header";
+
 
 export default function Generator() {
   const [location] = useLocation();
@@ -99,8 +99,7 @@ export default function Generator() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-purple-50 to-pink-50">
-      <Header />
+    <div className="space-y-8">
 
       {/* Header */}
       <header className="border-b bg-white/80 backdrop-blur-sm sticky top-0 z-50">
