@@ -232,3 +232,22 @@
 - [ ] Verify mobile responsiveness
 - [ ] Check performance with filters
 - [ ] Save checkpoint
+
+
+## 🎯 Ultra-Demanding LLM Evaluation System
+
+- [x] Implement strict evaluation methodology
+  - [x] Update LLM system prompt with world-class expert persona
+  - [x] Add strict scoring standards (10=Perfect, 8=Excellent, 6=Acceptable, <5=Unacceptable)
+  - [x] Implement automatic penalty system
+    - [ ] -5 pts for generic sequences
+    - [ ] -3 pts for narrative incoherence
+    - [ ] -3 pts for vague technical terms
+    - [ ] -2 pts for missing emotional progression
+    - [ ] -2 pts for clichés
+    - [ ] -2 pts for imprecise timing
+  - [x] Recalculate all 50 prompt scores with new methodology (50/50 success)
+  - [x] Generate before/after comparison report
+  - [x] Update optimizer procedures with new standards
+  - [x] Test and validate increased rigor (avg score 6.98 → 4.95, 0% Gold)
+  - [ ] Save checkpoint

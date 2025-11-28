@@ -332,11 +332,42 @@ Respond ONLY with the complete JSON of the variation, no additional text.`
           messages: [
             {
               role: "system",
-              content: "You are an expert video prompt analyst. Analyze the prompt across 8 sections and provide scores and suggestions in JSON format."
+              content: `You are a WORLD-CLASS cinematography expert with 20+ years of experience in Oscar-winning productions (Blade Runner 2049, 1917, The Revenant). You have ZERO tolerance for mediocrity.
+
+CRITICAL EVALUATION STANDARDS:
+- 10/10 = PERFECT - Worthy of Cannes Film Festival, zero improvements possible
+- 9/10 = CINEMATIC EXCELLENCE - Hollywood/Pixar level, ready for Super Bowl commercial
+- 8/10 = PROFESSIONAL MASTERY - High-end production quality, minor refinements only
+- 7/10 = SOLID PROFESSIONAL - Good but needs optimization for premium use
+- 6/10 = ACCEPTABLE - Multiple improvements required for professional standards
+- 5/10 = MEDIOCRE - Significant weaknesses, major reconstruction needed
+- 4/10 = POOR - Fundamental flaws, complete redesign required
+- 1-3/10 = UNACCEPTABLE - Start from scratch
+
+AUTOMATIC PENALTIES (apply these strictly):
+- Generic sequences ("Sequence 2", "Product showcase", "Display features"): -5 points
+- Narrative incoherence between sequences: -3 points
+- Vague technical terms ("good lighting", "nice camera"): -3 points
+- Missing emotional progression across sequences: -2 points
+- Visual or narrative clichés: -2 points
+- Imprecise timing (no seconds specified): -2 points
+- Incomplete technical specifications: -3 points
+
+ONLY award 9-10/10 if ALL criteria are met:
+✓ Cinematic mastery in camera work (specific lens, aperture, movement)
+✓ Precise timing down to the second for each action
+✓ Clear emotional storytelling arc across all sequences
+✓ Complete technical specifications (resolution, fps, color space, codec)
+✓ Creative originality (no generic "showcase" language)
+✓ Professional-grade audio design with specific sync points
+✓ Perfect visual continuity and realism rules
+✓ Specific subject details (age, expression, wardrobe evolution)
+
+Be RUTHLESSLY CRITICAL. Excellence is the ONLY acceptable standard.`
             },
             {
               role: "user",
-              content: `Analyze this prompt:\n\nTitle: ${promptData.title}\nSector: ${promptData.industrySector}\n\nPrompt:\n${JSON.stringify(promptJson, null, 2)}\n\nProvide analysis with overall_score (0-10), overall_assessment (string), section_scores (object with 8 sections), section_analysis (object with strengths/weaknesses/suggestions arrays for each section), and priority_improvements (array of strings).`
+              content: `Analyze this video marketing prompt with EXTREME RIGOR:\n\nTitle: ${promptData.title}\nSector: ${promptData.industrySector}\n\nPrompt JSON:\n${JSON.stringify(promptJson, null, 2)}\n\nEVALUATE EACH OF THE 8 SECTIONS:\n1. Shot (camera_system, lens, composition, movement) - 20% weight\n2. Subject (identity, appearance, expression, evolution) - 15% weight\n3. Action (precise timing, specific movements, camera tracking) - 25% weight\n4. Scene (location, time, weather, lighting, atmosphere) - 10% weight\n5. Cinematography (camera settings, color, stabilization) - 15% weight\n6. Audio (ambient, music, voice-over, sync) - 10% weight\n7. Visual Rules (realism, continuity) - 5% weight\n8. Technical Specifications (resolution, fps, codec, duration) - 0% (binary: complete or -3 penalty)\n\nAPPLY AUTOMATIC PENALTIES STRICTLY. Start from 5/10 baseline and justify every point above that.\n\nProvide JSON with:\n- overall_score (0-10, weighted average with penalties applied)\n- overall_assessment (harsh critical evaluation)\n- section_scores (object with scores 0-10 for each of 8 sections)\n- section_analysis (object with strengths/weaknesses/suggestions arrays for each section)\n- priority_improvements (array of critical issues to fix)\n- penalties_applied (array of penalty descriptions with point deductions)`
             }
           ],
           response_format: { type: "json_object" }
@@ -370,11 +401,47 @@ Respond ONLY with the complete JSON of the variation, no additional text.`
           messages: [
             {
               role: "system",
-              content: "You are an expert video prompt optimizer. Improve the prompt while maintaining the exact 8-section JSON structure. Return ONLY valid JSON."
+              content: `You are a WORLD-CLASS cinematography director and prompt engineer with expertise in Oscar-winning productions. Your optimization standards are UNCOMPROMISING.
+
+OPTIMIZATION MISSION:
+Transform mediocre prompts into CINEMATIC MASTERPIECES worthy of 9-10/10 scores.
+
+MANDATORY IMPROVEMENTS:
+1. ELIMINATE ALL GENERIC LANGUAGE:
+   - Replace "showcase", "display", "demonstrate" with SPECIFIC ACTIONS
+   - Replace "Sequence 1/2/3" with DESCRIPTIVE NARRATIVE BEATS
+   - Replace vague terms with PRECISE TECHNICAL SPECIFICATIONS
+
+2. ADD PRECISE TIMING:
+   - Every action must have EXACT timing in seconds (e.g., "0-3s:", "3-8s:", "8-14s:")
+   - Specify camera movement duration and speed
+   - Define audio sync points precisely
+
+3. CREATE EMOTIONAL ARC:
+   - Sequence 1: INTRIGUE (establish mystery/desire)
+   - Sequence 2: CONNECTION (build emotional engagement)
+   - Sequence 3: IMPACT (deliver memorable climax)
+
+4. SPECIFY TECHNICAL EXCELLENCE:
+   - Camera: Exact model + lens (e.g., "ARRI Alexa Mini LF + Zeiss Supreme Prime 50mm T1.5")
+   - Lighting: Specific setup (e.g., "3-point Rembrandt lighting, 5600K key, -2 stops fill")
+   - Movement: Precise technique (e.g., "Ronin 2 gimbal, 0.5m/s dolly-in, smooth deceleration")
+
+5. ENSURE VISUAL CONTINUITY:
+   - Maintain consistent color temperature across sequences
+   - Preserve subject appearance and wardrobe
+   - Respect spatial and temporal logic
+
+6. ELEVATE AUDIO DESIGN:
+   - Specify ambient layers (e.g., "Soft cafe ambience 20dB, espresso machine hiss 35dB")
+   - Define music cues with timing (e.g., "Minimal piano enters at 8s, crescendo 14-18s")
+   - Add foley details (e.g., "Fabric rustle sync with hand movement at 5s")
+
+RETURN ONLY THE COMPLETE OPTIMIZED JSON. No explanations, no markdown.`
             },
             {
               role: "user",
-              content: `Optimize this prompt maintaining the exact structure:\n\n${JSON.stringify(originalPrompt, null, 2)}\n\nImprove coherence, technical accuracy, and creative quality. Return the complete optimized prompt as JSON with all 8 sections: shot, subject, action, scene, cinematography, audio, visual_rules, technical_specifications.`
+              content: `OPTIMIZE THIS PROMPT TO CINEMATIC EXCELLENCE (target 9-10/10):\n\nOriginal Prompt:\n${JSON.stringify(originalPrompt, null, 2)}\n\nAPPLY ALL MANDATORY IMPROVEMENTS:\n✓ Remove ALL generic language ("showcase", "display", "Sequence X")\n✓ Add precise timing in seconds for every action\n✓ Create clear emotional progression (Intrigue → Connection → Impact)\n✓ Specify exact camera equipment and settings\n✓ Detail lighting setup with technical precision\n✓ Define camera movements with speed and duration\n✓ Add layered audio design with sync points\n✓ Ensure perfect visual continuity\n✓ Maintain exact JSON structure with all 8 sections\n\nReturn ONLY the complete optimized JSON (no markdown, no explanations).`
             }
           ],
           response_format: { type: "json_object" }
