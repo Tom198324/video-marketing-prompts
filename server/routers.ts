@@ -823,14 +823,45 @@ RETURN ONLY THE COMPLETE OPTIMIZED JSON. No explanations, no markdown.`
         });
         return { success: true };
       }),
+
+    shareByEmail: protectedProcedure
+      .input(z.object({
+        promptId: z.number(),
+        sharedWithEmail: z.string().email(),
+        permission: z.enum(["view", "edit"]).default("view"),
+      }))
+      .mutation(async ({ ctx, input }) => {
+        const { getUserByEmail, sharePrompt } = await import("./db");
+        const targetUser = await getUserByEmail(input.sharedWithEmail);
+        if (!targetUser) {
+          throw new Error("User not found with that email");
+        }
+        await sharePrompt({
+          promptId: input.promptId,
+          ownerId: ctx.user.id,
+          sharedWithUserId: targetUser.id,
+          permission: input.permission,
+        });
+        return { success: true };
+      }),
     
     getSharedWithMe: protectedProcedure.query(async ({ ctx }) => {
       const { getSharedPrompts } = await import("./db");
       return getSharedPrompts(ctx.user.id);
     }),
-    
+
+    getSharedWith: protectedProcedure
+      .input(z.object({ promptId: z.number() }))
+      .query(async ({ input }) => {
+        const { getPromptShares } = await import("./db");
+        return getPromptShares(input.promptId);
+      }),
+
     removeShare: protectedProcedure
-      .input(z.object({ promptId: z.number(), sharedWithUserId: z.number() }))
+      .input(z.object({
+        promptId: z.number(),
+        sharedWithUserId: z.number(),
+      }))
       .mutation(async ({ ctx, input }) => {
         const { removeShare } = await import("./db");
         await removeShare(input.promptId, input.sharedWithUserId);
@@ -861,18 +892,17 @@ RETURN ONLY THE COMPLETE OPTIMIZED JSON. No explanations, no markdown.`
     saveVersion: protectedProcedure
       .input(z.object({
         promptId: z.number(),
-        versionNumber: z.number(),
         promptJson: z.any(),
-        changeDescription: z.string().optional(),
       }))
       .mutation(async ({ ctx, input }) => {
-        const { savePromptVersion } = await import("./db");
+        const { getPromptVersions, savePromptVersion } = await import("./db");
+        const versions = await getPromptVersions(input.promptId);
+        const nextVersion = versions.length + 1;
         await savePromptVersion({
           promptId: input.promptId,
-          versionNumber: input.versionNumber,
+          versionNumber: nextVersion,
           promptJson: JSON.stringify(input.promptJson),
           createdBy: ctx.user.id,
-          changeDescription: input.changeDescription,
         });
         return { success: true };
       }),
@@ -886,6 +916,39 @@ RETURN ONLY THE COMPLETE OPTIMIZED JSON. No explanations, no markdown.`
           ...v,
           promptJson: JSON.parse((v as any).promptVersions.promptJson),
         }));
+      }),
+
+    // Bulk Operations
+    bulkMoveToFolder: protectedProcedure
+      .input(z.object({
+        promptIds: z.array(z.number()),
+        folderId: z.number().nullable(),
+      }))
+      .mutation(async ({ ctx, input }) => {
+        const { bulkUpdatePrompts } = await import("./db");
+        await bulkUpdatePrompts(input.promptIds, ctx.user.id, { folderId: input.folderId });
+        return { success: true, count: input.promptIds.length };
+      }),
+
+    bulkAddTags: protectedProcedure
+      .input(z.object({
+        promptIds: z.array(z.number()),
+        tags: z.string(),
+      }))
+      .mutation(async ({ ctx, input }) => {
+        const { bulkAddTagsToPrompts } = await import("./db");
+        await bulkAddTagsToPrompts(input.promptIds, ctx.user.id, input.tags);
+        return { success: true, count: input.promptIds.length };
+      }),
+
+    bulkDelete: protectedProcedure
+      .input(z.object({
+        promptIds: z.array(z.number()),
+      }))
+      .mutation(async ({ ctx, input }) => {
+        const { bulkDeletePrompts } = await import("./db");
+        await bulkDeletePrompts(input.promptIds, ctx.user.id);
+        return { success: true, count: input.promptIds.length };
       }),
   }),
   

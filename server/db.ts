@@ -175,6 +175,14 @@ export async function removeFavorite(userId: number, promptId: number) {
     ));
 }
 
+// User queries
+export async function getUserByEmail(email: string) {
+  const db = await getDb();
+  if (!db) return null;
+  const result = await db.select().from(users).where(eq(users.email, email)).limit(1);
+  return result[0] || null;
+}
+
 // User Prompts Library queries
 export async function saveUserPrompt(data: InsertUserPrompt) {
   const db = await getDb();
@@ -344,6 +352,15 @@ export async function getPromptComments(promptId: number) {
     .orderBy(promptComments.createdAt);
 }
 
+export async function getPromptShares(promptId: number) {
+  const db = await getDb();
+  if (!db) return [];
+  return db.select()
+    .from(promptShares)
+    .innerJoin(users, eq(promptShares.sharedWithUserId, users.id))
+    .where(eq(promptShares.promptId, promptId));
+}
+
 // Prompt Versions queries
 export async function savePromptVersion(data: InsertPromptVersion) {
   const db = await getDb();
@@ -359,6 +376,74 @@ export async function getPromptVersions(promptId: number) {
     .innerJoin(users, eq(promptVersions.createdBy, users.id))
     .where(eq(promptVersions.promptId, promptId))
     .orderBy(desc(promptVersions.versionNumber));
+}
+
+// Bulk Operations
+export async function bulkUpdatePrompts(
+  promptIds: number[],
+  userId: number,
+  updates: { folderId?: number | null }
+) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  
+  for (const promptId of promptIds) {
+    await db.update(userPrompts)
+      .set(updates)
+      .where(
+        and(
+          eq(userPrompts.id, promptId),
+          eq(userPrompts.userId, userId)
+        )
+      );
+  }
+}
+
+export async function bulkAddTagsToPrompts(
+  promptIds: number[],
+  userId: number,
+  newTags: string
+) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  
+  for (const promptId of promptIds) {
+    const prompt = await db.select()
+      .from(userPrompts)
+      .where(
+        and(
+          eq(userPrompts.id, promptId),
+          eq(userPrompts.userId, userId)
+        )
+      )
+      .limit(1);
+    
+    if (prompt[0]) {
+      const existingTags = prompt[0].tags || "";
+      const existingTagsArray = existingTags.split(",").filter(Boolean);
+      const newTagsArray = newTags.split(",").filter(Boolean);
+      const mergedTags = Array.from(new Set([...existingTagsArray, ...newTagsArray]));
+      
+      await db.update(userPrompts)
+        .set({ tags: mergedTags.join(",") })
+        .where(eq(userPrompts.id, promptId));
+    }
+  }
+}
+
+export async function bulkDeletePrompts(promptIds: number[], userId: number) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  
+  for (const promptId of promptIds) {
+    await db.delete(userPrompts)
+      .where(
+        and(
+          eq(userPrompts.id, promptId),
+          eq(userPrompts.userId, userId)
+        )
+      );
+  }
 }
 
 // Templates queries

@@ -243,9 +243,9 @@ export default function MyPrompts() {
                     {/* Actions */}
                     <div className="flex items-center gap-2 pt-2">
                       <Button variant="outline" size="sm" asChild className="flex-1">
-                        <a href={`/prompt-detail/${prompt.id}`}>
+                        <a href={`/my-prompt/${prompt.id}`}>
                           <Edit className="mr-2 h-3 w-3" />
-                          Edit
+                          View Details
                         </a>
                       </Button>
                       <Button

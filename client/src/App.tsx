@@ -17,6 +17,7 @@ import ExcellenceGuide from "./pages/ExcellenceGuide";
 import Validator from "./pages/Validator";
 import BatchValidator from "./pages/BatchValidator";
 import MyPrompts from "./pages/MyPrompts";
+import MyPromptDetail from "./pages/MyPromptDetail";
 import Templates from "./pages/Templates";
 
 function Router() {
@@ -36,6 +37,7 @@ function Router() {
       <Route path="/validator" component={Validator} />
       <Route path="/batch-validator" component={BatchValidator} />
       <Route path="/my-prompts" component={MyPrompts} />
+      <Route path="/my-prompt/:id" component={MyPromptDetail} />
       <Route path="/templates" component={Templates} />
       <Route path={"/404"} component={NotFound} />
       {/* Final fallback route */}
