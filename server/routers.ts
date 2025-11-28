@@ -1241,6 +1241,31 @@ Generate a complete, professional JSON video prompt.`;
       }),
   }),
 
+  myPrompts: router({
+    saveFromCustomizer: protectedProcedure
+      .input(z.object({
+        promptName: z.string().min(1),
+        promptJson: z.string(),
+        tags: z.string().optional(),
+      }))
+      .mutation(async ({ ctx, input }) => {
+        const { getDb } = await import("./db");
+        const db = await getDb();
+        if (!db) throw new Error("Database not available");
+        const { userPrompts } = await import("../drizzle/schema");
+        
+        const [result] = await db.insert(userPrompts).values({
+          userId: ctx.user.id,
+          title: input.promptName,
+          promptJson: input.promptJson,
+          tags: input.tags || null,
+          qualityScore: null, // To be validated later
+        });
+        
+        return { success: true, id: result.insertId };
+      }),
+  }),
+
   favorites: router({
     list: protectedProcedure.query(async ({ ctx }) => {
       const { getUserFavorites } = await import("./db");

@@ -953,3 +953,23 @@
 - [x] JSON preview panel with Copy/Download/Send buttons
 - [x] Unit tests (30/30 passing)
 - [x] Save checkpoint (version: pending)
+
+
+## 💾 Save to My Prompts from Customizer
+
+### Phase 1: Frontend UI
+- [x] Add "Save to My Prompts" button in export section
+- [x] Create save dialog with tags input (optional)
+- [x] Add success toast with link to My Prompts
+- [x] Handle loading and error states
+
+### Phase 2: Backend Integration
+- [x] Create myPrompts.saveFromCustomizer mutation
+- [x] Accept promptName, promptJson, tags
+- [x] Save with qualityScore null (to be validated later)
+- [x] Return saved prompt ID
+
+### Phase 3: Testing
+- [x] Write unit tests (14/14 passing)
+- [x] Test complete workflow (generate → save → verify in My Prompts)
+- [x] Save checkpoint

@@ -9,8 +9,9 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Badge } from "@/components/ui/badge";
 import { Alert, AlertDescription } from "@/components/ui/alert";
+import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { trpc } from "@/lib/trpc";
-import { Loader2, Sparkles, Copy, Download, Send, Bot, AlertCircle, CheckCircle2, MinusCircle } from "lucide-react";
+import { Loader2, Sparkles, Copy, Download, Send, Bot, AlertCircle, CheckCircle2, MinusCircle, Save } from "lucide-react";
 import { toast } from "sonner";
 
 const TONE_OPTIONS = [
@@ -63,6 +64,10 @@ export default function Customizer() {
   // Generated result
   const [generatedPrompt, setGeneratedPrompt] = useState<any>(null);
   const [showPreview, setShowPreview] = useState(false);
+  
+  // Save dialog
+  const [showSaveDialog, setShowSaveDialog] = useState(false);
+  const [saveTags, setSaveTags] = useState("");
 
   const { data: prompts, isLoading: promptsLoading } = trpc.prompts.list.useQuery();
   const generateMutation = trpc.customizer.generatePrompt.useMutation({
@@ -73,6 +78,17 @@ export default function Customizer() {
     },
     onError: (error) => {
       toast.error(`❌ Generation error: ${error.message}`);
+    },
+  });
+
+  const saveMutation = trpc.myPrompts.saveFromCustomizer.useMutation({
+    onSuccess: (data: { success: boolean; id: number }) => {
+      toast.success("✅ Prompt saved to My Prompts!");
+      setShowSaveDialog(false);
+      setSaveTags("");
+    },
+    onError: (error: any) => {
+      toast.error(`❌ Save error: ${error.message}`);
     },
   });
 
@@ -183,6 +199,18 @@ export default function Customizer() {
     document.body.removeChild(a);
     URL.revokeObjectURL(url);
     toast.success("✅ Download started");
+  };
+
+  const handleSave = () => {
+    setShowSaveDialog(true);
+  };
+
+  const handleConfirmSave = () => {
+    saveMutation.mutate({
+      promptName,
+      promptJson: JSON.stringify(generatedPrompt, null, 2),
+      tags: saveTags || undefined,
+    });
   };
 
   return (
@@ -704,14 +732,67 @@ export default function Customizer() {
                 <Send className="mr-2 h-4 w-4" />
                 Send to Validator
               </Button>
-              <Button variant="outline">
-                <Send className="mr-2 h-4 w-4" />
+              <Button onClick={handleSave} variant="outline" disabled={saveMutation.isPending}>
+                {saveMutation.isPending ? (
+                  <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                ) : (
+                  <Save className="mr-2 h-4 w-4" />
+                )}
                 Save to My Prompts
               </Button>
             </div>
           </CardContent>
         </Card>
       )}
+
+      {/* Save Dialog */}
+      <Dialog open={showSaveDialog} onOpenChange={setShowSaveDialog}>
+        <DialogContent>
+          <DialogHeader>
+            <DialogTitle>Save to My Prompts</DialogTitle>
+            <DialogDescription>
+              Add optional tags to help organize and find this prompt later
+            </DialogDescription>
+          </DialogHeader>
+          <div className="space-y-4 py-4">
+            <div>
+              <Label htmlFor="tags">Tags (optional)</Label>
+              <Input
+                id="tags"
+                placeholder="e.g., luxury, product-launch, automotive"
+                value={saveTags}
+                onChange={(e) => setSaveTags(e.target.value)}
+              />
+              <p className="text-sm text-slate-500 mt-1">
+                Separate multiple tags with commas
+              </p>
+            </div>
+            <div className="bg-slate-50 p-3 rounded-lg">
+              <p className="text-sm text-slate-600">
+                <strong>Prompt Name:</strong> {promptName}
+              </p>
+            </div>
+          </div>
+          <DialogFooter>
+            <Button variant="outline" onClick={() => setShowSaveDialog(false)}>
+              Cancel
+            </Button>
+            <Button onClick={handleConfirmSave} disabled={saveMutation.isPending}>
+              {saveMutation.isPending ? (
+                <>
+                  <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                  Saving...
+                </>
+              ) : (
+                <>
+                  <Save className="mr-2 h-4 w-4" />
+                  Save
+                </>
+              )}
+            </Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 }
